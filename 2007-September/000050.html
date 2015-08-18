@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Debian packages, SENF status etc.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Debian%20packages%2C%20SENF%20status%20etc.&In-Reply-To=%3C46DBCB27.5020902%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000049.html">
+   <LINK REL="Next"  HREF="000051.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Debian packages, SENF status etc.</H1>
+    <B>Joachim Kaeber</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Debian%20packages%2C%20SENF%20status%20etc.&In-Reply-To=%3C46DBCB27.5020902%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Debian packages, SENF status etc.">joachim.kaeber at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Sep  3 10:51:51 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000049.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh -c
+</A></li>
+        <LI>Next message: <A HREF="000051.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#50">[ date ]</a>
+              <a href="thread.html#50">[ thread ]</a>
+              <a href="subject.html#50">[ subject ]</a>
+              <a href="author.html#50">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>The all_tests target no longer works in revision 423 (422 is ok), maybe due to some incomplete include file renamings. I did not try to correct the error, because I suspect it to be a work in progress.
+
+The error log starts with:
+
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -c -o Socket/ProtocolServerSocketHandle.test.o Socket/ProtocolServerSocketHandle.test.cc
+In file included from Socket/ProtocolServerSocketHandle.hh:91,
+                 from Socket/ProtocolServerSocketHandle.test.cc:29:
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:52:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:57:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:62:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:67:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:72:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:77:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:82:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:87:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:92:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/home/jkaeber/work/senf/Socket/ProtocolServerSocketHandle.mpp:67: error: prototype for 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;)' does not match any in class 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;'
+Socket/ProtocolServerSocketHandle.hh:121: error: candidates are: senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::FileHandle, bool)
+Socket/ProtocolServerSocketHandle.cti:39: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::UninitializedType)
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000049.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh -c
+</A></li>
+	<LI>Next message: <A HREF="000051.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#50">[ date ]</a>
+              <a href="thread.html#50">[ thread ]</a>
+              <a href="subject.html#50">[ subject ]</a>
+              <a href="author.html#50">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

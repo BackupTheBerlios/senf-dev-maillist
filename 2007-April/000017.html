@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/build.sh&In-Reply-To=%3C20070401013427.BD9AC480FAA2%40satcom.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000019.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh</H1>
+    <B>Cron Daemon</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/build.sh&In-Reply-To=%3C20070401013427.BD9AC480FAA2%40satcom.fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh">root at satcom.fokus.fraunhofer.de
+       </A><BR>
+    <I>Sun Apr  1 03:34:27 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000019.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh -c
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE># Starting build at Sun Apr  1 01:34:02 UTC 2007
+$ svn update
+At revision 224.
+$ scons -k all
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+alias_builder([&quot;Packets/test&quot;], [&quot;Packets/.test.stamp&quot;])
+alias_builder([&quot;Scheduler/test&quot;], [&quot;Scheduler/.test.stamp&quot;])
+alias_builder([&quot;Socket/test&quot;], [&quot;Socket/.test.stamp&quot;])
+alias_builder([&quot;Utils/test&quot;], [&quot;Utils/.test.stamp&quot;])
+scons: Nothing to be done for `all'.
+scons: done building targets.
+# Build completed at Sun Apr  1 01:34:22 UTC 2007
+# Upload started at Sun Apr  1 01:34:22 UTC 2007
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0660 for '/home/senf/.ssh/id_dsa' are too open.
+It is recommended that your private key files are NOT accessible by others.
+This private key will be ignored.
+bad permissions: ignore key: /home/senf/.ssh/id_dsa
+Permission denied (publickey,keyboard-interactive).
+rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at io.c(434)
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000019.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh -c
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

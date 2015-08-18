@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] New Utils/Console add() API
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2010-February/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20New%20Utils/Console%20add%28%29%20API&In-Reply-To=%3C87r5p50zfa.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000511.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] New Utils/Console add() API</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20New%20Utils/Console%20add%28%29%20API&In-Reply-To=%3C87r5p50zfa.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] New Utils/Console add() API">g0dil at berlios.de
+       </A><BR>
+    <I>Mon Feb  1 16:05:13 CET 2010</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000511.html">[Senf-dev] New Utils/Console add() API
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#510">[ date ]</a>
+              <a href="thread.html#510">[ thread ]</a>
+              <a href="subject.html#510">[ subject ]</a>
+              <a href="author.html#510">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everyone,
+
+I have just checked in the new console library 'add()' API. The new
+API should be much less fragile regarding overload resolution.
+
+The new API requires to explicitly specify the type of object
+added. This is done using special factory calls:
+
+Old:
+
+   dir.add(&quot;foo&quot;, &amp;function)
+
+New:
+
+   namespace fty = senf::console::factory;
+   dir.add(&quot;foo&quot;, fty::Command(&amp;function));
+
+The attributors need to be attached to the *factory* not to the add
+call:
+
+Old:
+
+   dir.add(&quot;foo&quot;, &amp;function)
+       .doc(&quot;I'm foo&quot;)
+       .arg(&quot;burf&quot;);
+
+New:
+
+   namespace fty = senf::console::factory;
+   dir.add(&quot;foo&quot;, 
+           fty::Command(&amp;function)
+               .doc(&quot;I'm foo&quot;)
+               .arg(&quot;burf&quot;) );
+
+One feature is missing from the new API: automatic member function
+binding when using ScopedDirectory. Member functions need to be bound
+explicitly. To simplify this, a special factory is provided:
+
+Old:
+
+   scopeddir.add(&quot;foo&quot;,&amp;memberfunction);
+
+New:
+
+   namespace fty = senf::console::factory;
+   scopeddir.add(&quot;foo&quot;, fty::BoundCommand(this, &amp;memberfunction));
+
+Of course, you may use senf::membind() or SENF_MEMBINDFNP instead.
+
+Another type of factory is used to add variables:
+
+Old:
+
+   dir.add(&quot;var&quot;, variable);
+
+New:
+
+   namespace fty = senf::console::factory;
+   dir.add(&quot;var&quot;, fty::Variable(variable))
+
+
+stefan.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 196 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20100201/d9b8d7ee/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20100201/d9b8d7ee/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000511.html">[Senf-dev] New Utils/Console add() API
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#510">[ date ]</a>
+              <a href="thread.html#510">[ thread ]</a>
+              <a href="subject.html#510">[ subject ]</a>
+              <a href="author.html#510">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

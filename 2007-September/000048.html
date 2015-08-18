@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/build.sh&In-Reply-To=%3C20070902003448.30706480FCD3%40satcom.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000047.html">
+   <LINK REL="Next"  HREF="000049.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh</H1>
+    <B>Cron Daemon</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/build.sh&In-Reply-To=%3C20070902003448.30706480FCD3%40satcom.fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh">root at satcom.fokus.fraunhofer.de
+       </A><BR>
+    <I>Sun Sep  2 02:34:48 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000047.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+        <LI>Next message: <A HREF="000049.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh -c
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE># Starting build at Sun Sep  2 00:34:01 UTC 2007
+$ svn update
+At revision 423.
+$ scons -k all
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+PPI/.test.bin --build_info=yes --log_level=test_suite
+Running 34 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.0.3 20060104 (prerelease) (Ubuntu 4.0.2-6ubuntu1)
+STL     : GNU libstdc++ version 20060104
+Boost   : 1.33.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;throttleBarrier&quot;
+Leaving test case &quot;throttleBarrier&quot;
+Entering test case &quot;cloneSource&quot;
+Leaving test case &quot;cloneSource&quot;
+Entering test case &quot;discardSink&quot;
+Leaving test case &quot;discardSink&quot;
+Entering test case &quot;debugEvent&quot;
+Leaving test case &quot;debugEvent&quot;
+Entering test case &quot;intervalTimer&quot;
+Leaving test case &quot;intervalTimer&quot;
+Entering test case &quot;module&quot;
+Leaving test case &quot;module&quot;
+Entering test case &quot;idleEvent&quot;
+Leaving test case &quot;idleEvent&quot;
+Entering test case &quot;passiveQueue&quot;
+Leaving test case &quot;passiveQueue&quot;
+Entering test case &quot;passiveJoin&quot;
+Leaving test case &quot;passiveJoin&quot;
+Entering test case &quot;priorityJoin&quot;
+Leaving test case &quot;priorityJoin&quot;
+Entering test case &quot;socketReader&quot;
+Leaving test case &quot;socketReader&quot;
+Entering test case &quot;activeFeeder&quot;
+Leaving test case &quot;activeFeeder&quot;
+Entering test case &quot;debugModules&quot;
+Leaving test case &quot;debugModules&quot;
+Entering test case &quot;activeFeederSource&quot;
+Leaving test case &quot;activeFeederSource&quot;
+Entering test case &quot;activeFeederSink&quot;
+Leaving test case &quot;activeFeederSink&quot;
+Entering test case &quot;logWriter&quot;
+Leaving test case &quot;logWriter&quot;
+Entering test case &quot;ioEvent&quot;
+Leaving test case &quot;ioEvent&quot;
+Entering test case &quot;events&quot;
+Leaving test case &quot;events&quot;
+Entering test case &quot;route&quot;
+Leaving test case &quot;route&quot;
+Entering test case &quot;eventManager&quot;
+Leaving test case &quot;eventManager&quot;
+Entering test case &quot;passiveSocketWriter&quot;
+Leaving test case &quot;passiveSocketWriter&quot;
+Entering test case &quot;activeSocketWriter&quot;
+Leaving test case &quot;activeSocketWriter&quot;
+Entering test case &quot;thresholdQueueing&quot;
+Leaving test case &quot;thresholdQueueing&quot;
+Entering test case &quot;setup&quot;
+Leaving test case &quot;setup&quot;
+Entering test case &quot;moduleManager&quot;
+Leaving test case &quot;moduleManager&quot;
+Entering test case &quot;connector&quot;
+Leaving test case &quot;connector&quot;
+Entering test case &quot;passiveConnector&quot;
+Leaving test case &quot;passiveConnector&quot;
+Entering test case &quot;activeConnector&quot;
+Leaving test case &quot;activeConnector&quot;
+Entering test case &quot;inputConnector&quot;
+Leaving test case &quot;inputConnector&quot;
+Entering test case &quot;outputConnector&quot;
+Leaving test case &quot;outputConnector&quot;
+Entering test case &quot;passiveInput&quot;
+Leaving test case &quot;passiveInput&quot;
+Entering test case &quot;passiveOutput&quot;
+Leaving test case &quot;passiveOutput&quot;
+Entering test case &quot;activeInput&quot;
+Leaving test case &quot;activeInput&quot;
+Entering test case &quot;activeOutput&quot;
+Leaving test case &quot;activeOutput&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch PPI/.test.stamp
+alias_builder([&quot;PPI/test&quot;], [&quot;PPI/.test.stamp&quot;])
+alias_builder([&quot;Packets/DefaultBundle/test&quot;], [&quot;Packets/DefaultBundle/.test.stamp&quot;])
+alias_builder([&quot;Packets/MPEGDVBBundle/test&quot;], [&quot;Packets/MPEGDVBBundle/.test.stamp&quot;])
+alias_builder([&quot;Packets/test&quot;], [&quot;Packets/.test.stamp&quot;])
+alias_builder([&quot;Scheduler/test&quot;], [&quot;Scheduler/.test.stamp&quot;])
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -c -o Socket/ProtocolServerSocketHandle.test.o Socket/ProtocolServerSocketHandle.test.cc
+In file included from Socket/ProtocolServerSocketHandle.hh:91,
+                 from Socket/ProtocolServerSocketHandle.test.cc:29:
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:52:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:57:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:62:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:67:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:72:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:77:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:82:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:87:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/usr/include/boost/preprocessor/iteration/detail/iter/forward1.hpp:92:1: error: #include expects &quot;FILENAME&quot; or &lt;FILENAME&gt;
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: prototype for 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;)' does not match any in class 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;'
+Socket/ProtocolServerSocketHandle.hh:121: error: candidates are: senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::FileHandle, bool)
+Socket/ProtocolServerSocketHandle.cti:39: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::UninitializedType)
+Socket/ProtocolServerSocketHandle.cti:43: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle()
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: template definition of non-template 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;)'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: prototype for 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;)' does not match any in class 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: candidates are: senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;)
+Socket/ProtocolServerSocketHandle.hh:121: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::FileHandle, bool)
+Socket/ProtocolServerSocketHandle.cti:39: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::UninitializedType)
+Socket/ProtocolServerSocketHandle.cti:43: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle()
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: template definition of non-template 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;)'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: prototype for 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;)' does not match any in class 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: candidates are: senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;)
+Socket/ProtocolServerSocketHandle.hh:121: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::FileHandle, bool)
+Socket/ProtocolServerSocketHandle.cti:39: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::UninitializedType)
+Socket/ProtocolServerSocketHandle.cti:43: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle()
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: template definition of non-template 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;)'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: prototype for 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;)' does not match any in class 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: candidates are: senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;)
+Socket/ProtocolServerSocketHandle.hh:121: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::FileHandle, bool)
+Socket/ProtocolServerSocketHandle.cti:39: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::UninitializedType)
+Socket/ProtocolServerSocketHandle.cti:43: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle()
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: template definition of non-template 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;)'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: prototype for 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;)' does not match any in class 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: candidates are: senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;)
+Socket/ProtocolServerSocketHandle.hh:121: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::FileHandle, bool)
+Socket/ProtocolServerSocketHandle.cti:39: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::UninitializedType)
+Socket/ProtocolServerSocketHandle.cti:43: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle()
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: template definition of non-template 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;)'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: prototype for 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;)' does not match any in class 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: candidates are: senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;)
+Socket/ProtocolServerSocketHandle.hh:121: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::FileHandle, bool)
+Socket/ProtocolServerSocketHandle.cti:39: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::UninitializedType)
+Socket/ProtocolServerSocketHandle.cti:43: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle()
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: template definition of non-template 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;)'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: prototype for 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;, const A6&amp;)' does not match any in class 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: candidates are: senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;)
+Socket/ProtocolServerSocketHandle.hh:121: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::FileHandle, bool)
+Socket/ProtocolServerSocketHandle.cti:39: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::UninitializedType)
+Socket/ProtocolServerSocketHandle.cti:43: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle()
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: template definition of non-template 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;, const A6&amp;)'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: prototype for 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;, const A6&amp;, const A7&amp;)' does not match any in class 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: candidates are: senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;, const A6&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;)
+Socket/ProtocolServerSocketHandle.hh:121: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::FileHandle, bool)
+Socket/ProtocolServerSocketHandle.cti:39: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::UninitializedType)
+Socket/ProtocolServerSocketHandle.cti:43: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle()
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: template definition of non-template 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;, const A6&amp;, const A7&amp;)'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: prototype for 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;, const A6&amp;, const A7&amp;, const A8&amp;)' does not match any in class 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;'
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: candidates are: senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;, const A6&amp;, const A7&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;, const A6&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;)
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;)
+Socket/ProtocolServerSocketHandle.hh:121: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::FileHandle, bool)
+Socket/ProtocolServerSocketHandle.cti:39: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::UninitializedType)
+Socket/ProtocolServerSocketHandle.cti:43: error:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle()
+/home/senf/src/Socket/ProtocolServerSocketHandle.mpp:67: error: template definition of non-template 'senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(const A0&amp;, const A1&amp;, const A2&amp;, const A3&amp;, const A4&amp;, const A5&amp;, const A6&amp;, const A7&amp;, const A8&amp;)'
+Socket/ProtocolServerSocketHandle.test.cc: In function 'void protocolServerSocketHandle()':
+Socket/ProtocolServerSocketHandle.test.cc:79: error: no matching function for call to 'senf::ProtocolServerSocketHandle&lt;&lt;unnamed&gt;::MyProtocol&gt;::ProtocolServerSocketHandle(const char [10], int)'
+Socket/ProtocolServerSocketHandle.cti:107: note: candidates are: senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::FileHandle, bool) [with SocketProtocol = &lt;unnamed&gt;::MyProtocol]
+Socket/ProtocolServerSocketHandle.cti:39: note:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle(senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::UninitializedType) [with SocketProtocol = &lt;unnamed&gt;::MyProtocol]
+Socket/ProtocolServerSocketHandle.cti:43: note:                 senf::ProtocolServerSocketHandle&lt;SocketProtocol&gt;::ProtocolServerSocketHandle() [with SocketProtocol = &lt;unnamed&gt;::MyProtocol]
+Socket/ProtocolServerSocketHandle.hh:66: note:                 senf::ProtocolServerSocketHandle&lt;&lt;unnamed&gt;::MyProtocol&gt;::ProtocolServerSocketHandle(const senf::ProtocolServerSocketHandle&lt;&lt;unnamed&gt;::MyProtocol&gt;&amp;)
+scons: *** [Socket/ProtocolServerSocketHandle.test.o] Error 1
+alias_builder([&quot;Socket/Protocols/DVB/test&quot;], [&quot;Socket/Protocols/DVB/.test.stamp&quot;])
+alias_builder([&quot;Socket/Protocols/INet/test&quot;], [&quot;Socket/Protocols/INet/.test.stamp&quot;])
+alias_builder([&quot;Socket/Protocols/Raw/test&quot;], [&quot;Socket/Protocols/Raw/.test.stamp&quot;])
+alias_builder([&quot;Socket/Protocols/test&quot;], [&quot;Socket/Protocols/.test.stamp&quot;])
+alias_builder([&quot;Socket/test&quot;], [&quot;Socket/.test.stamp&quot;])
+alias_builder([&quot;Utils/test&quot;], [&quot;Utils/.test.stamp&quot;])
+scons: building terminated because of errors.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000047.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+	<LI>Next message: <A HREF="000049.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh -c
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

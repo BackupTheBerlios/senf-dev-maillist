@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] New Utils/Console add() API
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2010-February/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20New%20Utils/Console%20add%28%29%20API&In-Reply-To=%3C4B6AA221.8070305%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000513.html">
+   <LINK REL="Next"  HREF="000512.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] New Utils/Console add() API</H1>
+    <B>Thorsten Horstmann</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20New%20Utils/Console%20add%28%29%20API&In-Reply-To=%3C4B6AA221.8070305%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] New Utils/Console add() API">thorsten.horstmann at fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu Feb  4 11:32:01 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000513.html">[Senf-dev] New Utils/Console add() API
+</A></li>
+        <LI>Next message: <A HREF="000512.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/dump.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#514">[ date ]</a>
+              <a href="thread.html#514">[ thread ]</a>
+              <a href="subject.html#514">[ subject ]</a>
+              <a href="author.html#514">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+we have completed the new console API (with one more change again), a 
+stable branch called &quot;1.0&quot; is created, time to summarize the new API.
+New console nodes (commands, directories, variables, links) will be 
+created now with factories which have their domicile in the 
+senf::console::factory namespace.
+In a nutshell the changes are:
+
+Old:
+    dir.add(&quot;foo&quot;, &amp;function)
+New:
+    namespace fty = senf::console::factory;
+    dir.add(&quot;foo&quot;, fty::Command(&amp;function));
+
+Attributors need to be attached to the factory not to the add call:
+Old:
+    dir.add(&quot;foo&quot;, &amp;function)
+        .doc(&quot;I'm foo&quot;)
+        .arg(&quot;burf&quot;);
+New:
+    dir.add(&quot;foo&quot;,
+            fty::Command(&amp;function)
+                .doc(&quot;I'm foo&quot;)
+                .arg(&quot;burf&quot;) );
+
+Member functions need to be bound explicitly.
+Old:
+    dir.add(&quot;foo&quot;, &amp;SomeClass::function);
+New:
+    dir.add(&quot;foo&quot;, fty::Command( &amp;SomeClass::function, this);
+
+To add new directories:
+Old:
+    dir.mkdir(&quot;newDir&quot;);
+New:
+    dir.add(&quot;newDir&quot;, fty::Directory());
+
+To add links:
+Old:
+    dir.link(&quot;link&quot;, some_node);
+New:
+    dir.add(&quot;link&quot;, fty::Link(some_node));
+
+To add variables:
+Old:
+    dir.add(&quot;var&quot;, variable);
+New:
+    dir.add(&quot;var&quot;, fty::Variable(variable))
+
+
+That's it. The documentation for the new API will follow in the next days.
+
+  -Thorsten
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000513.html">[Senf-dev] New Utils/Console add() API
+</A></li>
+	<LI>Next message: <A HREF="000512.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/dump.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#514">[ date ]</a>
+              <a href="thread.html#514">[ thread ]</a>
+              <a href="subject.html#514">[ subject ]</a>
+              <a href="author.html#514">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

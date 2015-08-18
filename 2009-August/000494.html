@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] senfutil update
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20senfutil%20update&In-Reply-To=%3C87skfc1e6o.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000493.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] senfutil update</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20senfutil%20update&In-Reply-To=%3C87skfc1e6o.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] senfutil update">g0dil at berlios.de
+       </A><BR>
+    <I>Fri Aug 28 11:27:11 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000493.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh -c
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#494">[ date ]</a>
+              <a href="thread.html#494">[ thread ]</a>
+              <a href="subject.html#494">[ subject ]</a>
+              <a href="author.html#494">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everyone,
+
+If you are using senfutil to build a project depending in SENF, you
+will have to update the SConstruct file a little bit after the
+following commit. Just look over the new documentation in
+
+    &lt;Senf-root&gt;/doc/html/senf_senfutil.html
+
+(after re-building the documentation with 'scons doc'). Most projects
+will probably replace most SCons environment variable definitions with
+a single call to
+
+    senfutil.DefaultOptions(env)
+
+stefan.
+
+-- 
+Stefan Bund
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 196 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20090828/4be07c53/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20090828/4be07c53/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000493.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh -c
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#494">[ date ]</a>
+              <a href="thread.html#494">[ thread ]</a>
+              <a href="subject.html#494">[ subject ]</a>
+              <a href="author.html#494">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

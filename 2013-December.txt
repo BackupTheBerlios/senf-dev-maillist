@@ -1,0 +1,24 @@
+From admin at berlios.de  Fri Dec 20 19:32:26 2013
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Dec 2013 19:32:26 +0100 (CET)
+Subject: [Senf-dev] [Bug #14169] license senf under LGPLv3
+Message-ID: <201312201832.rBKIWQmm000370@www.berlios.de>
+
+Bug #14169, was updated on 2008-Jul-08 17:09
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: all
+Status: Open
+Resolution: Wont Fix
+Bug Group: task
+Priority: 5
+Submitted by: tho
+Assigned to : none
+Summary: license senf under LGPLv3
+
+Details: summary says it all.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14169&group_id=7489
+

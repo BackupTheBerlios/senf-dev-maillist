@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] PPI Connector type checking
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20PPI%20Connector%20type%20checking&In-Reply-To=%3C47D7AB5C.1040804%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000204.html">
+   <LINK REL="Next"  HREF="000206.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] PPI Connector type checking</H1>
+    <B>Thorsten Horstmann</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20PPI%20Connector%20type%20checking&In-Reply-To=%3C47D7AB5C.1040804%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] PPI Connector type checking">thorsten.horstmann at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Mar 12 11:07:24 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000204.html">[Senf-dev] [Bug #13331] AddressExceptions should provide more	information
+</A></li>
+        <LI>Next message: <A HREF="000206.html">[Senf-dev] PPI Connector type checking
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#205">[ date ]</a>
+              <a href="thread.html#205">[ thread ]</a>
+              <a href="subject.html#205">[ subject ]</a>
+              <a href="author.html#205">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Stefan,
+
+I've read your &quot;PPI Connector type checking&quot; outline on 
+<A HREF="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:SENF_Network_Framework_-_Design_Documents">http://openfacts2.berlios.de/wikien/index.php/BerliosProject:SENF_Network_Framework_-_Design_Documents</A>
+One question: do you consider inheritance for the type checking 
+restrictions?
+I think about the following scenario: a PacketType MPESection inherits 
+from PSISection and a output-connector is specified as a 
+PSISection-connector. Now it should be possible to write 
+MPESection-Packets through this connector.
+
+  -Thorsten
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000204.html">[Senf-dev] [Bug #13331] AddressExceptions should provide more	information
+</A></li>
+	<LI>Next message: <A HREF="000206.html">[Senf-dev] PPI Connector type checking
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#205">[ date ]</a>
+              <a href="thread.html#205">[ thread ]</a>
+              <a href="subject.html#205">[ subject ]</a>
+              <a href="author.html#205">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

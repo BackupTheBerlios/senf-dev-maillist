@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] PacketParser naming
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20PacketParser%20naming&In-Reply-To=%3C4AB8E7AC.5080804%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000495.html">
+   <LINK REL="Next"  HREF="000497.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] PacketParser naming</H1>
+    <B>Thorsten Horstmann</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20PacketParser%20naming&In-Reply-To=%3C4AB8E7AC.5080804%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] PacketParser naming">Thorsten.Horstmann at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Sep 22 17:05:16 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000495.html">[Senf-dev] IMPORTANT !!!! senf::ppi::connect() API change
+</A></li>
+        <LI>Next message: <A HREF="000497.html">[Senf-dev] PacketParser naming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#496">[ date ]</a>
+              <a href="thread.html#496">[ thread ]</a>
+              <a href="subject.html#496">[ subject ]</a>
+              <a href="author.html#496">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+after looking at the new IPv6Packet-Extensions in SENF I want to remind 
+  packet/parser implementors to the naming conventions for parser 
+classes: parser classes ends with &quot;Parser&quot;(!), parser classes with a 
+corresponding PacketType class (in the documentation they are sometimes 
+called protocol parsers) ends with &quot;PacketParser&quot;. For example we have 
+an &quot;IPv4PacketParser&quot; which is the parser for IPv4PacketType. Parser 
+classes without a PacketType have no &quot;PacketParser&quot; in their name; for 
+example MACAddressParser or Int32Parser.
+
+Therefore the class &quot;IPv6PacketParserExtension_Routing&quot; for example 
+should be renamed to &quot;IPv6RoutingExtensionParser&quot;, right?
+
+Comments, objections?
+
+  -Thorsten
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000495.html">[Senf-dev] IMPORTANT !!!! senf::ppi::connect() API change
+</A></li>
+	<LI>Next message: <A HREF="000497.html">[Senf-dev] PacketParser naming
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#496">[ date ]</a>
+              <a href="thread.html#496">[ thread ]</a>
+              <a href="subject.html#496">[ subject ]</a>
+              <a href="author.html#496">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

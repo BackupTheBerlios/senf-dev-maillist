@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Faster (partial) test compiles [Was: Re: [Senf-svn] r1482 - in trunk: site_scons]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2009-October/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Faster%20%28partial%29%20test%20compiles%20%5BWas%3A%20Re%3A%20%5BSenf-svn%5D%0A%20r1482%20-%20in%20trunk%3A%20site_scons%5D&In-Reply-To=%3C4ACF1686.80609%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000500.html">
+   <LINK REL="Next"  HREF="000502.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Faster (partial) test compiles [Was: Re: [Senf-svn] r1482 - in trunk: site_scons]</H1>
+    <B>Thorsten Horstmann</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Faster%20%28partial%29%20test%20compiles%20%5BWas%3A%20Re%3A%20%5BSenf-svn%5D%0A%20r1482%20-%20in%20trunk%3A%20site_scons%5D&In-Reply-To=%3C4ACF1686.80609%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Faster (partial) test compiles [Was: Re: [Senf-svn] r1482 - in trunk: site_scons]">Thorsten.Horstmann at fokus.fraunhofer.de
+       </A><BR>
+    <I>Fri Oct  9 12:55:02 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000500.html">[Senf-dev] Faster (partial) test compiles [Was: Re: [Senf-svn]	r1482 - in trunk: site_scons]
+</A></li>
+        <LI>Next message: <A HREF="000502.html">[Senf-dev] Faster (partial) test compiles
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#501">[ date ]</a>
+              <a href="thread.html#501">[ thread ]</a>
+              <a href="subject.html#501">[ subject ]</a>
+              <a href="author.html#501">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Stefan,
+
+I'm already using your new feature. Great work! Thanks!
+One question: Why do I need to change in the subdirectory? Why
+scons senf/Packets/80211Bundle/test sparse_tests=1 
+only_tests=WLANBeaconPacket.test.cc
+doesn't work.
+
+But you are right, this will speed up test driven development; well done!
+
+  -Thorsten
+
+
+Stefan Bund wrote:
+&gt;<i> Hi everyone,
+</I>&gt;<i> 
+</I>&gt;<i> I am somewhat excited about this new SENF build feature: sparse_tests
+</I>&gt;<i> and especially only_tests.
+</I>&gt;<i> 
+</I>&gt;<i> When working on a specific Problem, you normaly only want to run a
+</I>&gt;<i> single unit test. And you don't want to recompile a complete SENF just
+</I>&gt;<i> because a header file has changed.
+</I>&gt;<i> 
+</I>&gt;<i> To the rescue comes ... (fanfare) ... 'only_tests' :-)
+</I>&gt;<i> 
+</I>&gt;<i> Just now I was working on 'senf/Utils/type_traits.hh'. Running
+</I>&gt;<i> 
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i>   senf/Utils# scons -u test
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> takes several minutes after *every* change since SENF is recompiled
+</I>&gt;<i> almost completely on every change to the header file. With the new
+</I>&gt;<i> only_tests feature, I can run
+</I>&gt;<i> 
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i>   senf/Utils# scons -u test only_tests=type_traits.test.cc
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> Which compiles in a few seconds since it only links against the
+</I>&gt;<i> minimal set of needed object files. The object files needed are found
+</I>&gt;<i> automatically by looking at the header files directly or indirectly
+</I>&gt;<i> included by the test sources.
+</I>&gt;<i> 
+</I>&gt;<i> You may also set 'sparse_tests' explicitly. When 'sparse_tests' is
+</I>&gt;<i> set, unit tests are not linked against libsenf, they are linked
+</I>&gt;<i> explicitly against the object files needed (only_tests automatically
+</I>&gt;<i> sets sparse_tests).
+</I>&gt;<i> 
+</I>&gt;<i> I think, this should speed up development considerable, at least for
+</I>&gt;<i> me it is a very major step forwards.
+</I>&gt;<i> 
+</I>&gt;<i> stefan.
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000500.html">[Senf-dev] Faster (partial) test compiles [Was: Re: [Senf-svn]	r1482 - in trunk: site_scons]
+</A></li>
+	<LI>Next message: <A HREF="000502.html">[Senf-dev] Faster (partial) test compiles
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#501">[ date ]</a>
+              <a href="thread.html#501">[ thread ]</a>
+              <a href="subject.html#501">[ subject ]</a>
+              <a href="author.html#501">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

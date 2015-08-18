@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Change default timer source to lowres timer
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Change%20default%20timer%20source%20to%20lowres%20timer&In-Reply-To=%3C8763jrvpe2.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000457.html">
+   <LINK REL="Next"  HREF="000459.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Change default timer source to lowres timer</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Change%20default%20timer%20source%20to%20lowres%20timer&In-Reply-To=%3C8763jrvpe2.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] Change default timer source to lowres timer">g0dil at berlios.de
+       </A><BR>
+    <I>Tue Feb  3 10:30:29 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000457.html">[Senf-dev] [Bug #14818] DuplicateEventRegistrationException for	consolelog if...
+</A></li>
+        <LI>Next message: <A HREF="000459.html">[Senf-dev] [Bug #15083] documentation for ActiveSplitter missing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#458">[ date ]</a>
+              <a href="thread.html#458">[ thread ]</a>
+              <a href="subject.html#458">[ subject ]</a>
+              <a href="author.html#458">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everyone,
+
+after some discussion we had already agreed to switch back to direct
+epoll() based low resolution timing by default but allow switching to
+high resolution POSIX timers when needed (for the record: high
+resolution POSIX timers are delivered via signals and signal delivery
+is very expensive. This severely limits the scalability of the POSIX
+timer approach).
+
+The API for switching the timer source is now in place. We will now
+switch back to suing epoll() for timing by default.
+
+So, if you depend on high resolution timers now, you will need to call
+
+  senf::scheduler::hiresTimers();
+
+In your initialization sequence somewhere.
+
+On platforms where it is supported, the linux specific timerfd()
+syscall will be implemented. To check, wether this timer source is
+available, use
+
+  senf::scheduler::haveScalableHiresTimers()
+
+I think, this API is quite straight forward and is not encumbered with
+direct linux dependency ...
+
+stefan.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 188 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20090203/2d0e2d2d/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20090203/2d0e2d2d/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000457.html">[Senf-dev] [Bug #14818] DuplicateEventRegistrationException for	consolelog if...
+</A></li>
+	<LI>Next message: <A HREF="000459.html">[Senf-dev] [Bug #15083] documentation for ActiveSplitter missing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#458">[ date ]</a>
+              <a href="thread.html#458">[ thread ]</a>
+              <a href="subject.html#458">[ subject ]</a>
+              <a href="author.html#458">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

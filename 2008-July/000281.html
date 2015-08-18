@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] finalize() semantics
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C87vdzphcpc.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000280.html">
+   <LINK REL="Next"  HREF="000283.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] finalize() semantics</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C87vdzphcpc.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] finalize() semantics">g0dil at berlios.de
+       </A><BR>
+    <I>Tue Jul  1 16:59:59 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000280.html">[Senf-dev] finalize() semantics
+</A></li>
+        <LI>Next message: <A HREF="000283.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#281">[ date ]</a>
+              <a href="thread.html#281">[ thread ]</a>
+              <a href="subject.html#281">[ subject ]</a>
+              <a href="author.html#281">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thorsten Horstmann &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">thorsten.horstmann at fokus.fraunhofer.de</A>&gt; writes:
+&gt;<i> Der &quot;Anwender&quot; ruft immer das finalize von seinem &#228;u&#223;erstem Paket auf. 
+</I>&gt;<i> Klar er muss wissen, dass seine &#196;nderungen Auswirkungen auf innere 
+</I>&gt;<i> Pakete haben kann. Also wenn er die IP-Zieladresse &#228;ndert muss er 
+</I>&gt;<i> ip.finalizePacketChain() Aufrufen um ein eventuell vorhandenes udp-Paket 
+</I>&gt;<i> zu aktualisieren. Dieses 'Abh&#228;ngigkeits-Management' w&#252;rde ich nicht 
+</I>&gt;<i> automatisieren.
+</I>&gt;<i> Kannst Du ein Szenario nennen wo nicht klar ist, welche der 
+</I>&gt;<i> finalize-Methoden er aufrufen muss.
+</I>
+Genau in diesem Fall !! Denn es h&#228;ngt ja von den Eigenschaften des
+Unterprotkolls (hier UDP) ab, OB du den chain aktualisieren musst und
+wann. Die ICMP checksum wird z.Bsp. nur &#252;ber den ICMP header und NICHT
+&#252;ber den IP (pseudo) header berechnet. Je nach payload-type musst du
+also den chain aktualisieren oder nicht. Ok, hier w&#252;rdest du also
+einfach immer den chain aktualisieren.
+
+Bei IP weist du jetzt vielleicht, das es das Problem gibt ... DU weist
+es, aber wenn du mit Protkoll X arbeitest kann man ja nicht erwarten,
+das du ALLE M&#214;GLICHEN nachfolgeprotokolle Y angucken must (und die
+dahinter kommenden ..) um festzustellen, ob du den chain komplett
+aktualisieren musst (ich meine jetzt in der Dokumentation
+nachschlagen). Das Problem weitet sich dadurch aus, das man im
+allgemeinen beim Schreiben des X Protokolls ja nichtmal unbedingt
+wei&#223;, das ein Protokoll Y existiert, das von X in dieser Form abh&#228;ngt.
+
+Das klingt jetzt ziemlich abstrakt aber ich will nicht derjenige sein,
+der SOLCHE Fehler suchen muss. Genau daf&#252;r ist SENF ja eigentlich
+gedacht, diese Komplexit&#228;t dem Anwender abzunehmen.
+
+&gt;<i> Nein, ich kann nicht davon ausgehen das nach mir nochmal ein Modul 
+</I>&gt;<i> finalize aufruft. Das w&#252;rde doch unn&#246;tige Modul-Abh&#228;ngigkeiten 
+</I>&gt;<i> einf&#252;hren. Das passt zumindest nicht in meine 
+</I>&gt;<i> &quot;Steckmodul-System&quot;-Vorstellung vom PPI.
+</I>
+Kann ich wirklich nicht so sehen. Das ist echt ne
+philosophie-Frage. Die Anforderung 'nach mir muss irgendwann mal ein
+Finalizer modul eingef&#252;gt werden' halte ich f&#252;r kein Problem. Im
+Gegenteil, es macht das ganze halt deutlich flexibler.
+
+Was ich nochmal sagen will ist, das wir hier &#252;ber
+Performanceoptimierung reden. Ich wei&#223; nicht, ob das an dieser Stelle
+&#252;ebrhaupt schon sinnvoll ist, wie ich schonmal erw&#228;hnt habe gibt es da
+ne menge andere Stellen wo mglw noch viel mehr gespart werden k&#246;nnte.
+
+Stefan.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000280.html">[Senf-dev] finalize() semantics
+</A></li>
+	<LI>Next message: <A HREF="000283.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#281">[ date ]</a>
+              <a href="thread.html#281">[ thread ]</a>
+              <a href="subject.html#281">[ subject ]</a>
+              <a href="author.html#281">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

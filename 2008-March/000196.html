@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] SystemException error text
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20SystemException%20error%20text&In-Reply-To=%3C47CE6082.40308%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000193.html">
+   <LINK REL="Next"  HREF="000194.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] SystemException error text</H1>
+    <B>Joachim Kaeber</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20SystemException%20error%20text&In-Reply-To=%3C47CE6082.40308%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] SystemException error text">joachim.kaeber at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Mar  5 09:57:38 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000193.html">[Senf-dev] SystemException error text
+</A></li>
+        <LI>Next message: <A HREF="000194.html">[Senf-dev] [Bug #13228] senf::Daemon tries to delete non-existing	pidFile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#196">[ date ]</a>
+              <a href="thread.html#196">[ thread ]</a>
+              <a href="subject.html#196">[ subject ]</a>
+              <a href="author.html#196">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Stefan Bund schrieb:
+&gt;<i> On the topic of the system exception errors:
+</I>&gt;<i> 
+</I>&gt;<i> How about starting every 'extended' information with a '\n'
+</I>&gt;<i> character. This will produce nice multi-line error messages. 
+</I>
+I'll arrange an opinion poll.
+
+&gt;<i> Another thing; The current code *does* output errno and strerror
+</I>&gt;<i> value. I did not get that part of the bugreport.
+</I>
+Yes, it does, but in between &quot;where&quot; and rest.
+
+&gt;<i> And lastly, all said applies to ALL senf exceptions (they all derive
+</I>&gt;<i> from senf::Exception witch provides the error-message-extension
+</I>&gt;<i> capability), so whenever extending an error message, one should cath
+</I>&gt;<i> 'senf::Exception' and not 'senf::SystemException'
+</I>
+Good advice. Thank You!
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000193.html">[Senf-dev] SystemException error text
+</A></li>
+	<LI>Next message: <A HREF="000194.html">[Senf-dev] [Bug #13228] senf::Daemon tries to delete non-existing	pidFile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#196">[ date ]</a>
+              <a href="thread.html#196">[ thread ]</a>
+              <a href="subject.html#196">[ subject ]</a>
+              <a href="author.html#196">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2006-October/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/build.sh&In-Reply-To=%3C20061013120107.842F5484480A%40satcom.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000001.html">
+   <LINK REL="Next"  HREF="000003.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh</H1>
+    <B>Cron Daemon</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/build.sh&In-Reply-To=%3C20061013120107.842F5484480A%40satcom.fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh">root at satcom.fokus.fraunhofer.de
+       </A><BR>
+    <I>Fri Oct 13 14:01:07 CEST 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000001.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+        <LI>Next message: <A HREF="000003.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>At revision 136.
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Utils/TypeInfo.o Utils/TypeInfo.cc
+In file included from Utils/TypeInfo.cc:33:
+Utils/impl/demangle.h:24:23: error: libiberty.h: No such file or directory
+Utils/impl/demangle.h:113: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:116: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:119: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:124: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:127: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:130: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:134: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:137: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:151: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:165: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:443: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:452: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:460: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:470: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:478: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:486: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:494: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:507: error: expected initializer before 'PARAMS'
+Utils/impl/demangle.h:524: error: expected initializer before 'PARAMS'
+Utils/TypeInfo.cc: In function 'std::string satcom::lib::prettyName(const std::type_info&amp;)':
+Utils/TypeInfo.cc:47: error: '::cplus_demangle' has not been declared
+scons: *** [Utils/TypeInfo.o] Error 1
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Utils/Exception.o Utils/Exception.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Utils/TypeInfo.test.o Utils/TypeInfo.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Utils/intrusive_refcount.test.o Utils/intrusive_refcount.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Utils/main.test.o Utils/main.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Utils/membind.test.o Utils/membind.test.cc
+( Utils/.test.bin --build_info=yes --log_level=test_suite 2&gt;&amp;1 &amp;&amp; touch Utils/.test.stamp ) | tee Utils/test.log
+sh: Utils/.test.bin: No such file or directory
+alias_builder([&quot;Utils/test&quot;], [&quot;Utils/test.log&quot;, &quot;Utils/.test.stamp&quot;])
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/BSDSocketProtocol.o Socket/BSDSocketProtocol.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/INetProtocol.o Socket/INetProtocol.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/PacketSocketHandle.o Socket/PacketSocketHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/INetAddressing.o Socket/INetAddressing.cc
+In file included from /usr/lib/gcc/i486-linux-gnu/4.0.3/../../../../include/c++/4.0.3/backward/strstream:51,
+                 from Socket/INetAddressing.cc:29:
+/usr/lib/gcc/i486-linux-gnu/4.0.3/../../../../include/c++/4.0.3/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header. Please consider using one of the 32 headers found in section 17.4.1.2 of the C++ standard. Examples include substituting the &lt;X&gt; header for the &lt;X.h&gt; header for C++ includes, or &lt;iostream&gt; instead of the deprecated header &lt;iostream.h&gt;. To disable this warning use -Wno-deprecated.
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/BufferingPolicy.o Socket/BufferingPolicy.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/CommunicationPolicy.o Socket/CommunicationPolicy.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/SocketProtocol.o Socket/SocketProtocol.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/TCPSocketHandle.o Socket/TCPSocketHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/GenericAddressingPolicy.o Socket/GenericAddressingPolicy.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/SocketHandle.o Socket/SocketHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/LLAddressing.o Socket/LLAddressing.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/FileHandle.o Socket/FileHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/ReadWritePolicy.o Socket/ReadWritePolicy.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/TCPProtocol.o Socket/TCPProtocol.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/ServerSocketHandle.test.o Socket/ServerSocketHandle.test.cc
+Socket/SocketPolicy.ct: In static member function 'static void satcom::lib::SocketPolicy&lt;AddressingPolicy_, FramingPolicy_, CommunicationPolicy_, ReadPolicy_, WritePolicy_, BufferingPolicy_&gt;::checkBaseOf(const satcom::lib::SocketPolicyBase&amp;) [with AddressingPolicy_ = satcom::lib::NoAddressingPolicy, FramingPolicy_ = satcom::lib::test::SomeFramingPolicy, CommunicationPolicy_ = satcom::lib::CommunicationPolicyBase, ReadPolicy_ = satcom::lib::test::SomeReadPolicy, WritePolicy_ = satcom::lib::test::SomeWritePolicy, BufferingPolicy_ = satcom::lib::BufferingPolicyBase]':
+Socket/SocketHandle.cti:108:   instantiated from 'static satcom::lib::SocketHandle&lt;Policy&gt; satcom::lib::SocketHandle&lt;SocketPolicy&gt;::cast_dynamic(satcom::lib::FileHandle) [with SocketPolicy = satcom::lib::SocketPolicy&lt;satcom::lib::NoAddressingPolicy, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt;]'
+Socket/ServerSocketHandle.cti:132:   instantiated from 'static satcom::lib::ServerSocketHandle&lt;Policy&gt; satcom::lib::ServerSocketHandle&lt;Policy&gt;::cast_dynamic(satcom::lib::FileHandle) [with Policy = satcom::lib::SocketPolicy&lt;satcom::lib::NoAddressingPolicy, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt;]'
+Socket/SocketHandle.cti:132:   instantiated from 'Target satcom::lib::dynamic_socket_cast(Source) [with Target = satcom::lib::ServerSocketHandle&lt;satcom::lib::SocketPolicy&lt;satcom::lib::NoAddressingPolicy, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt; &gt;, Source = satcom::lib::SocketHandle&lt;satcom::lib::SocketPolicy&lt;satcom::lib::AddressingPolicyBase, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt; &gt;]'
+Socket/ServerSocketHandle.test.cc:78:   instantiated from here
+Socket/SocketPolicy.ct:40: warning: value computed is not used
+Socket/SocketPolicy.ct:40: warning: value computed is not used
+Socket/SocketPolicy.ct: In static member function 'static void satcom::lib::SocketPolicy&lt;AddressingPolicy_, FramingPolicy_, CommunicationPolicy_, ReadPolicy_, WritePolicy_, BufferingPolicy_&gt;::checkBaseOf(const satcom::lib::SocketPolicyBase&amp;) [with AddressingPolicy_ = satcom::lib::AddressingPolicyBase, FramingPolicy_ = satcom::lib::test::SomeFramingPolicy, CommunicationPolicy_ = satcom::lib::CommunicationPolicyBase, ReadPolicy_ = satcom::lib::test::SomeReadPolicy, WritePolicy_ = satcom::lib::test::SomeWritePolicy, BufferingPolicy_ = satcom::lib::BufferingPolicyBase]':
+Socket/SocketHandle.cti:108:   instantiated from 'static satcom::lib::SocketHandle&lt;Policy&gt; satcom::lib::SocketHandle&lt;SocketPolicy&gt;::cast_dynamic(satcom::lib::FileHandle) [with SocketPolicy = satcom::lib::SocketPolicy&lt;satcom::lib::AddressingPolicyBase, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt;]'
+Socket/ClientSocketHandle.cti:194:   instantiated from 'static satcom::lib::ClientSocketHandle&lt;Policy&gt; satcom::lib::ClientSocketHandle&lt;Policy&gt;::cast_dynamic(satcom::lib::FileHandle) [with Policy = satcom::lib::SocketPolicy&lt;satcom::lib::AddressingPolicyBase, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt;]'
+Socket/SocketHandle.cti:132:   instantiated from 'Target satcom::lib::dynamic_socket_cast(Source) [with Target = satcom::lib::ClientSocketHandle&lt;satcom::lib::SocketPolicy&lt;satcom::lib::AddressingPolicyBase, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt; &gt;, Source = satcom::lib::SocketHandle&lt;satcom::lib::SocketPolicy&lt;satcom::lib::AddressingPolicyBase, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt; &gt;]'
+Socket/ServerSocketHandle.test.cc:80:   instantiated from here
+Socket/SocketPolicy.ct:40: warning: value computed is not used
+Socket/SocketPolicy.ct:40: warning: value computed is not used
+Socket/SocketPolicy.ct:40: warning: value computed is not used
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/main.test.o Socket/main.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/PacketSocketHandle.test.o Socket/PacketSocketHandle.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/INetAddressing.test.o Socket/INetAddressing.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/LLAddressing.test.o Socket/LLAddressing.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/FileHandle.test.o Socket/FileHandle.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/TCPSocketHandle.test.o Socket/TCPSocketHandle.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/SocketHandle.test.o Socket/SocketHandle.test.cc
+Socket/SocketPolicy.ct: In static member function 'static void satcom::lib::SocketPolicy&lt;AddressingPolicy_, FramingPolicy_, CommunicationPolicy_, ReadPolicy_, WritePolicy_, BufferingPolicy_&gt;::checkBaseOf(const satcom::lib::SocketPolicyBase&amp;) [with AddressingPolicy_ = satcom::lib::NoAddressingPolicy, FramingPolicy_ = satcom::lib::FramingPolicyBase, CommunicationPolicy_ = satcom::lib::test::SomeCommunicationPolicy, ReadPolicy_ = satcom::lib::test::SomeReadPolicy, WritePolicy_ = satcom::lib::WritePolicyBase, BufferingPolicy_ = satcom::lib::BufferingPolicyBase]':
+Socket/SocketHandle.cti:108:   instantiated from 'static satcom::lib::SocketHandle&lt;Policy&gt; satcom::lib::SocketHandle&lt;SocketPolicy&gt;::cast_dynamic(satcom::lib::FileHandle) [with SocketPolicy = satcom::lib::SocketPolicy&lt;satcom::lib::NoAddressingPolicy, satcom::lib::FramingPolicyBase, satcom::lib::test::SomeCommunicationPolicy, satcom::lib::test::SomeReadPolicy, satcom::lib::WritePolicyBase, satcom::lib::BufferingPolicyBase&gt;]'
+Socket/SocketHandle.cti:132:   instantiated from 'Target satcom::lib::dynamic_socket_cast(Source) [with Target = satcom::lib::SocketHandle&lt;satcom::lib::SocketPolicy&lt;satcom::lib::NoAddressingPolicy, satcom::lib::FramingPolicyBase, satcom::lib::test::SomeCommunicationPolicy, satcom::lib::test::SomeReadPolicy, satcom::lib::WritePolicyBase, satcom::lib::BufferingPolicyBase&gt; &gt;, Source = satcom::lib::SocketHandle&lt;satcom::lib::SocketPolicy&lt;satcom::lib::AddressingPolicyBase, satcom::lib::FramingPolicyBase, satcom::lib::test::SomeCommunicationPolicy, satcom::lib::test::SomeReadPolicy, satcom::lib::WritePolicyBase, satcom::lib::BufferingPolicyBase&gt; &gt;]'
+Socket/SocketHandle.test.cc:84:   instantiated from here
+Socket/SocketPolicy.ct:40: warning: value computed is not used
+Socket/SocketPolicy.ct:40: warning: value computed is not used
+Socket/SocketPolicy.ct:40: warning: value computed is not used
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/SocketProtocol.test.o Socket/SocketProtocol.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/SocketPolicy.test.o Socket/SocketPolicy.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/ProtocolClientSocketHandle.test.o Socket/ProtocolClientSocketHandle.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/ClientSocketHandle.test.o Socket/ClientSocketHandle.test.cc
+Socket/SocketPolicy.ct: In static member function 'static void satcom::lib::SocketPolicy&lt;AddressingPolicy_, FramingPolicy_, CommunicationPolicy_, ReadPolicy_, WritePolicy_, BufferingPolicy_&gt;::checkBaseOf(const satcom::lib::SocketPolicyBase&amp;) [with AddressingPolicy_ = satcom::lib::NoAddressingPolicy, FramingPolicy_ = satcom::lib::test::SomeFramingPolicy, CommunicationPolicy_ = satcom::lib::CommunicationPolicyBase, ReadPolicy_ = satcom::lib::test::SomeReadPolicy, WritePolicy_ = satcom::lib::test::SomeWritePolicy, BufferingPolicy_ = satcom::lib::BufferingPolicyBase]':
+Socket/SocketHandle.cti:108:   instantiated from 'static satcom::lib::SocketHandle&lt;Policy&gt; satcom::lib::SocketHandle&lt;SocketPolicy&gt;::cast_dynamic(satcom::lib::FileHandle) [with SocketPolicy = satcom::lib::SocketPolicy&lt;satcom::lib::NoAddressingPolicy, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt;]'
+Socket/ClientSocketHandle.cti:194:   instantiated from 'static satcom::lib::ClientSocketHandle&lt;Policy&gt; satcom::lib::ClientSocketHandle&lt;Policy&gt;::cast_dynamic(satcom::lib::FileHandle) [with Policy = satcom::lib::SocketPolicy&lt;satcom::lib::NoAddressingPolicy, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt;]'
+Socket/SocketHandle.cti:132:   instantiated from 'Target satcom::lib::dynamic_socket_cast(Source) [with Target = satcom::lib::ClientSocketHandle&lt;satcom::lib::SocketPolicy&lt;satcom::lib::NoAddressingPolicy, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt; &gt;, Source = satcom::lib::SocketHandle&lt;satcom::lib::SocketPolicy&lt;satcom::lib::AddressingPolicyBase, satcom::lib::test::SomeFramingPolicy, satcom::lib::CommunicationPolicyBase, satcom::lib::test::SomeReadPolicy, satcom::lib::test::SomeWritePolicy, satcom::lib::BufferingPolicyBase&gt; &gt;]'
+Socket/ClientSocketHandle.test.cc:82:   instantiated from here
+Socket/SocketPolicy.ct:40: warning: value computed is not used
+Socket/SocketPolicy.ct:40: warning: value computed is not used
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Socket/ProtocolServerSocketHandle.test.o Socket/ProtocolServerSocketHandle.test.cc
+ar r libUtils.a Utils/TypeInfo.o Utils/Exception.o
+ranlib libUtils.a
+ar: creating libUtils.a
+ar: Utils/TypeInfo.o: No such file or directory
+scons: *** [libUtils.a] Error 1
+( Socket/.test.bin --build_info=yes --log_level=test_suite 2&gt;&amp;1 &amp;&amp; touch Socket/.test.stamp ) | tee Socket/test.log
+sh: Socket/.test.bin: No such file or directory
+alias_builder([&quot;Socket/test&quot;], [&quot;Socket/test.log&quot;, &quot;Socket/.test.stamp&quot;])
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/EthernetPacket.o Packets/EthernetPacket.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::EthVLanPacket&gt;':
+Packets/PacketRegistry.ct:39:   instantiated from 'void satcom::pkf::impl::PacketRegistryImpl&lt;key&gt;::registerPacket(KeyType) [with OtherPacket = satcom::pkf::EthVLanPacket, KeyType = short unsigned int]'
+Packets/PacketRegistry.cti:37:   instantiated from 'static void satcom::pkf::PacketRegistry&lt;Tag&gt;::registerPacket(typename Tag::key_t) [with OtherPacket = satcom::pkf::EthVLanPacket, Tag = satcom::pkf::EtherTypes]'
+Packets/PacketRegistry.cti:45:   instantiated from 'satcom::pkf::PacketRegistry&lt;Tag&gt;::RegistrationProxy&lt;OtherPacket&gt;::RegistrationProxy(typename Tag::key_t) [with OtherPacket = satcom::pkf::EthVLanPacket, Tag = satcom::pkf::EtherTypes]'
+Packets/EthernetPacket.cc:38:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::EthVLanPacket&gt;' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;satcom::pkf::EthVLanPacket&gt;':
+Packets/typeidvalue.cti:34:   instantiated from 'satcom::lib::TypeIdValue::TypeIdValue(Type*) [with Type = satcom::pkf::EthVLanPacket]'
+Packets/typeidvalue.cti:53:   instantiated from 'const satcom::lib::TypeIdValue satcom::lib::typeIdValue() [with Type = satcom::pkf::EthVLanPacket]'
+Packets/PacketRegistry.ct:42:   instantiated from 'void satcom::pkf::impl::PacketRegistryImpl&lt;key&gt;::registerPacket(KeyType) [with OtherPacket = satcom::pkf::EthVLanPacket, KeyType = short unsigned int]'
+Packets/PacketRegistry.cti:37:   instantiated from 'static void satcom::pkf::PacketRegistry&lt;Tag&gt;::registerPacket(typename Tag::key_t) [with OtherPacket = satcom::pkf::EthVLanPacket, Tag = satcom::pkf::EtherTypes]'
+Packets/PacketRegistry.cti:45:   instantiated from 'satcom::pkf::PacketRegistry&lt;Tag&gt;::RegistrationProxy&lt;OtherPacket&gt;::RegistrationProxy(typename Tag::key_t) [with OtherPacket = satcom::pkf::EthVLanPacket, Tag = satcom::pkf::EtherTypes]'
+Packets/EthernetPacket.cc:38:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;satcom::pkf::EthVLanPacket&gt;' has virtual functions but non-virtual destructor
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/RTCPPacket.o Packets/RTCPPacket.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/PacketRegistry.o Packets/PacketRegistry.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/DataPacket.o Packets/DataPacket.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/Packet.o Packets/Packet.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/RTPPacket.o Packets/RTPPacket.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+Packets/ParserBase.ih: In static member function 'static unsigned int satcom::pkf::impl::ParserCheck&lt;Parser, true&gt;::check(const Iterator&amp;, const Iterator&amp;) [with Iterator = __gnu_cxx::__normal_iterator&lt;unsigned char*, std::vector&lt;unsigned char, std::allocator&lt;unsigned char&gt; &gt; &gt;, Parser = satcom::pkf::RTPUnknownExtensionPacket]':
+Packets/ParserBase.cti:55:   instantiated from 'bool satcom::pkf::impl::check(const Iterator&amp;, const Iterator&amp;, satcom::pkf::impl::ParserBase*) [with Parser = satcom::pkf::RTPUnknownExtensionPacket, Iterator = __gnu_cxx::__normal_iterator&lt;unsigned char*, std::vector&lt;unsigned char, std::allocator&lt;unsigned char&gt; &gt; &gt;]'
+Packets/ParserBase.cti:68:   instantiated from 'bool satcom::pkf::check(const Iterator&amp;, const Iterator&amp;) [with Parser = satcom::pkf::RTPUnknownExtensionPacket, Iterator = __gnu_cxx::__normal_iterator&lt;unsigned char*, std::vector&lt;unsigned char, std::allocator&lt;unsigned char&gt; &gt; &gt;]'
+Packets/Packet.ct:83:   instantiated from 'typename satcom::pkf::Packet::ptr_t&lt;T&gt;::ptr satcom::pkf::Packet::registerInterpreter(__gnu_cxx::__normal_iterator&lt;unsigned char*, std::vector&lt;unsigned char, std::allocator&lt;unsigned char&gt; &gt; &gt;, __gnu_cxx::__normal_iterator&lt;unsigned char*, std::vector&lt;unsigned char, std::allocator&lt;unsigned char&gt; &gt; &gt;) const [with OtherPacket = satcom::pkf::RTPUnknownExtensionPacket]'
+Packets/RTPPacket.cc:39:   instantiated from here
+Packets/ParserBase.ih:71: error: cannot call member function 'unsigned int satcom::pkf::Parse_RTPExtensionBase&lt;Iterator, IPacket&gt;::bytes() const [with Iterator = __gnu_cxx::__normal_iterator&lt;unsigned char*, std::vector&lt;unsigned char, std::allocator&lt;unsigned char&gt; &gt; &gt;, IPacket = satcom::pkf::RTPUnknownExtensionPacket]' without object
+scons: *** [Packets/RTPPacket.o] Error 1
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/IpV4Packet.o Packets/IpV4Packet.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::IpV4Packet&gt;':
+Packets/PacketRegistry.ct:39:   instantiated from 'void satcom::pkf::impl::PacketRegistryImpl&lt;key&gt;::registerPacket(KeyType) [with OtherPacket = satcom::pkf::IpV4Packet, KeyType = short unsigned int]'
+Packets/PacketRegistry.cti:37:   instantiated from 'static void satcom::pkf::PacketRegistry&lt;Tag&gt;::registerPacket(typename Tag::key_t) [with OtherPacket = satcom::pkf::IpV4Packet, Tag = satcom::pkf::EtherTypes]'
+Packets/PacketRegistry.cti:45:   instantiated from 'satcom::pkf::PacketRegistry&lt;Tag&gt;::RegistrationProxy&lt;OtherPacket&gt;::RegistrationProxy(typename Tag::key_t) [with OtherPacket = satcom::pkf::IpV4Packet, Tag = satcom::pkf::EtherTypes]'
+Packets/IpV4Packet.cc:40:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::IpV4Packet&gt;' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;satcom::pkf::IpV4Packet&gt;':
+Packets/typeidvalue.cti:34:   instantiated from 'satcom::lib::TypeIdValue::TypeIdValue(Type*) [with Type = satcom::pkf::IpV4Packet]'
+Packets/typeidvalue.cti:53:   instantiated from 'const satcom::lib::TypeIdValue satcom::lib::typeIdValue() [with Type = satcom::pkf::IpV4Packet]'
+Packets/PacketRegistry.ct:42:   instantiated from 'void satcom::pkf::impl::PacketRegistryImpl&lt;key&gt;::registerPacket(KeyType) [with OtherPacket = satcom::pkf::IpV4Packet, KeyType = short unsigned int]'
+Packets/PacketRegistry.cti:37:   instantiated from 'static void satcom::pkf::PacketRegistry&lt;Tag&gt;::registerPacket(typename Tag::key_t) [with OtherPacket = satcom::pkf::IpV4Packet, Tag = satcom::pkf::EtherTypes]'
+Packets/PacketRegistry.cti:45:   instantiated from 'satcom::pkf::PacketRegistry&lt;Tag&gt;::RegistrationProxy&lt;OtherPacket&gt;::RegistrationProxy(typename Tag::key_t) [with OtherPacket = satcom::pkf::IpV4Packet, Tag = satcom::pkf::EtherTypes]'
+Packets/IpV4Packet.cc:40:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;satcom::pkf::IpV4Packet&gt;' has virtual functions but non-virtual destructor
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/UDPPacket.o Packets/UDPPacket.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::UDPPacket&gt;':
+Packets/PacketRegistry.ct:39:   instantiated from 'void satcom::pkf::impl::PacketRegistryImpl&lt;key&gt;::registerPacket(KeyType) [with OtherPacket = satcom::pkf::UDPPacket, KeyType = short unsigned int]'
+Packets/PacketRegistry.cti:37:   instantiated from 'static void satcom::pkf::PacketRegistry&lt;Tag&gt;::registerPacket(typename Tag::key_t) [with OtherPacket = satcom::pkf::UDPPacket, Tag = satcom::pkf::IpV4Types]'
+Packets/PacketRegistry.cti:45:   instantiated from 'satcom::pkf::PacketRegistry&lt;Tag&gt;::RegistrationProxy&lt;OtherPacket&gt;::RegistrationProxy(typename Tag::key_t) [with OtherPacket = satcom::pkf::UDPPacket, Tag = satcom::pkf::IpV4Types]'
+Packets/UDPPacket.cc:37:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::UDPPacket&gt;' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;satcom::pkf::UDPPacket&gt;':
+Packets/typeidvalue.cti:34:   instantiated from 'satcom::lib::TypeIdValue::TypeIdValue(Type*) [with Type = satcom::pkf::UDPPacket]'
+Packets/typeidvalue.cti:53:   instantiated from 'const satcom::lib::TypeIdValue satcom::lib::typeIdValue() [with Type = satcom::pkf::UDPPacket]'
+Packets/PacketRegistry.ct:42:   instantiated from 'void satcom::pkf::impl::PacketRegistryImpl&lt;key&gt;::registerPacket(KeyType) [with OtherPacket = satcom::pkf::UDPPacket, KeyType = short unsigned int]'
+Packets/PacketRegistry.cti:37:   instantiated from 'static void satcom::pkf::PacketRegistry&lt;Tag&gt;::registerPacket(typename Tag::key_t) [with OtherPacket = satcom::pkf::UDPPacket, Tag = satcom::pkf::IpV4Types]'
+Packets/PacketRegistry.cti:45:   instantiated from 'satcom::pkf::PacketRegistry&lt;Tag&gt;::RegistrationProxy&lt;OtherPacket&gt;::RegistrationProxy(typename Tag::key_t) [with OtherPacket = satcom::pkf::UDPPacket, Tag = satcom::pkf::IpV4Types]'
+Packets/UDPPacket.cc:37:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;satcom::pkf::UDPPacket&gt;' has virtual functions but non-virtual destructor
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/main.test.o Packets/main.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/ParserBase.test.o Packets/ParserBase.test.cc
+Packets/ParserBase.ih: In static member function 'static unsigned int satcom::pkf::impl::ParserMinBytes&lt;Parser, true&gt;::bytes() [with Parser = &lt;unnamed&gt;::Parse_Test2&lt;int, satcom::pkf::nil&gt;]':
+Packets/ParserBase.cti:74:   instantiated from 'unsigned int satcom::pkf::impl::min_bytes(satcom::pkf::impl::ParserBase*) [with Parser = &lt;unnamed&gt;::Parse_Test2&lt;int, satcom::pkf::nil&gt;]'
+Packets/ParserBase.cti:86:   instantiated from 'unsigned int satcom::pkf::min_bytes() [with Parser = &lt;unnamed&gt;::Parse_Test2&lt;int, satcom::pkf::nil&gt;]'
+Packets/ParserBase.test.cc:92:   instantiated from here
+Packets/ParserBase.ih:87: error: cannot call member function 'unsigned int&lt;unnamed&gt;::Parse_Test2&lt;Iterator, IPacket&gt;::bytes() const [with Iterator = int, IPacket = satcom::pkf::nil]' without object
+Packets/ParserBase.ih: In static member function 'static unsigned int satcom::pkf::impl::ParserCheck&lt;Parser, true&gt;::check(const Iterator&amp;, const Iterator&amp;) [with Iterator = int, Parser = &lt;unnamed&gt;::Parse_Test2&lt;int, satcom::pkf::nil&gt;]':
+Packets/ParserBase.cti:55:   instantiated from 'bool satcom::pkf::impl::check(const Iterator&amp;, const Iterator&amp;, satcom::pkf::impl::ParserBase*) [with Parser = &lt;unnamed&gt;::Parse_Test2&lt;int, satcom::pkf::nil&gt;, Iterator = int]'
+Packets/ParserBase.cti:68:   instantiated from 'bool satcom::pkf::check(const Iterator&amp;, const Iterator&amp;) [with Parser = &lt;unnamed&gt;::Parse_Test2&lt;int, satcom::pkf::nil&gt;, Iterator = int]'
+Packets/ParserBase.test.cc:93:   instantiated from here
+Packets/ParserBase.ih:71: error: cannot call member function 'unsigned int&lt;unnamed&gt;::Parse_Test2&lt;Iterator, IPacket&gt;::bytes() const [with Iterator = int, IPacket = satcom::pkf::nil]' without object
+scons: *** [Packets/ParserBase.test.o] Error 1
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/RTCPPacket.test.o Packets/RTCPPacket.test.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/PacketRegistry.test.o Packets/PacketRegistry.test.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;&lt;unnamed&gt;::FooPacket&gt;':
+Packets/PacketRegistry.ct:39:   instantiated from 'void satcom::pkf::impl::PacketRegistryImpl&lt;key&gt;::registerPacket(KeyType) [with OtherPacket = &lt;unnamed&gt;::FooPacket, KeyType = unsigned int]'
+Packets/PacketRegistry.cti:37:   instantiated from 'static void satcom::pkf::PacketRegistry&lt;Tag&gt;::registerPacket(typename Tag::key_t) [with OtherPacket = &lt;unnamed&gt;::FooPacket, Tag = &lt;unnamed&gt;::BaseTag]'
+Packets/PacketRegistry.test.cc:132:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;&lt;unnamed&gt;::FooPacket&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;&lt;unnamed&gt;::BarPacket&gt;':
+Packets/PacketRegistry.ct:39:   instantiated from 'void satcom::pkf::impl::PacketRegistryImpl&lt;key&gt;::registerPacket(KeyType) [with OtherPacket = &lt;unnamed&gt;::BarPacket, KeyType = unsigned int]'
+Packets/PacketRegistry.cti:37:   instantiated from 'static void satcom::pkf::PacketRegistry&lt;Tag&gt;::registerPacket(typename Tag::key_t) [with OtherPacket = &lt;unnamed&gt;::BarPacket, Tag = &lt;unnamed&gt;::BaseTag]'
+Packets/PacketRegistry.test.cc:133:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;&lt;unnamed&gt;::BarPacket&gt;' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;&lt;unnamed&gt;::FooPacket&gt;':
+Packets/typeidvalue.cti:34:   instantiated from 'satcom::lib::TypeIdValue::TypeIdValue(Type*) [with Type = &lt;unnamed&gt;::FooPacket]'
+Packets/typeidvalue.cti:53:   instantiated from 'const satcom::lib::TypeIdValue satcom::lib::typeIdValue() [with Type = &lt;unnamed&gt;::FooPacket]'
+Packets/PacketRegistry.cti:52:   instantiated from 'static typename Tag::key_t satcom::pkf::PacketRegistry&lt;Tag&gt;::key() [with OtherPacket = &lt;unnamed&gt;::FooPacket, Tag = &lt;unnamed&gt;::BaseTag]'
+Packets/PacketRegistry.test.cc:135:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;&lt;unnamed&gt;::FooPacket&gt;' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;&lt;unnamed&gt;::BarPacket&gt;':
+Packets/typeidvalue.cti:34:   instantiated from 'satcom::lib::TypeIdValue::TypeIdValue(Type*) [with Type = &lt;unnamed&gt;::BarPacket]'
+Packets/typeidvalue.cti:53:   instantiated from 'const satcom::lib::TypeIdValue satcom::lib::typeIdValue() [with Type = &lt;unnamed&gt;::BarPacket]'
+Packets/PacketRegistry.cti:52:   instantiated from 'static typename Tag::key_t satcom::pkf::PacketRegistry&lt;Tag&gt;::key() [with OtherPacket = &lt;unnamed&gt;::BarPacket, Tag = &lt;unnamed&gt;::BaseTag]'
+Packets/PacketRegistry.test.cc:136:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;&lt;unnamed&gt;::BarPacket&gt;' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/typeidvalue.cti:34:   instantiated from 'satcom::lib::TypeIdValue::TypeIdValue(Type*) [with Type = satcom::pkf::DataPacket]'
+Packets/typeidvalue.cti:53:   instantiated from 'const satcom::lib::TypeIdValue satcom::lib::typeIdValue() [with Type = satcom::pkf::DataPacket]'
+Packets/PacketRegistry.cti:52:   instantiated from 'static typename Tag::key_t satcom::pkf::PacketRegistry&lt;Tag&gt;::key() [with OtherPacket = satcom::pkf::DataPacket, Tag = &lt;unnamed&gt;::BaseTag]'
+Packets/PacketRegistry.test.cc:137:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/ParseArray.test.o Packets/ParseArray.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/Packet.test.o Packets/Packet.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/IpV4Packet.test.o Packets/IpV4Packet.test.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/ParseInt.test.o Packets/ParseInt.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/EthernetPacket.test.o Packets/EthernetPacket.test.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/ParseVec.test.o Packets/ParseVec.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/ParseListS.test.o Packets/ParseListS.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/UDPPacket.test.o Packets/UDPPacket.test.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Packets/RTPPacket.test.o Packets/RTPPacket.test.cc
+Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+Packets/typeidvalue.cci:33:   instantiated from here
+Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+Packets/PacketRegistry.ct:78:   instantiated from here
+Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+Packets/ParserBase.ih: In static member function 'static unsigned int satcom::pkf::impl::ParserCheck&lt;Parser, true&gt;::check(const Iterator&amp;, const Iterator&amp;) [with Iterator = __gnu_cxx::__normal_iterator&lt;unsigned char*, std::vector&lt;unsigned char, std::allocator&lt;unsigned char&gt; &gt; &gt;, Parser = satcom::pkf::RTPPacket]':
+Packets/ParserBase.cti:55:   instantiated from 'bool satcom::pkf::impl::check(const Iterator&amp;, const Iterator&amp;, satcom::pkf::impl::ParserBase*) [with Parser = satcom::pkf::RTPPacket, Iterator = __gnu_cxx::__normal_iterator&lt;unsigned char*, std::vector&lt;unsigned char, std::allocator&lt;unsigned char&gt; &gt; &gt;]'
+Packets/ParserBase.cti:68:   instantiated from 'bool satcom::pkf::check(const Iterator&amp;, const Iterator&amp;) [with Parser = satcom::pkf::RTPPacket, Iterator = __gnu_cxx::__normal_iterator&lt;unsigned char*, std::vector&lt;unsigned char, std::allocator&lt;unsigned char&gt; &gt; &gt;]'
+Packets/Packet.ct:39:   instantiated from 'static typename satcom::pkf::Packet::ptr_t&lt;T&gt;::ptr satcom::pkf::Packet::create(InputIterator, InputIterator) [with OtherPacket = satcom::pkf::RTPPacket, InputIterator = unsigned char*]'
+Packets/RTPPacket.test.cc:95:   instantiated from here
+Packets/ParserBase.ih:71: error: cannot call member function 'unsigned int satcom::pkf::Parse_RTP&lt;Iterator, IPacket&gt;::bytes() const [with Iterator = __gnu_cxx::__normal_iterator&lt;unsigned char*, std::vector&lt;unsigned char, std::allocator&lt;unsigned char&gt; &gt; &gt;, IPacket = satcom::pkf::RTPPacket]' without object
+scons: *** [Packets/RTPPacket.test.o] Error 1
+( Packets/.test.bin --build_info=yes --log_level=test_suite 2&gt;&amp;1 &amp;&amp; touch Packets/.test.stamp ) | tee Packets/test.log
+sh: Packets/.test.bin: No such file or directory
+alias_builder([&quot;Packets/test&quot;], [&quot;Packets/test.log&quot;, &quot;Packets/.test.stamp&quot;])
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Scheduler/Scheduler.o Scheduler/Scheduler.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Scheduler/Scheduler.test.o Scheduler/Scheduler.test.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Scheduler/main.test.o Scheduler/main.test.cc
+g++ -g -o Scheduler/.test.bin Scheduler/Scheduler.o Scheduler/Scheduler.test.o Scheduler/main.test.o -L. -lUtils -lboost_unit_test_framework -liberty
+/usr/bin/ld: cannot find -lUtils
+collect2: ld returned 1 exit status
+scons: *** [Scheduler/.test.bin] Error 1
+( Scheduler/.test.bin --build_info=yes --log_level=test_suite 2&gt;&amp;1 &amp;&amp; touch Scheduler/.test.stamp ) | tee Scheduler/test.log
+sh: Scheduler/.test.bin: No such file or directory
+alias_builder([&quot;Scheduler/test&quot;], [&quot;Scheduler/test.log&quot;, &quot;Scheduler/.test.stamp&quot;])
+find -name .svn -prune -o \( -name '*.hh' -o -name '*.ih' -o -name '*.cc' -o -name '*.cci' -o -name '*.ct' -o -name '*.cti' -o -name '*.mpp' \) -print | xargs -r awk -F '//' '/BUG/{print ARGV[ARGIND] &quot;:&quot; FNR &quot;:&quot; $2}' &gt; BUGS
+find -name .svn -prune -o \( -name '*.hh' -o -name '*.ih' -o -name '*.cc' -o -name '*.cci' -o -name '*.ct' -o -name '*.cti' -o -name '*.mpp' \) -print | xargs -r awk -F '//' '/ FIXME/{print ARGV[ARGIND] &quot;:&quot; FNR &quot;:&quot; $2}' &gt; FIXMES
+g++ -Wall -Woverloaded-virtual -Wno-long-long -pedantic -ansi -O0 -g -fno-inline -I. -c -o Sniffer/Sniffer.o Sniffer/Sniffer.cc
+./Packets/typeidvalue.hh:70: warning: 'struct satcom::lib::TypeIdValue::Value' has virtual functions but non-virtual destructor
+./Packets/typeidvalue.hh: In instantiation of 'satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;':
+./Packets/typeidvalue.cci:33:   instantiated from here
+./Packets/typeidvalue.hh:76: warning: 'struct satcom::lib::TypeIdValue::ValueImpl&lt;void&gt;' has virtual functions but non-virtual destructor
+./Packets/PacketRegistry.ih:37: warning: 'struct satcom::pkf::impl::PkReg_Entry' has virtual functions but non-virtual destructor
+./Packets/PacketRegistry.ih: In instantiation of 'satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;':
+./Packets/PacketRegistry.ct:78:   instantiated from here
+./Packets/PacketRegistry.ih:46: warning: 'struct satcom::pkf::impl::PkReg_EntryImpl&lt;satcom::pkf::DataPacket&gt;' has virtual functions but non-virtual destructor
+ar r libPackets.a Packets/EthernetPacket.o Packets/RTCPPacket.o Packets/PacketRegistry.o Packets/DataPacket.o Packets/Packet.o Packets/RTPPacket.o Packets/IpV4Packet.o Packets/UDPPacket.o
+ranlib libPackets.a
+ar: creating libPackets.a
+ar: Packets/RTPPacket.o: No such file or directory
+scons: *** [libPackets.a] Error 1
+ar r libSocket.a Socket/BSDSocketProtocol.o Socket/INetProtocol.o Socket/PacketSocketHandle.o Socket/INetAddressing.o Socket/BufferingPolicy.o Socket/CommunicationPolicy.o Socket/SocketProtocol.o Socket/TCPSocketHandle.o Socket/GenericAddressingPolicy.o Socket/SocketHandle.o Socket/LLAddressing.o Socket/FileHandle.o Socket/ReadWritePolicy.o Socket/TCPProtocol.o
+ranlib libSocket.a
+ar: creating libSocket.a
+find -name .svn -prune -o \( -name '*.hh' -o -name '*.ih' -o -name '*.cc' -o -name '*.cci' -o -name '*.ct' -o -name '*.cti' -o -name '*.mpp' \) -print | xargs -r awk -F '//' '/TODO/{print ARGV[ARGIND] &quot;:&quot; FNR &quot;:&quot; $2}' &gt; TODOS
+ar r libScheduler.a Scheduler/Scheduler.o
+ranlib libScheduler.a
+ar: creating libScheduler.a
+scons: building terminated because of errors.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000001.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+	<LI>Next message: <A HREF="000003.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

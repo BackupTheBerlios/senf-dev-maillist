@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] IMPORTANT: senfscons renamed to site_scons
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20IMPORTANT%3A%20senfscons%20renamed%20to%20site_scons&In-Reply-To=%3C87ws4xwoe4.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000490.html">
+   <LINK REL="Next"  HREF="000492.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] IMPORTANT: senfscons renamed to site_scons</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20IMPORTANT%3A%20senfscons%20renamed%20to%20site_scons&In-Reply-To=%3C87ws4xwoe4.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] IMPORTANT: senfscons renamed to site_scons">g0dil at berlios.de
+       </A><BR>
+    <I>Fri Aug 21 10:40:35 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000490.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh
+</A></li>
+        <LI>Next message: <A HREF="000492.html">[Senf-dev] SENF directory structure cleanup
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#491">[ date ]</a>
+              <a href="thread.html#491">[ thread ]</a>
+              <a href="subject.html#491">[ subject ]</a>
+              <a href="author.html#491">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everyone,
+
+while refactoring the build system, I have renamed the 'senfscons'
+folder to 'site_scons', which is the SCons default name for such a
+project specific library folder. This folder is automatically added to
+the python search path when calling scons.
+
+Since external projects which use SENF load the 'senfutil' module from
+'senfscons' (now 'site_scons'), those external projects need to change
+their python path accordingly.
+
+SUMMARY --------------------------------------------------------------
+
+    Rename  
+
+        'senfscons' -&gt; 'site_scons' 
+
+    in all external Projects using SENF
+
+END SUMMARY ----------------------------------------------------------
+
+stefan.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 196 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20090821/3d2dbc1d/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20090821/3d2dbc1d/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000490.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh
+</A></li>
+	<LI>Next message: <A HREF="000492.html">[Senf-dev] SENF directory structure cleanup
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#491">[ date ]</a>
+              <a href="thread.html#491">[ thread ]</a>
+              <a href="subject.html#491">[ subject ]</a>
+              <a href="author.html#491">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

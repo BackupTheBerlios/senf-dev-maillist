@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] finalize() semantics
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C200806301601.56149.david.wagner%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000276.html">
+   <LINK REL="Next"  HREF="000278.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] finalize() semantics</H1>
+    <B>David Wagner</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C200806301601.56149.david.wagner%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] finalize() semantics">david.wagner at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Jun 30 16:01:56 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000276.html">[Senf-dev] finalize() semantics
+</A></li>
+        <LI>Next message: <A HREF="000278.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#277">[ date ]</a>
+              <a href="thread.html#277">[ thread ]</a>
+              <a href="subject.html#277">[ subject ]</a>
+              <a href="author.html#277">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> &gt;&gt; &gt;&gt; &gt; A2: wenn ich ein LLC-Header vor ein Ethernetpacket h&#228;nge,
+</I>&gt;<i> &gt;&gt; &gt;&gt; &gt; konstruiert senf _alle_ Parser, die er zu erkennen meint (hier Eth,
+</I>&gt;<i> &gt;&gt; &gt;&gt; &gt; IP, UDP, DTCP) und ruft f&#252;r alle finalize auf. Was im Falle einer
+</I>&gt;<i> &gt;&gt; &gt;&gt; &gt; korrekten Implemntierung nur Rechenzeit kostet. In diesem Fall aber
+</I>&gt;<i> &gt;&gt; &gt;&gt; &gt; zu unerkl&#228;rlichen Fehlern f&#252;hrt, weil ja eigentlich nie UDP
+</I>&gt;<i> &gt;&gt; &gt;&gt; &gt; angepackt, nicht mal gelesen wird.
+</I>&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;<i> &gt;&gt; &gt;&gt; Das Thema hatten wir schonmal. Dann m&#252;ssten wir &#252;berlegen, das API zu
+</I>&gt;<i> &gt;&gt; &gt;&gt; ver&#228;ndern. Ist allerdings nicht ganz so einfach, weil ja z.Bsp. die
+</I>&gt;<i> &gt;&gt; &gt;&gt; UDP checksum vom IP header abh&#228;ngt. Allgemeiner kann es also
+</I>&gt;<i> &gt;&gt; &gt;&gt; querabh&#228;ngigkeiten zwischen headern geben. Daher muss ich auch
+</I>&gt;<i> &gt;&gt; &gt;&gt; normalerweise alle header 'finalizen'.
+</I>&gt;<i> &gt;&gt; &gt;
+</I>&gt;<i> &gt;&gt; &gt; ne, seh ich nicht so. Du musst alle &quot;weiter au&#223;en liegenden&quot; header
+</I>&gt;<i> &gt;&gt; &gt; finalizen, aber sicher keine weiter innen liegenden: IP h&#228;ngt nciht
+</I>&gt;<i> &gt;&gt; &gt; von UDP ab, Eth nicht von IP usw. generell darf m.E. finalize keine
+</I>&gt;<i> &gt;&gt; &gt; weiter innen liegenden Parser erzeugen. Gegenbeispiele?
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Also erstens kann ich hier gerade dein 'innen' und 'au&#223;en' nicht
+</I>&gt;<i> &gt;&gt; nachvollziehen: Also IP ist doch weiter au&#223;en als UDP, Eth weiter
+</I>&gt;<i> &gt;&gt; au&#223;en als IP u.s.w.  Von daher h&#228;ngt nat&#252;rlich IP von UDP ab, weil es
+</I>&gt;<i> &gt;&gt; ja weiter au&#223;en liegt.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; n&#246;. Ich meine Abh&#228;ngigkeit eines finalize-Aufrufs nicht f&#252;r
+</I>&gt;<i> &gt; Interpretation.
+</I>&gt;<i>
+</I>&gt;<i> ?? Das habe ich jetzt nicht verstanden. Wenn du z.Bsp. den IP header
+</I>&gt;<i> &#228;nderst und dann NICHT udp.finalize aufrufst ist die UDP checksum
+</I>&gt;<i> einfach falsch ... egal ob der UDP Parser &#252;berhaupt schon existiert
+</I>&gt;<i> oder nicht. Noch bl&#246;der: Wenn du den Payload type des IP Pakets nicht
+</I>&gt;<i> kennst, dann weist du nichtmal genau, ob und was du da anpassen
+</I>&gt;<i> musst.
+</I>&gt;<i>
+</I>tja, da werden sich vermutlich die Geister wieder scheiden: ich finde, das ist 
+ok so. Wenn ich kaputte UDP Packete verschicken will, sollte ich das mit Senf 
+k&#246;nnen. Wenn ich das nicht will, muss ich selbst einen UDP-Parser (oder 
+generell einen next()-Parser erzeugen und dort finalize aufrufen (m&#246;gl. 
+rekursiv alle Parser erzeugen und im letzten finalize aufrufen). 
+Aber wie gesagt: da gibts sicher andere Meinungen. 
+
+&gt;<i> Wenn du auf der Ebene eines lower-layer Protokolls arbeitest, dann
+</I>&gt;<i> weist du ja nicht, was da an higher-layer Protokollen so kommt, das
+</I>&gt;<i> interessiert dich ja garnicht. Und wenn es da abh&#228;ngigkeiten gibt (wie
+</I>&gt;<i> eben z.Bsp. bei UDP) dann ist es schon ziemlich schwierig, wenn du das
+</I>&gt;<i> explizit abfragen musst.
+</I>generell hast Du da recht, das kann unangenehm werden. vielleicht brauchen wir 
+auch finalize() und finalizeAll() ??
+&gt;<i>
+</I>&gt;<i> &gt; Dass das innere als UDP interpretiert werden kann, h&#228;ngt an dem
+</I>&gt;<i> &gt; Protocol-feld von IP, ja, insofern h&#228;ngt das nat&#252;rlich davon ab. aber um
+</I>&gt;<i> &gt; den IP-Header zu vervollst&#228;ndigen (finalize) brauchst Du nicht den Inhalt
+</I>&gt;<i> &gt; als UDP zu parsen.
+</I>&gt;<i>
+</I>&gt;<i> Nat&#252;rlich nicht, aber wenn du den IP header &#228;nderst musst du unter
+</I>&gt;<i> umst&#228;nden auch UDP aktualisieren! Die Funktion von finalize() ist ja
+</I>&gt;<i> nicht 'mach diesen header richtig' sondern 'mach dieses Paket fertig
+</I>&gt;<i> f&#252;r den Versand' (was bedeutet, dieses Paket, nicht ein weiter drumrum
+</I>&gt;<i> liegendes, das wird garnicht angefasst, das k&#246;nnte man auch schon als
+</I>&gt;<i> eine Optimierung ansehen).
+</I>
+das geht so nicht aus der Doku hervor und ich pers&#246;nlich finds auch unlogisch. 
+s.o.
+
+&gt;<i>
+</I>&gt;<i> &gt; Beispiel:
+</I>&gt;<i> &gt; 1. Ich erzeuge ein upd-Packet, pack payload rein und setze Ports. Dann
+</I>&gt;<i> &gt; pack ich einen IP-Header davor und sende &#252;ber einen Rawsocket. Hier
+</I>&gt;<i> &gt; sollte (nat&#252;rlich?) beim Aufruf des finalize des &#228;u&#223;eren IP-Packets auch
+</I>&gt;<i> &gt; die UDP-Checksumme gesetzt werden.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 2. Unsere DVB-Software liest vom tap-Device Packete, die werden in LLC
+</I>&gt;<i> &gt; und MPEG-Sections verpackt. Dabei sollte die Payload aber nicht angepackt
+</I>&gt;<i> &gt; / geparst werden.
+</I>&gt;<i>
+</I>&gt;<i> Richtig. Aber das geht nicht so einfach. Es gibt ja noch einen Fall:
+</I>&gt;<i>
+</I>&gt;<i> 3. Du empf&#228;ngst ein IP Paket &#228;nderst die Ziel-IP und sendest das Paket
+</I>&gt;<i>    weiter. Jezt muss der UDP header aktualisiert werden obwohl nur in
+</I>&gt;<i>    IP was ge&#228;ndert wurde da die UDP checksum von der Zieladresse im IP
+</I>&gt;<i>    header abh&#228;ngt (krank aber wahr).
+</I>
+&quot;wer kranke Sachen macht, muss auch mehr denken&quot; w&#228;r in K&#252;rze meine Meinung 
+dazu. W&#228;r ja ohne Probleme mit dem finalize, was ich gern h&#228;tte / verstanden 
+hatte, zu machen.
+
+&gt;<i>
+</I>&gt;<i> Ganz prinzipiell gibts da soweit ich das verstehe ein paar
+</I>&gt;<i> M&#246;glichkeiten:
+</I>&gt;<i>
+</I>&gt;<i> a) Der user muss selber wissen, was er wann in welcher reihenfolge
+</I>&gt;<i>    finalized.
+</I>einfach, aber oft zu wenig
+&gt;<i>
+</I>&gt;<i> b) Es wird ein 'dirty' flag eingef&#252;hrt, das bei Ver&#228;nderungen eines
+</I>&gt;<i>    Pakets gesetzt wird (das ist &#252;berhaupt nicht trivial, dieses flag
+</I>&gt;<i>    zu verwalten). Zus&#228;tzlich muss ein Packet-Typ registrieren, wenn er
+</I>&gt;<i>    von anderen headern abh&#228;ngt. Ziemlich krank ...
+</I>naja, es w&#252;rde ja reichen &quot;abh&#228;ngkeit nach au&#223;en&quot; und &quot;abh&#228;ngigkeit nach 
+innen&quot; zu verwalten, richtig? und dann kann finalize aufh&#246;ren, sobald 
+next().dependsFromOuter == false
+wahrscheinlich br&#228;uchte man hier aber ne 3wertige logik: 
+ja/nein/wie-beim-vorg&#228;nger (bzw nachfolger) (ich denke da an 
+IPv6_Extension-Header) 
+
+&gt;<i>
+</I>&gt;<i> c) Es gibt verschiedene finalize aufrufe die entweder alles, nur einen
+</I>&gt;<i>    Header oder meinetwegen einen header-range aktualisieren.
+</I>wahrscheinlich oft genau was man will. und einfach. 
+&gt;<i>
+</I>&gt;<i> d) Eine semi-automatisierung/optimierung w&#228;re, das ein Paket
+</I>&gt;<i>    registrieren muss (statisch), wenn es von einem anderen weiter
+</I>&gt;<i>    vorne liegenden Header abh&#228;ngt (also in diesem Fall UDP von
+</I>&gt;<i>    IP). Dann wird in IP ein statisches flag gesetzt, das dort auch
+</I>&gt;<i>    weiter rein aktualisiert werden muss ... irgendwie sowas. Leider
+</I>&gt;<i>    k&#246;nnen da ja auch noch header zwischen IP und UDP kommen (IPv6
+</I>&gt;<i>    ...), das macht das ganze noch fieser.
+</I>da w&#228;re wohl b schon netter. 
+&gt;<i>
+</I>&gt;<i> e) Man kann nat&#252;rlich eine Art 'Einpack' wrapper Paket schreiben, das
+</I>&gt;<i>    einfach diese finalize()-kette unterbricht. Das ginge schon
+</I>&gt;<i>    irgendwie, ist in diesem speziellen Fall ja genau das gew&#252;nschte,
+</I>&gt;<i>    aber ist nat&#252;rlich nicht generisch.
+</I>das h&#246;rt sich f&#252;r meine Ohren nciht so an, als will man das 
+&gt;<i>
+</I>&gt;<i> Ein wirklich sch&#246;nes API f&#228;llt mir daf&#252;r jetzt so schnell nicht ein,
+</I>&gt;<i> dar&#252;ber m&#252;sste ich schon erstmal etwas gr&#252;beln.
+</I>ja, ich auch. Ist aber schon mal ne gute &#220;bersicht. 
+
+&gt;<i>
+</I>&gt;<i> Wie gesagt, das Problem ist mir sehr bewusst, ich will ja wirklich
+</I>&gt;<i> nicht mehr daten anfassen als notwendig (da gabs ja schonmal Probleme,
+</I>&gt;<i> hab die Details aber vergessen). Aber ich sehe im Moment keine
+</I>&gt;<i> realisitische automatische L&#246;sung, von daher w&#228;re c) der wohl einzig
+</I>&gt;<i> gangbare weg. Andererseits ist das ganze bei korrekter Implementierung
+</I>&gt;<i> der Pakettypen eine reine Performanceoptimierung und wie ich das bis
+</I>&gt;<i> jetzt verstanden habe ist das noch kein Thema. Da habe ich noch einige
+</I>&gt;<i> Punkte wo wir deutlich Performance rausholen k&#246;nnen aber wir haben uns
+</I>&gt;<i> bis jetzt immer f&#252;r die einfache aber mglw langsamere L&#246;sung
+</I>&gt;<i> entschieden und die Optimierung auf die lange Bank geschoben (was ja
+</I>&gt;<i> auch richtig ist).
+</I>Ich wei&#223; ehrlich gesagt nicht, wie oft bei uns finalize in der PPI-Kette 
+aufgerufen wird. Und alle Checksummen auf allen Layers neu zu berechnen ist 
+sicher nicht umsonst. 
+&gt;<i>
+</I>&gt;<i> Stefan.
+</I>hmm, ich tendier eher zu b aber ich brauch auch noch was Denk-Zeit. 
+
+Andere Ideen / Meinungen?
+
+Gru&#223;
+David 
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000276.html">[Senf-dev] finalize() semantics
+</A></li>
+	<LI>Next message: <A HREF="000278.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#277">[ date ]</a>
+              <a href="thread.html#277">[ thread ]</a>
+              <a href="subject.html#277">[ subject ]</a>
+              <a href="author.html#277">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

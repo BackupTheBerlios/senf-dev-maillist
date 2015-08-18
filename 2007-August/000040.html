@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] SENF Makefile
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20SENF%20Makefile&In-Reply-To=%3C46D4254D.9020309%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000039.html">
+   <LINK REL="Next"  HREF="000041.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] SENF Makefile</H1>
+    <B>Joachim Kaeber</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20SENF%20Makefile&In-Reply-To=%3C46D4254D.9020309%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] SENF Makefile">joachim.kaeber at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Aug 28 15:38:21 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000039.html">[Senf-dev] SENF Makefile
+</A></li>
+        <LI>Next message: <A HREF="000041.html">[Senf-dev] SENF Makefile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Stefan,
+
+Stefan Bund schrieb:
+&gt;<i> I have just debianized the library completely. Am just checking, that
+</I>&gt;<i> everything is working to commit into the repository. I build 5 debian
+</I>&gt;<i> packages:
+</I>&gt;<i>    
+</I>&gt;<i>    libsenf-doc
+</I>&gt;<i>    libsenf-ppi-dev
+</I>&gt;<i>    libsenf-packets-dev
+</I>&gt;<i>    libsenf-scheduler-dev
+</I>&gt;<i>    libsenf-socket-dev
+</I>&gt;<i>    libsenf-utils-dev
+</I>&gt;<i> 
+</I>&gt;<i> with correct dependencies. They install the includes to /usr/include,
+</I>&gt;<i> the libraries to /usr/lib. 
+</I>
+1. Do you think it would hurt somone who only needs, say: the packet and the
+   socket library, if we always install the framework as a whole?`
+
+2. Doesn't &quot;/usr/lib/libUtils.a&quot; or &quot;/usr/lib/libSocket.a&quot; ask for a name
+   clash sooner or later? I still would prefer installing all libs under
+   /usr/lib/senf.
+
+Viele Gr&#252;&#223;e
+Achim.
+
+-- 
+Joachim Kaeber
+Fraunhofer FOKUS.NET
+Schloss Birlinghoven
+D-53754 Sankt Augustin
+
+phone: +49 2241 14-2546   fax: 14-1050
+email: <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">joachim.kaeber at fokus.fraunhofer.de</A>
+web:   <A HREF="http://www.fokus.fraunhofer.de/satcom">http://www.fokus.fraunhofer.de/satcom</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000039.html">[Senf-dev] SENF Makefile
+</A></li>
+	<LI>Next message: <A HREF="000041.html">[Senf-dev] SENF Makefile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

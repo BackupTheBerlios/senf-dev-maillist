@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/bin/build.sh&In-Reply-To=%3C20090804003508.4FF3C480FCC0%40satcom.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000478.html">
+   <LINK REL="Next"  HREF="000480.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh</H1>
+    <B>Cron Daemon</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/bin/build.sh&In-Reply-To=%3C20090804003508.4FF3C480FCC0%40satcom.fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh">root at satcom.fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Aug  4 02:35:08 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000478.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/dump.sh
+</A></li>
+        <LI>Next message: <A HREF="000480.html">[Senf-dev] Cron &lt;senf at lakai&gt; /home/senf/bin/build.sh -c
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#479">[ date ]</a>
+              <a href="thread.html#479">[ thread ]</a>
+              <a href="subject.html#479">[ subject ]</a>
+              <a href="author.html#479">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE># Starting build at Tue Aug  4 00:34:01 UTC 2009
+$ svn update
+At revision 1282.
+$ nice scons -kj2 all 
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+Socket/Protocols/INet/.test.bin --build_info=yes --log_level=test_suite
+Running 15 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;tcpv4ClientSocketHandle&quot;
+PPI/.test.bin --build_info=yes --log_level=test_suite
+Running 52 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;rateAnalyzer&quot;
+PPI/RateAnalyzer.test.cc(96): error in &quot;rateAnalyzer&quot;: difference between pps{17.7777767} and 16.67f{16.6700001} exceeds 0.1%
+PPI/RateAnalyzer.test.cc(97): error in &quot;rateAnalyzer&quot;: difference between bps{231.111099} and 216.67f{216.669998} exceeds 0.1%
+Leaving test case &quot;rateAnalyzer&quot;; testing time: 650ms
+Entering test case &quot;rateFilter&quot;
+Leaving test case &quot;rateFilter&quot;; testing time: 120ms
+Entering test case &quot;rateFilter_changeInterval&quot;
+Leaving test case &quot;tcpv4ClientSocketHandle&quot;; testing time: 10ms
+Entering test case &quot;tcpv6ClientSocketHandle&quot;
+Leaving test case &quot;rateFilter_changeInterval&quot;; testing time: 180ms
+Entering test case &quot;throttleBarrier&quot;
+Leaving test case &quot;throttleBarrier&quot;; testing time: 20ms
+Entering test case &quot;multiConnectorMixin_userContainer&quot;
+Leaving test case &quot;multiConnectorMixin_userContainer&quot;; testing time: 30ms
+Entering test case &quot;annotationRouter&quot;
+Leaving test case &quot;annotationRouter&quot;; testing time: 40ms
+Entering test case &quot;moduleManager&quot;
+Leaving test case &quot;moduleManager&quot;
+Entering test case &quot;cloneSource&quot;
+Leaving test case &quot;cloneSource&quot;; testing time: 20ms
+Entering test case &quot;passiveQueue&quot;
+Leaving test case &quot;passiveQueue&quot;; testing time: 20ms
+Entering test case &quot;connector&quot;
+Leaving test case &quot;connector&quot;; testing time: 20ms
+Entering test case &quot;passiveConnector&quot;
+Leaving test case &quot;passiveConnector&quot;; testing time: 30ms
+Entering test case &quot;activeConnector&quot;
+Leaving test case &quot;activeConnector&quot;; testing time: 20ms
+Entering test case &quot;inputConnector&quot;
+Leaving test case &quot;inputConnector&quot;; testing time: 20ms
+Entering test case &quot;outputConnector&quot;
+Leaving test case &quot;outputConnector&quot;; testing time: 20ms
+Entering test case &quot;passiveInput&quot;
+Leaving test case &quot;passiveInput&quot;; testing time: 20ms
+Entering test case &quot;passiveOutput&quot;
+Leaving test case &quot;passiveOutput&quot;; testing time: 20ms
+Entering test case &quot;activeInput&quot;
+Leaving test case &quot;activeInput&quot;; testing time: 20ms
+Entering test case &quot;activeOutput&quot;
+Leaving test case &quot;activeOutput&quot;; testing time: 20ms
+Entering test case &quot;typedInput&quot;
+Leaving test case &quot;typedInput&quot;; testing time: 20ms
+Entering test case &quot;tyepdOutput&quot;
+Leaving test case &quot;tyepdOutput&quot;; testing time: 20ms
+Entering test case &quot;connectorTest&quot;
+Leaving test case &quot;connectorTest&quot;; testing time: 160ms
+Entering test case &quot;delayedConnect&quot;
+Leaving test case &quot;delayedConnect&quot;; testing time: 160ms
+Entering test case &quot;disconnect&quot;
+Leaving test case &quot;disconnect&quot;; testing time: 80ms
+Entering test case &quot;activeDuplicator&quot;
+Leaving test case &quot;activeDuplicator&quot;; testing time: 20ms
+Entering test case &quot;jacks&quot;
+Leaving test case &quot;jacks&quot;; testing time: 80ms
+Entering test case &quot;eventManager&quot;
+Leaving test case &quot;eventManager&quot;
+Entering test case &quot;passiveJoin&quot;
+Leaving test case &quot;passiveJoin&quot;; testing time: 20ms
+Entering test case &quot;priorityJoin&quot;
+Leaving test case &quot;priorityJoin&quot;; testing time: 50ms
+Entering test case &quot;discardSink&quot;
+Leaving test case &quot;discardSink&quot;; testing time: 20ms
+Entering test case &quot;socketSource&quot;
+Leaving test case &quot;socketSource&quot;; testing time: 50ms
+Entering test case &quot;monitorModulePassthrough&quot;
+Leaving test case &quot;monitorModulePassthrough&quot;; testing time: 20ms
+Entering test case &quot;monitorModuleNoPassthrough&quot;
+Leaving test case &quot;monitorModuleNoPassthrough&quot;; testing time: 20ms
+Entering test case &quot;monitorModuleDynamicConnect&quot;
+Leaving test case &quot;monitorModuleDynamicConnect&quot;; testing time: 60ms
+Entering test case &quot;setup&quot;
+Leaving test case &quot;setup&quot;
+Entering test case &quot;debugEvent&quot;
+Leaving test case &quot;debugEvent&quot;
+Entering test case &quot;activeFeeder&quot;
+Leaving test case &quot;tcpv6ClientSocketHandle&quot;; testing time: 20ms
+Entering test case &quot;tcpv4ServerSocketHandle&quot;
+Leaving test case &quot;tcpv4ServerSocketHandle&quot;
+Entering test case &quot;tcpv6ServerSocketHandle&quot;
+Leaving test case &quot;tcpv6ServerSocketHandle&quot;
+Entering test case &quot;inet4SocketAddress&quot;
+Leaving test case &quot;inet4SocketAddress&quot;; testing time: 10ms
+Entering test case &quot;inet6SocketAddress&quot;
+
+Exception at
+    senf::ExceptionMixin::addBacktrace() + 0x20
+        in Socket/Protocols/INet/.test.bin [0x813e32a]
+    senf::ExceptionMixin::ExceptionMixin(std::string const&amp;) + 0x24
+        in Socket/Protocols/INet/.test.bin [0x80baf7e]
+    senf::Exception::Exception(std::string const&amp;) + 0x1b
+        in Socket/Protocols/INet/.test.bin [0x80bafc1]
+    senf::AddressException::AddressException(std::string const&amp;) + 0x18
+        in Socket/Protocols/INet/.test.bin [0x80c54c2]
+    senf::UnknownHostnameException::UnknownHostnameException(std::string const&amp;) + 0x53
+        in Socket/Protocols/INet/.test.bin [0x80c5653]
+    senf::INet6Address::from_string(std::string const&amp;, senf::INet6Address::Resolve_t) + 0x20a
+        in Socket/Protocols/INet/.test.bin [0x80c62fc]
+    senf::INet6SocketAddress::INet6SocketAddress(std::string const&amp;, senf::INet6Address::Resolve_t) + 0x2dd
+        in Socket/Protocols/INet/.test.bin [0x80c7f81]
+    inet6SocketAddress::test_method() + 0x1891
+        in Socket/Protocols/INet/.test.bin [0x8101fab]
+    Socket/Protocols/INet/.test.bin [0x81066cb]
+    boost::unit_test::ut_detail::unused boost::unit_test::ut_detail::invoker&lt;boost::unit_test::ut_detail::unused&gt;::invoke&lt;void (*)()&gt;(void (*&amp;)()) + 0xd
+        in Socket/Protocols/INet/.test.bin [0x80d4569]
+    boost::unit_test::ut_detail::callback0_impl_t&lt;boost::unit_test::ut_detail::unused, void (*)()&gt;::invoke() + 0x23
+        in Socket/Protocols/INet/.test.bin [0x80d4593]
+    Socket/Protocols/INet/.test.bin [0x812910d]
+    boost::execution_monitor::catch_signals(boost::unit_test::callback0&lt;int&gt; const&amp;, bool, int) + 0x97
+        in Socket/Protocols/INet/.test.bin [0x8132367]
+    boost::execution_monitor::execute(boost::unit_test::callback0&lt;int&gt; const&amp;, bool, int) + 0x295
+        in Socket/Protocols/INet/.test.bin [0x81326c5]
+    boost::unit_test::unit_test_monitor_t::execute_and_translate(boost::unit_test::test_case const&amp;) + 0x94
+        in Socket/Protocols/INet/.test.bin [0x81291f4]
+    boost::unit_test::framework_impl::visit(boost::unit_test::test_case const&amp;) + 0xad
+        in Socket/Protocols/INet/.test.bin [0x811e1ad]
+    boost::unit_test::traverse_test_tree(boost::unit_test::test_suite const&amp;, boost::unit_test::test_tree_visitor&amp;) + 0x60
+        in Socket/Protocols/INet/.test.bin [0x812f580]
+    boost::unit_test::framework::run(unsigned long, bool) + 0x46c
+        in Socket/Protocols/INet/.test.bin [0x811cbfc]
+    boost::unit_test::unit_test_main(int, char**) + 0x2d
+        in Socket/Protocols/INet/.test.bin [0x8128ebd]
+    main + 0x22
+        in Socket/Protocols/INet/.test.bin [0x81290a2]
+    __libc_start_main + 0xe0
+        in /lib/tls/i686/cmov/libc.so.6 [0xb7c04450]
+    __gxx_personality_v0 + 0x391
+        in Socket/Protocols/INet/.test.bin [0x80b80d1]
+-- 
+Failed to resolve hostname (&quot;www.6bone.net&quot;)
+Socket/Protocols/INet/INetAddressing.test.cc(118): error in &quot;inet6SocketAddress&quot;: exception thrown by try { INet6SocketAddress(&quot;www.6bone.net:80&quot;) ; } catch (std::exception &amp; e) { std::cerr &lt;&lt; e.what() &lt;&lt; std::endl; throw; }
+Leaving test case &quot;inet6SocketAddress&quot;; testing time: 10ms
+Entering test case &quot;multicastSocketProtocol&quot;
+Leaving test case &quot;multicastSocketProtocol&quot;; testing time: 10ms
+Entering test case &quot;RawV4ClientSocketHandle&quot;
+Socket/Protocols/INet/RawINetSocketHandle.test.cc(143): warning in &quot;RawV4ClientSocketHandle&quot;: Cannot test senf::RawV4SocketHandle as non-root user
+Leaving test case &quot;RawV4ClientSocketHandle&quot;
+Entering test case &quot;RawV6ClientSocketHandle&quot;
+Socket/Protocols/INet/RawINetSocketHandle.test.cc(172): warning in &quot;RawV6ClientSocketHandle&quot;: Cannot test senf::RawV6SocketHandle as non-root user
+Leaving test case &quot;RawV6ClientSocketHandle&quot;
+Entering test case &quot;inet6Address&quot;
+unknown location(0): fatal error in &quot;inet6Address&quot;: std::exception: 
+Exception at
+    senf::ExceptionMixin::addBacktrace() + 0x20
+        in Socket/Protocols/INet/.test.bin [0x813e32a]
+    senf::ExceptionMixin::ExceptionMixin(std::string const&amp;) + 0x24
+        in Socket/Protocols/INet/.test.bin [0x80baf7e]
+    senf::Exception::Exception(std::string const&amp;) + 0x1b
+        in Socket/Protocols/INet/.test.bin [0x80bafc1]
+    senf::AddressException::AddressException(std::string const&amp;) + 0x18
+        in Socket/Protocols/INet/.test.bin [0x80c54c2]
+    senf::Unkno
+Socket/Protocols/INet/INet6Address.test.cc(64): last checkpoint
+Leaving test case &quot;inet6Address&quot;
+Entering test case &quot;inet6Network&quot;
+Leaving test case &quot;inet6Network&quot;; testing time: 10ms
+Entering test case &quot;inet4Address&quot;
+Leaving test case &quot;inet4Address&quot;
+Entering test case &quot;inet4Network&quot;
+Leaving test case &quot;inet4Network&quot;; testing time: 10ms
+Entering test case &quot;udpv4ClientSocketHandle&quot;
+ActiveFeeder: 61.7958 packets/s
+Leaving test case &quot;activeFeeder&quot;; testing time: 8120ms
+Entering test case &quot;debugModules&quot;
+Leaving test case &quot;debugModules&quot;; testing time: 20ms
+Entering test case &quot;activeFeederSource&quot;
+Leaving test case &quot;activeFeederSource&quot;; testing time: 20ms
+Entering test case &quot;activeFeederSink&quot;
+Leaving test case &quot;activeFeederSink&quot;; testing time: 30ms
+Entering test case &quot;logSink&quot;
+Leaving test case &quot;logSink&quot;; testing time: 20ms
+Entering test case &quot;passiveSocketSink&quot;
+Leaving test case &quot;passiveSocketSink&quot;; testing time: 20ms
+Entering test case &quot;activeSocketSink&quot;
+Leaving test case &quot;udpv4ClientSocketHandle&quot;
+Entering test case &quot;testMain&quot;
+Leaving test case &quot;testMain&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** 2 failures detected in test suite &quot;Master Test Suite&quot;
+scons: *** [Socket/Protocols/INet/.test.stamp] Error 201
+Leaving test case &quot;activeSocketSink&quot;; testing time: 20ms
+Entering test case &quot;ioEvent&quot;
+Leaving test case &quot;ioEvent&quot;
+Entering test case &quot;module&quot;
+Leaving test case &quot;module&quot;
+Entering test case &quot;delayedInit&quot;
+Leaving test case &quot;delayedInit&quot;; testing time: 40ms
+Entering test case &quot;events&quot;
+Leaving test case &quot;events&quot;
+Entering test case &quot;route&quot;
+Leaving test case &quot;route&quot;
+Entering test case &quot;connect_runtime&quot;
+Leaving test case &quot;connect_runtime&quot;; testing time: 550ms
+Entering test case &quot;testMain&quot;
+Leaving test case &quot;testMain&quot;
+Entering test case &quot;intervalTimer&quot;
+Leaving test case &quot;intervalTimer&quot;; testing time: 40ms
+Entering test case &quot;idleEvent&quot;
+Leaving test case &quot;idleEvent&quot;
+Entering test case &quot;thresholdQueueing&quot;
+Leaving test case &quot;thresholdQueueing&quot;; testing time: 10ms
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** 2 failures detected in test suite &quot;Master Test Suite&quot;
+scons: *** [PPI/.test.stamp] Error 201
+test -s Socket/doc/xml/bug.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/bug.xmli --stringparam module Socket --stringparam type bug senfscons/xrefxtract.xslt Socket/doc/xml/bug.xml || touch Socket/doc/xml/bug.xmli
+test -s Socket/doc/xml/fixme.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/fixme.xmli --stringparam module Socket --stringparam type fixme senfscons/xrefxtract.xslt Socket/doc/xml/fixme.xml || touch Socket/doc/xml/fixme.xmli
+test -s Socket/doc/xml/todo.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/todo.xmli --stringparam module Socket --stringparam type todo senfscons/xrefxtract.xslt Socket/doc/xml/todo.xml || touch Socket/doc/xml/todo.xmli
+test -s Socket/doc/xml/idea.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/idea.xmli --stringparam module Socket --stringparam type idea senfscons/xrefxtract.xslt Socket/doc/xml/idea.xml || touch Socket/doc/xml/idea.xmli
+echo '&lt;?xml version=&quot;1.0&quot;?&gt;' &gt; doc/html/xref.xml
+echo '&lt;xref&gt;' &gt;&gt; doc/html/xref.xml
+cat HowTos/NewPacket/doc/xml/bug.xmli HowTos/NewPacket/doc/xml/fixme.xmli HowTos/NewPacket/doc/xml/todo.xmli HowTos/NewPacket/doc/xml/idea.xmli HowTos/doc/xml/bug.xmli HowTos/doc/xml/fixme.xmli HowTos/doc/xml/todo.xmli HowTos/doc/xml/idea.xmli Socket/doc/xml/bug.xmli Socket/doc/xml/fixme.xmli Socket/doc/xml/todo.xmli Socket/doc/xml/idea.xmli PPI/doc/xml/bug.xmli PPI/doc/xml/fixme.xmli PPI/doc/xml/todo.xmli PPI/doc/xml/idea.xmli Packets/doc/xml/bug.xmli Packets/doc/xml/fixme.xmli Packets/doc/xml/todo.xmli Packets/doc/xml/idea.xmli Utils/doc/xml/bug.xmli Utils/doc/xml/fixme.xmli Utils/doc/xml/todo.xmli Utils/doc/xml/idea.xmli Utils/Console/doc/xml/bug.xmli Utils/Console/doc/xml/fixme.xmli Utils/Console/doc/xml/todo.xmli Utils/Console/doc/xml/idea.xmli Utils/Daemon/doc/xml/bug.xmli Utils/Daemon/doc/xml/fixme.xmli Utils/Daemon/doc/xml/todo.xmli Utils/Daemon/doc/xml/idea.xmli Utils/Logger/doc/xml/bug.xmli Utils/Logger/doc/xml/fixme.xmli Utils/Logger/doc/xml/todo.xmli Utils/Logger/
+ doc/xml/idea.xmli Utils/Termlib/doc/xml/bug.xmli Utils/Termlib/doc/xml/fixme.xmli Utils/Termlib/doc/xml/todo.xmli Utils/Termlib/doc/xml/idea.xmli senfscons/doc/xml/bug.xmli senfscons/doc/xml/fixme.xmli senfscons/doc/xml/todo.xmli senfscons/doc/xml/idea.xmli Scheduler/doc/xml/bug.xmli Scheduler/doc/xml/fixme.xmli Scheduler/doc/xml/todo.xmli Scheduler/doc/xml/idea.xmli Examples/RateStuffer/doc/xml/bug.xmli Examples/RateStuffer/doc/xml/fixme.xmli Examples/RateStuffer/doc/xml/todo.xmli Examples/RateStuffer/doc/xml/idea.xmli Examples/Sniffer/doc/xml/bug.xmli Examples/Sniffer/doc/xml/fixme.xmli Examples/Sniffer/doc/xml/todo.xmli Examples/Sniffer/doc/xml/idea.xmli Examples/UDPClientServer/doc/xml/bug.xmli Examples/UDPClientServer/doc/xml/fixme.xmli Examples/UDPClientServer/doc/xml/todo.xmli Examples/UDPClientServer/doc/xml/idea.xmli Examples/doc/xml/bug.xmli Examples/doc/xml/fixme.xmli Examples/doc/xml/todo.xmli Examples/doc/xml/idea.xmli &gt;&gt; doc/html/xref.xml
+echo '&lt;/xref&gt;' &gt;&gt; doc/html/xref.xml
+sed -e 's/\$title/Cross-reference of action points/g' -e 's/\$projectname/Overview/g' doclib/doxy-header.html &gt; doc/html/xref.html
+xsltproc --stringparam title 'Cross-reference of action points' --stringparam types 'bug fixme todo idea' senfscons/xrefhtml.xslt doc/html/xref.xml &gt;&gt; doc/html/xref.html
+sed -e 's/\$title/Cross-reference of action points/g' -e 's/\$projectname/Overview/g' doclib/doxy-footer.html &gt;&gt; doc/html/xref.html
+xsltproc -o doc/html/xref.html.tmp --nonet --html --stringparam topdir ../.. doclib/html-munge.xsl doc/html/xref.html 2&gt;/dev/null
+mv doc/html/xref.html.tmp doc/html/xref.html
+scons: done building targets (errors occurred during build).
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000478.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/dump.sh
+</A></li>
+	<LI>Next message: <A HREF="000480.html">[Senf-dev] Cron &lt;senf at lakai&gt; /home/senf/bin/build.sh -c
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#479">[ date ]</a>
+              <a href="thread.html#479">[ thread ]</a>
+              <a href="subject.html#479">[ subject ]</a>
+              <a href="author.html#479">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

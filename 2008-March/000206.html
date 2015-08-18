@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] PPI Connector type checking
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20PPI%20Connector%20type%20checking&In-Reply-To=%3C87k5k8f9um.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000205.html">
+   <LINK REL="Next"  HREF="000207.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] PPI Connector type checking</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20PPI%20Connector%20type%20checking&In-Reply-To=%3C87k5k8f9um.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] PPI Connector type checking">g0dil at berlios.de
+       </A><BR>
+    <I>Wed Mar 12 12:41:21 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000205.html">[Senf-dev] PPI Connector type checking
+</A></li>
+        <LI>Next message: <A HREF="000207.html">[Senf-dev] PPI Connector type checking
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#206">[ date ]</a>
+              <a href="thread.html#206">[ thread ]</a>
+              <a href="subject.html#206">[ subject ]</a>
+              <a href="author.html#206">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thorsten Horstmann &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">thorsten.horstmann at fokus.fraunhofer.de</A>&gt; writes:
+&gt;<i> Hi Stefan,
+</I>&gt;<i>
+</I>&gt;<i> I've read your &quot;PPI Connector type checking&quot; outline on 
+</I>&gt;<i> <A HREF="http://openfacts2.berlios.de/wikien/index.php/BerliosProject:SENF_Network_Framework_-_Design_Documents">http://openfacts2.berlios.de/wikien/index.php/BerliosProject:SENF_Network_Framework_-_Design_Documents</A>
+</I>&gt;<i> One question: do you consider inheritance for the type checking 
+</I>&gt;<i> restrictions?
+</I>&gt;<i> I think about the following scenario: a PacketType MPESection inherits 
+</I>&gt;<i> from PSISection and a output-connector is specified as a 
+</I>&gt;<i> PSISection-connector. Now it should be possible to write 
+</I>&gt;<i> MPESection-Packets through this connector.
+</I>
+Sending is not a problem. The problem arises when trying to connect an
+output-connecter with a packet type MPESection to a PSISection
+input. This should be possible but at the moment it fails.
+
+As for runtime checking, I don't think this can be solved, the type
+introspection facilities of C++ are too restricted .. but wait ... hmm
+...... hmmmmmm ..  I will ponder this :-)
+
+stefan.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 188 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20080312/c9bcaf0f/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20080312/c9bcaf0f/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000205.html">[Senf-dev] PPI Connector type checking
+</A></li>
+	<LI>Next message: <A HREF="000207.html">[Senf-dev] PPI Connector type checking
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#206">[ date ]</a>
+              <a href="thread.html#206">[ thread ]</a>
+              <a href="subject.html#206">[ subject ]</a>
+              <a href="author.html#206">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

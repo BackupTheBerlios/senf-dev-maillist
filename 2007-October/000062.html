@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/build.sh&In-Reply-To=%3C20071011003430.8702948118A5%40satcom.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000061.html">
+   <LINK REL="Next"  HREF="000063.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh</H1>
+    <B>Cron Daemon</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/build.sh&In-Reply-To=%3C20071011003430.8702948118A5%40satcom.fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh">root at satcom.fokus.fraunhofer.de
+       </A><BR>
+    <I>Thu Oct 11 02:34:30 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000061.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh -c
+</A></li>
+        <LI>Next message: <A HREF="000063.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh -c
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#62">[ date ]</a>
+              <a href="thread.html#62">[ thread ]</a>
+              <a href="subject.html#62">[ subject ]</a>
+              <a href="author.html#62">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE># Starting build at Thu Oct 11 00:34:01 UTC 2007
+$ svn update
+U    Socket/Protocols/SConscript
+U    PPI/DebugModules.test.cc
+U    PPI/DebugModules.cti
+U    PPI/DebugModules.hh
+U    doclib/SConscript
+D    Utils/Logger.test.cc
+U    Utils/Mainpage.dox
+U    Utils/Logger.hh
+A    Utils/Logger
+A    Utils/Logger/Log.hh
+A    Utils/Logger/Log.test.cc
+A    Utils/Logger/Doxyfile
+A    Utils/Logger/main.test.cc
+A    Utils/Logger/SConscript
+A    Utils/Logger/Levels.hh
+A    Utils/Logger/Stream.hh
+A    Utils/Logger/Levels.ih
+A    Utils/Logger/Stream.ih
+A    Utils/Logger/Parameters.hh
+A    Utils/Logger/Parameters.ih
+A    Utils/Logger/Config.hh
+A    Utils/Logger/Config.ih
+A    Utils/Logger/Defaults.hh
+A    Utils/Logger/Area.hh
+A    Utils/Logger/Area.ih
+A    Utils/Logger/Mainpage.dox
+A    Utils/Logger/Logger.hh
+U    Utils/SConscript
+U    senf.dict
+Updated to revision 458.
+$ rm -f doc/html/html.stamp
+$ scons -k all
+scons: Reading SConscript files ...
+IndexError: list index out of range:
+  File &quot;SConstruct&quot;, line 134:
+    SConscript(glob.glob(&quot;*/SConscript&quot;))
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Script/SConscript.py&quot;, line 581:
+    return apply(method, args, kw)
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Script/SConscript.py&quot;, line 508:
+    return apply(_SConscript, [self.fs,] + files, {'exports' : exports})
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Script/SConscript.py&quot;, line 239:
+    exec _file_ in stack[-1].globals
+  File &quot;Utils/SConscript&quot;, line 19:
+    sources = objects)
+  File &quot;senfscons/SENFSCons.py&quot;, line 588:
+    objects = Objects(env,sources,testSources,LIBS=LIBS,OBJECTS=OBJECTS)
+  File &quot;senfscons/SENFSCons.py&quot;, line 328:
+    objects = env.Object([
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Environment.py&quot;, line 149:
+    return apply(self.builder, (self.env,) + args, kw)
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Builder.py&quot;, line 557:
+    return self._execute(env, target, source, OverrideWarner(kw))
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Builder.py&quot;, line 721:
+    return BuilderBase._execute(self, env, target, final_sources, overwarn)
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Builder.py&quot;, line 546:
+    tlist, slist = self._create_nodes(env, overwarn, target, source)
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Builder.py&quot;, line 489:
+    t_from_s = slist[0].target_from_source
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000061.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh -c
+</A></li>
+	<LI>Next message: <A HREF="000063.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh -c
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#62">[ date ]</a>
+              <a href="thread.html#62">[ thread ]</a>
+              <a href="subject.html#62">[ subject ]</a>
+              <a href="author.html#62">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

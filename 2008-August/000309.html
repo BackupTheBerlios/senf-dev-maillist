@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #14095] more flexible finalize needed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314095%5D%20more%20flexible%20finalize%20needed&In-Reply-To=%3C200808201320.m7KDKme0005062%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000308.html">
+   <LINK REL="Next"  HREF="000310.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #14095] more flexible finalize needed</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314095%5D%20more%20flexible%20finalize%20needed&In-Reply-To=%3C200808201320.m7KDKme0005062%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #14095] more flexible finalize needed">admin at berlios.de
+       </A><BR>
+    <I>Wed Aug 20 15:20:48 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000308.html">[Senf-dev] [Bug #14365] linker error undefined reference	senf::SystemException::init
+</A></li>
+        <LI>Next message: <A HREF="000310.html">[Senf-dev] [Bug #13579] cannot build senf under ubuntu 8.04
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#309">[ date ]</a>
+              <a href="thread.html#309">[ thread ]</a>
+              <a href="subject.html#309">[ subject ]</a>
+              <a href="author.html#309">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #14095, was updated on 2008-Jun-26 13:39
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: libPackets
+Status: Open
+Resolution: None
+Bug Group: defect
+Priority: 7
+Submitted by: dw6
+Assigned to : g0dil
+Summary: more flexible finalize needed
+
+Details: when calling finalize only instantiated parsers should be recursively called but not more! This just consumes a lot of computing power and time and restricts flexibility a lot. 
+
+Follow-Ups:
+
+Date: 2008-Jul-08 13:15
+By: tho
+
+Comment:
+so far we an agreement that we need at least 2 finalize methods:
+- finalizeAllPackets()  // this is the current implementation of finalize()
+and
+- finalizeThisPacket()  // no recursive finalization
+
+More discussion is needed.
+-------------------------------------------------------
+
+Date: 2008-Jun-27 11:45
+By: tho
+
+Comment:
+the following code illustrates the problem:
+
+#include &lt;senf/Packets/DefaultBundle/EthernetPacket.hh&gt;
+#include &lt;senf/Packets/DefaultBundle/IPv4Packet.hh&gt;
+#include &lt;senf/Packets/DefaultBundle/UDPPacket.hh&gt;
+
+int main(int argc, char const * argv[])
+{
+    // why do I need this?!?
+    senf::UDPPacket udp (senf::UDPPacket::create());
+    
+    unsigned char data[] = { 0x45, 0x00, 0x00, 0x26, 0x00, 0x00, 0x40, 0x00,
+                             0x40, 0x11, 0x3c, 0xc5, 0x7f, 0x00, 0x00, 0x01,
+                             0x7f, 0x00, 0x00, 0x01, 0x5b, 0xa0, 0x30, 0x39,
+                             0x00, 0x12, 0xfa, 0x6e, 0x54, 0x45, 0x53, 0x54,
+                             0x2d, 0x57, 0x52, 0x49, 0x54, 0x45 };
+    senf::IPv4Packet ip (senf::IPv4Packet::create(data));
+    senf::EthernetPacket eth (senf::EthernetPacket::createBefore(ip));
+    eth.finalize();
+}
+
+here we have an IPv4-Packet with an UDP-Packet inside. UDPPacketType::finalize() will be called on eth.finalize();
+
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14095&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14095&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000308.html">[Senf-dev] [Bug #14365] linker error undefined reference	senf::SystemException::init
+</A></li>
+	<LI>Next message: <A HREF="000310.html">[Senf-dev] [Bug #13579] cannot build senf under ubuntu 8.04
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#309">[ date ]</a>
+              <a href="thread.html#309">[ thread ]</a>
+              <a href="subject.html#309">[ subject ]</a>
+              <a href="author.html#309">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

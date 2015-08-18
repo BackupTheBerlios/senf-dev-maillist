@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] renaming of Socket/Protocols/Raw to	Sockets/Protocols/L2 ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20renaming%20of%20Socket/Protocols/Raw%20to%0A%09Sockets/Protocols/L2%20%3F&In-Reply-To=%3C200807091201.06469.david.wagner%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000297.html">
+   <LINK REL="Next"  HREF="000298.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] renaming of Socket/Protocols/Raw to	Sockets/Protocols/L2 ?</H1>
+    <B>David Wagner</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20renaming%20of%20Socket/Protocols/Raw%20to%0A%09Sockets/Protocols/L2%20%3F&In-Reply-To=%3C200807091201.06469.david.wagner%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] renaming of Socket/Protocols/Raw to	Sockets/Protocols/L2 ?">david.wagner at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Jul  9 12:01:06 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000297.html">[Senf-dev] renaming of Socket/Protocols/Raw to Sockets/Protocols/L2 ?
+</A></li>
+        <LI>Next message: <A HREF="000298.html">[Senf-dev] [Bug #13806] SocketHandle functions not const
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#300">[ date ]</a>
+              <a href="thread.html#300">[ thread ]</a>
+              <a href="subject.html#300">[ subject ]</a>
+              <a href="author.html#300">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I think a TunSocketHandle should be placed in INet/Raw since although the 
+kernel hides it tun and tap devices are quite a different thing. 
+
+At the moment the TunTapSocketHandle only implements tap devices, is this 
+correct? 
+
+In general: what do you think about the separation of tun and tap and about 
+the renaming? 
+
+David
+
+&gt;<i> David Wagner wrote:
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; up to now the protocols folder containing all the link layer address,
+</I>&gt;<i> &gt; sockaddress, tapdevice and packetsocket classes is
+</I>&gt;<i> &gt; calles &quot;Socket/Protocols/Raw&quot;.
+</I>&gt;<i> &gt; This has nothing to do with the content but sounds like INet-Rawsockets
+</I>&gt;<i> &gt; (which belong to the INet-Family and folder).
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Therefore I propose to rename the folder to something more logical.
+</I>&gt;<i> &gt; This could be e.g.
+</I>&gt;<i> &gt; Sockets/Protocols/Link
+</I>&gt;<i> &gt; Sockets/Protocols/L2
+</I>&gt;<i> &gt; Sockets/Protocols/MAC
+</I>&gt;<i>
+</I>&gt;<i> hmmm..... in what directory do you want to place a TunSocketHandle which
+</I>&gt;<i> operates at layer 3?
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Senf-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Senf-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">https://lists.berlios.de/mailman/listinfo/senf-dev</A>
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000297.html">[Senf-dev] renaming of Socket/Protocols/Raw to Sockets/Protocols/L2 ?
+</A></li>
+	<LI>Next message: <A HREF="000298.html">[Senf-dev] [Bug #13806] SocketHandle functions not const
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#300">[ date ]</a>
+              <a href="thread.html#300">[ thread ]</a>
+              <a href="subject.html#300">[ subject ]</a>
+              <a href="author.html#300">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

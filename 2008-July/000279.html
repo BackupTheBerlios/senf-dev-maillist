@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] finalize() semantics
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C486A2177.4010406%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000280.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] finalize() semantics</H1>
+    <B>Thorsten Horstmann</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C486A2177.4010406%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] finalize() semantics">thorsten.horstmann at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Jul  1 14:22:15 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000280.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#279">[ date ]</a>
+              <a href="thread.html#279">[ thread ]</a>
+              <a href="subject.html#279">[ subject ]</a>
+              <a href="author.html#279">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>ok, ich versuche auch mal meine Meinung darzustellen:
+
+Ich denke aus den bisherigen Erl&#228;uterungen ist klar geworden, dass es
+Das eine richtige logische und universale finalize() nicht geben kann.
+In unterschiedlichen Situationen m&#246;chten wir verschiedene Dinge: Mal
+soll es rekursiv alle zu berechnenden Felder setzen (z.B. wenn man
+komplett neue Pakete von null auf erzeugt, oder das gute Beispiel von
+Stefan wenn man die IP-Zieladresse &#228;ndert) und mal will man nur die
+Felder des angesprochenen Paketes berechnen lassen (wie z.B. h&#228;ufig in
+unserem PPI-Szenario).
+Von daher tendiere ich zu Vorschlag c)
+&gt;&gt;&gt;<i> c) Es gibt verschiedene finalize aufrufe die entweder alles, nur einen
+</I>&gt;&gt;&gt;<i>    Header oder meinetwegen einen header-range aktualisieren.
+</I>
+Vielleicht macht man das dann in verschiedene Methoden-Namen klar:
+finalizePacket() und finalizePacketChain() oder sowas.
+
+&gt;&gt;<i> Ich wei&#223; ehrlich gesagt nicht, wie oft bei uns finalize in der PPI-Kette 
+</I>&gt;&gt;<i> aufgerufen wird. Und alle Checksummen auf allen Layers neu zu berechnen ist 
+</I>&gt;&gt;<i> sicher nicht umsonst. 
+</I>&gt;<i> 
+</I>&gt;<i> Das ist klar. Allerdings sollte finalize() f&#252;r ein Paket auch nur
+</I>&gt;<i> EINMAL aufgerufen werden. Das ist dann schonmal etwas besser. 
+</I>
+das ist nicht so einfach, denn wir wollen nat&#252;rlich m&#246;glichst flexible
+und unabh&#228;ngige Module schreiben. Ich m&#246;chte in meinem Modul nicht davon
+ausgehen m&#252;ssen das nach mir noch jemand finalize() auf mein neu
+erzeugtes Paket aufruft. Sp&#228;testens wenn man Module zur Laufzeit
+umstecken kann sollte jedes Modul m&#246;glichst unabh&#228;ngig sein.
+Mit L&#246;sung c) w&#228;re das aber ja problemlos machbar.
+
+  -Thorsten
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000280.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#279">[ date ]</a>
+              <a href="thread.html#279">[ thread ]</a>
+              <a href="subject.html#279">[ subject ]</a>
+              <a href="author.html#279">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

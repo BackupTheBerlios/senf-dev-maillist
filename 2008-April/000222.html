@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #13540] senf::Daemon::argv should return non-const
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2313540%5D%20senf%3A%3ADaemon%3A%3Aargv%20should%20return%20non-const&In-Reply-To=%3C200804031101.m33B1ekN013386%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000221.html">
+   <LINK REL="Next"  HREF="000223.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #13540] senf::Daemon::argv should return non-const</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2313540%5D%20senf%3A%3ADaemon%3A%3Aargv%20should%20return%20non-const&In-Reply-To=%3C200804031101.m33B1ekN013386%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #13540] senf::Daemon::argv should return non-const">admin at berlios.de
+       </A><BR>
+    <I>Thu Apr  3 13:01:40 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000221.html">[Senf-dev] C++ demangler in glibc !
+</A></li>
+        <LI>Next message: <A HREF="000223.html">[Senf-dev] [Bug #13540] senf::Daemon::argv should return non-const
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #13540, was updated on 2008-Apr-03 13:01
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: libUtils
+Status: Open
+Resolution: None
+Bug Group: defect
+Priority: 5
+Submitted by: jkaeber
+Assigned to : none
+Summary: senf::Daemon::argv should return non-const
+
+Details: According to C99, section 5.1.2.2.1 (Program startup):
+
+&quot;The parameters argc and argv and the strings pointed to
+ by the argv array shall be modifiable by the program, and
+ retain their last-stored values between program startup and
+ program termination.&quot;
+
+And it makes using boost::program_options much easier :)
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=13540&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=13540&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000221.html">[Senf-dev] C++ demangler in glibc !
+</A></li>
+	<LI>Next message: <A HREF="000223.html">[Senf-dev] [Bug #13540] senf::Daemon::argv should return non-const
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#222">[ date ]</a>
+              <a href="thread.html#222">[ thread ]</a>
+              <a href="subject.html#222">[ subject ]</a>
+              <a href="author.html#222">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

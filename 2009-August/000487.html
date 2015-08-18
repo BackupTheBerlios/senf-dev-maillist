@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Cron &lt;senf at lakai&gt; /home/senf/bin/build.sh -c
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2009-August/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40lakai%3E%20/home/senf/bin/build.sh%20-c&In-Reply-To=%3C20090815003405.4760720B9%40lakai.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000486.html">
+   <LINK REL="Next"  HREF="000488.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Cron &lt;senf at lakai&gt; /home/senf/bin/build.sh -c</H1>
+    <B>Cron Daemon</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40lakai%3E%20/home/senf/bin/build.sh%20-c&In-Reply-To=%3C20090815003405.4760720B9%40lakai.fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Cron &lt;senf at lakai&gt; /home/senf/bin/build.sh -c">root at lakai.fokus.fraunhofer.de
+       </A><BR>
+    <I>Sat Aug 15 02:34:05 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000486.html">[Senf-dev] Cron &lt;senf at lakai&gt; /home/senf/bin/build.sh -c &amp;&amp;	/home/senf/bin/buildsnapshot.sh -q
+</A></li>
+        <LI>Next message: <A HREF="000488.html">[Senf-dev] Cron &lt;senf at lakai&gt; /home/senf/bin/build.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#487">[ date ]</a>
+              <a href="thread.html#487">[ thread ]</a>
+              <a href="subject.html#487">[ subject ]</a>
+              <a href="author.html#487">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE># Starting build at Sat Aug 15 00:34:01 UTC 2009
+$ find -mindepth 1 -maxdepth 1 ! -name .svn | xargs rm -rf
+rm: cannot remove directory `./include/senf/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./include/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./include/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./Scheduler/doc/html': No such file or directory
+rm: cannot remove directory `./Utils/Daemon/doc/xml': No such file or directory
+rm: cannot remove directory `./Utils/Logger/doc/xml': No such file or directory
+rm: cannot remove directory `./Utils/Logger/doc/html': No such file or directory
+rm: cannot remove directory `./Utils/Console/doc/xml': No such file or directory
+rm: cannot remove directory `./Utils/Console/doc/html': No such file or directory
+rm: cannot remove directory `./Utils/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./Utils/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./Utils/doc/xml': No such file or directory
+rm: cannot remove directory `./Utils/doc/html': No such file or directory
+rm: cannot remove directory `./doclib/.svn/text-base': No such file or directory
+rm: cannot remove directory `./Socket/Protocols/DVB/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./Socket/Protocols/DVB/.svn/props': No such file or directory
+rm: cannot remove directory `./Socket/Protocols/Raw/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./Socket/Protocols/Raw/.svn/text-base': No such file or directory
+rm: cannot remove directory `./Socket/Protocols/Raw/.svn/tmp/prop-base': No such file or directory
+rm: crm: cannot remove directory `./Socket/Protocols/UN/.svn/text-base': No such file or directory
+rm: cannot remove directory `./Socket/Protocols/UN/.svn/tmp/props': No such file or directory
+rm: cannot remove directory `./Socket/.svn/tmp/props': No such file or directory
+rm: cannot remove directory `./boost/multi_index/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./boost/multi_index/.svn/text-base': No such file or directory
+rm: cannot remove directory `./boost/parameter/aux_/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./boost/parameter/aux_/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./boost/parameter/.svn/text-base': No such file or directory
+rm: cannot remove directory `./boost/parameter/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./boost/parameter/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./boost/typeof/std/.svn/text-base': No such file or directory
+rm: cannot remove directory `./boost/typeof/std/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./boost/typeof/std/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./boost/typeof/msvc/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./boost/typeof/msvc/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/detail/test/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/detail/debug/.svn/props': No such file or directory
+rm: cannot remove directory `./boost/bimap/detail/debug/.svn/text-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/detail/debug/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/detail/.svn/props': No such file or directory
+rm: cannot remove directory `./boost/bimap/tags/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/tags/.svn/props': No such file or directory
+rm: cannot remove directory `./boost/bimap/tags/.svn/text-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/container_adaptor/detail/.svn/tmp/props': No such file or directory
+rm: cannot remove directory `./boost/bimap/container_adaptor/support/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/container_adaptor/support/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/container_adaptor/support/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/container_adaptor/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/container_adaptor/.svn/props': No such file or directory
+rm: cannot remove directory `./boost/bimap/property_map/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/property_map/.svn/text-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/property_map/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/relation/detail/.svn/text-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/relation/detail/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/relation/detail/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/relation/support/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/relation/support/.svn/tmp/props': No such file or directory
+rm: cannot remove directory `./boost/bimap/relation/.svn/text-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./boost/bimap/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./_templates/.svn/text-base': No such file or directory
+rm: cannot remove directory `./HowTos/NewPacket/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./HowTos/NewPacket/doc/html': No such file or directory
+rm: cannot remove directory `./HowTos/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./HowTos/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./HowTos/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./HowTos/doc/html': No such file or directory
+rm: cannot remove directory `./PPI/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./PPI/.svn/text-base': No such file or directory
+rm: cannot remove directory `./PPI/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./PPI/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./PPI/doc/xml': No such file or directory
+rm: cannot remove directory `./Examples/DVBAdapter/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./Examples/Sniffer/doc/html': No such file or directory
+rm: cannot remove directory `./Examples/RateStuffer/.svn/text-base': No such file or directory
+rm: cannot remove directory `./Examples/RateStuffer/doc/xml': No such file or directory
+rm: cannot remove directory `./Examples/psi2tsModule/.svn/tmp': No such file or directory
+rm: cannot remove directory `./Examples/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./Examples/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./Examples/MultiMCLoop/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./Examples/MultiMCLoop/.svn/text-base': No such file or directory
+rm: cannot remove directory `./Examples/MultiMCLoop/.svn/tmp': No such file or directory
+rm: cannot remove directory `./Examples/UDPClientServer/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./Examples/UDPClientServer/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./Examples/UDPClientServer/doc/html': No such file or directory
+rm: cannot remove directory `./senfscons/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./senfscons/doc/html': No such file or directory
+rm: cannot remove directory `./debian/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./debian/.svn/text-base': No such file or directory
+rm: cannot remove directory `./debian/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./debian/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./Packets/80211Bundle/.svn/prop-base': No such file or directory
+rm: cannot remove directory `./Packets/80211Bundle/.svn/props': No such file or directory
+rm: cannot remove directory `./Packets/80211Bundle/.svn/tmp/props': No such file or directory
+rm: cannot remove directory `./Packets/80211Bundle/.svn/tmp/text-base': No such file or directory
+rm: cannot remove directory `./Packets/DefaultBundle/extra_tests/.svn/tmp/props': No such file or directory
+ctory `./Examples/doc/html': No such file or directory
+rm: cannot remove directory `./senfscons/.svn/text-base': No such file or directory
+rm: cannot remove directory `./senfscons/.svn/tmp/prop-base': No such file or directory
+rm: cannot remove directory `./senfscons/.svn/tmp/props': No such file or directory
+rm: cannot remove directory `./senfscons/doc/xml': No such file or directory
+rm: cannot remove directory `./Packets/80211Bundle/.svn/text-base': No such file or directory
+rm: cannot remove directory `./Packets/DefaultBundle/extra_tests/.svn/props': No such file or directory
+rm: cannot remove directory `./Packets/DefaultBundle/extra_tests/.svn/text-base': No such file or directory
+rm: cannot remove directory `./Packets/doc/xml': No such file or directory
+rm: cannot remove directory `./Packets/doc/html': No such file or directory
+rm: cannot remove directory `./doc/html': No such file or directory
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000486.html">[Senf-dev] Cron &lt;senf at lakai&gt; /home/senf/bin/build.sh -c &amp;&amp;	/home/senf/bin/buildsnapshot.sh -q
+</A></li>
+	<LI>Next message: <A HREF="000488.html">[Senf-dev] Cron &lt;senf at lakai&gt; /home/senf/bin/build.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#487">[ date ]</a>
+              <a href="thread.html#487">[ thread ]</a>
+              <a href="subject.html#487">[ subject ]</a>
+              <a href="author.html#487">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

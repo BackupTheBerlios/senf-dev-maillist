@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #14365] linker error undefined reference	senf::SystemException::init
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314365%5D%20linker%20error%20undefined%20reference%0A%09senf%3A%3ASystemException%3A%3Ainit&In-Reply-To=%3C200808151336.m7FDaETB004644%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000307.html">
+   <LINK REL="Next"  HREF="000309.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #14365] linker error undefined reference	senf::SystemException::init</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314365%5D%20linker%20error%20undefined%20reference%0A%09senf%3A%3ASystemException%3A%3Ainit&In-Reply-To=%3C200808151336.m7FDaETB004644%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #14365] linker error undefined reference	senf::SystemException::init">admin at berlios.de
+       </A><BR>
+    <I>Fri Aug 15 15:36:14 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000307.html">[Senf-dev] [Bug #14365] linker error undefined reference	senf::SystemException::init
+</A></li>
+        <LI>Next message: <A HREF="000309.html">[Senf-dev] [Bug #14095] more flexible finalize needed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#308">[ date ]</a>
+              <a href="thread.html#308">[ thread ]</a>
+              <a href="subject.html#308">[ subject ]</a>
+              <a href="author.html#308">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #14365, was updated on 2008-Aug-15 15:07
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: libUtils
+Status: Closed
+Resolution: None
+Bug Group: defect
+Priority: 7
+Submitted by: jmo
+Assigned to : g0dil
+Summary: linker error undefined reference senf::SystemException::init
+
+Details: While compiling A25_AR_DVB_DATA_DRIVER:
+g++ -o A25_AR_DVB_DATA_DRIVER NetlinkMin.o A25_AR_DVB_DATA_DRIVER.o Gre2EthModule.o LinkLocalForwarderModule.o Eth2LlcModule.o DtcpInserterModule.o Ipv42GreModule.o senf/libsenf.a -lboost_regex -liberty -lrt -lreadline
+A25_AR_DVB_DATA_DRIVER.o: In function `SystemException':
+/home/jens/workspace/A25_AR_DVB_DATA_DRIVER/senf/include/senf/PPI/../Scheduler/../Utils/Exception.cci:64: undefined reference to `senf::SystemException::init(std::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, int)'
+collect2: ld returned 1 exit status
+
+
+Follow-Ups:
+
+Date: 2008-Aug-15 15:36
+By: jmo
+
+Comment:
+forgot to add -DSENF_DEBUG
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14365&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14365&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000307.html">[Senf-dev] [Bug #14365] linker error undefined reference	senf::SystemException::init
+</A></li>
+	<LI>Next message: <A HREF="000309.html">[Senf-dev] [Bug #14095] more flexible finalize needed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#308">[ date ]</a>
+              <a href="thread.html#308">[ thread ]</a>
+              <a href="subject.html#308">[ subject ]</a>
+              <a href="author.html#308">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

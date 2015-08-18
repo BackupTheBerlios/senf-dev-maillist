@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Link time
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Link%20time&In-Reply-To=%3C87d4gqzk08.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000397.html">
+   <LINK REL="Next"  HREF="000399.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Link time</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Link%20time&In-Reply-To=%3C87d4gqzk08.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] Link time">g0dil at berlios.de
+       </A><BR>
+    <I>Thu Nov 20 12:58:47 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000397.html">[Senf-dev] [Bug #14088] tests fail under ubuntu 8.04
+</A></li>
+        <LI>Next message: <A HREF="000399.html">[Senf-dev] [Bug #14818] DuplicateEventRegistrationException for	consolelog if...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#398">[ date ]</a>
+              <a href="thread.html#398">[ thread ]</a>
+              <a href="subject.html#398">[ subject ]</a>
+              <a href="author.html#398">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Since I became increasingly annoyed by the immense SENF link times I
+have revisted that area.
+
+I found, that when linking with 'final=1' and adding
+'-fvisibility-inlines-hidden' to th g++ command-line, link time drops
+to a few seconds !
+
+I'll still have to find, wether 'final=1' or
+'-fvisibility-inlines-hidden' is responsible (or maybe the debug
+symbols are a problem), but I was quite astonished to see such a
+tremendous speed increase.
+
+stefan.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 188 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20081120/223d62bf/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20081120/223d62bf/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000397.html">[Senf-dev] [Bug #14088] tests fail under ubuntu 8.04
+</A></li>
+	<LI>Next message: <A HREF="000399.html">[Senf-dev] [Bug #14818] DuplicateEventRegistrationException for	consolelog if...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#398">[ date ]</a>
+              <a href="thread.html#398">[ thread ]</a>
+              <a href="subject.html#398">[ subject ]</a>
+              <a href="author.html#398">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

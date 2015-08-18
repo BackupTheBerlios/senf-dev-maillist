@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #16629] no complete examples for annotations
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2010-January/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2316629%5D%20no%20complete%20examples%20for%20annotations&In-Reply-To=%3C201001041835.o04IZg0w012764%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000507.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #16629] no complete examples for annotations</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2316629%5D%20no%20complete%20examples%20for%20annotations&In-Reply-To=%3C201001041835.o04IZg0w012764%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #16629] no complete examples for annotations">admin at berlios.de
+       </A><BR>
+    <I>Mon Jan  4 19:35:42 CET 2010</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000507.html">[Senf-dev] [Bug #16630] LLAddressingPolicy leitet nicht von	BSDAddressingPolicy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#506">[ date ]</a>
+              <a href="thread.html#506">[ thread ]</a>
+              <a href="subject.html#506">[ subject ]</a>
+              <a href="author.html#506">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #16629, was updated on 2010-Jan-04 09:35
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: examples
+Status: Open
+Resolution: None
+Bug Group: documentation
+Priority: 5
+Submitted by: atx23
+Assigned to : none
+Summary: no complete examples for annotations
+
+Details: here are the offending lines ;) 
+
+<A HREF="http://senf.berlios.de/src/senf/Packets/doc/html/packet_usage.html#packet_usage_annotation">http://senf.berlios.de/src/senf/Packets/doc/html/packet_usage.html#packet_usage_annotation</A>
+
+and
+
+<A HREF="http://senf.berlios.de/src/senf/Packets/doc/html/classsenf_1_1Packet.html#f376c3c9a1da52cb1accb0b7751d12dd">http://senf.berlios.de/src/senf/Packets/doc/html/classsenf_1_1Packet.html#f376c3c9a1da52cb1accb0b7751d12dd</A>
+
+maybe it will be nice for noobs to tell them, they need to provide an operator&lt;&lt; like:
+
+struct Timestamp {
+    senf::ClockService::clock_t value;
+};
+
+std::ostream&amp; operator&lt;&lt;(std::ostream&amp; o, Timestamp const &amp; stamp)
+{ return o &lt;&lt; value; }
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=16629&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=16629&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000507.html">[Senf-dev] [Bug #16630] LLAddressingPolicy leitet nicht von	BSDAddressingPolicy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#506">[ date ]</a>
+              <a href="thread.html#506">[ thread ]</a>
+              <a href="subject.html#506">[ subject ]</a>
+              <a href="author.html#506">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

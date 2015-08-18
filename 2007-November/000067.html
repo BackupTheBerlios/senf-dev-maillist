@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Rename Parse_X to XParser
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Rename%20Parse_X%20to%20XParser&In-Reply-To=%3C87r6izsdn9.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000066.html">
+   <LINK REL="Next"  HREF="000088.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Rename Parse_X to XParser</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Rename%20Parse_X%20to%20XParser&In-Reply-To=%3C87r6izsdn9.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] Rename Parse_X to XParser">stefan at j32.de
+       </A><BR>
+    <I>Fri Nov  9 15:21:30 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000066.html">[Senf-dev] Rename Parse_X to XParser
+</A></li>
+        <LI>Next message: <A HREF="000088.html">[Senf-dev] Rename Parse_X to XParser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#67">[ date ]</a>
+              <a href="thread.html#67">[ thread ]</a>
+              <a href="subject.html#67">[ subject ]</a>
+              <a href="author.html#67">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>(Bitte auf der liste antworten.)
+
+Thorsten Horstmann &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">thorsten.horstmann at fokus.fraunhofer.de</A>&gt; writes:
+&gt;<i> Stefan Bund wrote:
+</I>&gt;&gt;<i> namespace 'parser' einfzuf&#252;hren.
+</I>&gt;<i>
+</I>&gt;<i> d.h. aus senf::parse_Int24 wuerde senf::parser::Int24
+</I>&gt;<i> hmmmmm... dann wuerde im Class Index &quot;Int24 (senf::parser)&quot; als Klasse
+</I>&gt;<i> aufgefuehrt. 
+</I>
+Das ist korrekt. Allerdings hat ja a) jede namespace ne eigene seite
+wo dann nur die klassen dieser namespace draufstehen und b) gibt es
+eine gruppe 'parser' wo wirklich nur die echten parser drin sind. Die
+gibt es jetzt ja auch schon.
+
+Der Klassenindex ist immer eher un&#252;bersichlich strukturiert (siehe
+z.Bsp. PPI)
+
+&gt;<i> Es wird im parser-Namespace aber auch andere Klassen als
+</I>&gt;<i> parser geben (wie du unten ja auch geschrieben hast). Wie soll da klar
+</I>&gt;<i> sein was was ist? Also z.b.:
+</I>&gt;<i> - 'parser::List' und 'parser::List_Container'
+</I>&gt;<i>     das eine ist ein parser, das andere ein container, das sieht man auf
+</I>&gt;<i>    den ersten Blick nicht wirklich.
+</I>
+Nein. Sieht man nicht. Sieht man jetzt aber auch nicht. Aber der
+parser (parser::List) w&#252;rde in der parser gruppe dokumentiert, der
+List_Container nicht.
+
+&gt;<i> - 'SafePacketParser' wuerde dann zu 'parser::SafePacket', da wuerde man
+</I>&gt;<i>     denken es waere ein Packet - ist es aber nicht, sondern ein
+</I>&gt;<i> parser.
+</I>
+wenn wir das 'packet' in parser weg lassen, dann heist das eher
+'parser::safe' oder so. Mglw 'parser::SafeWrapper' oder so
+
+&gt;<i> Wie waere es wenn wir einen namespace parser einfuehren (ich waere
+</I>&gt;<i> uebrigens auch fuer ein entspr. Unterverzeichnis in Packtes) und
+</I>&gt;<i> trotzdem bei Parsern 'Parser' dran setzen?
+</I>
+Finde ich doppelt gemoppelt. Finde das es so eindeutig ist. Mglw
+k&#246;nnte man die Container wrapper ja sogar in ne unter-namespace
+packen. Namespaces haben halt einfach auch noch den vorteil, das man
+sich selbst abk&#250;rzungen definieren kann. 
+
+Und die container Wrapper sind wie die Iteratoren: Du sprichst sie
+nicht direkt an sondern &#252;ber die entsprechenden typedefs in der parser
+Klasse.
+
+stefan.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 188 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20071109/ae261aa9/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20071109/ae261aa9/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000066.html">[Senf-dev] Rename Parse_X to XParser
+</A></li>
+	<LI>Next message: <A HREF="000088.html">[Senf-dev] Rename Parse_X to XParser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#67">[ date ]</a>
+              <a href="thread.html#67">[ thread ]</a>
+              <a href="subject.html#67">[ subject ]</a>
+              <a href="author.html#67">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Senf-svn] r571 - in trunk/Packets: . MPEGDVBBundle
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BSenf-svn%5D%20r571%20-%20in%20trunk/Packets%3A%20.%20MPEGDVBBundle&In-Reply-To=%3C47668BC9.8080403%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000135.html">
+   <LINK REL="Next"  HREF="000137.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Senf-svn] r571 - in trunk/Packets: . MPEGDVBBundle</H1>
+    <B>Thorsten Horstmann</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BSenf-svn%5D%20r571%20-%20in%20trunk/Packets%3A%20.%20MPEGDVBBundle&In-Reply-To=%3C47668BC9.8080403%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] [Senf-svn] r571 - in trunk/Packets: . MPEGDVBBundle">thorsten.horstmann at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Dec 17 15:46:33 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000135.html">[Senf-dev] [Bug #12379] rename parsers
+</A></li>
+        <LI>Next message: <A HREF="000137.html">[Senf-dev] new file header
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#136">[ date ]</a>
+              <a href="thread.html#136">[ thread ]</a>
+              <a href="subject.html#136">[ subject ]</a>
+              <a href="author.html#136">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>ich habe die Parser wie besprochen von Parse_X nach XParser umbenannt. 
+Fuer vorhandenen code sollte dies IMHO keine Auswirkungen haben. Bitte 
+testet trotzdem die bisherigen Implementierungen und sagt mir bescheid 
+wenn etwas nicht laeuft.
+
+   -Thorsten
+
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">subversion at senf.berlios.de</A> wrote:
+&gt;<i> Author: tho
+</I>&gt;<i> Date: Mon Dec 17 15:41:04 2007
+</I>&gt;<i> New Revision: 571
+</I>&gt;<i> 
+</I>&gt;<i> Added:
+</I>&gt;<i>    trunk/Packets/ArrayParser.ct
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseArray.ct
+</I>&gt;<i>    trunk/Packets/ArrayParser.cti
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseArray.cti
+</I>&gt;<i>    trunk/Packets/ArrayParser.hh
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseArray.hh
+</I>&gt;<i>    trunk/Packets/ArrayParser.ih
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseArray.ih
+</I>&gt;<i>    trunk/Packets/ArrayParser.test.cc
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseArray.test.cc
+</I>&gt;<i>    trunk/Packets/IntParser.hh
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseInt.hh
+</I>&gt;<i>    trunk/Packets/IntParser.ih
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseInt.ih
+</I>&gt;<i>    trunk/Packets/IntParser.test.cc
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseInt.test.cc
+</I>&gt;<i>    trunk/Packets/ListBParser.cti
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseListB.cti
+</I>&gt;<i>    trunk/Packets/ListBParser.hh
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseListB.hh
+</I>&gt;<i>    trunk/Packets/ListBParser.ih
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseListB.ih
+</I>&gt;<i>    trunk/Packets/ListBParser.test.cc
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseListB.test.cc
+</I>&gt;<i>    trunk/Packets/ListNParser.ct
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseListN.ct
+</I>&gt;<i>    trunk/Packets/ListNParser.cti
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseListN.cti
+</I>&gt;<i>    trunk/Packets/ListNParser.hh
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseListN.hh
+</I>&gt;<i>    trunk/Packets/ListNParser.ih
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseListN.ih
+</I>&gt;<i>    trunk/Packets/ListNParser.test.cc
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseListN.test.cc
+</I>&gt;<i>    trunk/Packets/ListParser.ct
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseList.ct
+</I>&gt;<i>    trunk/Packets/ListParser.cti
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseList.cti
+</I>&gt;<i>    trunk/Packets/ListParser.dox   (props changed)
+</I>&gt;<i>       - copied unchanged from r568, /trunk/Packets/ParseList.dox
+</I>&gt;<i>    trunk/Packets/ListParser.hh
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseList.hh
+</I>&gt;<i>    trunk/Packets/ListParser.ih
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseList.ih
+</I>&gt;<i>    trunk/Packets/ListParser.test.cc
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseList.test.cc
+</I>&gt;<i>    trunk/Packets/VariantParser.ct
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseVariant.ct
+</I>&gt;<i>    trunk/Packets/VariantParser.cti
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseVariant.cti
+</I>&gt;<i>    trunk/Packets/VariantParser.dox
+</I>&gt;<i>       - copied unchanged from r568, /trunk/Packets/ParseVariant.dox
+</I>&gt;<i>    trunk/Packets/VariantParser.hh
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseVariant.hh
+</I>&gt;<i>    trunk/Packets/VariantParser.ih
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseVariant.ih
+</I>&gt;<i>    trunk/Packets/VariantParser.test.cc
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseVariant.test.cc
+</I>&gt;<i>    trunk/Packets/VectorParser.ct
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseVec.ct
+</I>&gt;<i>    trunk/Packets/VectorParser.cti
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseVec.cti
+</I>&gt;<i>    trunk/Packets/VectorParser.dox
+</I>&gt;<i>       - copied unchanged from r568, /trunk/Packets/ParseVec.dox
+</I>&gt;<i>    trunk/Packets/VectorParser.hh
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseVec.hh
+</I>&gt;<i>    trunk/Packets/VectorParser.ih
+</I>&gt;<i>       - copied, changed from r568, /trunk/Packets/ParseVec.ih
+</I>&gt;<i>    trunk/Packets/VectorParser.test.cc
+</I>&gt;<i>       - copied, changed from r570, /trunk/Packets/ParseVec.test.cc
+</I>&gt;<i> Removed:
+</I>&gt;<i>    trunk/Packets/ParseArray.ct
+</I>&gt;<i>    trunk/Packets/ParseArray.cti
+</I>&gt;<i>    trunk/Packets/ParseArray.hh
+</I>&gt;<i>    trunk/Packets/ParseArray.ih
+</I>&gt;<i>    trunk/Packets/ParseArray.test.cc
+</I>&gt;<i>    trunk/Packets/ParseInt.hh
+</I>&gt;<i>    trunk/Packets/ParseInt.ih
+</I>&gt;<i>    trunk/Packets/ParseInt.test.cc
+</I>&gt;<i>    trunk/Packets/ParseList.ct
+</I>&gt;<i>    trunk/Packets/ParseList.cti
+</I>&gt;<i>    trunk/Packets/ParseList.dox
+</I>&gt;<i>    trunk/Packets/ParseList.hh
+</I>&gt;<i>    trunk/Packets/ParseList.ih
+</I>&gt;<i>    trunk/Packets/ParseList.test.cc
+</I>&gt;<i>    trunk/Packets/ParseListB.cti
+</I>&gt;<i>    trunk/Packets/ParseListB.hh
+</I>&gt;<i>    trunk/Packets/ParseListB.ih
+</I>&gt;<i>    trunk/Packets/ParseListB.test.cc
+</I>&gt;<i>    trunk/Packets/ParseListN.ct
+</I>&gt;<i>    trunk/Packets/ParseListN.cti
+</I>&gt;<i>    trunk/Packets/ParseListN.hh
+</I>&gt;<i>    trunk/Packets/ParseListN.ih
+</I>&gt;<i>    trunk/Packets/ParseListN.test.cc
+</I>&gt;<i>    trunk/Packets/ParseVariant.ct
+</I>&gt;<i>    trunk/Packets/ParseVariant.cti
+</I>&gt;<i>    trunk/Packets/ParseVariant.dox
+</I>&gt;<i>    trunk/Packets/ParseVariant.hh
+</I>&gt;<i>    trunk/Packets/ParseVariant.ih
+</I>&gt;<i>    trunk/Packets/ParseVariant.test.cc
+</I>&gt;<i>    trunk/Packets/ParseVec.ct
+</I>&gt;<i>    trunk/Packets/ParseVec.cti
+</I>&gt;<i>    trunk/Packets/ParseVec.dox
+</I>&gt;<i>    trunk/Packets/ParseVec.hh
+</I>&gt;<i>    trunk/Packets/ParseVec.ih
+</I>&gt;<i>    trunk/Packets/ParseVec.test.cc
+</I>&gt;<i> Modified:
+</I>&gt;<i>    trunk/Packets/DefaultBundle/EthernetPacket.hh
+</I>&gt;<i>    trunk/Packets/DefaultBundle/IPv4Packet.cc
+</I>&gt;<i>    trunk/Packets/DefaultBundle/IPv4Packet.hh
+</I>&gt;<i>    trunk/Packets/DefaultBundle/IPv6Extensions.hh
+</I>&gt;<i>    trunk/Packets/DefaultBundle/IPv6Packet.cc
+</I>&gt;<i>    trunk/Packets/DefaultBundle/IPv6Packet.hh
+</I>&gt;<i>    trunk/Packets/DefaultBundle/LlcSnapPacket.hh
+</I>&gt;<i>    trunk/Packets/DefaultBundle/UDPPacket.cc
+</I>&gt;<i>    trunk/Packets/DefaultBundle/UDPPacket.hh
+</I>&gt;<i>    trunk/Packets/MPEGDVBBundle/DTCPPacket.hh
+</I>&gt;<i>    trunk/Packets/MPEGDVBBundle/GREPacket.hh
+</I>&gt;<i>    trunk/Packets/MPEGDVBBundle/GREPacket.test.cc
+</I>&gt;<i>    trunk/Packets/MPEGDVBBundle/MPESection.cc
+</I>&gt;<i>    trunk/Packets/MPEGDVBBundle/MPESection.hh
+</I>&gt;<i>    trunk/Packets/MPEGDVBBundle/SNDUPacket.cc
+</I>&gt;<i>    trunk/Packets/MPEGDVBBundle/SNDUPacket.hh
+</I>&gt;<i>    trunk/Packets/MPEGDVBBundle/TLVPacket.cc
+</I>&gt;<i>    trunk/Packets/MPEGDVBBundle/TLVPacket.hh
+</I>&gt;<i>    trunk/Packets/MPEGDVBBundle/TLVPacket.test.cc
+</I>&gt;<i>    trunk/Packets/MPEGDVBBundle/TransportPacket.hh
+</I>&gt;<i>    trunk/Packets/Packet.test.cc
+</I>&gt;<i>    trunk/Packets/PacketParser.ct
+</I>&gt;<i>    trunk/Packets/PacketParser.cti
+</I>&gt;<i>    trunk/Packets/PacketParser.hh
+</I>&gt;<i>    trunk/Packets/PacketParser.test.cc
+</I>&gt;<i>    trunk/Packets/PacketTypes.hh
+</I>&gt;<i>    trunk/Packets/ParseHelpers.hh
+</I>&gt;<i>    trunk/Packets/ParseHelpers.ih
+</I>&gt;<i>    trunk/Packets/ParseHelpers.test.cc
+</I>&gt;<i> 
+</I>&gt;<i> Log:
+</I>&gt;<i> renamed all parsers from parse_X to XParser.
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Senf-svn mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Senf-svn at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-svn">https://lists.berlios.de/mailman/listinfo/senf-svn</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000135.html">[Senf-dev] [Bug #12379] rename parsers
+</A></li>
+	<LI>Next message: <A HREF="000137.html">[Senf-dev] new file header
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#136">[ date ]</a>
+              <a href="thread.html#136">[ thread ]</a>
+              <a href="subject.html#136">[ subject ]</a>
+              <a href="author.html#136">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

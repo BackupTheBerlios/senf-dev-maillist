@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #17752] RadioTapPacketParser fail
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2010-December/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2317752%5D%20RadioTapPacketParser%20fail&In-Reply-To=%3C201012011416.oB1EGm9v023727%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000539.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #17752] RadioTapPacketParser fail</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2317752%5D%20RadioTapPacketParser%20fail&In-Reply-To=%3C201012011416.oB1EGm9v023727%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #17752] RadioTapPacketParser fail">admin at berlios.de
+       </A><BR>
+    <I>Wed Dec  1 15:16:48 CET 2010</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000539.html">[Senf-dev] [Bug #17753] documentation web search fail
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#538">[ date ]</a>
+              <a href="thread.html#538">[ thread ]</a>
+              <a href="subject.html#538">[ subject ]</a>
+              <a href="author.html#538">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #17752, was updated on 2010-Dec-01 15:16
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: libPackets
+Status: Open
+Resolution: None
+Bug Group: defect
+Priority: 7
+Submitted by: jmo
+Assigned to : g0dil
+Summary: RadioTapPacketParser fail
+
+Details: Failing RadioTap length calculation or interpretation. Calling RadioTapPacket.next() result in in a wrong data range. It seems that the WLAN_Mgt Frame starts 6 bytes to early 'ff:ff:ff:ff:ff:ff' should be in the destination field.
+
+dump:
+Radiotap:
+  version                 : 0
+  length                  : 32
+  MAC timestamp           : 11511230
+  flags                   : FCSatEnd 
+  rate                    : 4
+  channel frequency       : 2412
+  channel flags           : 2GHz CCK 
+  antenna signal (dBm)    : -74
+  antenna                 : 1
+  rx flags                : 
+  fcs                     : 240700832
+802.11 MAC Mangement Frame:
+  version                 : 0
+  type                    : 0
+  subtype                 : 0
+  flags                   : none
+  duration                : 0
+  destination             : 00:00:80:00:00:00
+  source                  : ff:ff:ff:ff:ff:ff
+  bss id                  : 00:0b:0e:26:ab:c0
+  sequence number         : 176
+  fragment number         : 0
+
+hexdump:
+  0000  00 00 20 00 2f 48 00 00  be a5 af 00 00 00 00 00  .. ./H.. ........
+  0010  10 04 6c 09 a0 00 b6 01  00 00 00 00 00 00 00 00  ..l..... ........
+  0020  80 00 00 00 ff ff ff ff  ff ff 00 0b 0e 26 ab c0  ........ .....&amp;..
+  0030  00 0b 0e 26 ab c0 e0 ec  81 31 0d 1c 72 0a 00 00  ...&amp;.... .1..r...
+  0040  64 00 31 04 00 05 46 4f  4b 55 53 01 08 82 84 8b  d.1...FO KUS.....
+  0050  0c 12 96 18 24 03 01 01  05 04 00 01 00 00 07 06  ....$... ........
+  0060  44 45 20 01 0d 12 0b 05  01 00 07 00 00 43 02 00  DE ..... .....C..
+  0070  00 2a 01 00 30 14 01 00  00 0f ac 04 01 00 00 0f  .*..0... ........
+  0080  ac 04 01 00 00 0f ac 02  00 00 32 04 30 48 60 6c  ........ ..2.0H`l
+  0090  dd 05 00 0b 0e 04 00 dd  22 00 0b 0e 02 00 00 00  ........ &quot;.......
+  00a0  00 12 0c 02 a1 04 a2 0b  a3 0c a5 12 a6 16 a6 18  ........ ........
+  00b0  a7 24 a8 30 ab 48 ae 60  b5 6c b8 dd 2e 00 0b 0e  .$.0.H.` .l......
+  00c0  03 00 ad 67 20 c2 c2 14  0e 36 de 3f bb 2e 4e 02  ...g ... .6.?..N.
+  00d0  70 8a 5b 66 59 3c db bb  c9 65 16 99 16 84 43 aa  p.[fY&lt;.. .e....C.
+  00e0  00 a2 45 bc bc 58 9b d4  3e ef ca dd 07 00 50 f2  ..E..X.. &gt;.....P.
+  00f0  02 00 01 01 dd 18 00 50  f2 02 01 01 01 00 03 a4  .......P ........
+  0100  00 00 27 a4 00 00 42 43  5e 00 62 32 2f 00 0e 58  ..'...BC ^.b2/..X
+  0110  cd a0  
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=17752&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=17752&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000539.html">[Senf-dev] [Bug #17753] documentation web search fail
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#538">[ date ]</a>
+              <a href="thread.html#538">[ thread ]</a>
+              <a href="subject.html#538">[ subject ]</a>
+              <a href="author.html#538">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

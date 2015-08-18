@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] SENF Makefile
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20SENF%20Makefile&In-Reply-To=%3C874pikdrdt.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000036.html">
+   <LINK REL="Next"  HREF="000038.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] SENF Makefile</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20SENF%20Makefile&In-Reply-To=%3C874pikdrdt.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] SENF Makefile">g0dil at berlios.de
+       </A><BR>
+    <I>Tue Aug 28 09:56:14 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000036.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+        <LI>Next message: <A HREF="000038.html">[Senf-dev] SENF Makefile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#37">[ date ]</a>
+              <a href="thread.html#37">[ thread ]</a>
+              <a href="subject.html#37">[ subject ]</a>
+              <a href="author.html#37">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+Joachim added a Makefile to the project. I know, this is needed for
+Daidalos. I just want to comment on some implementation issues:
+
+ - Is it Ok for the Makefile to depend on scons ? I had expected, that
+   daidalos wants to use make (and make only) for building. I had
+   expected we have to write a very simple Makefile without dependency
+   checking. That would be quite simple.
+
+ - The svn_version command is not reliable. It only checks the version
+   of the top level directory which will often be different from the
+   revision of the files even though SVN stores complete trees (see
+   mixed revision working copy in the svn docs). It's much better just
+   tu use the 'svnversion'  command:
+
+      (1021) <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">stefan at sobakah</A> &gt; svnversion
+      411
+      (1022) <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">stefan at sobakah</A> &gt;
+
+   See 'svnversion --help' for the things reported by svnversion.
+
+ - Debian package build: Since I am a long term debian user and have
+   this looks really scary to me ... we should *never* use dpkg-deb
+   directly to build a package. If we need a debian package (better:
+   packages, one for each library), add a real debian build
+   system. That's quite simple with dh_make.
+
+I know, that the source file layout is non-optimal for distribution:
+We would need an 'include' tree with all header files and a 'detail'
+tree with all the included implementation files. However, this is
+harder to navigate when working with the library. I don't know, wether
+it's worth it to restructure the library in such a way.
+
+stefan.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000036.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+	<LI>Next message: <A HREF="000038.html">[Senf-dev] SENF Makefile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#37">[ date ]</a>
+              <a href="thread.html#37">[ thread ]</a>
+              <a href="subject.html#37">[ subject ]</a>
+              <a href="author.html#37">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

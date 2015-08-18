@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] finalize() semantics
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C87zlp3854n.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000275.html">
+   <LINK REL="Next"  HREF="000277.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] finalize() semantics</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C87zlp3854n.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] finalize() semantics">g0dil at berlios.de
+       </A><BR>
+    <I>Mon Jun 30 14:43:52 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000275.html">[Senf-dev] renaming of Socket/Protocols/Raw to Sockets/Protocols/L2 ?
+</A></li>
+        <LI>Next message: <A HREF="000277.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#276">[ date ]</a>
+              <a href="thread.html#276">[ thread ]</a>
+              <a href="subject.html#276">[ subject ]</a>
+              <a href="author.html#276">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;&gt;<i> &gt;&gt; &gt; A2: wenn ich ein LLC-Header vor ein Ethernetpacket h&#228;nge, konstruiert
+</I>&gt;&gt;<i> &gt;&gt; &gt; senf _alle_ Parser, die er zu erkennen meint (hier Eth, IP, UDP, DTCP)
+</I>&gt;&gt;<i> &gt;&gt; &gt; und ruft f&#252;r alle finalize auf. Was im Falle einer korrekten
+</I>&gt;&gt;<i> &gt;&gt; &gt; Implemntierung nur Rechenzeit kostet. In diesem Fall aber zu
+</I>&gt;&gt;<i> &gt;&gt; &gt; unerkl&#228;rlichen Fehlern f&#252;hrt, weil ja eigentlich nie UDP angepackt,
+</I>&gt;&gt;<i> &gt;&gt; &gt; nicht mal gelesen wird.
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; Das Thema hatten wir schonmal. Dann m&#252;ssten wir &#252;berlegen, das API zu
+</I>&gt;&gt;<i> &gt;&gt; ver&#228;ndern. Ist allerdings nicht ganz so einfach, weil ja z.Bsp. die
+</I>&gt;&gt;<i> &gt;&gt; UDP checksum vom IP header abh&#228;ngt. Allgemeiner kann es also
+</I>&gt;&gt;<i> &gt;&gt; querabh&#228;ngigkeiten zwischen headern geben. Daher muss ich auch
+</I>&gt;&gt;<i> &gt;&gt; normalerweise alle header 'finalizen'.
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; ne, seh ich nicht so. Du musst alle &quot;weiter au&#223;en liegenden&quot; header
+</I>&gt;&gt;<i> &gt; finalizen, aber sicher keine weiter innen liegenden: IP h&#228;ngt nciht von
+</I>&gt;&gt;<i> &gt; UDP ab, Eth nicht von IP usw. generell darf m.E. finalize keine weiter
+</I>&gt;&gt;<i> &gt; innen liegenden Parser erzeugen. Gegenbeispiele?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Also erstens kann ich hier gerade dein 'innen' und 'au&#223;en' nicht
+</I>&gt;&gt;<i> nachvollziehen: Also IP ist doch weiter au&#223;en als UDP, Eth weiter
+</I>&gt;&gt;<i> au&#223;en als IP u.s.w.  Von daher h&#228;ngt nat&#252;rlich IP von UDP ab, weil es
+</I>&gt;&gt;<i> ja weiter au&#223;en liegt.
+</I>&gt;<i> n&#246;. Ich meine Abh&#228;ngigkeit eines finalize-Aufrufs nicht f&#252;r
+</I>&gt;<i> Interpretation.
+</I>
+?? Das habe ich jetzt nicht verstanden. Wenn du z.Bsp. den IP header
+&#228;nderst und dann NICHT udp.finalize aufrufst ist die UDP checksum
+einfach falsch ... egal ob der UDP Parser &#252;berhaupt schon existiert
+oder nicht. Noch bl&#246;der: Wenn du den Payload type des IP Pakets nicht
+kennst, dann weist du nichtmal genau, ob und was du da anpassen
+musst.
+
+Wenn du auf der Ebene eines lower-layer Protokolls arbeitest, dann
+weist du ja nicht, was da an higher-layer Protokollen so kommt, das
+interessiert dich ja garnicht. Und wenn es da abh&#228;ngigkeiten gibt (wie
+eben z.Bsp. bei UDP) dann ist es schon ziemlich schwierig, wenn du das
+explizit abfragen musst.
+
+&gt;<i> Dass das innere als UDP interpretiert werden kann, h&#228;ngt an dem Protocol-feld 
+</I>&gt;<i> von IP, ja, insofern h&#228;ngt das nat&#252;rlich davon ab. aber um den IP-Header zu 
+</I>&gt;<i> vervollst&#228;ndigen (finalize) brauchst Du nicht den Inhalt als UDP zu
+</I>&gt;<i> parsen. 
+</I>
+Nat&#252;rlich nicht, aber wenn du den IP header &#228;nderst musst du unter
+umst&#228;nden auch UDP aktualisieren! Die Funktion von finalize() ist ja
+nicht 'mach diesen header richtig' sondern 'mach dieses Paket fertig
+f&#252;r den Versand' (was bedeutet, dieses Paket, nicht ein weiter drumrum
+liegendes, das wird garnicht angefasst, das k&#246;nnte man auch schon als
+eine Optimierung ansehen).
+
+&gt;<i> Beispiel: 
+</I>&gt;<i> 1. Ich erzeuge ein upd-Packet, pack payload rein und setze Ports. Dann pack 
+</I>&gt;<i> ich einen IP-Header davor und sende &#252;ber einen Rawsocket. Hier sollte 
+</I>&gt;<i> (nat&#252;rlich?) beim Aufruf des finalize des &#228;u&#223;eren IP-Packets auch die 
+</I>&gt;<i> UDP-Checksumme gesetzt werden.
+</I>&gt;<i>
+</I>&gt;<i> 2. Unsere DVB-Software liest vom tap-Device Packete, die werden in LLC und 
+</I>&gt;<i> MPEG-Sections verpackt. Dabei sollte die Payload aber nicht angepackt / 
+</I>&gt;<i> geparst werden. 
+</I>
+Richtig. Aber das geht nicht so einfach. Es gibt ja noch einen Fall:
+
+3. Du empf&#228;ngst ein IP Paket &#228;nderst die Ziel-IP und sendest das Paket
+   weiter. Jezt muss der UDP header aktualisiert werden obwohl nur in
+   IP was ge&#228;ndert wurde da die UDP checksum von der Zieladresse im IP
+   header abh&#228;ngt (krank aber wahr).
+
+Ganz prinzipiell gibts da soweit ich das verstehe ein paar
+M&#246;glichkeiten:
+
+a) Der user muss selber wissen, was er wann in welcher reihenfolge
+   finalized.
+
+b) Es wird ein 'dirty' flag eingef&#252;hrt, das bei Ver&#228;nderungen eines
+   Pakets gesetzt wird (das ist &#252;berhaupt nicht trivial, dieses flag
+   zu verwalten). Zus&#228;tzlich muss ein Packet-Typ registrieren, wenn er
+   von anderen headern abh&#228;ngt. Ziemlich krank ...
+
+c) Es gibt verschiedene finalize aufrufe die entweder alles, nur einen
+   Header oder meinetwegen einen header-range aktualisieren.
+
+d) Eine semi-automatisierung/optimierung w&#228;re, das ein Paket
+   registrieren muss (statisch), wenn es von einem anderen weiter
+   vorne liegenden Header abh&#228;ngt (also in diesem Fall UDP von
+   IP). Dann wird in IP ein statisches flag gesetzt, das dort auch
+   weiter rein aktualisiert werden muss ... irgendwie sowas. Leider
+   k&#246;nnen da ja auch noch header zwischen IP und UDP kommen (IPv6
+   ...), das macht das ganze noch fieser. 
+
+e) Man kann nat&#252;rlich eine Art 'Einpack' wrapper Paket schreiben, das
+   einfach diese finalize()-kette unterbricht. Das ginge schon
+   irgendwie, ist in diesem speziellen Fall ja genau das gew&#252;nschte,
+   aber ist nat&#252;rlich nicht generisch.
+
+Ein wirklich sch&#246;nes API f&#228;llt mir daf&#252;r jetzt so schnell nicht ein,
+dar&#252;ber m&#252;sste ich schon erstmal etwas gr&#252;beln.
+
+Wie gesagt, das Problem ist mir sehr bewusst, ich will ja wirklich
+nicht mehr daten anfassen als notwendig (da gabs ja schonmal Probleme,
+hab die Details aber vergessen). Aber ich sehe im Moment keine
+realisitische automatische L&#246;sung, von daher w&#228;re c) der wohl einzig
+gangbare weg. Andererseits ist das ganze bei korrekter Implementierung
+der Pakettypen eine reine Performanceoptimierung und wie ich das bis
+jetzt verstanden habe ist das noch kein Thema. Da habe ich noch einige
+Punkte wo wir deutlich Performance rausholen k&#246;nnen aber wir haben uns
+bis jetzt immer f&#252;r die einfache aber mglw langsamere L&#246;sung
+entschieden und die Optimierung auf die lange Bank geschoben (was ja
+auch richtig ist).
+
+Stefan.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 188 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20080630/a0caa8c3/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20080630/a0caa8c3/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000275.html">[Senf-dev] renaming of Socket/Protocols/Raw to Sockets/Protocols/L2 ?
+</A></li>
+	<LI>Next message: <A HREF="000277.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#276">[ date ]</a>
+              <a href="thread.html#276">[ thread ]</a>
+              <a href="subject.html#276">[ subject ]</a>
+              <a href="author.html#276">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

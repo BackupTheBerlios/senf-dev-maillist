@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #14756] make SENF 64bit compatible
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314756%5D%20make%20SENF%2064bit%20compatible&In-Reply-To=%3C200811121243.mACChhhp010129%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000392.html">
+   <LINK REL="Next"  HREF="000394.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #14756] make SENF 64bit compatible</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314756%5D%20make%20SENF%2064bit%20compatible&In-Reply-To=%3C200811121243.mACChhhp010129%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #14756] make SENF 64bit compatible">admin at berlios.de
+       </A><BR>
+    <I>Wed Nov 12 13:43:43 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000392.html">[Senf-dev] [Bug #14756] make SENF 64bit compatible
+</A></li>
+        <LI>Next message: <A HREF="000394.html">[Senf-dev] [Bug #14756] make SENF 64bit compatible
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#393">[ date ]</a>
+              <a href="thread.html#393">[ thread ]</a>
+              <a href="subject.html#393">[ subject ]</a>
+              <a href="author.html#393">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #14756, was updated on 2008-Nov-04 11:35
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: all
+Status: Open
+Resolution: None
+Bug Group: defect
+Priority: 7
+Submitted by: tho
+Assigned to : none
+Summary: make SENF 64bit compatible
+
+Details: <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">net at sisyphos</A>:/data0/senf$ scons all_tests
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -o Packets/SafeIterator.test.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG= -Iinclude Packets/SafeIterator.test.cc
+/usr/include/boost/range/const_iterator.hpp: In instantiation of 'boost::range_const_iterator&lt;unsigned int&gt;':
+Packets/PacketInterpreter.cti:96:   instantiated from 'static typename senf::PacketInterpreter&lt;PacketType&gt;::ptr senf::PacketInterpreter&lt;PacketType&gt;::create(const ForwardReadableRange&amp;) [with ForwardReadableRange = unsigned int, PacketType = &lt;unnamed&gt;::VoidPacket]'
+Packets/SafeIterator.test.cc:44:   instantiated from here
+/usr/include/boost/range/const_iterator.hpp:36: error: 'unsigned int' is not a class, struct, or union type
+/usr/include/boost/range/iterator.hpp: In instantiation of 'boost::range_iterator&lt;unsigned int&gt;':
+Packets/PacketInterpreter.cti:96:   instantiated from 'static typename senf::PacketInterpreter&lt;PacketType&gt;::ptr senf::PacketInterpreter&lt;PacketType&gt;::create(const ForwardReadableRange&amp;) [with ForwardReadableRange = unsigned int, PacketType = &lt;unnamed&gt;::VoidPacket]'
+Packets/SafeIterator.test.cc:44:   instantiated from here
+/usr/include/boost/range/iterator.hpp:37: error: 'unsigned int' is not a class, struct, or union type
+Packets/PacketInterpreter.cti: In static member function 'static typename senf::PacketInterpreter&lt;PacketType&gt;::ptr senf::PacketInterpreter&lt;PacketType&gt;::create(const ForwardReadableRange&amp;) [with ForwardReadableRange = unsigned int, PacketType = &lt;unnamed&gt;::VoidPacket]':
+Packets/SafeIterator.test.cc:44:   instantiated from here
+Packets/PacketInterpreter.cti:96: error: no matching function for call to 'begin(const unsigned int&amp;)'
+Packets/PacketInterpreter.cti:96: error: no matching function for call to 'end(const unsigned int&amp;)'
+scons: *** [Packets/SafeIterator.test.o] Error 1
+scons: building terminated because of errors.
+
+
+Follow-Ups:
+
+Date: 2008-Nov-12 13:43
+By: tho
+
+Comment:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">net at sissy</A>:/data0/senf$ scons Socket/Protocols/Raw/test
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+Socket/Protocols/Raw/.test.bin --build_info=yes --log_level=test_suite
+Running 4 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;llAddress&quot;
+unknown location(0): fatal error in &quot;llAddress&quot;: std::exception:
+Exception at
+    senf::ExceptionMixin::addBacktrace() + 0x24
+        in Socket/Protocols/Raw/.test.bin [0x496464]
+    senf::ExceptionMixin::ExceptionMixin(std::string const&amp;) + 0x27
+        in Socket/Protocols/Raw/.test.bin [0x460449]
+    senf::Exception::Exception(std::string const&amp;) + 0x21
+        in Socket/Protocols/Raw/.test.bin [0x460491]
+    senf::AddressException::AddressException(std::string const&amp;) + 0x1d
+        in Socket/Protocols/Raw/.test.bin [0x4604c5]
+    senf::AddressSyntax
+Socket/Protocols/Raw/LLAddressing.test.cc(44): last checkpoint
+Leaving test case &quot;llAddress&quot;
+Entering test case &quot;tapSocketHandle&quot;
+Socket/Protocols/Raw/TunTapSocketHandle.test.cc(45): warning in &quot;tapSocketHandle&quot;: Cannot test senf::TunTapSocketHandle as non-root user
+Leaving test case &quot;tapSocketHandle&quot;
+Entering test case &quot;macAddress&quot;
+Leaving test case &quot;macAddress&quot;
+Entering test case &quot;packetSocketHandle&quot;
+Socket/Protocols/Raw/PacketSocketHandle.test.cc(44): warning in &quot;packetSocketHandle&quot;: Cannot test senf::PacketSocketHandle as non-root user
+Leaving test case &quot;packetSocketHandle&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** 1 failure detected in test suite &quot;Master Test Suite&quot;
+scons: *** [Socket/Protocols/Raw/.test.stamp] Error 201
+scons: building terminated because of errors.
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">net at sissy</A>:/data0/senf$
+
+-------------------------------------------------------
+
+Date: 2008-Nov-12 13:37
+By: tho
+
+Comment:
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">net at sissy</A>:/data0/senf$ scons Socket/Protocols/INet/test
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -o Socket/Protocols/INet/.test.bin -g -rdynamic Socket/Protocols/INet/TCPSocketHandle.o Socket/Protocols/INet/INetAddressing.o Socket/Protocols/INet/TCPSocketProtocol.o Socket/Protocols/INet/RawINetSocketHandle.o Socket/Protocols/INet/INet6Address.o Socket/Protocols/INet/RawINetSocketProtocol.o Socket/Protocols/INet/INet4Address.o Socket/Protocols/INet/INetSocketProtocol.o Socket/Protocols/INet/UDPSocketHandle.o Socket/Protocols/INet/MulticastSocketProtocol.o Socket/Protocols/INet/UDPSocketProtocol.o Socket/Protocols/INet/ConnectedRawINetSocketHandle.o Socket/Protocols/INet/ConnectedUDPSocketHandle.o Socket/Protocols/INet/TCPSocketHandle.test.o Socket/Protocols/INet/INet4Address.test.o Socket/Protocols/INet/RawINetSocketHandle.test.o Socket/Protocols/INet/MulticastSocketProtocol.test.o Socket/Protocols/INet/INetAddressing.test.o Socket/Protocols/INet/UDPSocketHandle.test.o Socket/Protocols/INet/INet6Address.test.o Socket/Protocols/INet/main.test.o -L. -Wl,-Bstatic -lboos!
+ t_unit_test_framework -Wl,-Bdynamic -lSocket -lScheduler -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Socket/Protocols/INet/.test.bin --build_info=yes --log_level=test_suite
+Running 14 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;inet6Address&quot;
+Leaving test case &quot;inet6Address&quot;
+Entering test case &quot;inet6Network&quot;
+Leaving test case &quot;inet6Network&quot;
+Entering test case &quot;udpv4ClientSocketHandle&quot;
+
+server_v4: bind(): Address already in use
+Socket/Protocols/INet/UDPSocketHandle.test.cc(149): error in &quot;udpv4ClientSocketHandle&quot;: exception thrown by sock.bind(senf::INet4SocketAddress(&quot;127.0.0.1:23456&quot;))
+Socket/Protocols/INet/UDPSocketHandle.test.cc(150): error in &quot;udpv4ClientSocketHandle&quot;: check sock.local() == senf::INet4SocketAddress(&quot;127.0.0.1:23456&quot;) failed
+Socket/Protocols/INet/UDPSocketHandle.test.cc(156): error in &quot;udpv4ClientSocketHandle&quot;: exception thrown by sock.writeto(senf::INet4SocketAddress(&quot;127.0.0.1:12345&quot;), std::string(&quot;TEST-WRITE&quot;))
+Alarm clock
+scons: *** [Socket/Protocols/INet/.test.stamp] Error 142
+scons: building terminated because of errors.
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">net at sissy</A>:/data0/senf$ uname -a
+Linux sissy 2.6.24-21-rt #1 SMP PREEMPT RT Wed Oct 22 00:34:13 UTC 2008 x86_64 GNU/Linux
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">net at sissy</A>:/data0/senf$
+
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14756&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14756&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000392.html">[Senf-dev] [Bug #14756] make SENF 64bit compatible
+</A></li>
+	<LI>Next message: <A HREF="000394.html">[Senf-dev] [Bug #14756] make SENF 64bit compatible
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#393">[ date ]</a>
+              <a href="thread.html#393">[ thread ]</a>
+              <a href="subject.html#393">[ subject ]</a>
+              <a href="author.html#393">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,1582 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Missing debian build log
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Missing%20debian%20build%20log&In-Reply-To=%3C878x7rn6z6.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000045.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Missing debian build log</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Missing%20debian%20build%20log&In-Reply-To=%3C878x7rn6z6.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] Missing debian build log">g0dil at berlios.de
+       </A><BR>
+    <I>Fri Aug 31 15:55:57 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000045.html">[Senf-dev] Debian packages, SENF status etc.
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I forgot the log, if anyone is interested. I have edited out the
+endless doxygen messages to make the thing more readable :-) Just for
+information: pbuilder builds a debian package within a minimal debian
+chroot. This automatically checks, that the Build-Depends line is
+correct.
+
+Script started on Fri 31 Aug 2007 02:52:48 PM CEST
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">stefan at sobakah</A>$ scons debsrc
+
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+updateRevision([&quot;debsrc&quot;], [])
+dpkg-buildpackage -us -uc -rfakeroot -I.svn -IDoxyfile.local -ISConfig -S
+dpkg-buildpackage: source package is libsenf
+dpkg-buildpackage: source version is 0.0r422
+dpkg-buildpackage: source changed by Stefan Bund &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">senf-dev at lists.berlios.de</A>&gt;
+dpkg-buildpackage: source version without epoch 0.0r422
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp configure-stamp
+scons -c all
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Cleaning targets ...
+Removed Packets/all_includes.hh
+Removed senfscons/SENFSCons.pyc
+Removed senfscons/Dia2Png.pyc
+Removed senfscons/CopyToDir.pyc
+Removed senfscons/InstallIncludes.pyc
+Removed senfscons/BoostUnitTests.pyc
+Removed senfscons/Doxygen.pyc
+Removed doclib/yaptu.pyc
+scons: done cleaning targets.
+dh_clean
+ dpkg-source -I.svn -IDoxyfile.local -ISConfig -b Senf-trunk
+dpkg-source: warning: source directory `./Senf-trunk' is not &lt;sourcepackage&gt;-&lt;upstreamversion&gt; `libsenf-0.0r422'
+dpkg-source: building libsenf in libsenf_0.0r422.tar.gz
+dpkg-source: building libsenf in libsenf_0.0r422.dsc
+ dpkg-genchanges -S
+dpkg-genchanges: including full source code in upload
+dpkg-buildpackage: source only upload: Debian-native package
+scons: done building targets.
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">stefan at sobakah</A>$ cd ..
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">stefan at sobakah</A>$ pbuilder build libsenf_0.0r422.ds c
+
+W: /home/stefan/.pbuilderrc does not exist
+I: using fakeroot in build.
+pbuilder-buildpackage/i386 $Id: pbuilder-buildpackage-funcs,v 1.32 2006/11/06 20:06:25 lool Exp $
+$Id: pbuilder-buildpackage,v 1.127 2006/08/15 13:14:25 dancer Exp $
+Current time: Fri Aug 31 14:53:34 CEST 2007
+pbuilder-time-stamp: 1188564814
+Building the build Environment
+ -&gt; extracting base tarball [/var/cache/pbuilder/base.tgz]
+ -&gt; creating local configuration
+ -&gt; copying local configuration
+ -&gt; mounting /proc filesystem
+ -&gt; mounting /dev/pts filesystem
+ -&gt; policy-rc.d already exists
+Obtaining the cached apt archive contents
+Installing the build-deps
+ -&gt; Attempting to parse the build-deps : pbuilder-satisfydepends,v 1.29 2006/11/06 20:20:56 lool Exp $
+ -&gt; Considering build-dep debhelper (&gt;= 5)
+   -&gt; Trying debhelper
+ -&gt; Considering build-dep scons
+   -&gt; Trying scons
+ -&gt; Considering build-dep binutils-dev
+   -&gt; Trying binutils-dev
+ -&gt; Considering build-dep libboost-dev
+   -&gt; Trying libboost-dev
+ -&gt; Considering build-dep libboost-test-dev
+   -&gt; Trying libboost-test-dev
+ -&gt; Considering build-dep libboost-date-time-dev
+   -&gt; Trying libboost-date-time-dev
+ -&gt; Considering build-dep libboost-regex-dev
+   -&gt; Trying libboost-regex-dev
+ -&gt; Considering build-dep libboost-thread-dev
+   -&gt; Trying libboost-thread-dev
+ -&gt; Considering build-dep doxygen
+   -&gt; Trying doxygen
+ -&gt; Considering build-dep dia
+   -&gt; Trying dia
+ -&gt; Considering build-dep tidy
+   -&gt; Trying tidy
+ -&gt; Considering build-dep xsltproc
+   -&gt; Trying xsltproc
+ -&gt; Considering build-dep graphviz
+   -&gt; Trying graphviz
+ -&gt; Installing  debhelper scons binutils-dev libboost-dev libboost-test-dev libboost-date-time-dev libboost-regex-dev libboost-thread-dev doxygen dia tidy xsltproc graphviz
+Reading package lists... Done
+Building dependency tree... Done
+The following extra packages will be installed:
+  defoma dia-common dia-libs file fontconfig fontconfig-config gettext
+  gettext-base html2text intltool-debian libart-2.0-2 libatk1.0-0
+  libboost-date-time1.33.1 libboost-regex1.33.1 libboost-test1.33.1
+  libboost-thread1.33.1 libcairo2 libexpat1 libfontconfig1 libfreetype6
+  libglib2.0-0 libgtk2.0-0 libgtk2.0-common libice6 libicu36 libicu36-dev
+  libjpeg62 libltdl3 libmagic1 libpango1.0-0 libpango1.0-common libperl5.8
+  libpng12-0 libsm6 libtidy-0.99-0 libtiff4 libx11-6 libx11-data libxau6
+  libxaw7 libxcursor1 libxdmcp6 libxext6 libxfixes3 libxft2 libxi6
+  libxinerama1 libxml2 libxmu6 libxpm4 libxrandr2 libxrender1 libxslt1.1
+  libxt6 mime-support po-debconf python python-cairo python-central
+  python-gtk2 python-minimal python-numeric python-support python2.4
+  python2.4-minimal tcl8.4 tk8.4 ttf-dejavu ucf x11-common
+Suggested packages:
+  dh-make defoma-doc psfontmgr x-ttcidfont-conf dfontmgr doxygen-doc
+  doxygen-gui cvs gettext-doc msttcorefonts gsfonts graphviz-doc libboost-doc
+  libboost-filesystem-dev libboost-graph-dev libboost-iostreams-dev
+  libboost-program-options-dev libboost-python-dev libboost-serialization-dev
+  libboost-signals-dev libboost-wave-dev libfreetype6-dev icu-doc
+  ttf-kochi-gothic ttf-kochi-mincho ttf-thryomanes ttf-baekmuk
+  ttf-arphic-gbsn00lp ttf-arphic-bsmi00lp ttf-arphic-gkai00mp
+  ttf-arphic-bkai00mp python-doc python-tk python-profiler
+  python-numeric-tutorial python2.4-doc tclreadline tidy-doc
+Recommended packages:
+  libft-perl gsfonts-x11 libatk1.0-data libglib2.0-data hicolor-icon-theme
+  libgtk2.0-bin xml-core libmail-sendmail-perl libcompress-zlib-perl xterm
+  x-terminal-emulator debconf-utils
+The following NEW packages will be installed:
+  binutils-dev debhelper defoma dia dia-common dia-libs doxygen file
+  fontconfig fontconfig-config gettext gettext-base graphviz html2text
+  intltool-debian libart-2.0-2 libatk1.0-0 libboost-date-time-dev
+  libboost-date-time1.33.1 libboost-dev libboost-regex-dev
+  libboost-regex1.33.1 libboost-test-dev libboost-test1.33.1
+  libboost-thread-dev libboost-thread1.33.1 libcairo2 libexpat1 libfontconfig1
+  libfreetype6 libglib2.0-0 libgtk2.0-0 libgtk2.0-common libice6 libicu36
+  libicu36-dev libjpeg62 libltdl3 libmagic1 libpango1.0-0 libpango1.0-common
+  libperl5.8 libpng12-0 libsm6 libtidy-0.99-0 libtiff4 libx11-6 libx11-data
+  libxau6 libxaw7 libxcursor1 libxdmcp6 libxext6 libxfixes3 libxft2 libxi6
+  libxinerama1 libxml2 libxmu6 libxpm4 libxrandr2 libxrender1 libxslt1.1
+  libxt6 mime-support po-debconf python python-cairo python-central
+  python-gtk2 python-minimal python-numeric python-support python2.4
+  python2.4-minimal scons tcl8.4 tidy tk8.4 ttf-dejavu ucf x11-common xsltproc
+0 upgraded, 83 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0B/52.9MB of archives.
+After unpacking 175MB of additional disk space will be used.
+Extracting templates from packages: 36%Extracting templates from packages: 72%Extracting templates from packages: 100%
+Preconfiguring packages ...
+Selecting previously deselected package x11-common.
+(Reading database ... 12109 files and directories currently installed.)
+Unpacking x11-common (from .../x11-common_1%3a7.1.0-19_i386.deb) ...
+Selecting previously deselected package libxau6.
+Unpacking libxau6 (from .../libxau6_1%3a1.0.1-2_i386.deb) ...
+Selecting previously deselected package libxdmcp6.
+Unpacking libxdmcp6 (from .../libxdmcp6_1%3a1.0.1-2_i386.deb) ...
+Setting up x11-common (7.1.0-19) ...
+
+Selecting previously deselected package libx11-data.
+(Reading database ... 12154 files and directories currently installed.)
+Unpacking libx11-data (from .../libx11-data_2%3a1.0.3-7_all.deb) ...
+Selecting previously deselected package libx11-6.
+Unpacking libx11-6 (from .../libx11-6_2%3a1.0.3-7_i386.deb) ...
+Selecting previously deselected package libxfixes3.
+Unpacking libxfixes3 (from .../libxfixes3_1%3a4.0.1-5_i386.deb) ...
+Selecting previously deselected package libexpat1.
+Unpacking libexpat1 (from .../libexpat1_1.95.8-3.4_i386.deb) ...
+Selecting previously deselected package libfreetype6.
+Unpacking libfreetype6 (from .../libfreetype6_2.2.1-5+etch1_i386.deb) ...
+Selecting previously deselected package ucf.
+Unpacking ucf (from .../archives/ucf_2.0020_all.deb) ...
+Moving old data out of the way
+Selecting previously deselected package libmagic1.
+Unpacking libmagic1 (from .../libmagic1_4.17-5etch2_i386.deb) ...
+Selecting previously deselected package file.
+Unpacking file (from .../file_4.17-5etch2_i386.deb) ...
+Selecting previously deselected package defoma.
+Unpacking defoma (from .../defoma_0.11.10-0.1_all.deb) ...
+Selecting previously deselected package ttf-dejavu.
+Unpacking ttf-dejavu (from .../ttf-dejavu_2.15-1_all.deb) ...
+Selecting previously deselected package fontconfig-config.
+Unpacking fontconfig-config (from .../fontconfig-config_2.4.2-1.2_all.deb) ...
+Selecting previously deselected package libfontconfig1.
+Unpacking libfontconfig1 (from .../libfontconfig1_2.4.2-1.2_i386.deb) ...
+Selecting previously deselected package libxrender1.
+Unpacking libxrender1 (from .../libxrender1_1%3a0.9.1-3_i386.deb) ...
+Selecting previously deselected package libxft2.
+Unpacking libxft2 (from .../libxft2_2.1.8.2-8_i386.deb) ...
+Selecting previously deselected package libice6.
+Unpacking libice6 (from .../libice6_1%3a1.0.1-2_i386.deb) ...
+Selecting previously deselected package libsm6.
+Unpacking libsm6 (from .../libsm6_1%3a1.0.1-3_i386.deb) ...
+Selecting previously deselected package libxt6.
+Unpacking libxt6 (from .../libxt6_1%3a1.0.2-2_i386.deb) ...
+Selecting previously deselected package gettext-base.
+Unpacking gettext-base (from .../gettext-base_0.16.1-1_i386.deb) ...
+Selecting previously deselected package mime-support.
+Unpacking mime-support (from .../mime-support_3.39-1_all.deb) ...
+Selecting previously deselected package python2.4-minimal.
+Unpacking python2.4-minimal (from .../python2.4-minimal_2.4.4-3_i386.deb) ...
+Selecting previously deselected package python2.4.
+Unpacking python2.4 (from .../python2.4_2.4.4-3_i386.deb) ...
+Selecting previously deselected package python-minimal.
+Unpacking python-minimal (from .../python-minimal_2.4.4-2_all.deb) ...
+Selecting previously deselected package python.
+Unpacking python (from .../python_2.4.4-2_all.deb) ...
+Selecting previously deselected package python-central.
+Unpacking python-central (from .../python-central_0.5.12_all.deb) ...
+Selecting previously deselected package python-support.
+Unpacking python-support (from .../python-support_0.5.6_all.deb) ...
+Selecting previously deselected package html2text.
+Unpacking html2text (from .../html2text_1.3.2a-3_i386.deb) ...
+Selecting previously deselected package gettext.
+Unpacking gettext (from .../gettext_0.16.1-1_i386.deb) ...
+Selecting previously deselected package intltool-debian.
+Unpacking intltool-debian (from .../intltool-debian_0.35.0+20060710.1_all.deb) ...
+Selecting previously deselected package po-debconf.
+Unpacking po-debconf (from .../po-debconf_1.0.8_all.deb) ...
+Selecting previously deselected package debhelper.
+Unpacking debhelper (from .../debhelper_5.0.42_all.deb) ...
+Selecting previously deselected package libart-2.0-2.
+Unpacking libart-2.0-2 (from .../libart-2.0-2_2.3.17-1_i386.deb) ...
+Selecting previously deselected package libglib2.0-0.
+Unpacking libglib2.0-0 (from .../libglib2.0-0_2.12.4-2_i386.deb) ...
+Selecting previously deselected package libatk1.0-0.
+Unpacking libatk1.0-0 (from .../libatk1.0-0_1.12.4-3_i386.deb) ...
+Selecting previously deselected package libpng12-0.
+Unpacking libpng12-0 (from .../libpng12-0_1.2.15~beta5-1_i386.deb) ...
+Selecting previously deselected package libcairo2.
+Unpacking libcairo2 (from .../libcairo2_1.2.4-4_i386.deb) ...
+Selecting previously deselected package libgtk2.0-common.
+Unpacking libgtk2.0-common (from .../libgtk2.0-common_2.8.20-7_all.deb) ...
+Selecting previously deselected package libjpeg62.
+Unpacking libjpeg62 (from .../libjpeg62_6b-13_i386.deb) ...
+Selecting previously deselected package fontconfig.
+Unpacking fontconfig (from .../fontconfig_2.4.2-1.2_i386.deb) ...
+Selecting previously deselected package libpango1.0-common.
+Unpacking libpango1.0-common (from .../libpango1.0-common_1.14.8-5_all.deb) ...
+Selecting previously deselected package libpango1.0-0.
+Unpacking libpango1.0-0 (from .../libpango1.0-0_1.14.8-5_i386.deb) ...
+Selecting previously deselected package libtiff4.
+Unpacking libtiff4 (from .../libtiff4_3.8.2-7_i386.deb) ...
+Selecting previously deselected package libxcursor1.
+Unpacking libxcursor1 (from .../libxcursor1_1.1.7-4_i386.deb) ...
+Selecting previously deselected package libxext6.
+Unpacking libxext6 (from .../libxext6_1%3a1.0.1-2_i386.deb) ...
+Selecting previously deselected package libxi6.
+Unpacking libxi6 (from .../libxi6_1%3a1.0.1-4_i386.deb) ...
+Selecting previously deselected package libxinerama1.
+Unpacking libxinerama1 (from .../libxinerama1_1%3a1.0.1-4.1_i386.deb) ...
+Selecting previously deselected package libxrandr2.
+Unpacking libxrandr2 (from .../libxrandr2_2%3a1.1.0.2-5_i386.deb) ...
+Selecting previously deselected package libgtk2.0-0.
+Unpacking libgtk2.0-0 (from .../libgtk2.0-0_2.8.20-7_i386.deb) ...
+Selecting previously deselected package libxml2.
+Unpacking libxml2 (from .../libxml2_2.6.27.dfsg-1_i386.deb) ...
+Selecting previously deselected package python-numeric.
+Unpacking python-numeric (from .../python-numeric_24.2-7_i386.deb) ...
+Selecting previously deselected package python-cairo.
+Unpacking python-cairo (from .../python-cairo_1.2.0-1_i386.deb) ...
+Selecting previously deselected package python-gtk2.
+Unpacking python-gtk2 (from .../python-gtk2_2.8.6-8_i386.deb) ...
+Selecting previously deselected package dia-common.
+Unpacking dia-common (from .../dia-common_0.95.0-4.1_all.deb) ...
+Selecting previously deselected package libxslt1.1.
+Unpacking libxslt1.1 (from .../libxslt1.1_1.1.19-1_i386.deb) ...
+Selecting previously deselected package dia-libs.
+Unpacking dia-libs (from .../dia-libs_0.95.0-4.1+b1_i386.deb) ...
+Selecting previously deselected package dia.
+Unpacking dia (from .../dia_0.95.0-4.1+b1_i386.deb) ...
+Selecting previously deselected package doxygen.
+Unpacking doxygen (from .../doxygen_1.5.1-1_i386.deb) ...
+Selecting previously deselected package libltdl3.
+Unpacking libltdl3 (from .../libltdl3_1.5.22-4_i386.deb) ...
+Selecting previously deselected package libperl5.8.
+Unpacking libperl5.8 (from .../libperl5.8_5.8.8-7_i386.deb) ...
+Selecting previously deselected package libxmu6.
+Unpacking libxmu6 (from .../libxmu6_1%3a1.0.2-2_i386.deb) ...
+Selecting previously deselected package libxpm4.
+Unpacking libxpm4 (from .../libxpm4_1%3a3.5.5-2_i386.deb) ...
+Selecting previously deselected package libxaw7.
+Unpacking libxaw7 (from .../libxaw7_1%3a1.0.2-4_i386.deb) ...
+Selecting previously deselected package tcl8.4.
+Unpacking tcl8.4 (from .../tcl8.4_8.4.12-1.1_i386.deb) ...
+Selecting previously deselected package tk8.4.
+Unpacking tk8.4 (from .../tk8.4_8.4.12-1_i386.deb) ...
+Selecting previously deselected package graphviz.
+Unpacking graphviz (from .../graphviz_2.8-2.4_i386.deb) ...
+Selecting previously deselected package libboost-dev.
+Unpacking libboost-dev (from .../libboost-dev_1.33.1-10_i386.deb) ...
+Selecting previously deselected package libboost-date-time1.33.1.
+Unpacking libboost-date-time1.33.1 (from .../libboost-date-time1.33.1_1.33.1-10_i386.deb) ...
+Selecting previously deselected package libboost-date-time-dev.
+Unpacking libboost-date-time-dev (from .../libboost-date-time-dev_1.33.1-10_i386.deb) ...
+Selecting previously deselected package libicu36.
+Unpacking libicu36 (from .../libicu36_3.6-2_i386.deb) ...
+Selecting previously deselected package libboost-regex1.33.1.
+Unpacking libboost-regex1.33.1 (from .../libboost-regex1.33.1_1.33.1-10_i386.deb) ...
+Selecting previously deselected package libicu36-dev.
+Unpacking libicu36-dev (from .../libicu36-dev_3.6-2_i386.deb) ...
+Selecting previously deselected package libboost-regex-dev.
+Unpacking libboost-regex-dev (from .../libboost-regex-dev_1.33.1-10_i386.deb) ...
+Selecting previously deselected package libboost-test1.33.1.
+Unpacking libboost-test1.33.1 (from .../libboost-test1.33.1_1.33.1-10_i386.deb) ...
+Selecting previously deselected package libboost-test-dev.
+Unpacking libboost-test-dev (from .../libboost-test-dev_1.33.1-10_i386.deb) ...
+Selecting previously deselected package libboost-thread1.33.1.
+Unpacking libboost-thread1.33.1 (from .../libboost-thread1.33.1_1.33.1-10_i386.deb) ...
+Selecting previously deselected package libboost-thread-dev.
+Unpacking libboost-thread-dev (from .../libboost-thread-dev_1.33.1-10_i386.deb) ...
+Selecting previously deselected package libtidy-0.99-0.
+Unpacking libtidy-0.99-0 (from .../libtidy-0.99-0_20051018-1_i386.deb) ...
+Selecting previously deselected package scons.
+Unpacking scons (from .../scons_0.96.93-2_all.deb) ...
+Selecting previously deselected package tidy.
+Unpacking tidy (from .../tidy_20051018-1_i386.deb) ...
+Selecting previously deselected package xsltproc.
+Unpacking xsltproc (from .../xsltproc_1.1.19-1_i386.deb) ...
+Selecting previously deselected package binutils-dev.
+Unpacking binutils-dev (from .../binutils-dev_2.17-3_i386.deb) ...
+Setting up libxau6 (1.0.1-2) ...
+
+Setting up libxdmcp6 (1.0.1-2) ...
+
+Setting up libx11-data (1.0.3-7) ...
+Setting up libx11-6 (1.0.3-7) ...
+
+Setting up libxfixes3 (4.0.1-5) ...
+
+Setting up libexpat1 (1.95.8-3.4) ...
+
+Setting up libfreetype6 (2.2.1-5+etch1) ...
+
+Setting up ucf (2.0020) ...
+
+Setting up libmagic1 (4.17-5etch2) ...
+
+Setting up file (4.17-5etch2) ...
+Setting up defoma (0.11.10-0.1) ...
+
+Setting up ttf-dejavu (2.15-1) ...
+
+Setting up fontconfig-config (2.4.2-1.2) ...
+
+Setting up libfontconfig1 (2.4.2-1.2) ...
+
+Setting up libxrender1 (0.9.1-3) ...
+
+Setting up libxft2 (2.1.8.2-8) ...
+
+Setting up libice6 (1.0.1-2) ...
+
+Setting up libsm6 (1.0.1-3) ...
+
+Setting up libxt6 (1.0.2-2) ...
+
+Setting up gettext-base (0.16.1-1) ...
+
+Setting up mime-support (3.39-1) ...
+
+Setting up python2.4-minimal (2.4.4-3) ...
+
+Setting up python2.4 (2.4.4-3) ...
+
+Setting up python-minimal (2.4.4-2) ...
+Setting up python (2.4.4-2) ...
+
+Setting up python-central (0.5.12) ...
+Setting up python-support (0.5.6) ...
+
+Setting up html2text (1.3.2a-3) ...
+
+Setting up gettext (0.16.1-1) ...
+
+Setting up intltool-debian (0.35.0+20060710.1) ...
+Setting up po-debconf (1.0.8) ...
+Setting up debhelper (5.0.42) ...
+Setting up libart-2.0-2 (2.3.17-1) ...
+
+Setting up libglib2.0-0 (2.12.4-2) ...
+
+Setting up libatk1.0-0 (1.12.4-3) ...
+
+Setting up libpng12-0 (1.2.15~beta5-1) ...
+
+Setting up libcairo2 (1.2.4-4) ...
+
+Setting up libgtk2.0-common (2.8.20-7) ...
+Setting up libjpeg62 (6b-13) ...
+
+Setting up fontconfig (2.4.2-1.2) ...
+Updating font configuration of fontconfig...
+Cleaning up category cid..
+Cleaning up category truetype..
+Cleaning up category type1..
+Updating category type1..
+Updating category truetype..
+Updating category cid..
+Cleaning up old fontconfig caches... done.
+Regenerating fonts cache... done.
+
+Setting up libpango1.0-common (1.14.8-5) ...
+I: Purging /etc/pango/pango.modules
+Cleaning up font configuration of pango...
+Updating font configuration of pango...
+Cleaning up category xfont..
+Updating category xfont..
+*** You don't have any defomized font packages.
+*** So we are trying to force to generate pangox.aliases...
+
+Setting up libpango1.0-0 (1.14.8-5) ...
+
+Setting up libtiff4 (3.8.2-7) ...
+
+Setting up libxcursor1 (1.1.7-4) ...
+
+Setting up libxext6 (1.0.1-2) ...
+
+Setting up libxi6 (1.0.1-4) ...
+
+Setting up libxinerama1 (1.0.1-4.1) ...
+
+Setting up libxrandr2 (1.1.0.2-5) ...
+
+Setting up libgtk2.0-0 (2.8.20-7) ...
+Updating the IM modules list for GTK+-2.4.0...done.
+Creating /etc/gtk-2.0...done.
+Updating the gdk-pixbuf loaders list for GTK+-2.4.0...done.
+
+Setting up libxml2 (2.6.27.dfsg-1) ...
+
+Setting up python-numeric (24.2-7) ...
+
+Setting up python-cairo (1.2.0-1) ...
+
+Setting up python-gtk2 (2.8.6-8) ...
+
+Setting up dia-common (0.95.0-4.1) ...
+
+Setting up libxslt1.1 (1.1.19-1) ...
+
+Setting up dia-libs (0.95.0-4.1+b1) ...
+Setting up dia (0.95.0-4.1+b1) ...
+
+Setting up doxygen (1.5.1-1) ...
+Setting up libltdl3 (1.5.22-4) ...
+
+Setting up libperl5.8 (5.8.8-7) ...
+
+Setting up libxmu6 (1.0.2-2) ...
+
+Setting up libxpm4 (3.5.5-2) ...
+
+Setting up libxaw7 (1.0.2-4) ...
+
+Setting up tcl8.4 (8.4.12-1.1) ...
+
+Setting up tk8.4 (8.4.12-1) ...
+
+Setting up graphviz (2.8-2.4) ...
+
+Setting up libboost-dev (1.33.1-10) ...
+Setting up libboost-date-time1.33.1 (1.33.1-10) ...
+
+Setting up libboost-date-time-dev (1.33.1-10) ...
+Setting up libicu36 (3.6-2) ...
+
+Setting up libboost-regex1.33.1 (1.33.1-10) ...
+
+Setting up libicu36-dev (3.6-2) ...
+Setting up libboost-regex-dev (1.33.1-10) ...
+Setting up libboost-test1.33.1 (1.33.1-10) ...
+
+Setting up libboost-test-dev (1.33.1-10) ...
+Setting up libboost-thread1.33.1 (1.33.1-10) ...
+
+Setting up libboost-thread-dev (1.33.1-10) ...
+Setting up libtidy-0.99-0 (20051018-1) ...
+
+Setting up scons (0.96.93-2) ...
+
+Setting up tidy (20051018-1) ...
+Setting up xsltproc (1.1.19-1) ...
+Setting up binutils-dev (2.17-3) ...
+ -&gt; Finished parsing the build-deps
+Reading package lists... Done
+Building dependency tree... Done
+The following NEW packages will be installed:
+  fakeroot
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0B/96.2kB of archives.
+After unpacking 311kB of additional disk space will be used.
+Selecting previously deselected package fakeroot.
+(Reading database ... 20795 files and directories currently installed.)
+Unpacking fakeroot (from .../fakeroot_1.5.10_i386.deb) ...
+Setting up fakeroot (1.5.10) ...
+
+Copying back the cached apt archive contents
+Copying source file
+    -&gt; copying [libsenf_0.0r422.dsc]
+    -&gt; copying [./libsenf_0.0r422.tar.gz]
+Extracting source
+dpkg-source: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-source: warning: extracting unsigned source package (./libsenf_0.0r422.dsc)
+dpkg-source: extracting libsenf in libsenf-0.0r422
+dpkg-source: unpacking libsenf_0.0r422.tar.gz
+ -&gt; Building the package
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-buildpackage: source package is libsenf
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-buildpackage: source version is 0.0r422
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-buildpackage: source changed by Stefan Bund &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">senf-dev at lists.berlios.de</A>&gt;
+dpkg-architecture: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-architecture: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-buildpackage: host architecture i386
+dpkg-buildpackage: source version without epoch 0.0r422
+dpkg-checkbuilddeps: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-architecture: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-architecture: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp configure-stamp
+scons -c all
+scons: Reading SConscript files ...
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+scons: done reading SConscript files.
+scons: Cleaning targets ...
+Removed Packets/all_includes.hh
+Removed senfscons/SENFSCons.pyc
+Removed senfscons/Dia2Png.pyc
+Removed senfscons/CopyToDir.pyc
+Removed senfscons/InstallIncludes.pyc
+Removed senfscons/BoostUnitTests.pyc
+Removed senfscons/Doxygen.pyc
+Removed doclib/yaptu.pyc
+scons: done cleaning targets.
+dh_clean
+ dpkg-source -b libsenf-0.0r422
+dpkg-source: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-architecture: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-source: building libsenf in libsenf_0.0r422.tar.gz
+dpkg-source: building libsenf in libsenf_0.0r422.dsc
+ debian/rules build
+dh_testdir
+rm -f Doxyfile.local SConfig
+touch configure-stamp
+dh_testdir
+scons -j 1 final=1
+scons: Reading SConscript files ...
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+Touch(&quot;Doxyfile.local&quot;)
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -o PPI/IntervalTimer.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/IntervalTimer.cc
+g++ -o PPI/IOEvent.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/IOEvent.cc
+g++ -o PPI/Events.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/Events.cc
+g++ -o PPI/PassiveQueue.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/PassiveQueue.cc
+g++ -o PPI/ActiveFeeder.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/ActiveFeeder.cc
+g++ -o PPI/Module.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/Module.cc
+g++ -o PPI/ThrottleBarrier.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/ThrottleBarrier.cc
+g++ -o PPI/Joins.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/Joins.cc
+g++ -o PPI/Queueing.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/Queueing.cc
+g++ -o PPI/DiscardSink.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/DiscardSink.cc
+g++ -o PPI/EventManager.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/EventManager.cc
+g++ -o PPI/CloneSource.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/CloneSource.cc
+g++ -o PPI/IdleEvent.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/IdleEvent.cc
+g++ -o PPI/Connectors.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/Connectors.cc
+g++ -o PPI/ModuleManager.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/ModuleManager.cc
+g++ -o PPI/detail/EventBinding.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/detail/EventBinding.cc
+ar rc libPPI.a PPI/IntervalTimer.o PPI/IOEvent.o PPI/Events.o PPI/PassiveQueue.o PPI/ActiveFeeder.o PPI/Module.o PPI/ThrottleBarrier.o PPI/Joins.o PPI/Queueing.o PPI/DiscardSink.o PPI/EventManager.o PPI/CloneSource.o PPI/IdleEvent.o PPI/Connectors.o PPI/ModuleManager.o PPI/detail/EventBinding.o
+ranlib libPPI.a
+g++ -o Packets/Packet.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/Packet.cc
+g++ -o Packets/PacketImpl.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/PacketImpl.cc
+g++ -o Packets/PacketRegistry.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/PacketRegistry.cc
+g++ -o Packets/PacketInterpreter.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/PacketInterpreter.cc
+g++ -o Packets/PacketData.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/PacketData.cc
+ar rc libPackets.a Packets/Packet.o Packets/PacketImpl.o Packets/PacketRegistry.o Packets/PacketInterpreter.o Packets/PacketData.o
+ranlib libPackets.a
+g++ -o Packets/DefaultBundle/UDPPacket.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/DefaultBundle/UDPPacket.cc
+g++ -o Packets/DefaultBundle/IpV6Packet.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/DefaultBundle/IpV6Packet.cc
+g++ -o Packets/DefaultBundle/EthernetPacket.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/DefaultBundle/EthernetPacket.cc
+g++ -o Packets/DefaultBundle/IpV6Extensions.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/DefaultBundle/IpV6Extensions.cc
+g++ -o Packets/DefaultBundle/IpV4Packet.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/DefaultBundle/IpV4Packet.cc
+ld -r -o Packets/DefaultBundle/DefaultBundle.o Packets/DefaultBundle/UDPPacket.o Packets/DefaultBundle/IpV6Packet.o Packets/DefaultBundle/EthernetPacket.o Packets/DefaultBundle/IpV6Extensions.o Packets/DefaultBundle/IpV4Packet.o
+ar rc libPackets_DefaultBundle.a Packets/DefaultBundle/UDPPacket.o Packets/DefaultBundle/IpV6Packet.o Packets/DefaultBundle/EthernetPacket.o Packets/DefaultBundle/IpV6Extensions.o Packets/DefaultBundle/IpV4Packet.o
+ranlib libPackets_DefaultBundle.a
+g++ -o Packets/MPEGDVBBundle/SNDUPacket.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/MPEGDVBBundle/SNDUPacket.cc
+g++ -o Packets/MPEGDVBBundle/TransportPacket.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/MPEGDVBBundle/TransportPacket.cc
+g++ -o Packets/MPEGDVBBundle/DSMCCSection.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/MPEGDVBBundle/DSMCCSection.cc
+g++ -o Packets/MPEGDVBBundle/DatagramSection.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/MPEGDVBBundle/DatagramSection.cc
+ld -r -o Packets/MPEGDVBBundle/MPEGDVBBundle.o Packets/MPEGDVBBundle/SNDUPacket.o Packets/MPEGDVBBundle/TransportPacket.o Packets/MPEGDVBBundle/DSMCCSection.o Packets/MPEGDVBBundle/DatagramSection.o
+ar rc libPackets_MPEGDVBBundle.a Packets/MPEGDVBBundle/SNDUPacket.o Packets/MPEGDVBBundle/TransportPacket.o Packets/MPEGDVBBundle/DSMCCSection.o Packets/MPEGDVBBundle/DatagramSection.o
+ranlib libPackets_MPEGDVBBundle.a
+g++ -o Utils/Exception.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Utils/Exception.cc
+g++ -o Utils/TypeInfo.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Utils/TypeInfo.cc
+g++ -o Utils/DaemonTools.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Utils/DaemonTools.cc
+ar rc libUtils.a Utils/Exception.o Utils/TypeInfo.o Utils/DaemonTools.o
+ranlib libUtils.a
+g++ -o Socket/CommunicationPolicy.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/CommunicationPolicy.cc
+g++ -o Socket/SocketProtocol.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/SocketProtocol.cc
+g++ -o Socket/BufferingPolicy.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/BufferingPolicy.cc
+g++ -o Socket/FileHandle.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/FileHandle.cc
+g++ -o Socket/SocketHandle.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/SocketHandle.cc
+g++ -o Socket/ReadWritePolicy.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/ReadWritePolicy.cc
+g++ -o Socket/Protocols/GenericAddressingPolicy.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/GenericAddressingPolicy.cc
+g++ -o Socket/Protocols/BSDSocketProtocol.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/BSDSocketProtocol.cc
+g++ -o Socket/Protocols/DVB/DVBDemuxProtocol.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/DVB/DVBDemuxProtocol.cc
+g++ -o Socket/Protocols/DVB/DVBFrontendHandle.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/DVB/DVBFrontendHandle.cc
+g++ -o Socket/Protocols/DVB/DVBDemuxHandles.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/DVB/DVBDemuxHandles.cc
+g++ -o Socket/Protocols/Raw/PacketSocketHandle.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/Raw/PacketSocketHandle.cc
+g++ -o Socket/Protocols/Raw/MACAddress.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/Raw/MACAddress.cc
+g++ -o Socket/Protocols/Raw/LLAddressing.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/Raw/LLAddressing.cc
+g++ -o Socket/Protocols/INet/ConnectedUDPSocketHandle.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/INet/ConnectedUDPSocketHandle.cc
+g++ -o Socket/Protocols/INet/INet6Address.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/INet/INet6Address.cc
+g++ -o Socket/Protocols/INet/UDPProtocol.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/INet/UDPProtocol.cc
+g++ -o Socket/Protocols/INet/TCPProtocol.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/INet/TCPProtocol.cc
+g++ -o Socket/Protocols/INet/INetAddressing.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/INet/INetAddressing.cc
+g++ -o Socket/Protocols/INet/UDPSocketHandle.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/INet/UDPSocketHandle.cc
+g++ -o Socket/Protocols/INet/INet4Address.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/INet/INet4Address.cc
+g++ -o Socket/Protocols/INet/TCPSocketHandle.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/INet/TCPSocketHandle.cc
+g++ -o Socket/Protocols/INet/INetProtocol.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Socket/Protocols/INet/INetProtocol.cc
+ar rc libSocket.a Socket/CommunicationPolicy.o Socket/SocketProtocol.o Socket/BufferingPolicy.o Socket/FileHandle.o Socket/SocketHandle.o Socket/ReadWritePolicy.o Socket/Protocols/GenericAddressingPolicy.o Socket/Protocols/BSDSocketProtocol.o Socket/Protocols/DVB/DVBDemuxProtocol.o Socket/Protocols/DVB/DVBFrontendHandle.o Socket/Protocols/DVB/DVBDemuxHandles.o Socket/Protocols/Raw/PacketSocketHandle.o Socket/Protocols/Raw/MACAddress.o Socket/Protocols/Raw/LLAddressing.o Socket/Protocols/INet/ConnectedUDPSocketHandle.o Socket/Protocols/INet/INet6Address.o Socket/Protocols/INet/UDPProtocol.o Socket/Protocols/INet/TCPProtocol.o Socket/Protocols/INet/INetAddressing.o Socket/Protocols/INet/UDPSocketHandle.o Socket/Protocols/INet/INet4Address.o Socket/Protocols/INet/TCPSocketHandle.o Socket/Protocols/INet/INetProtocol.o
+ranlib libSocket.a
+g++ -o Examples/MCSniffer/MCSniffer.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/MCSniffer/MCSniffer.cc
+g++ -o Scheduler/Scheduler.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Scheduler/Scheduler.cc
+g++ -o Scheduler/ClockService.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Scheduler/ClockService.cc
+ar rc libScheduler.a Scheduler/Scheduler.o Scheduler/ClockService.o
+ranlib libScheduler.a
+g++ -o Examples/MCSniffer/mcsniffer Examples/MCSniffer/MCSniffer.o Packets/DefaultBundle/DefaultBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+g++ -o Examples/DVBAdapter/ULEdec.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/DVBAdapter/ULEdec.cc
+g++ -o Examples/DVBAdapter/ULEdec Examples/DVBAdapter/ULEdec.o Packets/DefaultBundle/DefaultBundle.o Packets/MPEGDVBBundle/MPEGDVBBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+g++ -o Examples/DVBAdapter/frontend.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/DVBAdapter/frontend.cc
+g++ -o Examples/DVBAdapter/frontend Examples/DVBAdapter/frontend.o Packets/DefaultBundle/DefaultBundle.o Packets/MPEGDVBBundle/MPEGDVBBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+g++ -o Examples/DVBAdapter/MPEdec.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/DVBAdapter/MPEdec.cc
+g++ -o Examples/DVBAdapter/MPEdec Examples/DVBAdapter/MPEdec.o Packets/DefaultBundle/DefaultBundle.o Packets/MPEGDVBBundle/MPEGDVBBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+g++ -o Examples/RateStuffer/ratestuffer.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/RateStuffer/ratestuffer.cc
+g++ -o Examples/RateStuffer/ratestuffer Examples/RateStuffer/ratestuffer.o -L. -lPPI -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+g++ -o Examples/TCPClientServer/client.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/TCPClientServer/client.cc
+g++ -o Examples/TCPClientServer/client Examples/TCPClientServer/client.o -L. -lPackets -lSocket -lUtils -liberty -lboost_regex
+g++ -o Examples/TCPClientServer/server.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/TCPClientServer/server.cc
+g++ -o Examples/TCPClientServer/server Examples/TCPClientServer/server.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+g++ -o Examples/Sniffer/Sniffer.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/Sniffer/Sniffer.cc
+g++ -o Examples/Sniffer/sniffer Examples/Sniffer/Sniffer.o Packets/DefaultBundle/DefaultBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+ar rc libsenf.a PPI/IntervalTimer.o PPI/IOEvent.o PPI/Events.o PPI/PassiveQueue.o PPI/ActiveFeeder.o PPI/Module.o PPI/ThrottleBarrier.o PPI/Joins.o PPI/Queueing.o PPI/DiscardSink.o PPI/EventManager.o PPI/CloneSource.o PPI/IdleEvent.o PPI/Connectors.o PPI/ModuleManager.o PPI/detail/EventBinding.o Packets/Packet.o Packets/PacketImpl.o Packets/PacketRegistry.o Packets/PacketInterpreter.o Packets/PacketData.o Packets/DefaultBundle/UDPPacket.o Packets/DefaultBundle/IpV6Packet.o Packets/DefaultBundle/EthernetPacket.o Packets/DefaultBundle/IpV6Extensions.o Packets/DefaultBundle/IpV4Packet.o Packets/MPEGDVBBundle/SNDUPacket.o Packets/MPEGDVBBundle/TransportPacket.o Packets/MPEGDVBBundle/DSMCCSection.o Packets/MPEGDVBBundle/DatagramSection.o Utils/Exception.o Utils/TypeInfo.o Utils/DaemonTools.o Socket/CommunicationPolicy.o Socket/SocketProtocol.o Socket/BufferingPolicy.o Socket/FileHandle.o Socket/SocketHandle.o Socket/ReadWritePolicy.o Socket/Protocols/GenericAddressingPolicy.o Socket/Protocols/BSDSocketProtocol.o Socket/Protocols/DVB/DVBDemuxProtocol.o Socket/Protocols/DVB/DVBFrontendHandle.o Socket/Protocols/DVB/DVBDemuxHandles.o Socket/Protocols/Raw/PacketSocketHandle.o Socket/Protocols/Raw/MACAddress.o Socket/Protocols/Raw/LLAddressing.o Socket/Protocols/INet/ConnectedUDPSocketHandle.o Socket/Protocols/INet/INet6Address.o Socket/Protocols/INet/UDPProtocol.o Socket/Protocols/INet/TCPProtocol.o Socket/Protocols/INet/INetAddressing.o Socket/Protocols/INet/UDPSocketHandle.o Socket/Protocols/INet/INet4Address.o Socket/Protocols/INet/TCPSocketHandle.o Socket/Protocols/INet/INetProtocol.o Scheduler/Scheduler.o Scheduler/ClockService.o
+ranlib libsenf.a
+scons: done building targets.
+scons -j 1 all_docs final=1
+scons: Reading SConscript files ...
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+scons: done reading SConscript files.
+scons: Building targets ...
+Xlib: connection to &quot;localhost:0.0&quot; refused by server
+Xlib: No protocol specified
+
+could not import gtkcons.py
+dia -t png -s 696x193 -e PPI/scenario.png PPI/scenario.dia
+could not import gtkcons.py
+PPI/scenario.dia --&gt; PPI/scenario.png
+Copy(&quot;PPI/doc/html/scenario.png&quot;, &quot;PPI/scenario.png&quot;)
+Xlib: connection to &quot;localhost:0.0&quot; refused by server
+Xlib: No protocol specified
+
+could not import gtkcons.py
+dia -t png -s 800x586 -e PPI/classes.png PPI/classes.dia
+could not import gtkcons.py
+PPI/classes.dia --&gt; PPI/classes.png
+Copy(&quot;PPI/doc/html/classes.png&quot;, &quot;PPI/classes.png&quot;)
+Xlib: connection to &quot;localhost:0.0&quot; refused by server
+Xlib: No protocol specified
+
+could not import gtkcons.py
+dia -t png -s 444x113 -e PPI/ratestuffer.png PPI/ratestuffer.dia
+could not import gtkcons.py
+PPI/ratestuffer.dia --&gt; PPI/ratestuffer.png
+Copy(&quot;PPI/doc/html/ratestuffer.png&quot;, &quot;PPI/ratestuffer.png&quot;)
+Copy(&quot;PPI/doc/xml/scenario.png&quot;, &quot;PPI/scenario.png&quot;)
+Copy(&quot;PPI/doc/xml/classes.png&quot;, &quot;PPI/classes.png&quot;)
+Copy(&quot;PPI/doc/xml/ratestuffer.png&quot;, &quot;PPI/ratestuffer.png&quot;)
+writeTemplate([&quot;doclib/doxy-header.html&quot;], [&quot;doclib/SConscript&quot;])
+writeTemplate([&quot;doclib/doxy-footer.html&quot;], [&quot;doclib/SConscript&quot;])
+Xlib: connection to &quot;localhost:0.0&quot; refused by server
+Xlib: No protocol specified
+
+could not import gtkcons.py
+dia -t png -s 696x308 -e Packets/structure.png Packets/structure.dia
+could not import gtkcons.py
+Packets/structure.dia --&gt; Packets/structure.png
+Copy(&quot;Packets/doc/html/structure.png&quot;, &quot;Packets/structure.png&quot;)
+Copy(&quot;Packets/doc/xml/structure.png&quot;, &quot;Packets/structure.png&quot;)
+rm -f /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/bug.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/fixme.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/todo.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/idea.xml
+cd Utils &amp;&amp; TOPDIR=../../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+Generating XML output for page idea
+Generating XML output for the main page
+Generating search index
+touch Utils/doc/xml/xml.stamp Utils/doc/html/html.stamp Utils/doc/Utils.tag Utils/doc/html/search.idx
+xsltproc --nonet -o /tmp/buildd/libsenf-0.0r422/Utils/doc/Utils.tag.temp /tmp/buildd/libsenf-0.0r422/senfscons/tagmunge.xsl /tmp/buildd/libsenf-0.0r422/Utils/doc/Utils.tag &amp;&amp; mv /tmp/buildd/libsenf-0.0r422/Utils/doc/Utils.tag.temp /tmp/buildd/libsenf-0.0r422/Utils/doc/Utils.tag
+for html in /tmp/buildd/libsenf-0.0r422/Utils/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+/tmp/buildd/libsenf-0.0r422/Utils/doc/html/Buffer_8hh-source.html
+/tmp/buildd/libsenf-0.0r422/Utils/doc/html/Buffer_8hh.html
+[...]
+/tmp/buildd/libsenf-0.0r422/Utils/doc/html/structsenf_1_1pool__alloc__mixin_1_1pool.html
+/tmp/buildd/libsenf-0.0r422/Utils/doc/html/todo.html
+test -r /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/bug.xml || touch /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/bug.xml
+test -r /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/fixme.xml || touch /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/fixme.xml
+test -r /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/todo.xml || touch /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/todo.xml
+tesgt -r /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/idea.xml || touch /tmp/buildd/libsenf-0.0r422/Utils/doc/xml/idea.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/bug.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/fixme.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/todo.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/idea.xml
+cd Packets &amp;&amp; TOPDIR=../../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+Generating XML output for the main page
+/tmp/buildd/libsenf-0.0r422/Packets/Mainpage.dox:30: Warning: unable to resolve reference to `protocolbundle_default' for \ref command
+Generating search index
+cd /tmp/buildd/libsenf-0.0r422/Packets/doc/html &amp;&amp; ./installdox -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Utils.tag at ..</A>/../../Utils/doc/html
+Substituting ../../../Utils/doc/html/ for each occurence of tag file Utils.tag
+Editing: structsenf_1_1Parse__Int8-members.html...
+Editing: ParseListB_8hh-source.html...
+[...]
+Editing: Packet_8hh.html...
+Editing: structsenf_1_1detail_1_1Parse__ListB__Policy.html...
+touch Packets/doc/xml/xml.stamp Packets/doc/html/html.stamp Packets/doc/Packets.tag Packets/doc/html/search.idx
+xsltproc --nonet -o /tmp/buildd/libsenf-0.0r422/Packets/doc/Packets.tag.temp /tmp/buildd/libsenf-0.0r422/senfscons/tagmunge.xsl /tmp/buildd/libsenf-0.0r422/Packets/doc/Packets.tag &amp;&amp; mv /tmp/buildd/libsenf-0.0r422/Packets/doc/Packets.tag.temp /tmp/buildd/libsenf-0.0r422/Packets/doc/Packets.tag
+for html in /tmp/buildd/libsenf-0.0r422/Packets/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+/tmp/buildd/libsenf-0.0r422/Packets/doc/html/DataPacket_8hh-source.html
+/tmp/buildd/libsenf-0.0r422/Packets/doc/html/DataPacket_8hh.html
+[...]
+/tmp/buildd/libsenf-0.0r422/Packets/doc/html/structsenf_1_1init__bytes.html
+/tmp/buildd/libsenf-0.0r422/Packets/doc/html/todo.html
+test -r /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/bug.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/bug.xml
+test -r /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/fixme.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/fixme.xml
+test -r /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/todo.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/todo.xml
+test -r /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/idea.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/doc/xml/idea.xml
+Xlib: connection to &quot;localhost:0.0&quot; refused by server
+Xlib: No protocol specified
+
+could not import gtkcons.py
+dia -t png -s 800x974 -e Socket/SocketLibrary-classes.png Socket/SocketLibrary-classes.dia
+could not import gtkcons.py
+Socket/SocketLibrary-classes.dia --&gt; Socket/SocketLibrary-classes.png
+Copy(&quot;Socket/doc/html/SocketLibrary-classes.png&quot;, &quot;Socket/SocketLibrary-classes.png&quot;)
+Xlib: connection to &quot;localhost:0.0&quot; refused by server
+Xlib: No protocol specified
+
+could not import gtkcons.py
+dia -t png -s 696x247 -e Socket/FhHierarchy.png Socket/FhHierarchy.dia
+could not import gtkcons.py
+Socket/FhHierarchy.dia --&gt; Socket/FhHierarchy.png
+Copy(&quot;Socket/doc/html/FhHierarchy.png&quot;, &quot;Socket/FhHierarchy.png&quot;)
+Xlib: connection to &quot;localhost:0.0&quot; refused by server
+Xlib: No protocol specified
+
+could not import gtkcons.py
+dia -t png -s 696x325 -e Socket/SocketPolicy.png Socket/SocketPolicy.dia
+could not import gtkcons.py
+Socket/SocketPolicy.dia --&gt; Socket/SocketPolicy.png
+Copy(&quot;Socket/doc/html/SocketPolicy.png&quot;, &quot;Socket/SocketPolicy.png&quot;)
+Xlib: connection to &quot;localhost:0.0&quot; refused by server
+Xlib: No protocol specified
+
+could not import gtkcons.py
+dia -t png -s 696x514 -e Socket/Protocols.png Socket/Protocols.dia
+could not import gtkcons.py
+Socket/Protocols.dia --&gt; Socket/Protocols.png
+Copy(&quot;Socket/doc/html/Protocols.png&quot;, &quot;Socket/Protocols.png&quot;)
+Xlib: connection to &quot;localhost:0.0&quot; refused by server
+Xlib: No protocol specified
+
+could not import gtkcons.py
+dia -t png -s 800x521 -e Socket/Handle.png Socket/Handle.dia
+could not import gtkcons.py
+Socket/Handle.dia --&gt; Socket/Handle.png
+Copy(&quot;Socket/doc/html/Handle.png&quot;, &quot;Socket/Handle.png&quot;)
+Copy(&quot;Socket/doc/xml/SocketLibrary-classes.png&quot;, &quot;Socket/SocketLibrary-classes.png&quot;)
+Copy(&quot;Socket/doc/xml/FhHierarchy.png&quot;, &quot;Socket/FhHierarchy.png&quot;)
+Copy(&quot;Socket/doc/xml/SocketPolicy.png&quot;, &quot;Socket/SocketPolicy.png&quot;)
+Copy(&quot;Socket/doc/xml/Protocols.png&quot;, &quot;Socket/Protocols.png&quot;)
+Copy(&quot;Socket/doc/xml/Handle.png&quot;, &quot;Socket/Handle.png&quot;)
+rm -f /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/bug.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/fixme.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/todo.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/idea.xml
+cd Socket &amp;&amp; TOPDIR=../../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+Generate XML output for dir /tmp/buildd/libsenf-0.0r422/Socket/Protocols/Raw/
+Generating XML output for the main page
+Generating search index
+cd /tmp/buildd/libsenf-0.0r422/Socket/doc/html &amp;&amp; ./installdox -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Utils.tag at ..</A>/../../Utils/doc/html
+Substituting ../../../Utils/doc/html/ for each occurence of tag file Utils.tag
+Editing: TCPSocketHandle_8cc-source.html...
+Editing: classsenf_1_1UDPv4SocketProtocol-members.html...
+[...]
+Editing: structsenf_1_1SocketPolicyIsBaseOf.html...
+Editing: classsenf_1_1TCPv4SocketProtocol-members.html...
+touch Socket/doc/xml/xml.stamp Socket/doc/html/html.stamp Socket/doc/Socket.tag Socket/doc/html/search.idx
+xsltproc --nonet -o /tmp/buildd/libsenf-0.0r422/Socket/doc/Socket.tag.temp /tmp/buildd/libsenf-0.0r422/senfscons/tagmunge.xsl /tmp/buildd/libsenf-0.0r422/Socket/doc/Socket.tag &amp;&amp; mv /tmp/buildd/libsenf-0.0r422/Socket/doc/Socket.tag.temp /tmp/buildd/libsenf-0.0r422/Socket/doc/Socket.tag
+for html in /tmp/buildd/libsenf-0.0r422/Socket/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+/tmp/buildd/libsenf-0.0r422/Socket/doc/html/AddressingPolicy_8hh-source.html
+/tmp/buildd/libsenf-0.0r422/Socket/doc/html/AddressingPolicy_8hh.html
+[...]
+/tmp/buildd/libsenf-0.0r422/Socket/doc/html/todo.html
+/tmp/buildd/libsenf-0.0r422/Socket/doc/html/usage.html
+test -r /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/bug.xml || touch /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/bug.xml
+test -r /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/fixme.xml || touch /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/fixme.xml
+test -r /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/todo.xml || touch /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/todo.xml
+test -r /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/idea.xml || touch /tmp/buildd/libsenf-0.0r422/Socket/doc/xml/idea.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/bug.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/fixme.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/todo.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/idea.xml
+cd Scheduler &amp;&amp; TOPDIR=../../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+Generating XML output for page idea
+Generating XML output for the main page
+Generating search index
+cd /tmp/buildd/libsenf-0.0r422/Scheduler/doc/html &amp;&amp; ./installdox -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Utils.tag at ..</A>/../../Utils/doc/html
+Substituting ../../../Utils/doc/html/ for each occurence of tag file Utils.tag
+Editing: ReadHelper_8cti.html...
+Editing: functions_type.html...
+[...]
+Editing: Scheduler_8cc.html...
+Editing: Scheduler_8cti.html...
+touch Scheduler/doc/xml/xml.stamp Scheduler/doc/html/html.stamp Scheduler/doc/Scheduler.tag Scheduler/doc/html/search.idx
+xsltproc --nonet -o /tmp/buildd/libsenf-0.0r422/Scheduler/doc/Scheduler.tag.temp /tmp/buildd/libsenf-0.0r422/senfscons/tagmunge.xsl /tmp/buildd/libsenf-0.0r422/Scheduler/doc/Scheduler.tag &amp;&amp; mv /tmp/buildd/libsenf-0.0r422/Scheduler/doc/Scheduler.tag.temp /tmp/buildd/libsenf-0.0r422/Scheduler/doc/Scheduler.tag
+for html in /tmp/buildd/libsenf-0.0r422/Scheduler/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+/tmp/buildd/libsenf-0.0r422/Scheduler/doc/html/ClockService_8cc-source.html
+/tmp/buildd/libsenf-0.0r422/Scheduler/doc/html/ClockService_8cc.html
+[...]
+/tmp/buildd/libsenf-0.0r422/Scheduler/doc/html/structsenf_1_1Scheduler_1_1GenericCallback.html
+/tmp/buildd/libsenf-0.0r422/Scheduler/doc/html/todo.html
+test -r /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/bug.xml || touch /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/bug.xml
+test -r /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/fixme.xml || touch /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/fixme.xml
+test -r /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/todo.xml || touch /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/todo.xml
+test -r /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/idea.xml || touch /tmp/buildd/libsenf-0.0r422/Scheduler/doc/xml/idea.xml
+rm -f /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/bug.xml
+rm -f /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/fixme.xml
+rm -f /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/todo.xml
+rm -f /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/idea.xml
+cd PPI &amp;&amp; TOPDIR=../../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+Generate XML output for dir /tmp/buildd/libsenf-0.0r422/PPI/detail/
+Generating XML output for the main page
+Generating search index
+cd /tmp/buildd/libsenf-0.0r422/PPI/doc/html &amp;&amp; ./installdox -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Packets.tag at ..</A>/../../Packets/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Socket.tag at ..</A>/../../Socket/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Utils.tag at ..</A>/../../Utils/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Scheduler.tag at ..</A>/../../Scheduler/doc/html
+Substituting ../../../Packets/doc/html/ for each occurence of tag file Packets.tag
+Substituting ../../../Utils/doc/html/ for each occurence of tag file Utils.tag
+Substituting ../../../Socket/doc/html/ for each occurence of tag file Socket.tag
+Substituting ../../../Scheduler/doc/html/ for each occurence of tag file Scheduler.tag
+Editing: structsenf_1_1ppi_1_1IOEventInfo.html...
+Editing: IntervalTimer_8hh.html...
+[...]
+Editing: classsenf_1_1ppi_1_1module_1_1debug_1_1PassiveSink-members.html...
+Editing: ThrottleBarrier_8cc.html...
+touch PPI/doc/xml/xml.stamp PPI/doc/html/html.stamp PPI/doc/PPI.tag PPI/doc/html/search.idx
+xsltproc --nonet -o /tmp/buildd/libsenf-0.0r422/PPI/doc/PPI.tag.temp /tmp/buildd/libsenf-0.0r422/senfscons/tagmunge.xsl /tmp/buildd/libsenf-0.0r422/PPI/doc/PPI.tag &amp;&amp; mv /tmp/buildd/libsenf-0.0r422/PPI/doc/PPI.tag.temp /tmp/buildd/libsenf-0.0r422/PPI/doc/PPI.tag
+for html in /tmp/buildd/libsenf-0.0r422/PPI/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+/tmp/buildd/libsenf-0.0r422/PPI/doc/html/ActiveFeeder_8cc-source.html
+/tmp/buildd/libsenf-0.0r422/PPI/doc/html/ActiveFeeder_8cc.html
+[...]
+/tmp/buildd/libsenf-0.0r422/PPI/doc/html/structsenf_1_1ppi_1_1detail_1_1Callback.html
+/tmp/buildd/libsenf-0.0r422/PPI/doc/html/todo.html
+test -r /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/bug.xml || touch /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/bug.xml
+test -r /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/fixme.xml || touch /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/fixme.xml
+test -r /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/todo.xml || touch /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/todo.xml
+test -r /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/idea.xml || touch /tmp/buildd/libsenf-0.0r422/PPI/doc/xml/idea.xml
+test -s PPI/doc/xml/bug.xml &amp;&amp; xsltproc -o PPI/doc/xml/bug.xmli --stringparam module PPI --stringparam type bug senfscons/xrefxtract.xslt PPI/doc/xml/bug.xml || touch PPI/doc/xml/bug.xmli
+test -s PPI/doc/xml/fixme.xml &amp;&amp; xsltproc -o PPI/doc/xml/fixme.xmli --stringparam module PPI --stringparam type fixme senfscons/xrefxtract.xslt PPI/doc/xml/fixme.xml || touch PPI/doc/xml/fixme.xmli
+test -s PPI/doc/xml/todo.xml &amp;&amp; xsltproc -o PPI/doc/xml/todo.xmli --stringparam module PPI --stringparam type todo senfscons/xrefxtract.xslt PPI/doc/xml/todo.xml || touch PPI/doc/xml/todo.xmli
+test -s PPI/doc/xml/idea.xml &amp;&amp; xsltproc -o PPI/doc/xml/idea.xmli --stringparam module PPI --stringparam type idea senfscons/xrefxtract.xslt PPI/doc/xml/idea.xml || touch PPI/doc/xml/idea.xmli
+test -s Packets/doc/xml/bug.xml &amp;&amp; xsltproc -o Packets/doc/xml/bug.xmli --stringparam module Packets --stringparam type bug senfscons/xrefxtract.xslt Packets/doc/xml/bug.xml || touch Packets/doc/xml/bug.xmli
+test -s Packets/doc/xml/fixme.xml &amp;&amp; xsltproc -o Packets/doc/xml/fixme.xmli --stringparam module Packets --stringparam type fixme senfscons/xrefxtract.xslt Packets/doc/xml/fixme.xml || touch Packets/doc/xml/fixme.xmli
+test -s Packets/doc/xml/todo.xml &amp;&amp; xsltproc -o Packets/doc/xml/todo.xmli --stringparam module Packets --stringparam type todo senfscons/xrefxtract.xslt Packets/doc/xml/todo.xml || touch Packets/doc/xml/todo.xmli
+test -s Packets/doc/xml/idea.xml &amp;&amp; xsltproc -o Packets/doc/xml/idea.xmli --stringparam module Packets --stringparam type idea senfscons/xrefxtract.xslt Packets/doc/xml/idea.xml || touch Packets/doc/xml/idea.xmli
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/bug.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/fixme.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/todo.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/idea.xml
+cd Packets/DefaultBundle &amp;&amp; TOPDIR=../../../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+Generating XML output for page todo
+Generating XML output for the main page
+Generating search index
+cd /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/html &amp;&amp; ./installdox -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Utils.tag at ..</A>/../../../Utils/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Packets.tag at ..</A>/../../doc/html
+Substituting ../../../doc/html/ for each occurence of tag file Packets.tag
+Substituting ../../../../Utils/doc/html/ for each occurence of tag file Utils.tag
+Editing: structsenf_1_1Parse__MAC.html...
+Editing: structsenf_1_1Parse__MAC-members.html...
+[...]
+Editing: IpV4Packet_8cc-source.html...
+Editing: EthernetPacket_8hh-source.html...
+touch Packets/DefaultBundle/doc/xml/xml.stamp Packets/DefaultBundle/doc/html/html.stamp Packets/DefaultBundle/doc/DefaultBundle.tag Packets/DefaultBundle/doc/html/search.idx
+xsltproc --nonet -o /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/DefaultBundle.tag.temp /tmp/buildd/libsenf-0.0r422/senfscons/tagmunge.xsl /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/DefaultBundle.tag &amp;&amp; mv /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/DefaultBundle.tag.temp /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/DefaultBundle.tag
+for html in /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../../../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+/tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/html/EthernetPacket_8cc-source.html
+/tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/html/EthernetPacket_8cc.html
+[...]
+/tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/html/structsenf_1_1UDPPacketType.html
+/tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/html/todo.html
+test -r /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/bug.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/bug.xml
+test -r /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/fixme.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/fixme.xml
+test -r /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/todo.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/todo.xml
+test -r /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/idea.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/DefaultBundle/doc/xml/idea.xml
+test -s Packets/DefaultBundle/doc/xml/bug.xml &amp;&amp; xsltproc -o Packets/DefaultBundle/doc/xml/bug.xmli --stringparam module Packets/DefaultBundle --stringparam type bug senfscons/xrefxtract.xslt Packets/DefaultBundle/doc/xml/bug.xml || touch Packets/DefaultBundle/doc/xml/bug.xmli
+test -s Packets/DefaultBundle/doc/xml/fixme.xml &amp;&amp; xsltproc -o Packets/DefaultBundle/doc/xml/fixme.xmli --stringparam module Packets/DefaultBundle --stringparam type fixme senfscons/xrefxtract.xslt Packets/DefaultBundle/doc/xml/fixme.xml || touch Packets/DefaultBundle/doc/xml/fixme.xmli
+test -s Packets/DefaultBundle/doc/xml/todo.xml &amp;&amp; xsltproc -o Packets/DefaultBundle/doc/xml/todo.xmli --stringparam module Packets/DefaultBundle --stringparam type todo senfscons/xrefxtract.xslt Packets/DefaultBundle/doc/xml/todo.xml || touch Packets/DefaultBundle/doc/xml/todo.xmli
+test -s Packets/DefaultBundle/doc/xml/idea.xml &amp;&amp; xsltproc -o Packets/DefaultBundle/doc/xml/idea.xmli --stringparam module Packets/DefaultBundle --stringparam type idea senfscons/xrefxtract.xslt Packets/DefaultBundle/doc/xml/idea.xml || touch Packets/DefaultBundle/doc/xml/idea.xmli
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/bug.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/fixme.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/todo.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/idea.xml
+cd Packets/MPEGDVBBundle &amp;&amp; TOPDIR=../../../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+Generating XML output for page index
+Generating XML output for the main page
+Generating search index
+cd /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/html &amp;&amp; ./installdox -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Utils.tag at ..</A>/../../../Utils/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Packets.tag at ..</A>/../../doc/html
+Substituting ../../../doc/html/ for each occurence of tag file Packets.tag
+Substituting ../../../../Utils/doc/html/ for each occurence of tag file Utils.tag
+Editing: functions_type.html...
+Editing: structsenf_1_1Parse__DatagramSection.html...
+[...]
+Editing: structsenf_1_1Parse__DSMCCSection-members.html...
+Editing: structsenf_1_1ULEExtHeaderTypes.html...
+touch Packets/MPEGDVBBundle/doc/xml/xml.stamp Packets/MPEGDVBBundle/doc/html/html.stamp Packets/MPEGDVBBundle/doc/MPEGDVBBundle.tag Packets/MPEGDVBBundle/doc/html/search.idx
+xsltproc --nonet -o /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/MPEGDVBBundle.tag.temp /tmp/buildd/libsenf-0.0r422/senfscons/tagmunge.xsl /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/MPEGDVBBundle.tag &amp;&amp; mv /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/MPEGDVBBundle.tag.temp /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/MPEGDVBBundle.tag
+for html in /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../../../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+/tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/html/DSMCCSection_8cc-source.html
+/tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/html/DSMCCSection_8cc.html
+[...]
+/tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/html/structsenf_1_1ULEExtHeaderTypes-members.html
+/tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/html/structsenf_1_1ULEExtHeaderTypes.html
+test -r /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/bug.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/bug.xml
+test -r /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/fixme.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/fixme.xml
+test -r /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/todo.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/todo.xml
+test -r /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/idea.xml || touch /tmp/buildd/libsenf-0.0r422/Packets/MPEGDVBBundle/doc/xml/idea.xml
+test -s Packets/MPEGDVBBundle/doc/xml/bug.xml &amp;&amp; xsltproc -o Packets/MPEGDVBBundle/doc/xml/bug.xmli --stringparam module Packets/MPEGDVBBundle --stringparam type bug senfscons/xrefxtract.xslt Packets/MPEGDVBBundle/doc/xml/bug.xml || touch Packets/MPEGDVBBundle/doc/xml/bug.xmli
+test -s Packets/MPEGDVBBundle/doc/xml/fixme.xml &amp;&amp; xsltproc -o Packets/MPEGDVBBundle/doc/xml/fixme.xmli --stringparam module Packets/MPEGDVBBundle --stringparam type fixme senfscons/xrefxtract.xslt Packets/MPEGDVBBundle/doc/xml/fixme.xml || touch Packets/MPEGDVBBundle/doc/xml/fixme.xmli
+test -s Packets/MPEGDVBBundle/doc/xml/todo.xml &amp;&amp; xsltproc -o Packets/MPEGDVBBundle/doc/xml/todo.xmli --stringparam module Packets/MPEGDVBBundle --stringparam type todo senfscons/xrefxtract.xslt Packets/MPEGDVBBundle/doc/xml/todo.xml || touch Packets/MPEGDVBBundle/doc/xml/todo.xmli
+test -s Packets/MPEGDVBBundle/doc/xml/idea.xml &amp;&amp; xsltproc -o Packets/MPEGDVBBundle/doc/xml/idea.xmli --stringparam module Packets/MPEGDVBBundle --stringparam type idea senfscons/xrefxtract.xslt Packets/MPEGDVBBundle/doc/xml/idea.xml || touch Packets/MPEGDVBBundle/doc/xml/idea.xmli
+test -s Utils/doc/xml/bug.xml &amp;&amp; xsltproc -o Utils/doc/xml/bug.xmli --stringparam module Utils --stringparam type bug senfscons/xrefxtract.xslt Utils/doc/xml/bug.xml || touch Utils/doc/xml/bug.xmli
+test -s Utils/doc/xml/fixme.xml &amp;&amp; xsltproc -o Utils/doc/xml/fixme.xmli --stringparam module Utils --stringparam type fixme senfscons/xrefxtract.xslt Utils/doc/xml/fixme.xml || touch Utils/doc/xml/fixme.xmli
+test -s Utils/doc/xml/todo.xml &amp;&amp; xsltproc -o Utils/doc/xml/todo.xmli --stringparam module Utils --stringparam type todo senfscons/xrefxtract.xslt Utils/doc/xml/todo.xml || touch Utils/doc/xml/todo.xmli
+test -s Utils/doc/xml/idea.xml &amp;&amp; xsltproc -o Utils/doc/xml/idea.xmli --stringparam module Utils --stringparam type idea senfscons/xrefxtract.xslt Utils/doc/xml/idea.xml || touch Utils/doc/xml/idea.xmli
+test -s Socket/doc/xml/bug.xml &amp;&amp; xsltproc -o Socket/doc/xml/bug.xmli --stringparam module Socket --stringparam type bug senfscons/xrefxtract.xslt Socket/doc/xml/bug.xml || touch Socket/doc/xml/bug.xmli
+test -s Socket/doc/xml/fixme.xml &amp;&amp; xsltproc -o Socket/doc/xml/fixme.xmli --stringparam module Socket --stringparam type fixme senfscons/xrefxtract.xslt Socket/doc/xml/fixme.xml || touch Socket/doc/xml/fixme.xmli
+test -s Socket/doc/xml/todo.xml &amp;&amp; xsltproc -o Socket/doc/xml/todo.xmli --stringparam module Socket --stringparam type todo senfscons/xrefxtract.xslt Socket/doc/xml/todo.xml || touch Socket/doc/xml/todo.xmli
+test -s Socket/doc/xml/idea.xml &amp;&amp; xsltproc -o Socket/doc/xml/idea.xmli --stringparam module Socket --stringparam type idea senfscons/xrefxtract.xslt Socket/doc/xml/idea.xml || touch Socket/doc/xml/idea.xmli
+rm -f /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/bug.xml
+rm -f /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/fixme.xml
+rm -f /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/todo.xml
+rm -f /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/idea.xml
+cd senfscons &amp;&amp; TOPDIR=../../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+Generating XML output for page todo
+Generating XML output for the main page
+Generating search index
+touch senfscons/doc/xml/xml.stamp senfscons/doc/html/html.stamp senfscons/doc/senfscons.tag senfscons/doc/html/search.idx
+xsltproc --nonet -o /tmp/buildd/libsenf-0.0r422/senfscons/doc/senfscons.tag.temp /tmp/buildd/libsenf-0.0r422/senfscons/tagmunge.xsl /tmp/buildd/libsenf-0.0r422/senfscons/doc/senfscons.tag &amp;&amp; mv /tmp/buildd/libsenf-0.0r422/senfscons/doc/senfscons.tag.temp /tmp/buildd/libsenf-0.0r422/senfscons/doc/senfscons.tag
+for html in /tmp/buildd/libsenf-0.0r422/senfscons/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+/tmp/buildd/libsenf-0.0r422/senfscons/doc/html/BoostUnitTests_8py-source.html
+/tmp/buildd/libsenf-0.0r422/senfscons/doc/html/BoostUnitTests_8py.html
+[...]
+/tmp/buildd/libsenf-0.0r422/senfscons/doc/html/sconstruct.html
+/tmp/buildd/libsenf-0.0r422/senfscons/doc/html/todo.html
+test -r /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/bug.xml || touch /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/bug.xml
+test -r /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/fixme.xml || touch /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/fixme.xml
+test -r /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/todo.xml || touch /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/todo.xml
+test -r /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/idea.xml || touch /tmp/buildd/libsenf-0.0r422/senfscons/doc/xml/idea.xml
+test -s senfscons/doc/xml/bug.xml &amp;&amp; xsltproc -o senfscons/doc/xml/bug.xmli --stringparam module senfscons --stringparam type bug senfscons/xrefxtract.xslt senfscons/doc/xml/bug.xml || touch senfscons/doc/xml/bug.xmli
+test -s senfscons/doc/xml/fixme.xml &amp;&amp; xsltproc -o senfscons/doc/xml/fixme.xmli --stringparam module senfscons --stringparam type fixme senfscons/xrefxtract.xslt senfscons/doc/xml/fixme.xml || touch senfscons/doc/xml/fixme.xmli
+test -s senfscons/doc/xml/todo.xml &amp;&amp; xsltproc -o senfscons/doc/xml/todo.xmli --stringparam module senfscons --stringparam type todo senfscons/xrefxtract.xslt senfscons/doc/xml/todo.xml || touch senfscons/doc/xml/todo.xmli
+test -s senfscons/doc/xml/idea.xml &amp;&amp; xsltproc -o senfscons/doc/xml/idea.xmli --stringparam module senfscons --stringparam type idea senfscons/xrefxtract.xslt senfscons/doc/xml/idea.xml || touch senfscons/doc/xml/idea.xmli
+writeTemplate([&quot;doclib/search.php&quot;], [&quot;doclib/html-munge.xsl&quot;, &quot;doclib/SConscript&quot;])
+xsltproc --nonet --html --stringparam topdir .. -o - doclib/html-munge.xsl doclib/search.php 2&gt;/dev/null| sed -e 's/\[\[/&lt;?/g' -e 's/\]\]/?&gt;/g' -e 's/\$projectname/Overview/g' -e 's/\$title/Search results/g'&gt; doclib/search.php.tmp
+mv doclib/search.php.tmp doclib/search.php
+writeTemplate([&quot;doclib/search_paths.php&quot;], [&quot;doclib/SConscript&quot;])
+Xlib: connection to &quot;localhost:0.0&quot; refused by server
+Xlib: No protocol specified
+
+could not import gtkcons.py
+dia -t png -s 800x400 -e Examples/RateStuffer/ratestuffer.png Examples/RateStuffer/ratestuffer.dia
+could not import gtkcons.py
+Examples/RateStuffer/ratestuffer.dia --&gt; Examples/RateStuffer/ratestuffer.png
+Copy(&quot;Examples/RateStuffer/doc/html/ratestuffer.png&quot;, &quot;Examples/RateStuffer/ratestuffer.png&quot;)
+Copy(&quot;Examples/RateStuffer/doc/xml/ratestuffer.png&quot;, &quot;Examples/RateStuffer/ratestuffer.png&quot;)
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/bug.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/fixme.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/todo.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/idea.xml
+cd Examples/RateStuffer &amp;&amp; TOPDIR=../../../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+/tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/Mainpage.dox:175: Warning: unable to resolve reference to `senf::ppi::connect()' for \ref command
+/tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/Mainpage.dox:179: Warning: unable to resolve reference to `senf::ppi::run()' for \ref command
+Generating search index
+cd /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/html &amp;&amp; ./installdox -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Utils.tag at ..</A>/../../../Utils/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Socket.tag at ..</A>/../../../Socket/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Packets.tag at ..</A>/../../../Packets/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Scheduler.tag at ..</A>/../../../Scheduler/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">PPI.tag at ..</A>/../../../PPI/doc/html
+Substituting ../../../../Packets/doc/html/ for each occurence of tag file Packets.tag
+Substituting ../../../../Socket/doc/html/ for each occurence of tag file Socket.tag
+Substituting ../../../../Utils/doc/html/ for each occurence of tag file Utils.tag
+Substituting ../../../../PPI/doc/html/ for each occurence of tag file PPI.tag
+Substituting ../../../../Scheduler/doc/html/ for each occurence of tag file Scheduler.tag
+Editing: graph_legend.html...
+Editing: globals_defs.html...
+[...]
+Editing: globals_func.html...
+Editing: classRateStuffer-members.html...
+touch Examples/RateStuffer/doc/xml/xml.stamp Examples/RateStuffer/doc/html/html.stamp Examples/RateStuffer/doc/html/search.idx
+for html in /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../../../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+/tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/html/Mainpage_8dox.html
+/tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/html/annotated.html
+[...]
+/tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/html/ratestuffer_8cc-source.html
+/tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/html/ratestuffer_8cc.html
+test -r /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/bug.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/bug.xml
+test -r /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/fixme.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/fixme.xml
+test -r /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/todo.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/todo.xml
+test -r /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/idea.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/RateStuffer/doc/xml/idea.xml
+test -s Examples/RateStuffer/doc/xml/bug.xml &amp;&amp; xsltproc -o Examples/RateStuffer/doc/xml/bug.xmli --stringparam module Examples/RateStuffer --stringparam type bug senfscons/xrefxtract.xslt Examples/RateStuffer/doc/xml/bug.xml || touch Examples/RateStuffer/doc/xml/bug.xmli
+test -s Examples/RateStuffer/doc/xml/fixme.xml &amp;&amp; xsltproc -o Examples/RateStuffer/doc/xml/fixme.xmli --stringparam module Examples/RateStuffer --stringparam type fixme senfscons/xrefxtract.xslt Examples/RateStuffer/doc/xml/fixme.xml || touch Examples/RateStuffer/doc/xml/fixme.xmli
+test -s Examples/RateStuffer/doc/xml/todo.xml &amp;&amp; xsltproc -o Examples/RateStuffer/doc/xml/todo.xmli --stringparam module Examples/RateStuffer --stringparam type todo senfscons/xrefxtract.xslt Examples/RateStuffer/doc/xml/todo.xml || touch Examples/RateStuffer/doc/xml/todo.xmli
+test -s Examples/RateStuffer/doc/xml/idea.xml &amp;&amp; xsltproc -o Examples/RateStuffer/doc/xml/idea.xmli --stringparam module Examples/RateStuffer --stringparam type idea senfscons/xrefxtract.xslt Examples/RateStuffer/doc/xml/idea.xml || touch Examples/RateStuffer/doc/xml/idea.xmli
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/bug.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/fixme.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/todo.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/idea.xml
+cd Examples/Sniffer &amp;&amp; TOPDIR=../../../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+/tmp/buildd/libsenf-0.0r422/Examples/Sniffer/Mainpage.dox:176: Warning: unable to resolve reference to `components' for \ref command
+/tmp/buildd/libsenf-0.0r422/Examples/Sniffer/Mainpage.dox:177: Warning: unable to resolve reference to `build' for \ref command
+Generating search index
+cd /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/html &amp;&amp; ./installdox -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Utils.tag at ..</A>/../../../Utils/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Socket.tag at ..</A>/../../../Socket/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Packets.tag at ..</A>/../../../Packets/doc/html -l <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Scheduler.tag at ..</A>/../../../Scheduler/doc/html
+Substituting ../../../../Packets/doc/html/ for each occurence of tag file Packets.tag
+Substituting ../../../../Socket/doc/html/ for each occurence of tag file Socket.tag
+Substituting ../../../../Utils/doc/html/ for each occurence of tag file Utils.tag
+Substituting ../../../../Scheduler/doc/html/ for each occurence of tag file Scheduler.tag
+Editing: classes.html...
+Editing: graph_legend.html...
+[...]
+Editing: namespacesenf_1_1detail.html...
+Editing: globals_func.html...
+touch Examples/Sniffer/doc/xml/xml.stamp Examples/Sniffer/doc/html/html.stamp Examples/Sniffer/doc/html/search.idx
+for html in /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../../../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+/tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/html/Mainpage_8dox.html
+/tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/html/Sniffer_8cc-source.html
+[...]
+/tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/html/namespacesenf_1_1detail_1_1packet.html
+/tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/html/namespacesenf_1_1mpl.html
+test -r /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/bug.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/bug.xml
+test -r /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/fixme.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/fixme.xml
+test -r /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/todo.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/todo.xml
+test -r /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/idea.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/Sniffer/doc/xml/idea.xml
+test -s Examples/Sniffer/doc/xml/bug.xml &amp;&amp; xsltproc -o Examples/Sniffer/doc/xml/bug.xmli --stringparam module Examples/Sniffer --stringparam type bug senfscons/xrefxtract.xslt Examples/Sniffer/doc/xml/bug.xml || touch Examples/Sniffer/doc/xml/bug.xmli
+test -s Examples/Sniffer/doc/xml/fixme.xml &amp;&amp; xsltproc -o Examples/Sniffer/doc/xml/fixme.xmli --stringparam module Examples/Sniffer --stringparam type fixme senfscons/xrefxtract.xslt Examples/Sniffer/doc/xml/fixme.xml || touch Examples/Sniffer/doc/xml/fixme.xmli
+test -s Examples/Sniffer/doc/xml/todo.xml &amp;&amp; xsltproc -o Examples/Sniffer/doc/xml/todo.xmli --stringparam module Examples/Sniffer --stringparam type todo senfscons/xrefxtract.xslt Examples/Sniffer/doc/xml/todo.xml || touch Examples/Sniffer/doc/xml/todo.xmli
+test -s Examples/Sniffer/doc/xml/idea.xml &amp;&amp; xsltproc -o Examples/Sniffer/doc/xml/idea.xmli --stringparam module Examples/Sniffer --stringparam type idea senfscons/xrefxtract.xslt Examples/Sniffer/doc/xml/idea.xml || touch Examples/Sniffer/doc/xml/idea.xmli
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/bug.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/fixme.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/todo.xml
+rm -f /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/idea.xml
+cd Examples &amp;&amp; TOPDIR=../../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+Generating XML output for file Mainpage.dox
+Generating XML output for the main page
+Generating search index
+touch Examples/doc/xml/xml.stamp Examples/doc/html/html.stamp Examples/doc/html/search.idx
+for html in /tmp/buildd/libsenf-0.0r422/Examples/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+[...]
+test -r /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/bug.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/bug.xml
+test -r /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/fixme.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/fixme.xml
+test -r /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/todo.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/todo.xml
+test -r /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/idea.xml || touch /tmp/buildd/libsenf-0.0r422/Examples/doc/xml/idea.xml
+test -s Examples/doc/xml/bug.xml &amp;&amp; xsltproc -o Examples/doc/xml/bug.xmli --stringparam module Examples --stringparam type bug senfscons/xrefxtract.xslt Examples/doc/xml/bug.xml || touch Examples/doc/xml/bug.xmli
+test -s Examples/doc/xml/fixme.xml &amp;&amp; xsltproc -o Examples/doc/xml/fixme.xmli --stringparam module Examples --stringparam type fixme senfscons/xrefxtract.xslt Examples/doc/xml/fixme.xml || touch Examples/doc/xml/fixme.xmli
+test -s Examples/doc/xml/todo.xml &amp;&amp; xsltproc -o Examples/doc/xml/todo.xmli --stringparam module Examples --stringparam type todo senfscons/xrefxtract.xslt Examples/doc/xml/todo.xml || touch Examples/doc/xml/todo.xmli
+test -s Examples/doc/xml/idea.xml &amp;&amp; xsltproc -o Examples/doc/xml/idea.xmli --stringparam module Examples --stringparam type idea senfscons/xrefxtract.xslt Examples/doc/xml/idea.xml || touch Examples/doc/xml/idea.xmli
+test -s Scheduler/doc/xml/bug.xml &amp;&amp; xsltproc -o Scheduler/doc/xml/bug.xmli --stringparam module Scheduler --stringparam type bug senfscons/xrefxtract.xslt Scheduler/doc/xml/bug.xml || touch Scheduler/doc/xml/bug.xmli
+test -s Scheduler/doc/xml/fixme.xml &amp;&amp; xsltproc -o Scheduler/doc/xml/fixme.xmli --stringparam module Scheduler --stringparam type fixme senfscons/xrefxtract.xslt Scheduler/doc/xml/fixme.xml || touch Scheduler/doc/xml/fixme.xmli
+test -s Scheduler/doc/xml/todo.xml &amp;&amp; xsltproc -o Scheduler/doc/xml/todo.xmli --stringparam module Scheduler --stringparam type todo senfscons/xrefxtract.xslt Scheduler/doc/xml/todo.xml || touch Scheduler/doc/xml/todo.xmli
+test -s Scheduler/doc/xml/idea.xml &amp;&amp; xsltproc -o Scheduler/doc/xml/idea.xmli --stringparam module Scheduler --stringparam type idea senfscons/xrefxtract.xslt Scheduler/doc/xml/idea.xml || touch Scheduler/doc/xml/idea.xmli
+writeTemplate([&quot;doclib/doxy-header-overview.html&quot;], [&quot;doclib/SConscript&quot;])
+cd . &amp;&amp; TOPDIR=../libsenf-0.0r422 doxygen Doxyfile
+Searching for include files...
+Searching for example files...
+[...]
+Generating file member index...
+Generating page index...
+Generating search index
+touch doc/html/html.stamp doc/overview.tag doc/html/search.idx
+xsltproc --nonet -o /tmp/buildd/libsenf-0.0r422/doc/overview.tag.temp /tmp/buildd/libsenf-0.0r422/senfscons/tagmunge.xsl /tmp/buildd/libsenf-0.0r422/doc/overview.tag &amp;&amp; mv /tmp/buildd/libsenf-0.0r422/doc/overview.tag.temp /tmp/buildd/libsenf-0.0r422/doc/overview.tag
+for html in /tmp/buildd/libsenf-0.0r422/doc/html/*.html; do echo $html; sed -e 's/id=&quot;current&quot;/class=&quot;current&quot;/' ${html} | tidy -ascii -q --show-warnings no --fix-uri no | xsltproc --nonet --html --stringparam topdir ../.. -o ${html}.new /tmp/buildd/libsenf-0.0r422/doclib/html-munge.xsl - 2&gt;&amp;1 | grep '^-' | grep -v 'ID .* already defined'; mv ${html}.new ${html}; done
+/tmp/buildd/libsenf-0.0r422/doc/html/build.html
+/tmp/buildd/libsenf-0.0r422/doc/html/components.html
+/tmp/buildd/libsenf-0.0r422/doc/html/graph_legend.html
+/tmp/buildd/libsenf-0.0r422/doc/html/index.html
+/tmp/buildd/libsenf-0.0r422/doc/html/overview.html
+/tmp/buildd/libsenf-0.0r422/doc/html/pages.html
+/tmp/buildd/libsenf-0.0r422/doc/html/svnsetup.html
+/tmp/buildd/libsenf-0.0r422/doc/html/usage.html
+echo '&lt;?xml version=&quot;1.0&quot;?&gt;' &gt; doc/html/xref.xml
+echo '&lt;xref&gt;' &gt;&gt; doc/html/xref.xml
+cat PPI/doc/xml/bug.xmli PPI/doc/xml/fixme.xmli PPI/doc/xml/todo.xmli PPI/doc/xml/idea.xmli Packets/doc/xml/bug.xmli Packets/doc/xml/fixme.xmli Packets/doc/xml/todo.xmli Packets/doc/xml/idea.xmli Packets/DefaultBundle/doc/xml/bug.xmli Packets/DefaultBundle/doc/xml/fixme.xmli Packets/DefaultBundle/doc/xml/todo.xmli Packets/DefaultBundle/doc/xml/idea.xmli Packets/MPEGDVBBundle/doc/xml/bug.xmli Packets/MPEGDVBBundle/doc/xml/fixme.xmli Packets/MPEGDVBBundle/doc/xml/todo.xmli Packets/MPEGDVBBundle/doc/xml/idea.xmli Utils/doc/xml/bug.xmli Utils/doc/xml/fixme.xmli Utils/doc/xml/todo.xmli Utils/doc/xml/idea.xmli Socket/doc/xml/bug.xmli Socket/doc/xml/fixme.xmli Socket/doc/xml/todo.xmli Socket/doc/xml/idea.xmli senfscons/doc/xml/bug.xmli senfscons/doc/xml/fixme.xmli senfscons/doc/xml/todo.xmli senfscons/doc/xml/idea.xmli Examples/RateStuffer/doc/xml/bug.xmli Examples/RateStuffer/doc/xml/fixme.xmli Examples/RateStuffer/doc/xml/todo.xmli Examples/RateStuffer/doc/xml/idea.xmli Examples/Sniffer/doc/xml/bug.xmli Examples/Sniffer/doc/xml/fixme.xmli Examples/Sniffer/doc/xml/todo.xmli Examples/Sniffer/doc/xml/idea.xmli Examples/doc/xml/bug.xmli Examples/doc/xml/fixme.xmli Examples/doc/xml/todo.xmli Examples/doc/xml/idea.xmli Scheduler/doc/xml/bug.xmli Scheduler/doc/xml/fixme.xmli Scheduler/doc/xml/todo.xmli Scheduler/doc/xml/idea.xmli &gt;&gt; doc/html/xref.xml
+echo '&lt;/xref&gt;' &gt;&gt; doc/html/xref.xml
+sed -e 's/\$title/Cross-reference of action points/g' -e 's/\$projectname/Overview/g' doclib/doxy-header-overview.html &gt; doc/html/xref.html
+xsltproc --stringparam title 'Cross-reference of action points' --stringparam types 'bug fixme todo idea' senfscons/xrefhtml.xslt doc/html/xref.xml &gt;&gt; doc/html/xref.html
+sed -e 's/\$title/Cross-reference of action points/g' -e 's/\$projectname/Overview/g' doclib/doxy-footer.html &gt;&gt; doc/html/xref.html
+xsltproc -o doc/html/xref.html.tmp --nonet --html --stringparam topdir ../.. doclib/html-munge.xsl doc/html/xref.html 2&gt;/dev/null
+mv doc/html/xref.html.tmp doc/html/xref.html
+scons: done building targets.
+touch build-stamp
+ fakeroot debian/rules binary
+dh_testdir
+dh_testroot
+dh_clean -k 
+dh_installdirs
+scons -j 1 install_all final=1\
+		PREFIX='/tmp/buildd/libsenf-0.0r422/debian/tmp/usr' \
+		DOCINSTALLDIR='$PREFIX/share/doc/libsenf-doc'
+scons: Reading SConscript files ...
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -o PPI/Events.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/Events.cc
+g++ -o PPI/PassiveQueue.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/PassiveQueue.cc
+g++ -o PPI/ActiveFeeder.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/ActiveFeeder.cc
+g++ -o PPI/Module.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/Module.cc
+g++ -o PPI/ThrottleBarrier.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/ThrottleBarrier.cc
+g++ -o PPI/Joins.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/Joins.cc
+g++ -o PPI/Queueing.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/Queueing.cc
+g++ -o PPI/DiscardSink.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/DiscardSink.cc
+g++ -o PPI/CloneSource.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/CloneSource.cc
+g++ -o PPI/Connectors.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/Connectors.cc
+g++ -o PPI/ModuleManager.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. PPI/ModuleManager.cc
+ar rc libPPI.a PPI/IntervalTimer.o PPI/IOEvent.o PPI/Events.o PPI/PassiveQueue.o PPI/ActiveFeeder.o PPI/Module.o PPI/ThrottleBarrier.o PPI/Joins.o PPI/Queueing.o PPI/DiscardSink.o PPI/EventManager.o PPI/CloneSource.o PPI/IdleEvent.o PPI/Connectors.o PPI/ModuleManager.o PPI/detail/EventBinding.o
+ranlib libPPI.a
+Install file: &quot;libPPI.a&quot; as &quot;debian/tmp/usr/lib/libPPI.a&quot;
+Install file: &quot;PPI/detail/Callback.hh&quot; as &quot;debian/tmp/usr/include/PPI/detail/Callback.hh&quot;
+Install file: &quot;PPI/Events.cti&quot; as &quot;debian/tmp/usr/include/PPI/Events.cti&quot;
+Install file: &quot;PPI/Connectors.cci&quot; as &quot;debian/tmp/usr/include/PPI/Connectors.cci&quot;
+Install file: &quot;PPI/IdleEvent.hh&quot; as &quot;debian/tmp/usr/include/PPI/IdleEvent.hh&quot;
+Install file: &quot;PPI/SocketReader.ct&quot; as &quot;debian/tmp/usr/include/PPI/SocketReader.ct&quot;
+Install file: &quot;PPI/Route.hh&quot; as &quot;debian/tmp/usr/include/PPI/Route.hh&quot;
+Install file: &quot;PPI/Route.ct&quot; as &quot;debian/tmp/usr/include/PPI/Route.ct&quot;
+Install file: &quot;PPI/DebugModules.hh&quot; as &quot;debian/tmp/usr/include/PPI/DebugModules.hh&quot;
+Install file: &quot;PPI/IntervalTimer.hh&quot; as &quot;debian/tmp/usr/include/PPI/IntervalTimer.hh&quot;
+Install file: &quot;PPI/EventManager.cci&quot; as &quot;debian/tmp/usr/include/PPI/EventManager.cci&quot;
+Install file: &quot;PPI/DebugModules.cci&quot; as &quot;debian/tmp/usr/include/PPI/DebugModules.cci&quot;
+Install file: &quot;PPI/Setup.cti&quot; as &quot;debian/tmp/usr/include/PPI/Setup.cti&quot;
+Install file: &quot;PPI/detail/EventBinding.cci&quot; as &quot;debian/tmp/usr/include/PPI/detail/EventBinding.cci&quot;
+Install file: &quot;PPI/ModuleManager.cci&quot; as &quot;debian/tmp/usr/include/PPI/ModuleManager.cci&quot;
+Install file: &quot;PPI/DebugEvent.hh&quot; as &quot;debian/tmp/usr/include/PPI/DebugEvent.hh&quot;
+Install file: &quot;PPI/SocketReader.hh&quot; as &quot;debian/tmp/usr/include/PPI/SocketReader.hh&quot;
+Install file: &quot;PPI/Events.ih&quot; as &quot;debian/tmp/usr/include/PPI/Events.ih&quot;
+Install file: &quot;PPI/SocketWriter.cci&quot; as &quot;debian/tmp/usr/include/PPI/SocketWriter.cci&quot;
+Install file: &quot;PPI/Setup.hh&quot; as &quot;debian/tmp/usr/include/PPI/Setup.hh&quot;
+Install file: &quot;PPI/IOEvent.cti&quot; as &quot;debian/tmp/usr/include/PPI/IOEvent.cti&quot;
+Install file: &quot;PPI/SocketWriter.ct&quot; as &quot;debian/tmp/usr/include/PPI/SocketWriter.ct&quot;
+Install file: &quot;PPI/Joins.cci&quot; as &quot;debian/tmp/usr/include/PPI/Joins.cci&quot;
+Install file: &quot;PPI/Route.cti&quot; as &quot;debian/tmp/usr/include/PPI/Route.cti&quot;
+Install file: &quot;PPI/Connectors.cti&quot; as &quot;debian/tmp/usr/include/PPI/Connectors.cti&quot;
+Install file: &quot;PPI/predecl.hh&quot; as &quot;debian/tmp/usr/include/PPI/predecl.hh&quot;
+Install file: &quot;PPI/EventManager.ct&quot; as &quot;debian/tmp/usr/include/PPI/EventManager.ct&quot;
+Install file: &quot;PPI/SocketWriter.hh&quot; as &quot;debian/tmp/usr/include/PPI/SocketWriter.hh&quot;
+Install file: &quot;PPI/DebugModules.cti&quot; as &quot;debian/tmp/usr/include/PPI/DebugModules.cti&quot;
+Install file: &quot;PPI/Events.cci&quot; as &quot;debian/tmp/usr/include/PPI/Events.cci&quot;
+Install file: &quot;PPI/Queueing.cci&quot; as &quot;debian/tmp/usr/include/PPI/Queueing.cci&quot;
+Install file: &quot;PPI/Connectors.hh&quot; as &quot;debian/tmp/usr/include/PPI/Connectors.hh&quot;
+Install file: &quot;PPI/Module.hh&quot; as &quot;debian/tmp/usr/include/PPI/Module.hh&quot;
+Install file: &quot;PPI/ThrottleBarrier.hh&quot; as &quot;debian/tmp/usr/include/PPI/ThrottleBarrier.hh&quot;
+Install file: &quot;PPI/DebugEvent.cci&quot; as &quot;debian/tmp/usr/include/PPI/DebugEvent.cci&quot;
+Install file: &quot;PPI/ActiveFeeder.hh&quot; as &quot;debian/tmp/usr/include/PPI/ActiveFeeder.hh&quot;
+Install file: &quot;PPI/Queueing.hh&quot; as &quot;debian/tmp/usr/include/PPI/Queueing.hh&quot;
+Install file: &quot;PPI/Joins.hh&quot; as &quot;debian/tmp/usr/include/PPI/Joins.hh&quot;
+Install file: &quot;PPI/Module.ct&quot; as &quot;debian/tmp/usr/include/PPI/Module.ct&quot;
+Install file: &quot;PPI/detail/Callback.cti&quot; as &quot;debian/tmp/usr/include/PPI/detail/Callback.cti&quot;
+Install file: &quot;PPI/Route.cci&quot; as &quot;debian/tmp/usr/include/PPI/Route.cci&quot;
+Install file: &quot;PPI/Route.ih&quot; as &quot;debian/tmp/usr/include/PPI/Route.ih&quot;
+Install file: &quot;PPI/IntervalTimer.cci&quot; as &quot;debian/tmp/usr/include/PPI/IntervalTimer.cci&quot;
+Install file: &quot;PPI/ModuleManager.hh&quot; as &quot;debian/tmp/usr/include/PPI/ModuleManager.hh&quot;
+Install file: &quot;PPI/detail/EventBinding.hh&quot; as &quot;debian/tmp/usr/include/PPI/detail/EventBinding.hh&quot;
+Install file: &quot;PPI/PassiveQueue.cti&quot; as &quot;debian/tmp/usr/include/PPI/PassiveQueue.cti&quot;
+Install file: &quot;PPI/CloneSource.hh&quot; as &quot;debian/tmp/usr/include/PPI/CloneSource.hh&quot;
+Install file: &quot;PPI/Setup.cci&quot; as &quot;debian/tmp/usr/include/PPI/Setup.cci&quot;
+Install file: &quot;PPI/Module.cci&quot; as &quot;debian/tmp/usr/include/PPI/Module.cci&quot;
+Install file: &quot;PPI/PassiveQueue.hh&quot; as &quot;debian/tmp/usr/include/PPI/PassiveQueue.hh&quot;
+Install file: &quot;PPI/Joins.cti&quot; as &quot;debian/tmp/usr/include/PPI/Joins.cti&quot;
+Install file: &quot;PPI/detail/EventBinding.cti&quot; as &quot;debian/tmp/usr/include/PPI/detail/EventBinding.cti&quot;
+Install file: &quot;PPI/PassiveQueue.cci&quot; as &quot;debian/tmp/usr/include/PPI/PassiveQueue.cci&quot;
+Install file: &quot;PPI/Events.hh&quot; as &quot;debian/tmp/usr/include/PPI/Events.hh&quot;
+Install file: &quot;PPI/Module.ih&quot; as &quot;debian/tmp/usr/include/PPI/Module.ih&quot;
+Install file: &quot;PPI/ActiveFeeder.cci&quot; as &quot;debian/tmp/usr/include/PPI/ActiveFeeder.cci&quot;
+Install file: &quot;PPI/IOEvent.hh&quot; as &quot;debian/tmp/usr/include/PPI/IOEvent.hh&quot;
+Install file: &quot;PPI/DiscardSink.hh&quot; as &quot;debian/tmp/usr/include/PPI/DiscardSink.hh&quot;
+Install file: &quot;PPI/IdleEvent.cci&quot; as &quot;debian/tmp/usr/include/PPI/IdleEvent.cci&quot;
+Install file: &quot;PPI/EventManager.hh&quot; as &quot;debian/tmp/usr/include/PPI/EventManager.hh&quot;
+Install directory: &quot;PPI/doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/PPI/doc/html&quot;
+Install file: &quot;PPI/doc/PPI.tag&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/PPI/doc/PPI.tag&quot;
+g++ -o Packets/Packet.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/Packet.cc
+g++ -o Packets/PacketImpl.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/PacketImpl.cc
+g++ -o Packets/PacketRegistry.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/PacketRegistry.cc
+g++ -o Packets/PacketInterpreter.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/PacketInterpreter.cc
+g++ -o Packets/PacketData.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/PacketData.cc
+ar rc libPackets.a Packets/Packet.o Packets/PacketImpl.o Packets/PacketRegistry.o Packets/PacketInterpreter.o Packets/PacketData.o
+ranlib libPackets.a
+Install file: &quot;libPackets.a&quot; as &quot;debian/tmp/usr/lib/libPackets.a&quot;
+Install file: &quot;Packets/PacketInterpreter.cti&quot; as &quot;debian/tmp/usr/include/Packets/PacketInterpreter.cti&quot;
+Install file: &quot;Packets/PacketInterpreter.ct&quot; as &quot;debian/tmp/usr/include/Packets/PacketInterpreter.ct&quot;
+Install file: &quot;Packets/ParseList.hh&quot; as &quot;debian/tmp/usr/include/Packets/ParseList.hh&quot;
+Install file: &quot;Packets/PacketData.cti&quot; as &quot;debian/tmp/usr/include/Packets/PacketData.cti&quot;
+Install file: &quot;Packets/PacketRegistry.ct&quot; as &quot;debian/tmp/usr/include/Packets/PacketRegistry.ct&quot;
+Install file: &quot;Packets/PacketType.cti&quot; as &quot;debian/tmp/usr/include/Packets/PacketType.cti&quot;
+Install file: &quot;Packets/all_includes.hh&quot; as &quot;debian/tmp/usr/include/Packets/all_includes.hh&quot;
+Install file: &quot;Packets/Packet.hh&quot; as &quot;debian/tmp/usr/include/Packets/Packet.hh&quot;
+Install file: &quot;Packets/PacketImpl.cti&quot; as &quot;debian/tmp/usr/include/Packets/PacketImpl.cti&quot;
+Install file: &quot;Packets/PacketType.hh&quot; as &quot;debian/tmp/usr/include/Packets/PacketType.hh&quot;
+Install file: &quot;Packets/PacketParser.mpp&quot; as &quot;debian/tmp/usr/include/Packets/PacketParser.mpp&quot;
+Install file: &quot;Packets/PacketInterpreter.cci&quot; as &quot;debian/tmp/usr/include/Packets/PacketInterpreter.cci&quot;
+Install file: &quot;Packets/ParseVec.ct&quot; as &quot;debian/tmp/usr/include/Packets/ParseVec.ct&quot;
+Install file: &quot;Packets/PacketData.hh&quot; as &quot;debian/tmp/usr/include/Packets/PacketData.hh&quot;
+Install file: &quot;Packets/ParseList.cti&quot; as &quot;debian/tmp/usr/include/Packets/ParseList.cti&quot;
+Install file: &quot;Packets/PacketType.cci&quot; as &quot;debian/tmp/usr/include/Packets/PacketType.cci&quot;
+Install file: &quot;Packets/PacketInterpreter.hh&quot; as &quot;debian/tmp/usr/include/Packets/PacketInterpreter.hh&quot;
+Install file: &quot;Packets/PacketParser.hh&quot; as &quot;debian/tmp/usr/include/Packets/PacketParser.hh&quot;
+Install file: &quot;Packets/PacketParser.ct&quot; as &quot;debian/tmp/usr/include/Packets/PacketParser.ct&quot;
+Install file: &quot;Packets/Packet.cti&quot; as &quot;debian/tmp/usr/include/Packets/Packet.cti&quot;
+Install file: &quot;Packets/ParseListB.hh&quot; as &quot;debian/tmp/usr/include/Packets/ParseListB.hh&quot;
+Install file: &quot;Packets/PacketRegistry.ih&quot; as &quot;debian/tmp/usr/include/Packets/PacketRegistry.ih&quot;
+Install file: &quot;Packets/ParseListB.cti&quot; as &quot;debian/tmp/usr/include/Packets/ParseListB.cti&quot;
+Install file: &quot;Packets/ParseArray.ct&quot; as &quot;debian/tmp/usr/include/Packets/ParseArray.ct&quot;
+Install file: &quot;Packets/PacketParser.cci&quot; as &quot;debian/tmp/usr/include/Packets/PacketParser.cci&quot;
+Install file: &quot;Packets/ParseArray.hh&quot; as &quot;debian/tmp/usr/include/Packets/ParseArray.hh&quot;
+Install file: &quot;Packets/PacketImpl.cci&quot; as &quot;debian/tmp/usr/include/Packets/PacketImpl.cci&quot;
+Install file: &quot;Packets/ParseList.ih&quot; as &quot;debian/tmp/usr/include/Packets/ParseList.ih&quot;
+Install file: &quot;Packets/main.test.hh&quot; as &quot;debian/tmp/usr/include/Packets/main.test.hh&quot;
+Install file: &quot;Packets/Packet.ct&quot; as &quot;debian/tmp/usr/include/Packets/Packet.ct&quot;
+Install file: &quot;Packets/PacketParser.ih&quot; as &quot;debian/tmp/usr/include/Packets/PacketParser.ih&quot;
+Install file: &quot;Packets/ParseVec.cti&quot; as &quot;debian/tmp/usr/include/Packets/ParseVec.cti&quot;
+Install file: &quot;Packets/PacketTypes.hh&quot; as &quot;debian/tmp/usr/include/Packets/PacketTypes.hh&quot;
+Install file: &quot;Packets/PacketData.cci&quot; as &quot;debian/tmp/usr/include/Packets/PacketData.cci&quot;
+Install file: &quot;Packets/PacketRegistry.cti&quot; as &quot;debian/tmp/usr/include/Packets/PacketRegistry.cti&quot;
+Install file: &quot;Packets/ParseListN.ct&quot; as &quot;debian/tmp/usr/include/Packets/ParseListN.ct&quot;
+Install file: &quot;Packets/ParseListN.cti&quot; as &quot;debian/tmp/usr/include/Packets/ParseListN.cti&quot;
+Install file: &quot;Packets/ParseListB.ih&quot; as &quot;debian/tmp/usr/include/Packets/ParseListB.ih&quot;
+Install file: &quot;Packets/ParseListN.hh&quot; as &quot;debian/tmp/usr/include/Packets/ParseListN.hh&quot;
+Install file: &quot;Packets/ParseInt.hh&quot; as &quot;debian/tmp/usr/include/Packets/ParseInt.hh&quot;
+Install file: &quot;Packets/PacketRegistry.hh&quot; as &quot;debian/tmp/usr/include/Packets/PacketRegistry.hh&quot;
+Install file: &quot;Packets/ParseVec.ih&quot; as &quot;debian/tmp/usr/include/Packets/ParseVec.ih&quot;
+Install file: &quot;Packets/ParseInt.ih&quot; as &quot;debian/tmp/usr/include/Packets/ParseInt.ih&quot;
+Install file: &quot;Packets/Packet.cci&quot; as &quot;debian/tmp/usr/include/Packets/Packet.cci&quot;
+Install file: &quot;Packets/ParseArray.cti&quot; as &quot;debian/tmp/usr/include/Packets/ParseArray.cti&quot;
+Install file: &quot;Packets/ParseList.ct&quot; as &quot;debian/tmp/usr/include/Packets/ParseList.ct&quot;
+Install file: &quot;Packets/DataPacket.hh&quot; as &quot;debian/tmp/usr/include/Packets/DataPacket.hh&quot;
+Install file: &quot;Packets/Packets.hh&quot; as &quot;debian/tmp/usr/include/Packets/Packets.hh&quot;
+Install file: &quot;Packets/PacketParser.cti&quot; as &quot;debian/tmp/usr/include/Packets/PacketParser.cti&quot;
+Install file: &quot;Packets/PacketImpl.hh&quot; as &quot;debian/tmp/usr/include/Packets/PacketImpl.hh&quot;
+Install file: &quot;Packets/ParseVec.hh&quot; as &quot;debian/tmp/usr/include/Packets/ParseVec.hh&quot;
+Install file: &quot;Packets/ParseArray.ih&quot; as &quot;debian/tmp/usr/include/Packets/ParseArray.ih&quot;
+Install file: &quot;Packets/ParseListN.ih&quot; as &quot;debian/tmp/usr/include/Packets/ParseListN.ih&quot;
+Install directory: &quot;Packets/doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Packets/doc/html&quot;
+Install file: &quot;Packets/doc/Packets.tag&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Packets/doc/Packets.tag&quot;
+g++ -o Packets/DefaultBundle/UDPPacket.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/DefaultBundle/UDPPacket.cc
+g++ -o Packets/DefaultBundle/IpV6Packet.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/DefaultBundle/IpV6Packet.cc
+g++ -o Packets/DefaultBundle/EthernetPacket.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/DefaultBundle/EthernetPacket.cc
+g++ -o Packets/DefaultBundle/IpV6Extensions.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/DefaultBundle/IpV6Extensions.cc
+g++ -o Packets/DefaultBundle/IpV4Packet.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/DefaultBundle/IpV4Packet.cc
+ld -r -o Packets/DefaultBundle/DefaultBundle.o Packets/DefaultBundle/UDPPacket.o Packets/DefaultBundle/IpV6Packet.o Packets/DefaultBundle/EthernetPacket.o Packets/DefaultBundle/IpV6Extensions.o Packets/DefaultBundle/IpV4Packet.o
+Install file: &quot;Packets/DefaultBundle/DefaultBundle.o&quot; as &quot;debian/tmp/usr/lib/DefaultBundle.o&quot;
+Install file: &quot;Packets/DefaultBundle/IpV6Extensions.hh&quot; as &quot;debian/tmp/usr/include/Packets/DefaultBundle/IpV6Extensions.hh&quot;
+Install file: &quot;Packets/DefaultBundle/IpV4Packet.hh&quot; as &quot;debian/tmp/usr/include/Packets/DefaultBundle/IpV4Packet.hh&quot;
+Install file: &quot;Packets/DefaultBundle/IpV6Packet.hh&quot; as &quot;debian/tmp/usr/include/Packets/DefaultBundle/IpV6Packet.hh&quot;
+Install file: &quot;Packets/DefaultBundle/UDPPacket.hh&quot; as &quot;debian/tmp/usr/include/Packets/DefaultBundle/UDPPacket.hh&quot;
+Install file: &quot;Packets/DefaultBundle/EthernetPacket.hh&quot; as &quot;debian/tmp/usr/include/Packets/DefaultBundle/EthernetPacket.hh&quot;
+ar rc libPackets_DefaultBundle.a Packets/DefaultBundle/UDPPacket.o Packets/DefaultBundle/IpV6Packet.o Packets/DefaultBundle/EthernetPacket.o Packets/DefaultBundle/IpV6Extensions.o Packets/DefaultBundle/IpV4Packet.o
+ranlib libPackets_DefaultBundle.a
+Install file: &quot;libPackets_DefaultBundle.a&quot; as &quot;debian/tmp/usr/lib/libPackets_DefaultBundle.a&quot;
+Install directory: &quot;Packets/DefaultBundle/doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Packets/DefaultBundle/doc/html&quot;
+Install file: &quot;Packets/DefaultBundle/doc/DefaultBundle.tag&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Packets/DefaultBundle/doc/DefaultBundle.tag&quot;
+g++ -o Packets/MPEGDVBBundle/SNDUPacket.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Packets/MPEGDVBBundle/SNDUPacket.cc
+ld -r -o Packets/MPEGDVBBundle/MPEGDVBBundle.o Packets/MPEGDVBBundle/SNDUPacket.o Packets/MPEGDVBBundle/TransportPacket.o Packets/MPEGDVBBundle/DSMCCSection.o Packets/MPEGDVBBundle/DatagramSection.o
+Install file: &quot;Packets/MPEGDVBBundle/MPEGDVBBundle.o&quot; as &quot;debian/tmp/usr/lib/MPEGDVBBundle.o&quot;
+Install file: &quot;Packets/MPEGDVBBundle/DSMCCSection.hh&quot; as &quot;debian/tmp/usr/include/Packets/MPEGDVBBundle/DSMCCSection.hh&quot;
+Install file: &quot;Packets/MPEGDVBBundle/SNDUPacket.hh&quot; as &quot;debian/tmp/usr/include/Packets/MPEGDVBBundle/SNDUPacket.hh&quot;
+Install file: &quot;Packets/MPEGDVBBundle/DatagramSection.hh&quot; as &quot;debian/tmp/usr/include/Packets/MPEGDVBBundle/DatagramSection.hh&quot;
+Install file: &quot;Packets/MPEGDVBBundle/TransportPacket.hh&quot; as &quot;debian/tmp/usr/include/Packets/MPEGDVBBundle/TransportPacket.hh&quot;
+ar rc libPackets_MPEGDVBBundle.a Packets/MPEGDVBBundle/SNDUPacket.o Packets/MPEGDVBBundle/TransportPacket.o Packets/MPEGDVBBundle/DSMCCSection.o Packets/MPEGDVBBundle/DatagramSection.o
+ranlib libPackets_MPEGDVBBundle.a
+Install file: &quot;libPackets_MPEGDVBBundle.a&quot; as &quot;debian/tmp/usr/lib/libPackets_MPEGDVBBundle.a&quot;
+Install directory: &quot;Packets/MPEGDVBBundle/doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Packets/MPEGDVBBundle/doc/html&quot;
+Install file: &quot;Packets/MPEGDVBBundle/doc/MPEGDVBBundle.tag&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Packets/MPEGDVBBundle/doc/MPEGDVBBundle.tag&quot;
+Install file: &quot;libUtils.a&quot; as &quot;debian/tmp/usr/lib/libUtils.a&quot;
+Install file: &quot;Utils/TypeIdValue.cci&quot; as &quot;debian/tmp/usr/include/Utils/TypeIdValue.cci&quot;
+Install file: &quot;Utils/intrusive_refcount.hh&quot; as &quot;debian/tmp/usr/include/Utils/intrusive_refcount.hh&quot;
+Install file: &quot;Utils/intrusive_refcount.cti&quot; as &quot;debian/tmp/usr/include/Utils/intrusive_refcount.cti&quot;
+Install file: &quot;Utils/impl/membind.hh&quot; as &quot;debian/tmp/usr/include/Utils/impl/membind.hh&quot;
+Install file: &quot;Utils/Exception.hh&quot; as &quot;debian/tmp/usr/include/Utils/Exception.hh&quot;
+Install file: &quot;Utils/IteratorTraits.ih&quot; as &quot;debian/tmp/usr/include/Utils/IteratorTraits.ih&quot;
+Install file: &quot;Utils/intrusive_refcount.cci&quot; as &quot;debian/tmp/usr/include/Utils/intrusive_refcount.cci&quot;
+Install file: &quot;Utils/impl/demangle.h&quot; as &quot;debian/tmp/usr/include/Utils/impl/demangle.h&quot;
+Install file: &quot;Utils/pool_alloc_mixin.hh&quot; as &quot;debian/tmp/usr/include/Utils/pool_alloc_mixin.hh&quot;
+Install file: &quot;Utils/pool_alloc_mixin.cti&quot; as &quot;debian/tmp/usr/include/Utils/pool_alloc_mixin.cti&quot;
+Install file: &quot;Utils/singleton.hh&quot; as &quot;debian/tmp/usr/include/Utils/singleton.hh&quot;
+Install file: &quot;Utils/DaemonTools.hh&quot; as &quot;debian/tmp/usr/include/Utils/DaemonTools.hh&quot;
+Install file: &quot;Utils/singleton.cti&quot; as &quot;debian/tmp/usr/include/Utils/singleton.cti&quot;
+Install file: &quot;Utils/mpl.hh&quot; as &quot;debian/tmp/usr/include/Utils/mpl.hh&quot;
+Install file: &quot;Utils/SafeBool.cci&quot; as &quot;debian/tmp/usr/include/Utils/SafeBool.cci&quot;
+Install file: &quot;Utils/TypeInfo.hh&quot; as &quot;debian/tmp/usr/include/Utils/TypeInfo.hh&quot;
+Install file: &quot;Utils/hexdump.hh&quot; as &quot;debian/tmp/usr/include/Utils/hexdump.hh&quot;
+Install file: &quot;Utils/TypeIdValue.cti&quot; as &quot;debian/tmp/usr/include/Utils/TypeIdValue.cti&quot;
+Install file: &quot;Utils/hexdump.ct&quot; as &quot;debian/tmp/usr/include/Utils/hexdump.ct&quot;
+Install file: &quot;Utils/SafeBool.cti&quot; as &quot;debian/tmp/usr/include/Utils/SafeBool.cti&quot;
+Install file: &quot;Utils/Exception.cci&quot; as &quot;debian/tmp/usr/include/Utils/Exception.cci&quot;
+Install file: &quot;Utils/Buffer.hh&quot; as &quot;debian/tmp/usr/include/Utils/Buffer.hh&quot;
+Install file: &quot;Utils/IteratorTraits.hh&quot; as &quot;debian/tmp/usr/include/Utils/IteratorTraits.hh&quot;
+Install file: &quot;Utils/Logger.hh&quot; as &quot;debian/tmp/usr/include/Utils/Logger.hh&quot;
+Install file: &quot;Utils/TypeIdValue.hh&quot; as &quot;debian/tmp/usr/include/Utils/TypeIdValue.hh&quot;
+Install file: &quot;Utils/IteratorTraits.cti&quot; as &quot;debian/tmp/usr/include/Utils/IteratorTraits.cti&quot;
+Install file: &quot;Utils/membind.hh&quot; as &quot;debian/tmp/usr/include/Utils/membind.hh&quot;
+Install file: &quot;Utils/SafeBool.hh&quot; as &quot;debian/tmp/usr/include/Utils/SafeBool.hh&quot;
+Install file: &quot;Utils/mpl.ih&quot; as &quot;debian/tmp/usr/include/Utils/mpl.ih&quot;
+Install directory: &quot;Utils/doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Utils/doc/html&quot;
+Install file: &quot;Utils/doc/Utils.tag&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Utils/doc/Utils.tag&quot;
+Install file: &quot;libSocket.a&quot; as &quot;debian/tmp/usr/lib/libSocket.a&quot;
+Install file: &quot;Socket/ProtocolServerSocketHandle.cti&quot; as &quot;debian/tmp/usr/include/Socket/ProtocolServerSocketHandle.cti&quot;
+Install file: &quot;Socket/Protocols/INet/INet6Address.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INet6Address.hh&quot;
+Install file: &quot;Socket/ClientSocketHandle.ih&quot; as &quot;debian/tmp/usr/include/Socket/ClientSocketHandle.ih&quot;
+Install file: &quot;Socket/SocketHandle.cti&quot; as &quot;debian/tmp/usr/include/Socket/SocketHandle.cti&quot;
+Install file: &quot;Socket/Protocols/Raw/LLAddressing.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/Raw/LLAddressing.hh&quot;
+Install file: &quot;Socket/ClientSocketHandle.ct&quot; as &quot;debian/tmp/usr/include/Socket/ClientSocketHandle.ct&quot;
+Install file: &quot;Socket/Protocols/INet/INetAddressing.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INetAddressing.hh&quot;
+Install file: &quot;Socket/ClientSocketHandle.cti&quot; as &quot;debian/tmp/usr/include/Socket/ClientSocketHandle.cti&quot;
+Install file: &quot;Socket/Protocols/INet/INet4Address.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INet4Address.hh&quot;
+Install file: &quot;Socket/ProtocolServerSocketHandle.mpp&quot; as &quot;debian/tmp/usr/include/Socket/ProtocolServerSocketHandle.mpp&quot;
+Install file: &quot;Socket/AddressingPolicy.hh&quot; as &quot;debian/tmp/usr/include/Socket/AddressingPolicy.hh&quot;
+Install file: &quot;Socket/FramingPolicy.hh&quot; as &quot;debian/tmp/usr/include/Socket/FramingPolicy.hh&quot;
+Install file: &quot;Socket/CommunicationPolicy.hh&quot; as &quot;debian/tmp/usr/include/Socket/CommunicationPolicy.hh&quot;
+Install file: &quot;Socket/Protocols/INet/INet4Address.cti&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INet4Address.cti&quot;
+Install file: &quot;Socket/SocketProtocol.hh&quot; as &quot;debian/tmp/usr/include/Socket/SocketProtocol.hh&quot;
+Install file: &quot;Socket/CommunicationPolicy.cti&quot; as &quot;debian/tmp/usr/include/Socket/CommunicationPolicy.cti&quot;
+Install file: &quot;Socket/Protocols/Raw/MACAddress.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/Raw/MACAddress.hh&quot;
+Install file: &quot;Socket/Protocols/Raw/MACAddress.cci&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/Raw/MACAddress.cci&quot;
+Install file: &quot;Socket/Protocols/Raw/LLAddressing.cci&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/Raw/LLAddressing.cci&quot;
+Install file: &quot;Socket/SocketPolicy.ih&quot; as &quot;debian/tmp/usr/include/Socket/SocketPolicy.ih&quot;
+Install file: &quot;Socket/SocketHandle.cci&quot; as &quot;debian/tmp/usr/include/Socket/SocketHandle.cci&quot;
+Install file: &quot;Socket/Protocols/DVB/DVBDemuxHandles.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/DVB/DVBDemuxHandles.hh&quot;
+Install file: &quot;Socket/Protocols/INet/UDPProtocol.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/UDPProtocol.hh&quot;
+Install file: &quot;Socket/ProtocolClientSocketHandle.mpp&quot; as &quot;debian/tmp/usr/include/Socket/ProtocolClientSocketHandle.mpp&quot;
+Install file: &quot;Socket/ReadWritePolicy.cti&quot; as &quot;debian/tmp/usr/include/Socket/ReadWritePolicy.cti&quot;
+Install file: &quot;Socket/Protocols/INet/INet4Address.cci&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INet4Address.cci&quot;
+Install file: &quot;Socket/ProtocolClientSocketHandle.hh&quot; as &quot;debian/tmp/usr/include/Socket/ProtocolClientSocketHandle.hh&quot;
+Install file: &quot;Socket/Protocols/INet/INet6Address.cti&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INet6Address.cti&quot;
+Install file: &quot;Socket/FileHandle.hh&quot; as &quot;debian/tmp/usr/include/Socket/FileHandle.hh&quot;
+Install file: &quot;Socket/ServerSocketHandle.cti&quot; as &quot;debian/tmp/usr/include/Socket/ServerSocketHandle.cti&quot;
+Install file: &quot;Socket/CommunicationPolicy.cci&quot; as &quot;debian/tmp/usr/include/Socket/CommunicationPolicy.cci&quot;
+Install file: &quot;Socket/SocketProtocol.test.hh&quot; as &quot;debian/tmp/usr/include/Socket/SocketProtocol.test.hh&quot;
+Install file: &quot;Socket/Protocols/INet/INetProtocol.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INetProtocol.hh&quot;
+Install file: &quot;Socket/Protocols/Raw/PacketSocketHandle.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/Raw/PacketSocketHandle.hh&quot;
+Install file: &quot;Socket/ClientSocketHandle.hh&quot; as &quot;debian/tmp/usr/include/Socket/ClientSocketHandle.hh&quot;
+Install file: &quot;Socket/Protocols/INet/UDPSocketHandle.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/UDPSocketHandle.hh&quot;
+Install file: &quot;Socket/SocketPolicy.test.hh&quot; as &quot;debian/tmp/usr/include/Socket/SocketPolicy.test.hh&quot;
+Install file: &quot;Socket/ReadWritePolicy.hh&quot; as &quot;debian/tmp/usr/include/Socket/ReadWritePolicy.hh&quot;
+Install file: &quot;Socket/Protocols/INet/INet6Address.cci&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INet6Address.cci&quot;
+Install file: &quot;Socket/FileHandle.ih&quot; as &quot;debian/tmp/usr/include/Socket/FileHandle.ih&quot;
+Install file: &quot;Socket/SocketPolicy.hh&quot; as &quot;debian/tmp/usr/include/Socket/SocketPolicy.hh&quot;
+Install file: &quot;Socket/FileHandle.cci&quot; as &quot;debian/tmp/usr/include/Socket/FileHandle.cci&quot;
+Install file: &quot;Socket/SocketHandle.ih&quot; as &quot;debian/tmp/usr/include/Socket/SocketHandle.ih&quot;
+Install file: &quot;Socket/ServerSocketHandle.hh&quot; as &quot;debian/tmp/usr/include/Socket/ServerSocketHandle.hh&quot;
+Install file: &quot;Socket/ProtocolClientSocketHandle.cti&quot; as &quot;debian/tmp/usr/include/Socket/ProtocolClientSocketHandle.cti&quot;
+Install file: &quot;Socket/SocketHandle.ct&quot; as &quot;debian/tmp/usr/include/Socket/SocketHandle.ct&quot;
+Install file: &quot;Socket/Protocols/INet/TCPSocketHandle.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/TCPSocketHandle.hh&quot;
+Install file: &quot;Socket/Protocols/INet/TCPProtocol.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/TCPProtocol.hh&quot;
+Install file: &quot;Socket/Protocols/DVB/DVBDemuxProtocol.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/DVB/DVBDemuxProtocol.hh&quot;
+Install file: &quot;Socket/Protocols/GenericAddressingPolicy.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/GenericAddressingPolicy.hh&quot;
+Install file: &quot;Socket/SocketProtocol.cti&quot; as &quot;debian/tmp/usr/include/Socket/SocketProtocol.cti&quot;
+Install file: &quot;Socket/Protocols/INet/INet4Address.ct&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INet4Address.ct&quot;
+Install file: &quot;Socket/Protocols/DVB/DVBFrontendHandle.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/DVB/DVBFrontendHandle.hh&quot;
+Install file: &quot;Socket/Protocols/INet/INet6Address.ih&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INet6Address.ih&quot;
+Install file: &quot;Socket/Protocols/BSDSocketProtocol.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/BSDSocketProtocol.hh&quot;
+Install file: &quot;Socket/ProtocolServerSocketHandle.hh&quot; as &quot;debian/tmp/usr/include/Socket/ProtocolServerSocketHandle.hh&quot;
+Install file: &quot;Socket/Protocols/GenericAddressingPolicy.cti&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/GenericAddressingPolicy.cti&quot;
+Install file: &quot;Socket/Protocols/INet/ConnectedUDPSocketHandle.hh&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/ConnectedUDPSocketHandle.hh&quot;
+Install file: &quot;Socket/SocketPolicy.ct&quot; as &quot;debian/tmp/usr/include/Socket/SocketPolicy.ct&quot;
+Install file: &quot;Socket/SocketHandle.hh&quot; as &quot;debian/tmp/usr/include/Socket/SocketHandle.hh&quot;
+Install file: &quot;Socket/Protocols/INet/INetAddressing.cci&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INetAddressing.cci&quot;
+Install file: &quot;Socket/BufferingPolicy.hh&quot; as &quot;debian/tmp/usr/include/Socket/BufferingPolicy.hh&quot;
+Install file: &quot;Socket/SocketProtocol.cci&quot; as &quot;debian/tmp/usr/include/Socket/SocketProtocol.cci&quot;
+Install file: &quot;Socket/Protocols/Raw/MACAddress.ct&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/Raw/MACAddress.ct&quot;
+Install file: &quot;Socket/Protocols/INet/INet6Address.ct&quot; as &quot;debian/tmp/usr/include/Socket/Protocols/INet/INet6Address.ct&quot;
+Install directory: &quot;Socket/doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Socket/doc/html&quot;
+Install file: &quot;Socket/doc/Socket.tag&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Socket/doc/Socket.tag&quot;
+Install directory: &quot;senfscons/doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/senfscons/doc/html&quot;
+Install file: &quot;senfscons/doc/senfscons.tag&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/senfscons/doc/senfscons.tag&quot;
+Install file: &quot;doclib/favicon.ico&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/doclib/favicon.ico&quot;
+Install file: &quot;doclib/logo-head.png&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/doclib/logo-head.png&quot;
+Install file: &quot;doclib/search.php&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/doclib/search.php&quot;
+Install file: &quot;doclib/search_functions.php&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/doclib/search_functions.php&quot;
+Install file: &quot;doclib/search_paths.php&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/doclib/search_paths.php&quot;
+Install file: &quot;doclib/senf.css&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/doclib/senf.css&quot;
+g++ -o Examples/MCSniffer/MCSniffer.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/MCSniffer/MCSniffer.cc
+g++ -o Examples/MCSniffer/mcsniffer Examples/MCSniffer/MCSniffer.o Packets/DefaultBundle/DefaultBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+Install file: &quot;Examples/MCSniffer/mcsniffer&quot; as &quot;debian/tmp/usr/bin/mcsniffer&quot;
+g++ -o Examples/DVBAdapter/ULEdec.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/DVBAdapter/ULEdec.cc
+g++ -o Examples/DVBAdapter/ULEdec Examples/DVBAdapter/ULEdec.o Packets/DefaultBundle/DefaultBundle.o Packets/MPEGDVBBundle/MPEGDVBBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+Install file: &quot;Examples/DVBAdapter/ULEdec&quot; as &quot;debian/tmp/usr/bin/ULEdec&quot;
+Install file: &quot;Examples/DVBAdapter/ULEdec.hh&quot; as &quot;debian/tmp/usr/include/Examples/DVBAdapter/ULEdec.hh&quot;
+g++ -o Examples/DVBAdapter/frontend Examples/DVBAdapter/frontend.o Packets/DefaultBundle/DefaultBundle.o Packets/MPEGDVBBundle/MPEGDVBBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+Install file: &quot;Examples/DVBAdapter/frontend&quot; as &quot;debian/tmp/usr/bin/frontend&quot;
+g++ -o Examples/DVBAdapter/MPEdec.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/DVBAdapter/MPEdec.cc
+g++ -o Examples/DVBAdapter/MPEdec Examples/DVBAdapter/MPEdec.o Packets/DefaultBundle/DefaultBundle.o Packets/MPEGDVBBundle/MPEGDVBBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+Install file: &quot;Examples/DVBAdapter/MPEdec&quot; as &quot;debian/tmp/usr/bin/MPEdec&quot;
+g++ -o Examples/RateStuffer/ratestuffer.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/RateStuffer/ratestuffer.cc
+g++ -o Examples/RateStuffer/ratestuffer Examples/RateStuffer/ratestuffer.o -L. -lPPI -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+Install file: &quot;Examples/RateStuffer/ratestuffer&quot; as &quot;debian/tmp/usr/bin/ratestuffer&quot;
+Install directory: &quot;Examples/RateStuffer/doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Examples/RateStuffer/doc/html&quot;
+g++ -o Examples/TCPClientServer/client Examples/TCPClientServer/client.o -L. -lPackets -lSocket -lUtils -liberty -lboost_regex
+Install file: &quot;Examples/TCPClientServer/client&quot; as &quot;debian/tmp/usr/bin/client&quot;
+g++ -o Examples/TCPClientServer/server Examples/TCPClientServer/server.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+Install file: &quot;Examples/TCPClientServer/server&quot; as &quot;debian/tmp/usr/bin/server&quot;
+g++ -o Examples/Sniffer/Sniffer.o -c -Wall -Woverloaded-virtual -Wno-long-long -O3 -DNDEBUG -I. Examples/Sniffer/Sniffer.cc
+g++ -o Examples/Sniffer/sniffer Examples/Sniffer/Sniffer.o Packets/DefaultBundle/DefaultBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex
+Install file: &quot;Examples/Sniffer/sniffer&quot; as &quot;debian/tmp/usr/bin/sniffer&quot;
+Install directory: &quot;Examples/Sniffer/doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Examples/Sniffer/doc/html&quot;
+Install directory: &quot;Examples/doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Examples/doc/html&quot;
+Install file: &quot;libScheduler.a&quot; as &quot;debian/tmp/usr/lib/libScheduler.a&quot;
+Install file: &quot;Scheduler/WriteHelper.cti&quot; as &quot;debian/tmp/usr/include/Scheduler/WriteHelper.cti&quot;
+Install file: &quot;Scheduler/Scheduler.hh&quot; as &quot;debian/tmp/usr/include/Scheduler/Scheduler.hh&quot;
+Install file: &quot;Scheduler/ReadHelper.ih&quot; as &quot;debian/tmp/usr/include/Scheduler/ReadHelper.ih&quot;
+Install file: &quot;Scheduler/ReadHelper.cti&quot; as &quot;debian/tmp/usr/include/Scheduler/ReadHelper.cti&quot;
+Install file: &quot;Scheduler/ClockService.cci&quot; as &quot;debian/tmp/usr/include/Scheduler/ClockService.cci&quot;
+Install file: &quot;Scheduler/WriteHelper.hh&quot; as &quot;debian/tmp/usr/include/Scheduler/WriteHelper.hh&quot;
+Install file: &quot;Scheduler/ClockService.hh&quot; as &quot;debian/tmp/usr/include/Scheduler/ClockService.hh&quot;
+Install file: &quot;Scheduler/ReadHelper.hh&quot; as &quot;debian/tmp/usr/include/Scheduler/ReadHelper.hh&quot;
+Install file: &quot;Scheduler/ReadHelper.ct&quot; as &quot;debian/tmp/usr/include/Scheduler/ReadHelper.ct&quot;
+Install file: &quot;Scheduler/WriteHelper.ct&quot; as &quot;debian/tmp/usr/include/Scheduler/WriteHelper.ct&quot;
+Install file: &quot;Scheduler/ReadHelper.cci&quot; as &quot;debian/tmp/usr/include/Scheduler/ReadHelper.cci&quot;
+Install file: &quot;Scheduler/Scheduler.cci&quot; as &quot;debian/tmp/usr/include/Scheduler/Scheduler.cci&quot;
+Install file: &quot;Scheduler/Scheduler.cti&quot; as &quot;debian/tmp/usr/include/Scheduler/Scheduler.cti&quot;
+Install directory: &quot;Scheduler/doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Scheduler/doc/html&quot;
+Install file: &quot;Scheduler/doc/Scheduler.tag&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/Scheduler/doc/Scheduler.tag&quot;
+Install directory: &quot;doc/html&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/doc/html&quot;
+Install file: &quot;doc/overview.tag&quot; as &quot;debian/tmp/usr/share/doc/libsenf-doc/doc/overview.tag&quot;
+ar rc libsenf.a PPI/IntervalTimer.o PPI/IOEvent.o PPI/Events.o PPI/PassiveQueue.o PPI/ActiveFeeder.o PPI/Module.o PPI/ThrottleBarrier.o PPI/Joins.o PPI/Queueing.o PPI/DiscardSink.o PPI/EventManager.o PPI/CloneSource.o PPI/IdleEvent.o PPI/Connectors.o PPI/ModuleManager.o PPI/detail/EventBinding.o Packets/Packet.o Packets/PacketImpl.o Packets/PacketRegistry.o Packets/PacketInterpreter.o Packets/PacketData.o Packets/DefaultBundle/UDPPacket.o Packets/DefaultBundle/IpV6Packet.o Packets/DefaultBundle/EthernetPacket.o Packets/DefaultBundle/IpV6Extensions.o Packets/DefaultBundle/IpV4Packet.o Packets/MPEGDVBBundle/SNDUPacket.o Packets/MPEGDVBBundle/TransportPacket.o Packets/MPEGDVBBundle/DSMCCSection.o Packets/MPEGDVBBundle/DatagramSection.o Utils/Exception.o Utils/TypeInfo.o Utils/DaemonTools.o Socket/CommunicationPolicy.o Socket/SocketProtocol.o Socket/BufferingPolicy.o Socket/FileHandle.o Socket/SocketHandle.o Socket/ReadWritePolicy.o Socket/Protocols/GenericAddressingPolicy.o Socket/Protocols/BSDSocketProtocol.o Socket/Protocols/DVB/DVBDemuxProtocol.o Socket/Protocols/DVB/DVBFrontendHandle.o Socket/Protocols/DVB/DVBDemuxHandles.o Socket/Protocols/Raw/PacketSocketHandle.o Socket/Protocols/Raw/MACAddress.o Socket/Protocols/Raw/LLAddressing.o Socket/Protocols/INet/ConnectedUDPSocketHandle.o Socket/Protocols/INet/INet6Address.o Socket/Protocols/INet/UDPProtocol.o Socket/Protocols/INet/TCPProtocol.o Socket/Protocols/INet/INetAddressing.o Socket/Protocols/INet/UDPSocketHandle.o Socket/Protocols/INet/INet4Address.o Socket/Protocols/INet/TCPSocketHandle.o Socket/Protocols/INet/INetProtocol.o Scheduler/Scheduler.o Scheduler/ClockService.o
+ranlib libsenf.a
+Install file: &quot;libsenf.a&quot; as &quot;debian/tmp/usr/lib/libsenf.a&quot;
+scons: done building targets.
+find Examples \( -name &quot;*.hh&quot; -o -name &quot;*.cc&quot; \) -printf &quot;%P\n&quot; | \
+		while read src; do \
+			dir=&quot;/tmp/buildd/libsenf-0.0r422/debian/tmp/usr/share/doc/libsenf-doc/examples/$(dirname &quot;$src&quot;)&quot;; \
+			mkdir -p &quot;$dir&quot;; \
+			cp &quot;Examples/$src&quot; &quot;$dir&quot;; \
+		done
+dh_testdir
+dh_testroot
+dh_installchangelogs 
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+dh_installdocs
+dh_installexamples
+dh_install
+dh_installman
+dh_link
+dh_strip
+dh_compress
+dh_fixperms
+dh_installdeb
+dh_shlibdeps
+dh_gencontrol
+dpkg-gencontrol: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+dpkg-architecture: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+dpkg-architecture: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+dpkg-gencontrol: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+dpkg-architecture: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (0)
+dh_md5sums
+dh_builddeb
+dpkg-deb: building package `libsenf-dev' in `../libsenf-dev_0.0r422_i386.deb'.
+dpkg-deb: building package `libsenf-doc' in `../libsenf-doc_0.0r422_all.deb'.
+ dpkg-genchanges
+dpkg-genchanges: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-architecture: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-parsechangelog: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+debian: warning: no utmp entry available and LOGNAME not defined; using uid of process (1234)
+dpkg-genchanges: including full source code in upload
+dpkg-buildpackage: full upload; Debian-native package (full source is included)
+Copying back the cached apt archive contents
+ -&gt; unmounting dev/pts filesystem
+ -&gt; unmounting proc filesystem
+Current time: Fri Aug 31 15:01:56 CEST 2007
+pbuilder-time-stamp: 1188565316
+ -&gt; cleaning the build env 
+    -&gt; removing directory /var/cache/pbuilder/build//27322 and its subdirectories
+
+Script done on Fri 31 Aug 2007 03:02:02 PM CEST
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000045.html">[Senf-dev] Debian packages, SENF status etc.
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

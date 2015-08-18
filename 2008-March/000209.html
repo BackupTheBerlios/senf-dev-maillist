@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Benennung des Console libraries
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Benennung%20des%20Console%20libraries&In-Reply-To=%3C47DF97CD.9090407%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000213.html">
+   <LINK REL="Next"  HREF="000210.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Benennung des Console libraries</H1>
+    <B>Joachim Kaeber</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Benennung%20des%20Console%20libraries&In-Reply-To=%3C47DF97CD.9090407%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Benennung des Console libraries">joachim.kaeber at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Mar 18 11:22:05 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000213.html">[Senf-dev] Benennung des Console libraries
+</A></li>
+        <LI>Next message: <A HREF="000210.html">[Senf-dev] Benennung des Console libraries
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#209">[ date ]</a>
+              <a href="thread.html#209">[ thread ]</a>
+              <a href="subject.html#209">[ subject ]</a>
+              <a href="author.html#209">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+so ganz spontan fallen mir zwei M&#246;glichkeiten ein:
+
+* libConfig (nicht ganz so generisch wie libControl, umfasst aber immer noch config files und interaktive Konsole; und gewisserma&#223;en dient die Konsole ja dazu, Anwendungen im weitesten Sinne zu konfigurieren und die Auswirkungen zu betrachten)
+
+* libCommand (dto.)
+
+Nur, damit es nicht verloren geht... :)
+
+Gr&#252;&#223;e aus Berlin
+Achim
+
+Stefan Bund schrieb:
+&gt;<i> Hab gerade ein bisschen mit Thorsten geskyped. Wir haben uns in guter
+</I>&gt;<i> Thorsten/Stefan manier intensiv &#252;ber den Benennung des Libraries
+</I>&gt;<i> auseinandergesetzt :-)
+</I>&gt;<i> 
+</I>&gt;<i> Das Zentrale Ziel ist es, eine runtime console zu haben. Dabei f&#228;llt
+</I>&gt;<i> als nebenprodukt aber gleichzeitig eine sehr sch&#246;ne
+</I>&gt;<i> Konfigurationsdateiverwaltung ab. Das ist ja kein Problem sondern im
+</I>&gt;<i> Gegenteil sehr nett.
+</I>&gt;<i> 
+</I>&gt;<i> Alleredings macht das die Benennung etwas schwirig. Wenn ich ne
+</I>&gt;<i> Konfigurationsdatei lesen will komme ich wirklich nicht darauf, wieso
+</I>&gt;<i> ich denn bitte libConsole einbinden muss ... macht irgendwie keinen
+</I>&gt;<i> Sinn.
+</I>&gt;<i> 
+</I>&gt;<i> Dazu kommt, das auch wenn die Console das Hauptziel ist, es in der
+</I>&gt;<i> realit&#228;t h&#228;ufiger Konfigurationsdateien gibt als interaktive
+</I>&gt;<i> Konsolen. Und es macht ja keinen Sinn, das man etwas anderes als
+</I>&gt;<i> dieses libary f&#252;r seine Configurationsedateien nutzt (Kommandozeilen
+</I>&gt;<i> kann man ganz einfach dann auch damit parsen, da fehlt dann auch fast
+</I>&gt;<i> nix mehr).
+</I>&gt;<i> 
+</I>&gt;<i> Daher w&#228;re der Ideale name etwas, das Console beinhaltet aber etwas
+</I>&gt;<i> breiter ist, so das man auch Config darin unterbringen kann.
+</I>&gt;<i> 
+</I>&gt;<i> Habt Ihr da gute vorschl&#228;ge? Ich hatte erst einfach 'Control', aber
+</I>&gt;<i> Thorsten hat nat&#252;rlich recht, das sagt garnix aus.
+</I>&gt;<i> 
+</I>&gt;<i> Ich hatte ja das ding mal 'Configuration and Runtime Control
+</I>&gt;<i> Framework' genannt, das enthaltet ja beides. Also habe ich mich mit
+</I>&gt;<i> Thorsten erstmal auf
+</I>&gt;<i> 
+</I>&gt;<i>  CaRuCF
+</I>&gt;<i> 
+</I>&gt;<i> geeinigt, das enth&#228;lt alles. Habt Ihr bessere vorschl&#228;ge ?
+</I>&gt;<i> 
+</I>&gt;<i> stefan.
+</I>&gt;<i> 
+</I>&gt;<i> PS: :-)
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Senf-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Senf-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">https://lists.berlios.de/mailman/listinfo/senf-dev</A>
+</I>
+-- 
+Joachim Kaeber
+Fraunhofer FOKUS.NET
+Schloss Birlinghoven
+D-53754 Sankt Augustin
+
+phone: +49 2241 14-2546   fax: 14-1050
+email: <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">joachim.kaeber at fokus.fraunhofer.de</A>
+web:   <A HREF="http://www.fokus.fraunhofer.de/go/net">http://www.fokus.fraunhofer.de/go/net</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000213.html">[Senf-dev] Benennung des Console libraries
+</A></li>
+	<LI>Next message: <A HREF="000210.html">[Senf-dev] Benennung des Console libraries
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#209">[ date ]</a>
+              <a href="thread.html#209">[ thread ]</a>
+              <a href="subject.html#209">[ subject ]</a>
+              <a href="author.html#209">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

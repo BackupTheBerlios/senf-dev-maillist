@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #13940] timeout below 12ms are called without any	delay
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2313940%5D%20timeout%20below%2012ms%20are%20called%20without%20any%0A%09delay&In-Reply-To=%3C200806051545.m55FjMoS017935%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000249.html">
+   <LINK REL="Next"  HREF="000251.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #13940] timeout below 12ms are called without any	delay</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2313940%5D%20timeout%20below%2012ms%20are%20called%20without%20any%0A%09delay&In-Reply-To=%3C200806051545.m55FjMoS017935%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #13940] timeout below 12ms are called without any	delay">admin at berlios.de
+       </A><BR>
+    <I>Thu Jun  5 17:45:22 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000249.html">[Senf-dev] [Bug #13940] timeout below 12ms are called without any	delay
+</A></li>
+        <LI>Next message: <A HREF="000251.html">[Senf-dev] [Bug #13911] tab completion doesn't work
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#250">[ date ]</a>
+              <a href="thread.html#250">[ thread ]</a>
+              <a href="subject.html#250">[ subject ]</a>
+              <a href="author.html#250">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #13940, was updated on 2008-Jun-02 20:31
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: libScheduler
+Status: Closed
+Resolution: Invalid
+Bug Group: defect
+Priority: 7
+Submitted by: jmo
+Assigned to : g0dil
+Summary: timeout below 12ms are called without any delay
+
+Details: 
+#include &lt;senf/Scheduler/ClockService.hh&gt;
+#include &lt;senf/Utils/membind.hh&gt;
+#include &lt;senf/Scheduler/Scheduler.hh&gt;
+
+
+class IpmuxSock {
+public:
+
+    void timeout(){
+        std::cout&lt;&lt;senf::ClockService::in_milliseconds( senf::ClockService::now())&lt;&lt;std::endl;
+      senf::Scheduler::instance().timeout( senf::Scheduler::instance().eventTime() + senf::ClockService::milliseconds(11), senf::membind(&amp;IpmuxSock::timeout, this));    
+    }
+};
+
+
+
+int main( int argc, char **argv){
+
+    IpmuxSock t;
+    
+    t.timeout();
+
+    senf::Scheduler::instance().process();
+
+}
+
+Follow-Ups:
+
+Date: 2008-Jun-05 17:45
+By: jmo
+
+Comment:
+bug raise on insufficient documention in method senf::Scheduler::eventTime().
+Additional text added by gOdil
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=13940&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=13940&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000249.html">[Senf-dev] [Bug #13940] timeout below 12ms are called without any	delay
+</A></li>
+	<LI>Next message: <A HREF="000251.html">[Senf-dev] [Bug #13911] tab completion doesn't work
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#250">[ date ]</a>
+              <a href="thread.html#250">[ thread ]</a>
+              <a href="subject.html#250">[ subject ]</a>
+              <a href="author.html#250">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

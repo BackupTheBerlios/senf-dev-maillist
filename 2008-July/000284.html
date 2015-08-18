@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] finalize() semantics
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C87od5ghg1z.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000283.html">
+   <LINK REL="Next"  HREF="000301.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] finalize() semantics</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C87od5ghg1z.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] finalize() semantics">g0dil at berlios.de
+       </A><BR>
+    <I>Wed Jul  2 09:59:52 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000283.html">[Senf-dev] finalize() semantics
+</A></li>
+        <LI>Next message: <A HREF="000301.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#284">[ date ]</a>
+              <a href="thread.html#284">[ thread ]</a>
+              <a href="subject.html#284">[ subject ]</a>
+              <a href="author.html#284">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>David Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">david.wagner at fokus.fraunhofer.de</A>&gt; writes:
+&gt;<i> richtig. Die Frage stellt sich n&#228;mlich nach Art der Anwendung: wenn ich zB NAT 
+</I>&gt;<i> bzw NPAT mach will, rufe ich am Ende ein finalizePacketChain() auf, weil ich 
+</I>&gt;<i> korrekte Pakete verschicken will, wann immer ich / Senf genug &#252;ber das 
+</I>&gt;<i> Protokoll wissen. 
+</I>&gt;<i> &#220;brigens: das ist auch der Grund, warum wir eigentlich einen TCP-Parser 
+</I>&gt;<i> brauchen. 
+</I>&gt;<i>
+</I>&gt;<i> Wenn ich dagegen Paketfehler simulieren will, werde ich nur finalize aufrufen. 
+</I>&gt;<i> Die Wahl habe ich bei der derzeitigen Implementierung aber gar
+</I>&gt;<i> nicht.
+</I>
+Ok, das mag sein, aber nur um paketfehler simulieren zu k&#246;nnen nen
+extra finalize() anbieten? Das kommt mir doch etwas komisch vor aber
+ok ...
+
+&gt;<i> Naja, das Ziel kennt eben nur der Nutzer / Programmierer. und f&#252;r den ist 
+</I>&gt;<i> diese Entscheidung wohl meistens sogar offensichtlich. 
+</I>
+Genau das bezweifle ich eben absolut. Der Benutzer, der einfach ein IP
+datagram umleiten will hat &#252;berhaupt keine Ahnung davon, das UDP davon
+abh&#228;ngt, was in der IP zieladresse steht ... das ist ja auch ziemlich
+krank.
+
+&gt;<i> Da geb ich Thorsten 100%ig Recht. 
+</I>&gt;<i> Der Anwendungsfall ist doch der Student, der nen PEP programmieren soll, sich 
+</I>&gt;<i> die Namen der vorhandenen Module ansieht und dann zusammensteckt, was er grad 
+</I>&gt;<i> braucht. Wenn er will, das ein Header vollst&#228;ndig und korrekt ist, ruft er 
+</I>&gt;<i> finalize auf, wenn nciht, nicht. 
+</I>
+Da verstehe ich jetzt den zusammenhang nicht so ganz ... Ich meine,
+genau das ist es doch, was man mit dem Finalize modul dann machen kann
+.. ?
+
+&gt;<i> finalize() will automatically process all packets/headers/interpreters from 
+</I>&gt;<i> the end of the chain backwards up to this&quot;--
+</I>&gt;<i>
+</I>&gt;<i> Da steht gar nichts &#252;ber kreiren von Parsern. 
+</I>
+Das die Interpreter erst jetzt angelegt werden ist ein implementation
+detail. F&#252;r den Anwender, werden die Interpreter direkt am Anfang wenn
+das Paket zum ersten mal geparst wird komplett angelegt. Das die
+Implementierung nicht so ist, ist egal, so ist zumindest das API
+(next/prev/find u.s.w. handeln ja genauso).
+
+&gt;<i> 2. es geht hier nicht um Performance. 
+</I>&gt;<i> Es geht darum, dass das Ding das tut, was man mit &quot;typischer&quot; 
+</I>&gt;<i> Studentenprogrammiererfahrung und der Doku als Verhalten erwartet. 
+</I>&gt;<i> Deswegen bitte auf keinen Fall zu weit automatisieren!
+</I>
+??? H&#228;h ?? Aber ich erwarte doch als typischer Student gerade, das
+wenn ich IP &#228;ndere und finalize() aufrufe, das dann das Paket stimmt
+!!! Ich erwarte sicherlich nicht, das ich dann auch noch bei UDP
+finalize() aufrufen muss weil ich IP ge&#228;ndert habe ... das verstehe
+ich jetzt nicht.
+
+Ein finalize() das zu viel aufgerufen wurde ist bei korrekter
+Implementierung ein no-op.
+
+&gt;<i> F&#252;r mich (pers&#246;nliche Sicht) gehts hier auch um Flexibilit&#228;t / auf dem Boden 
+</I>&gt;<i> bleiben: 
+</I>&gt;<i>
+</I>&gt;<i> ich will nicht eine eierlegende Wollmilchsau, die &#252;berall in meinem Paket 
+</I>&gt;<i> rumschreibt, nur weil ich die Ethernet-Checksum schreiben wollte. 
+</I>&gt;<i> Ich finde, es muss auf jeden Fall eine lokale finalizeThisParser() methode 
+</I>&gt;<i> geben, die genau das macht und nichts weiter. 
+</I>
+Das macht Sinn. Aber ich w&#252;rde das normale finalize() so lassen, wie
+es ist. Die nutzung von 'finalizeThis' oder so w&#252;rde ich als advanced
+usage ansehen.
+
+&gt;<i> Aber ich denke, das ist auch ncith das Problem. Sondern was man dar&#252;ber hinaus 
+</I>&gt;<i> noch haben will. 
+</I>
+Das ist die Frage: Was will man dar&#252;ber hinaus noch haben? Mit diesen
+kann man ja alles andere leicht selber machen. Mglw macht es sinn
+eine funktion 'finalizeRange(Packet, Packet)' zu schreiben die dann
+eifnach von hinten nach vorne diesen Paketrange finalisiert.
+
+&gt;<i> nochmal zu den m&#246;glichen L&#246;sungen: 
+</I>&gt;<i> Ich fand ja eigentlich &quot;b)--&quot; (ohne dirty-flag - performance ist nicht _so_ 
+</I>&gt;<i> wichtig) ne gute Idee. Find ich auch immer noch. Nat&#252;rlich m&#252;sste man alle 
+</I>&gt;<i> Parser kurz anpacken, aber das kann wirklich ein public member sein, und der 
+</I>&gt;<i> ist auch f&#252;r uns direkt klar, oder?
+</I>
+Nochmal: Das Problem ist, das die Info nicht im IP packet type steht
+sondern im UDP packet type. Ich muss also erstmal alle folgenden
+Interpreter anlegen um zu gucken, ob einer der subinterpreter dieses
+Flag gesetzt hat.
+
+Aber das ganze implementiert dann eine komplett andere finalize()
+semantic (wenn es ohne dirty flag gemacht wird). Dann ist es ein
+erweitertes 'finalizeThis()'. Wir wollen das vielleicht haben, aber
+ich sehe immer noch nicht, was denn nun (au&#223;er performance) das
+Problem ist, wenn du einfach finalize() aufrufst (also so, wie es
+jetzt implementiert ist).
+
+&gt;<i> Ansonsten w&#228;re noch ein Tripel aus:
+</I>&gt;<i> finalizeThisParser
+</I>&gt;<i> finalizeThisAndAllOuterParsers
+</I>&gt;<i> finalizeThisAndAllInnerParsers
+</I>&gt;<i> denkbar. 
+</I>
+w&#252;rde ich lieber &#252;ber ein finalizeThis und obigen finalizeRange helper
+machen.
+
+Die frage ist doch zun&#228;chst nach der grunds&#228;tzlichen Semantik. Da gibt
+es zwei, soweit ich das verstanden habe:
+
+a) Mach ein Paket fertig zum versenden (das aktuelle finalize())
+b) Vervollst&#228;ndige einen oder eine Reihe von PaketInterpretern
+
+Das sind zwei grunds&#228;tzlich verschiedene Ans&#228;tze. Als normaler
+Anwender will ich doch &#252;blicherweise a). Ich sehe im Moment keinen
+wirklich Anwendungsfall f&#252;r b) aber die M&#246;glichkeit sollte nat&#252;rlich
+vorhanden sein, das ist richtig.
+
+Mein Fazit w&#228;hre: finalize() bleibt wie es ist, die Doku wird
+angepasst. Es wird ein finalizeThis, oder finalizeHere oder so
+eingef&#252;hrt, welcher den aktuellen Interpreter vervollst&#228;ndigt und dann
+gibts noch ein finalizeRange(Packet, Packet) der diesen Range (von
+hinten nach vorne) vervollst&#228;ndigt.
+
+stefan.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000283.html">[Senf-dev] finalize() semantics
+</A></li>
+	<LI>Next message: <A HREF="000301.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#284">[ date ]</a>
+              <a href="thread.html#284">[ thread ]</a>
+              <a href="subject.html#284">[ subject ]</a>
+              <a href="author.html#284">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

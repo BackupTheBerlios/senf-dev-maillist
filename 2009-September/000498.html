@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Senf-svn] r1457 - trunk/senf/Utils
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BSenf-svn%5D%20r1457%20-%20trunk/senf/Utils&In-Reply-To=%3C87vdj27lid.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000497.html">
+   <LINK REL="Next"  HREF="000499.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Senf-svn] r1457 - trunk/senf/Utils</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BSenf-svn%5D%20r1457%20-%20trunk/senf/Utils&In-Reply-To=%3C87vdj27lid.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] [Senf-svn] r1457 - trunk/senf/Utils">g0dil at berlios.de
+       </A><BR>
+    <I>Tue Sep 29 00:27:38 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000497.html">[Senf-dev] PacketParser naming
+</A></li>
+        <LI>Next message: <A HREF="000499.html">[Senf-dev] [Senf-svn] r1457 - trunk/senf/Utils
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#498">[ date ]</a>
+              <a href="thread.html#498">[ thread ]</a>
+              <a href="subject.html#498">[ subject ]</a>
+              <a href="author.html#498">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE><A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">subversion at senf.berlios.de</A> writes:
+&gt;<i> calc min/max of the individual avgs for rank &gt; 1
+</I>
+Also ich hab mir den commit angesehen. Ich will ja nix sagen, aber so
+sollte das falsch sein.
+
+Fall a) min = avg = max (es werden einzelne Werte und keine Ranges mit
+min/max eingetragen)
+ =&gt; Der neue code macht das selbe wie der alte
+
+Fall b) min &lt; avg &lt; max
+ =&gt; Der neue code liefert ein zu gro&#223;es min/zu kleines max. Der
+    aggregierte min werte sollte der KLEINSTE min wert, der
+    aggregierte max wert der GR&#214;&#223;TE max wert sein.
+
+Sehe ich das irgendwie falsch ?
+
+stefan.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 196 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20090929/c97be9ba/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20090929/c97be9ba/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000497.html">[Senf-dev] PacketParser naming
+</A></li>
+	<LI>Next message: <A HREF="000499.html">[Senf-dev] [Senf-svn] r1457 - trunk/senf/Utils
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#498">[ date ]</a>
+              <a href="thread.html#498">[ thread ]</a>
+              <a href="subject.html#498">[ subject ]</a>
+              <a href="author.html#498">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

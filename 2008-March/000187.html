@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #13275] SystemException details should be	streamlined
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2313275%5D%20SystemException%20details%20should%20be%0A%09streamlined&In-Reply-To=%3C200803050720.m257KeiE018134%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000188.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #13275] SystemException details should be	streamlined</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2313275%5D%20SystemException%20details%20should%20be%0A%09streamlined&In-Reply-To=%3C200803050720.m257KeiE018134%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #13275] SystemException details should be	streamlined">admin at berlios.de
+       </A><BR>
+    <I>Wed Mar  5 08:20:40 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000188.html">[Senf-dev] [Bug #13275] SystemException details should be	streamlined
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#187">[ date ]</a>
+              <a href="thread.html#187">[ thread ]</a>
+              <a href="subject.html#187">[ subject ]</a>
+              <a href="author.html#187">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #13275, was updated on 2008-Mar-05 08:20
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: all
+Status: Open
+Resolution: None
+Bug Group: feature
+Priority: 5
+Submitted by: jkaeber
+Assigned to : none
+Summary: SystemException details should be streamlined
+
+Details: Current usage of SystemExceptions (inside and outside of senf) shows, that the intended string argument (&quot;where&quot;) is not always used as intended. Furthermore, the output of 'SystemException(&quot;bla&quot;) &lt;&lt; &quot;more bla&quot; gives garbled output.
+
+Proposed Solution: remove the (informal) semantic of the constructor argument (simply don't call it where but e.g. info or detail), and print errno + strerror text at the very start of ouput.
+
+Still, care has to be taken on the final look of the exception output (e.g. punctuation, case, ...) on construction of a SystemException and when '&lt;&lt;'-ing more text to it.
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=13275&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=13275&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000188.html">[Senf-dev] [Bug #13275] SystemException details should be	streamlined
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#187">[ date ]</a>
+              <a href="thread.html#187">[ thread ]</a>
+              <a href="subject.html#187">[ subject ]</a>
+              <a href="author.html#187">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

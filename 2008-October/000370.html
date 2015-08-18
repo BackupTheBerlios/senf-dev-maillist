@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Multicast socket system load test
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Multicast%20socket%20system%20load%20test&In-Reply-To=%3C87ej2o6xoz.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000369.html">
+   <LINK REL="Next"  HREF="000371.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Multicast socket system load test</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Multicast%20socket%20system%20load%20test&In-Reply-To=%3C87ej2o6xoz.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] Multicast socket system load test">g0dil at berlios.de
+       </A><BR>
+    <I>Fri Oct 10 21:45:48 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000369.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+        <LI>Next message: <A HREF="000371.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#370">[ date ]</a>
+              <a href="thread.html#370">[ thread ]</a>
+              <a href="subject.html#370">[ subject ]</a>
+              <a href="author.html#370">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have just tested linux multicast performance using the 'multimcloop'
+test tool from 'Examples/MultiMCLoop'.
+
+Running one instance in the foreground and 70 instances with
+redirected output in the background will produce a 50% load (1 core)
+on my Core2 duo system.
+
+CPU usage is mainly system, the user cpu load is below 4%.
+
+So for thousands of hosts in our CARMEN simulation, we may need to
+optimize but to get rolling, the one-socket-per-interface setup will
+be ok.
+
+stefan.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000369.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+	<LI>Next message: <A HREF="000371.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#370">[ date ]</a>
+              <a href="thread.html#370">[ thread ]</a>
+              <a href="subject.html#370">[ subject ]</a>
+              <a href="author.html#370">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

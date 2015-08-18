@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Benennung des Console libraries
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Benennung%20des%20Console%20libraries&In-Reply-To=%3C87fxuo1gpo.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000207.html">
+   <LINK REL="Next"  HREF="000213.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Benennung des Console libraries</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Benennung%20des%20Console%20libraries&In-Reply-To=%3C87fxuo1gpo.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] Benennung des Console libraries">g0dil at berlios.de
+       </A><BR>
+    <I>Tue Mar 18 11:14:59 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000207.html">[Senf-dev] PPI Connector type checking
+</A></li>
+        <LI>Next message: <A HREF="000213.html">[Senf-dev] Benennung des Console libraries
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#208">[ date ]</a>
+              <a href="thread.html#208">[ thread ]</a>
+              <a href="subject.html#208">[ subject ]</a>
+              <a href="author.html#208">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hab gerade ein bisschen mit Thorsten geskyped. Wir haben uns in guter
+Thorsten/Stefan manier intensiv &#252;ber den Benennung des Libraries
+auseinandergesetzt :-)
+
+Das Zentrale Ziel ist es, eine runtime console zu haben. Dabei f&#228;llt
+als nebenprodukt aber gleichzeitig eine sehr sch&#246;ne
+Konfigurationsdateiverwaltung ab. Das ist ja kein Problem sondern im
+Gegenteil sehr nett.
+
+Alleredings macht das die Benennung etwas schwirig. Wenn ich ne
+Konfigurationsdatei lesen will komme ich wirklich nicht darauf, wieso
+ich denn bitte libConsole einbinden muss ... macht irgendwie keinen
+Sinn.
+
+Dazu kommt, das auch wenn die Console das Hauptziel ist, es in der
+realit&#228;t h&#228;ufiger Konfigurationsdateien gibt als interaktive
+Konsolen. Und es macht ja keinen Sinn, das man etwas anderes als
+dieses libary f&#252;r seine Configurationsedateien nutzt (Kommandozeilen
+kann man ganz einfach dann auch damit parsen, da fehlt dann auch fast
+nix mehr).
+
+Daher w&#228;re der Ideale name etwas, das Console beinhaltet aber etwas
+breiter ist, so das man auch Config darin unterbringen kann.
+
+Habt Ihr da gute vorschl&#228;ge? Ich hatte erst einfach 'Control', aber
+Thorsten hat nat&#252;rlich recht, das sagt garnix aus.
+
+Ich hatte ja das ding mal 'Configuration and Runtime Control
+Framework' genannt, das enthaltet ja beides. Also habe ich mich mit
+Thorsten erstmal auf
+
+ CaRuCF
+
+geeinigt, das enth&#228;lt alles. Habt Ihr bessere vorschl&#228;ge ?
+
+stefan.
+
+PS: :-)
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 188 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20080318/c66608ed/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20080318/c66608ed/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000207.html">[Senf-dev] PPI Connector type checking
+</A></li>
+	<LI>Next message: <A HREF="000213.html">[Senf-dev] Benennung des Console libraries
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#208">[ date ]</a>
+              <a href="thread.html#208">[ thread ]</a>
+              <a href="subject.html#208">[ subject ]</a>
+              <a href="author.html#208">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

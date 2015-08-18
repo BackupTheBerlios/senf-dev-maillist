@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Debian package build on satcom
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Debian%20package%20build%20on%20satcom&In-Reply-To=%3C873arhl1zi.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000180.html">
+   <LINK REL="Next"  HREF="000182.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Debian package build on satcom</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Debian%20package%20build%20on%20satcom&In-Reply-To=%3C873arhl1zi.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] Debian package build on satcom">g0dil at berlios.de
+       </A><BR>
+    <I>Mon Feb 25 12:17:05 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000180.html">[Senf-dev] [Bug #12392] documentation for tap-device support missing
+</A></li>
+        <LI>Next message: <A HREF="000182.html">[Senf-dev] Howto/NewPacket updated
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#181">[ date ]</a>
+              <a href="thread.html#181">[ thread ]</a>
+              <a href="subject.html#181">[ subject ]</a>
+              <a href="author.html#181">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>High folks,
+
+After lot's of sweat and quit an amount of inapropriate language I
+have now a running setup to build debian packages on satcom:
+
+ - The setup runs within UML (user-mode-linux). A uml instance is
+   installed in senfs home directory in ~/uml.
+
+ - The system uses the debian pbuilder and there are at the moment
+   build roots for ubuntu dapper, ubuntu gutsy and debian etch.
+
+ - We cannot use pbuilder-uml since that is broken. We also can't use
+   fakechroot since that is also broken in pbuilder. Therefor I have
+   gone the most straight forward route: Just installed a debian
+   installation within UML and run pbuilder there. This is not optimal
+   but it works
+
+ - I refrain from using root directly (i.e. via sudo) since pbuilder
+   will read it's configuration file from the users (not roots) home
+   directory. And since that config file is an ordinary shell script,
+   this means allowing 'sudo pbuilder' is like allowing full root
+   access. And since we are building more or less untrusted sources
+   (anybody can commit to the senf repository) that's not acceptable
+
+ - So with this out of our way, I have configured pbuilder WITHIN the
+   uml in /root/.pbuilderrc. This is, where configuration for
+   additional build-roots can be added or configured.
+
+ - To get into the uml, use '~/uml/boot.sh'. This will boot and open a
+   shell prompt as root in the uml. Exiting this shell will shutdown
+   the uml instance
+
+ - To build a debian package, use '~/bin/builddeb.sh &lt;distribution&gt;
+   &lt;dsc-file&gt;'. This will boot into UML, do the build there and exit
+   from the UML. It will also place the file into the debian
+   repositores of the correct distribution in '~/apt-repositories' and
+   will update the repository. Building SENF for one distribution
+   takes about 2 hours within uml.
+
+ - To build the dsc file, run 'scons debsrc'. The dsc file will be
+   created in the parent directory of the SENF working copy. This will
+   normally generate a snapshot release.
+
+ - To build a stable relase, tag that release by creating a tag
+   somewhere under '/tags' named '&lt;version&gt;_&lt;description&gt;'. The
+   &lt;version&gt; needs to start with a digit. The &lt;description&gt; is not
+   part of the version and will be striped of. Then switch into this
+   tag and build the source package from there:
+
+    $ svn copy -m &quot;Tagging release 1.1.0&quot;
+          <A HREF="https://svn.berlios.de/svnroot/repos/senf/trunk">https://svn.berlios.de/svnroot/repos/senf/trunk</A> \
+          <A HREF="https://svn.berlios.de/svnroot/repos/senf/tags/1.1.0_Testrelease">https://svn.berlios.de/svnroot/repos/senf/tags/1.1.0_Testrelease</A>
+    $ svn switch <A HREF="https://svn.berlios.de/svnroot/repos/senf/tags/1.1.0_Testrelease">https://svn.berlios.de/svnroot/repos/senf/tags/1.1.0_Testrelease</A>
+    $ scons debsrc
+    $ svn switch <A HREF="https://svn.berlios.de/svnroot/repos/senf/trunk">https://svn.berlios.de/svnroot/repos/senf/trunk</A>
+
+   This setup ensures, that release versions are always built from
+   tagged sources and are consistent with the tag.
+
+ - There is a repository for each supported distribution in
+   '~/apt-repositories'. Or more precisely, at the moment there are
+   three:
+
+   * the &lt;distrib&gt;/senf repository contains release versions of SENF
+   * the &lt;distrib&gt;/senf-snapshots repository contains SENF snapshots
+   * the &lt;distrib&gt;/senf-build repository contains backports needed to
+     build SENF on that distribution
+
+ - To build a release version for all supported distributions, use
+   '~/bin/buildrelease.sh &lt;release-number&gt;'. This will check out the
+   sources, build a source deb and pass this to builddeb.sh for each
+   supported release.
+
+ - The same, to build a complete snapshot release, use
+   '~/bin/buildsnapshot.sh'.
+
+ - There is a script '~/apt-repositories/upload.sh' which will
+   synchronize the whole rigamole to the SENF ftp space at
+   '<A HREF="ftp://ftp.berlios.de/pub/senf/debian">ftp://ftp.berlios.de/pub/senf/debian</A>'
+
+ - The repository key-file and a sources.list template are found in
+   '~/apt-repositories' (and on ftp.berlios.de)
+
+I hope this is all. Part of this documentation should be placed
+somewhere ... where?
+
+stefan.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 188 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20080225/c6edb36c/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20080225/c6edb36c/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000180.html">[Senf-dev] [Bug #12392] documentation for tap-device support missing
+</A></li>
+	<LI>Next message: <A HREF="000182.html">[Senf-dev] Howto/NewPacket updated
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#181">[ date ]</a>
+              <a href="thread.html#181">[ thread ]</a>
+              <a href="subject.html#181">[ subject ]</a>
+              <a href="author.html#181">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

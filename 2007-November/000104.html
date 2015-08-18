@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Rename Parse_X to XParser
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Rename%20Parse_X%20to%20XParser&In-Reply-To=%3C87y7d387kf.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000093.html">
+   <LINK REL="Next"  HREF="000117.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Rename Parse_X to XParser</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Rename%20Parse_X%20to%20XParser&In-Reply-To=%3C87y7d387kf.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] Rename Parse_X to XParser">g0dil at berlios.de
+       </A><BR>
+    <I>Mon Nov 12 22:42:08 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000093.html">[Senf-dev] Rename Parse_X to XParser
+</A></li>
+        <LI>Next message: <A HREF="000117.html">[Senf-dev] Rename Parse_X to XParser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#104">[ date ]</a>
+              <a href="thread.html#104">[ thread ]</a>
+              <a href="subject.html#104">[ subject ]</a>
+              <a href="author.html#104">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thorsten Horstmann &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">thorsten.horstmann at fokus.fraunhofer.de</A>&gt; writes:
+&gt;<i> es gibt jetzt schon ein Doxygen-Modul f&#252;r alle Parser? Wo?
+</I>
+Es gibt mehrere: Eine untergruppen f&#252;r collection parser, eine f&#252;r die
+integer parser. Die liegen beide in der packetparser Gruppe (modul).
+
+&gt;<i> Gestern sind mir noch weitere Parser eingefallen:
+</I>&gt;<i> Was passiert dann mit den Packet-Parsern in den Bundles? Wird aus 
+</I>&gt;<i> 'senf::Parse_Ethernet' 'senf::parser::Ethernet'? Das DefaultBundle (und 
+</I>&gt;<i> alle weiteren dann auch) schieben ihre Parser in den parser-Namespace? 
+</I>&gt;<i> Auch hier finde ich pers&#246;nlich 'EthernetPacketParser' sch&#246;ner (passend 
+</I>&gt;<i> zum 'EthernetPacketType'). Wie seht ihr das?
+</I>
+Hier m&#252;ssen wir wohl sinnvollerweise klar trennen zwischen a) der
+allgemeinen packet library und b) konkreten Paketimplementierungen. Da
+bin ich mir auch nicht ganz klar. Also die paket-parser w&#252;rde ich
+warscheinlich nicht in die Parser namespace schieben, am liebsten
+h&#228;tte ich die warscheinlich sogar als Unterklasse: IpV4PacketType -&gt;
+IpV4PacketType::Parser oder ::parser oder so. Dann ist die
+Zugeh&#246;rigkeit sofort klar. Muss allerdings erstmal sehen, ob das so
+direkt und einfach geht, da gibt's leider manchmal schwierigkeiten mit
+verschachtelten klassen, m&#252;sste ich mal richtig ausprobieren: 
+
+    struct EthernetPacketType
+        : public PacketTypeBase,
+          public PacketTypeMixin&lt;EthernetPacketType, EtherTypes&gt;
+    {
+        typedef PacketTypeMixin&lt;EthernetPacketType, EtherTypes&gt; mixin;
+        typedef ConcretePacket&lt;EthernetPacketType&gt; packet;
+
+        // Hier nur ne predeclaration
+        struct parser;
+
+        using mixin::nextPacketRange;
+        using mixin::nextPacketType;
+        using mixin::initSize;
+        using mixin::init;
+
+        static registry_key_t nextPacketKey(packet p) 
+            { return p-&gt;type(); }
+
+        static void dump(packet p, std::ostream &amp; os);
+        static void finalize(packet p);
+    };
+
+    struct EthernetPacketType::parser 
+        : public PacketParserBase
+    {
+#       include SENF_FIXED_PARSER()
+
+        SENF_PARSER_FIELD( destination, Parse_MAC    );
+        SENF_PARSER_FIELD( source,      Parse_MAC    );
+        SENF_PARSER_FIELD( type,        Parse_UInt16 );
+
+        SENF_PARSER_FINALIZE(Parse_Ethernet);
+    };
+    
+&gt;<i> doppelt gemoppelt muss nicht schlecht sein. Sieht man z.B. in
+</I>&gt;<i> Java-Packages auch.
+</I>
+Verstehe den Ansatz. Ich w&#252;rde allerdings schon versuchen m&#246;glichst
+nur Parser in dieser namespace zu haben und so wenig wie m&#246;glich
+nicht-parser. Dann ist das 'Parser' im nahmen wirklich nicht
+notwendig. Die wenigen nicht-parser klassen die mglw noch da sind
+k&#246;nnte man dann sicher gut kenntlich machen.
+
+stefan.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000093.html">[Senf-dev] Rename Parse_X to XParser
+</A></li>
+	<LI>Next message: <A HREF="000117.html">[Senf-dev] Rename Parse_X to XParser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#104">[ date ]</a>
+              <a href="thread.html#104">[ thread ]</a>
+              <a href="subject.html#104">[ subject ]</a>
+              <a href="author.html#104">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

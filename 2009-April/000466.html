@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #14048] toString for address classes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314048%5D%20toString%20for%20address%20classes&In-Reply-To=%3C200904141149.n3EBnJMA012700%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000465.html">
+   <LINK REL="Next"  HREF="000467.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #14048] toString for address classes</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314048%5D%20toString%20for%20address%20classes&In-Reply-To=%3C200904141149.n3EBnJMA012700%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #14048] toString for address classes">admin at berlios.de
+       </A><BR>
+    <I>Tue Apr 14 13:49:19 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000465.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh
+</A></li>
+        <LI>Next message: <A HREF="000467.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh -c
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#466">[ date ]</a>
+              <a href="thread.html#466">[ thread ]</a>
+              <a href="subject.html#466">[ subject ]</a>
+              <a href="author.html#466">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #14048, was updated on 2008-Jun-17 19:04
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: libPackets
+Status: Open
+Resolution: None
+Bug Group: documentation
+Priority: 5
+Submitted by: dw6
+Assigned to : g0dil
+Summary: toString for address classes
+
+Details: should be self-evident but having &lt;&lt;operator is not sufficient for all cases. For all address there should be a method which returns a string representation e.g. using inet_ntop
+
+Follow-Ups:
+
+Date: 2009-Apr-14 13:49
+By: tho
+
+Comment:
+removed the toString members from address classes. Use senf::str(address) instead. 
+g0dil still has to document the senf::str member in utils.
+-------------------------------------------------------
+
+Date: 2008-Dec-05 10:01
+By: g0dil
+
+Comment:
+I'm not sure. The canonical way to convert anything to it's string representation is boost::lexical_cast&lt;std::string&gt;(...). This works for everything. That's why I don't like the 'toString' member (it's sepcific to just the addressing classes).
+-------------------------------------------------------
+
+Date: 2008-Dec-04 12:04
+By: tho
+
+Comment:
+INet4Address.toString() added in rev. 999
+-------------------------------------------------------
+
+Date: 2008-Jun-19 09:52
+By: tho
+
+Comment:
+dw6 has it implemented for INet6Address.
+Still missing:
+- INet4Address.toString()
+- MACAddress.toString()
+
+
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14048&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14048&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000465.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh
+</A></li>
+	<LI>Next message: <A HREF="000467.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh -c
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#466">[ date ]</a>
+              <a href="thread.html#466">[ thread ]</a>
+              <a href="subject.html#466">[ subject ]</a>
+              <a href="author.html#466">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

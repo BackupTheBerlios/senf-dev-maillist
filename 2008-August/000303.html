@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] scons und !LTS 6.06
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20scons%20und%20%21LTS%206.06&In-Reply-To=%3C200808011126.40938.mathias.kretschmer%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000304.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] scons und !LTS 6.06</H1>
+    <B>Mathias Kretschmer</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20scons%20und%20%21LTS%206.06&In-Reply-To=%3C200808011126.40938.mathias.kretschmer%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] scons und !LTS 6.06">mathias.kretschmer at fokus.fraunhofer.de
+       </A><BR>
+    <I>Fri Aug  1 11:26:40 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000304.html">[Senf-dev] scons und !LTS 6.06
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#303">[ date ]</a>
+              <a href="thread.html#303">[ thread ]</a>
+              <a href="subject.html#303">[ subject ]</a>
+              <a href="author.html#303">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo  *,
+
+ich habe gerade versucht, trunk auf meinem desktop mit 8.04 zu kompilieren, 
+mit folgendem ergebnis:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">mathias at eclipse</A>:~/src/senf$ make
+scons -j 2
+scons: Reading SConscript files ...
+TypeError: 'NoneType' object is not callable:
+  File &quot;/home/mathias/src/senf/SConstruct&quot;, line 216:
+    SConscript(os.path.join(subdir, &quot;SConscript&quot;))
+  File &quot;/usr/lib/scons/SCons/Script/SConscript.py&quot;, line 596:
+    return apply(method, args, kw)
+  File &quot;/usr/lib/scons/SCons/Script/SConscript.py&quot;, line 533:
+    return apply(_SConscript, [self.fs,] + files, subst_kw)
+  File &quot;/usr/lib/scons/SCons/Script/SConscript.py&quot;, line 256:
+    exec _file_ in call_stack[-1].globals
+  File &quot;/home/mathias/src/senf/Utils/SConscript&quot;, line 15:
+    objects = SENFSCons.Objects( env, sources = sources, 
+testSources=testSources )
+  File &quot;senfscons/SENFSCons.py&quot;, line 374:
+    env.Alias(env.File('test'), test)
+  File &quot;/usr/lib/scons/SCons/Environment.py&quot;, line 1581:
+    result.extend(bld(self, t, source))
+make: *** [build] Error 2
+
+
+Mache ich da was falsch ?  Geruechteweise habe ich mitbekommen, dass senf nur 
+auf ausgewahlten platformen kompiliert.
+
+Probleme mit dem GCC kann ich noch nachvollziehen, aber nicht mit dem Build 
+tool ! Andere Projekte schaffen das schliesslich auch.
+
+Zukuenftige Projekte werden sich hier nicht nach SENF richten.
+Dieser Punkt sollte moeglichst zuegig geklaert werden.
+
+-Mathias
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000304.html">[Senf-dev] scons und !LTS 6.06
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#303">[ date ]</a>
+              <a href="thread.html#303">[ thread ]</a>
+              <a href="subject.html#303">[ subject ]</a>
+              <a href="author.html#303">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

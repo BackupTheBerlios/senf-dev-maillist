@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] renaming of Socket/Protocols/Raw to Sockets/Protocols/L2 ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20renaming%20of%20Socket/Protocols/Raw%20to%0A%20Sockets/Protocols/L2%20%3F&In-Reply-To=%3C48687AD7.60001%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000274.html">
+   <LINK REL="Next"  HREF="000276.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] renaming of Socket/Protocols/Raw to Sockets/Protocols/L2 ?</H1>
+    <B>Joachim Kaeber</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20renaming%20of%20Socket/Protocols/Raw%20to%0A%20Sockets/Protocols/L2%20%3F&In-Reply-To=%3C48687AD7.60001%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] renaming of Socket/Protocols/Raw to Sockets/Protocols/L2 ?">joachim.kaeber at fokus.fraunhofer.de
+       </A><BR>
+    <I>Mon Jun 30 08:19:03 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000274.html">[Senf-dev] renaming of Socket/Protocols/Raw to Sockets/Protocols/L2	?
+</A></li>
+        <LI>Next message: <A HREF="000276.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#275">[ date ]</a>
+              <a href="thread.html#275">[ thread ]</a>
+              <a href="subject.html#275">[ subject ]</a>
+              <a href="author.html#275">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Good idea. I would also prefer &quot;L2&quot;.
+
+Achim
+
+David Wagner schrieb:
+&gt;<i> Hi all, 
+</I>&gt;<i> 
+</I>&gt;<i> up to now the protocols folder containing all the link layer address, 
+</I>&gt;<i> sockaddress, tapdevice and packetsocket classes is 
+</I>&gt;<i> calles &quot;Socket/Protocols/Raw&quot;. 
+</I>&gt;<i> This has nothing to do with the content but sounds like INet-Rawsockets (which 
+</I>&gt;<i> belong to the INet-Family and folder). 
+</I>&gt;<i> 
+</I>&gt;<i> Therefore I propose to rename the folder to something more logical. 
+</I>&gt;<i> This could be e.g.
+</I>&gt;<i> Sockets/Protocols/Link
+</I>&gt;<i> Sockets/Protocols/L2
+</I>&gt;<i> Sockets/Protocols/MAC
+</I>&gt;<i> 
+</I>&gt;<i> Such a renaming would not cause much work since it would only require to 
+</I>&gt;<i> change the include lines in the projects depending on these objects (maybe 
+</I>&gt;<i> just 2, definitely not so many yet). 
+</I>&gt;<i> 
+</I>&gt;<i> At the moment I think the minimalistic L2 fits best, but... 
+</I>&gt;<i> Please let me know your opinion / favourite until Monday!
+</I>&gt;<i> 
+</I>&gt;<i> Of course any comments / objections welcome. 
+</I>&gt;<i> 
+</I>&gt;<i> Best Regards, 
+</I>&gt;<i> David 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Senf-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Senf-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">https://lists.berlios.de/mailman/listinfo/senf-dev</A>
+</I>
+-- 
+Joachim Kaeber
+Fraunhofer FOKUS.NET
+Kaiserin-Augusta-Allee 31
+10589 Berlin
+
+phone: +49 (0)30 3463-7306
+email: <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">joachim.kaeber at fokus.fraunhofer.de</A>
+web:   <A HREF="http://www.fokus.fraunhofer.de/go/net">http://www.fokus.fraunhofer.de/go/net</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000274.html">[Senf-dev] renaming of Socket/Protocols/Raw to Sockets/Protocols/L2	?
+</A></li>
+	<LI>Next message: <A HREF="000276.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#275">[ date ]</a>
+              <a href="thread.html#275">[ thread ]</a>
+              <a href="subject.html#275">[ subject ]</a>
+              <a href="author.html#275">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

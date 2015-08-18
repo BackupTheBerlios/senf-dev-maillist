@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Senf-svn] r1457 - trunk/senf/Utils
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2009-September/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BSenf-svn%5D%20r1457%20-%20trunk/senf/Utils&In-Reply-To=%3C200909291100.48554.mathias.kretschmer%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000498.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Senf-svn] r1457 - trunk/senf/Utils</H1>
+    <B>Mathias Kretschmer</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BSenf-svn%5D%20r1457%20-%20trunk/senf/Utils&In-Reply-To=%3C200909291100.48554.mathias.kretschmer%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] [Senf-svn] r1457 - trunk/senf/Utils">mathias.kretschmer at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Sep 29 11:00:48 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000498.html">[Senf-dev] [Senf-svn] r1457 - trunk/senf/Utils
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#499">[ date ]</a>
+              <a href="thread.html#499">[ thread ]</a>
+              <a href="subject.html#499">[ subject ]</a>
+              <a href="author.html#499">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tuesday 29 September 2009 00:27:38 Stefan Bund wrote:
+&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">subversion at senf.berlios.de</A> writes:
+</I>&gt;<i> &gt; calc min/max of the individual avgs for rank &gt; 1
+</I>&gt;<i> 
+</I>&gt;<i> Also ich hab mir den commit angesehen. Ich will ja nix sagen, aber so
+</I>&gt;<i> sollte das falsch sein.
+</I>&gt;<i> 
+</I>&gt;<i> Fall a) min = avg = max (es werden einzelne Werte und keine Ranges mit
+</I>&gt;<i> min/max eingetragen)
+</I>&gt;<i>  =&gt; Der neue code macht das selbe wie der alte
+</I>
+nur, wenn rank==1.
+
+&gt;<i> Fall b) min &lt; avg &lt; max
+</I>&gt;<i>  =&gt; Der neue code liefert ein zu gro&#223;es min/zu kleines max. Der
+</I>&gt;<i>     aggregierte min werte sollte der KLEINSTE min wert, der
+</I>&gt;<i>     aggregierte max wert der GR&#214;&#223;TE max wert sein.
+</I>&gt;<i> 
+</I>&gt;<i> Sehe ich das irgendwie falsch ?
+</I>
+genau das sehe ich anders. 
+
+der aggregierte min/max sollte der kleinste/groesste aller aggregierten avgs 
+sein, damit ich ein gefuehl dafuer bekomme, in welchem bereich die AGGREGIERTEN 
+werte schwanken.
+
+durch das aggregieren aenderst du doch die (zeitliche) aufloesung der messwerte.
+dann machts doch keinen sinn, die min/max fuer die urspruengliche aufloesung 
+mitzuschleppen.
+
+wenn du lange agrregierst, und es einmal einen ausreisser gab (min und/oder 
+max), wirst du den nie wieder los. manchmal moechte man dies evtl. wissen, 
+meistens will ich aber nur wissen, was die schwankungsbreite meine averages ist.
+
+
+beispiel:
+
+messwerte:   2, 4, 6, 8, 10  =&gt; min=2, avg=6, max=10
+             1, 3, 5, 7, 9   =&gt; min=1, avg=5, max=9
+
+wenn ich die beiden nun aggregiere, bekomme ich nach methode mathias:
+
+a) min=5, avg=5.5, max = 6
+
+nach methode stefan:
+
+b) min=1, avg=5,5, max=10
+
+bei a) sehe ich die schwankungen der mittelwerte
+bei b) den vollen wertebereich alles messwerte
+
+Gruss,
+
+Mathias
+
+&gt;<i> stefan.
+</I>&gt;<i> 
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000498.html">[Senf-dev] [Senf-svn] r1457 - trunk/senf/Utils
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#499">[ date ]</a>
+              <a href="thread.html#499">[ thread ]</a>
+              <a href="subject.html#499">[ subject ]</a>
+              <a href="author.html#499">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

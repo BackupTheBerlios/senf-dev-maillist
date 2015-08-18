@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/build.sh&In-Reply-To=%3C20071124014146.C748948118A5%40satcom.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000123.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh</H1>
+    <B>Cron Daemon</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/build.sh&In-Reply-To=%3C20071124014146.C748948118A5%40satcom.fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh">root at satcom.fokus.fraunhofer.de
+       </A><BR>
+    <I>Sat Nov 24 02:41:46 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000123.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#124">[ date ]</a>
+              <a href="thread.html#124">[ thread ]</a>
+              <a href="subject.html#124">[ subject ]</a>
+              <a href="author.html#124">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE># Starting build at Sat Nov 24 01:34:07 UTC 2007
+$ svn update
+U    Socket/FileHandle.cci
+U    Socket/BufferingPolicy.cc
+U    Socket/FileHandle.cc
+U    Socket/Protocols/INet/ConnectedUDPSocketHandle.cc
+U    Socket/Protocols/INet/INet4Address.hh
+U    Socket/Protocols/INet/INet6Address.hh
+U    Socket/Protocols/INet/UDPProtocol.cc
+U    Socket/Protocols/INet/UDPSocketHandle.cc
+U    Socket/Protocols/INet/INetAddressing.hh
+U    Socket/Protocols/INet/INet4Address.cc
+U    Socket/Protocols/INet/INet6Address.cc
+U    Socket/Protocols/INet/TCPProtocol.cc
+U    Socket/Protocols/INet/TCPSocketHandle.cc
+U    Socket/Protocols/INet/INetProtocol.cc
+U    Socket/Protocols/UN/UNProtocol.cc
+U    Socket/Protocols/UN/UNDatagramSocketHandle.cc
+U    Socket/Protocols/GenericAddressingPolicy.cc
+U    Socket/Protocols/BSDSocketProtocol.cc
+U    Socket/Protocols/Raw/PacketSocketHandle.cc
+A    Socket/Protocols/Raw/TunTapSocketHandle.cc
+A    Socket/Protocols/Raw/TunTapSocketHandle.hh
+A    Socket/Protocols/Raw/TunTapSocketHandle.test.cc
+U    Socket/Protocols/DVB/DVBDemuxHandles.cc
+U    Socket/Protocols/DVB/DVBDemuxProtocol.cc
+U    Socket/Protocols/DVB/DVBFrontendHandle.cc
+U    Socket/ReadWritePolicy.cc
+U    Socket/FileHandle.test.cc
+U    Socket/SocketProtocol.cc
+U    Socket/CommunicationPolicy.cc
+U    Packets/Mainpage.dox
+D    Packets/DefaultBundle/IpV6Extensions.cc
+D    Packets/DefaultBundle/IpV4Packet.cc
+D    Packets/DefaultBundle/IpV6Packet.cc
+D    Packets/DefaultBundle/IpV6Extensions.hh
+D    Packets/DefaultBundle/IpV6Extensions.test.cc
+D    Packets/DefaultBundle/IpV4Packet.hh
+D    Packets/DefaultBundle/IpV6Packet.hh
+D    Packets/DefaultBundle/IpV4Packet.test.cc
+D    Packets/DefaultBundle/IpV6Packet.test.cc
+U    Packets/DefaultBundle/UDPPacket.test.cc
+A    Packets/DefaultBundle/IPv6Extensions.cc
+A    Packets/DefaultBundle/IPv4Packet.cc
+A    Packets/DefaultBundle/IPv6Packet.cc
+A    Packets/DefaultBundle/IPv6Extensions.hh
+U    Packets/DefaultBundle/UDPPacket.cc
+A    Packets/DefaultBundle/IPv6Extensions.test.cc
+A    Packets/DefaultBundle/IPv4Packet.hh
+U    Packets/DefaultBundle/EthernetPacket.test.cc
+A    Packets/DefaultBundle/IPv6Packet.hh
+A    Packets/DefaultBundle/IPv4Packet.test.cc
+A    Packets/DefaultBundle/IPv6Packet.test.cc
+U    Packets/ParseVariant.hh
+A    Packets/MPEGDVBBundle/DTCPPacket.hh
+A    Packets/MPEGDVBBundle/DTCPPacket.cc
+U    Packets/ParseListN.test.cc
+U    Packets/PacketParser.ih
+U    doclib/SConscript
+U    Utils/Exception.hh
+U    Utils/Exception.test.cc
+U    Utils/Exception.cti
+U    Utils/Exception.cc
+U    Utils/Exception.cci
+U    config.hh
+U    Scheduler/ReadHelper.ct
+U    Scheduler/ReadHelper.cti
+U    Scheduler/WriteHelper.ct
+U    Scheduler/ClockService.cc
+U    Scheduler/Scheduler.cc
+U    Scheduler/WriteHelper.cti
+Updated to revision 533.
+$ rm -f doc/html/html.stamp
+$ nice scons -kj2 all
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Examples/RateStuffer/ratestuffer.o Examples/RateStuffer/ratestuffer.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/IOEvent.o PPI/IOEvent.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/EventManager.o PPI/EventManager.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/ThrottleBarrier.o PPI/ThrottleBarrier.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/Connectors.o PPI/Connectors.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/PassiveQueue.o PPI/PassiveQueue.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/ModuleManager.o PPI/ModuleManager.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/Joins.o PPI/Joins.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/IntervalTimer.o PPI/IntervalTimer.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/ActiveFeeder.o PPI/ActiveFeeder.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/DiscardSink.o PPI/DiscardSink.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/Module.o PPI/Module.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/Events.o PPI/Events.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/IdleEvent.o PPI/IdleEvent.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/CloneSource.o PPI/CloneSource.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/Queueing.o PPI/Queueing.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o PPI/detail/EventBinding.o PPI/detail/EventBinding.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Scheduler/ClockService.o Scheduler/ClockService.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Scheduler/Scheduler.o Scheduler/Scheduler.cc
+ar r libPPI.a PPI/IOEvent.o PPI/EventManager.o PPI/ThrottleBarrier.o PPI/Connectors.o PPI/PassiveQueue.o PPI/ModuleManager.o PPI/Joins.o PPI/IntervalTimer.o PPI/ActiveFeeder.o PPI/DiscardSink.o PPI/Module.o PPI/Events.o PPI/IdleEvent.o PPI/CloneSource.o PPI/Queueing.o PPI/detail/EventBinding.o
+ranlib libPPI.a
+ar: creating libPPI.a
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/PacketImpl.o Packets/PacketImpl.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/PacketInterpreter.o Packets/PacketInterpreter.cc
+ar r libScheduler.a Scheduler/ClockService.o Scheduler/Scheduler.o
+ranlib libScheduler.a
+ar: creating libScheduler.a
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/PacketRegistry.o Packets/PacketRegistry.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/PacketData.o Packets/PacketData.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/Packet.o Packets/Packet.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/GenericAddressingPolicy.o Socket/Protocols/GenericAddressingPolicy.cc
+ar r libPackets.a Packets/PacketImpl.o Packets/PacketInterpreter.o Packets/PacketRegistry.o Packets/PacketData.o Packets/Packet.o
+ranlib libPackets.a
+ar: creating libPackets.a
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/BSDSocketProtocol.o Socket/Protocols/BSDSocketProtocol.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/INet/ConnectedUDPSocketHandle.o Socket/Protocols/INet/ConnectedUDPSocketHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/INet/UDPProtocol.o Socket/Protocols/INet/UDPProtocol.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/INet/UDPSocketHandle.o Socket/Protocols/INet/UDPSocketHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/INet/INet4Address.o Socket/Protocols/INet/INet4Address.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/INet/INet6Address.o Socket/Protocols/INet/INet6Address.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/INet/INetAddressing.o Socket/Protocols/INet/INetAddressing.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/INet/TCPProtocol.o Socket/Protocols/INet/TCPProtocol.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/INet/TCPSocketHandle.o Socket/Protocols/INet/TCPSocketHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/INet/INetProtocol.o Socket/Protocols/INet/INetProtocol.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/UN/UNProtocol.o Socket/Protocols/UN/UNProtocol.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/UN/UNDatagramSocketHandle.o Socket/Protocols/UN/UNDatagramSocketHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/UN/UNAddressing.o Socket/Protocols/UN/UNAddressing.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/Raw/LLAddressing.o Socket/Protocols/Raw/LLAddressing.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/Raw/PacketSocketHandle.o Socket/Protocols/Raw/PacketSocketHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/Raw/MACAddress.o Socket/Protocols/Raw/MACAddress.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/Raw/TunTapSocketHandle.o Socket/Protocols/Raw/TunTapSocketHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/DVB/DVBDemuxHandles.o Socket/Protocols/DVB/DVBDemuxHandles.cc
+Socket/Protocols/Raw/TunTapSocketHandle.cc: In member function 'void senf::TapProtocol::init_client(const std::string&amp;, bool) const':
+Socket/Protocols/Raw/TunTapSocketHandle.cc:53: error: no matching function for call to 'senf::SystemException::SystemException(int&amp;)'
+Socket/Protocols/Raw/../../../Socket/../Utils/Exception.cci:30: note: candidates are: senf::SystemException::SystemException(const senf::SystemException&amp;)
+Socket/Protocols/Raw/../../../Socket/../Utils/Exception.cci:34: note:                 senf::SystemException::SystemException(const std::string&amp;, int)
+Socket/Protocols/Raw/TunTapSocketHandle.cc:61: error: no matching function for call to 'senf::SystemException::SystemException(int&amp;)'
+Socket/Protocols/Raw/../../../Socket/../Utils/Exception.cci:30: note: candidates are: senf::SystemException::SystemException(const senf::SystemException&amp;)
+Socket/Protocols/Raw/../../../Socket/../Utils/Exception.cci:34: note:                 senf::SystemException::SystemException(const std::string&amp;, int)
+Socket/Protocols/Raw/TunTapSocketHandle.cc: In member function 'virtual unsigned int senf::TapProtocol::available() const':
+Socket/Protocols/Raw/TunTapSocketHandle.cc:78: error: no matching function for call to 'senf::SystemException::SystemException(int&amp;)'
+Socket/Protocols/Raw/../../../Socket/../Utils/Exception.cci:30: note: candidates are: senf::SystemException::SystemException(const senf::SystemException&amp;)
+Socket/Protocols/Raw/../../../Socket/../Utils/Exception.cci:34: note:                 senf::SystemException::SystemException(const std::string&amp;, int)
+scons: *** [Socket/Protocols/Raw/TunTapSocketHandle.o] Error 1
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/DVB/DVBDemuxProtocol.o Socket/Protocols/DVB/DVBDemuxProtocol.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/Protocols/DVB/DVBFrontendHandle.o Socket/Protocols/DVB/DVBFrontendHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/CommunicationPolicy.o Socket/CommunicationPolicy.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/SocketHandle.o Socket/SocketHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/BufferingPolicy.o Socket/BufferingPolicy.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/FileHandle.o Socket/FileHandle.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/ReadWritePolicy.o Socket/ReadWritePolicy.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Socket/SocketProtocol.o Socket/SocketProtocol.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Utils/Exception.o Utils/Exception.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Utils/Logger/IOStreamTarget.o Utils/Logger/IOStreamTarget.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Utils/Logger/AreaRegistry.o Utils/Logger/AreaRegistry.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Utils/Logger/FileTarget.o Utils/Logger/FileTarget.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Utils/Logger/Target.o Utils/Logger/Target.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Examples/DVBAdapter/MPEdec.o Examples/DVBAdapter/MPEdec.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/DefaultBundle/EthernetPacket.o Packets/DefaultBundle/EthernetPacket.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/DefaultBundle/UDPPacket.o Packets/DefaultBundle/UDPPacket.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/DefaultBundle/IPv6Extensions.o Packets/DefaultBundle/IPv6Extensions.cc
+ar r libUtils.a Utils/TypeInfo.o Utils/Exception.o Utils/Logger/IOStreamTarget.o Utils/Logger/AreaRegistry.o Utils/Logger/StreamRegistry.o Utils/Logger/FileTarget.o Utils/Logger/Target.o
+ranlib libUtils.a
+ar: creating libUtils.a
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/DefaultBundle/IPv4Packet.o Packets/DefaultBundle/IPv4Packet.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/DefaultBundle/IPv6Packet.o Packets/DefaultBundle/IPv6Packet.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/MPEGDVBBundle/TLVPacket.o Packets/MPEGDVBBundle/TLVPacket.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/MPEGDVBBundle/SNDUPacket.o Packets/MPEGDVBBundle/SNDUPacket.cc
+ld -r -o Packets/DefaultBundle/DefaultBundle.o Packets/DefaultBundle/EthernetPacket.o Packets/DefaultBundle/UDPPacket.o Packets/DefaultBundle/IPv6Extensions.o Packets/DefaultBundle/IPv4Packet.o Packets/DefaultBundle/IPv6Packet.o
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/MPEGDVBBundle/GREPacket.o Packets/MPEGDVBBundle/GREPacket.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/MPEGDVBBundle/DatagramSection.o Packets/MPEGDVBBundle/DatagramSection.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/MPEGDVBBundle/DSMCCSection.o Packets/MPEGDVBBundle/DSMCCSection.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/MPEGDVBBundle/TransportPacket.o Packets/MPEGDVBBundle/TransportPacket.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Packets/MPEGDVBBundle/DTCPPacket.o Packets/MPEGDVBBundle/DTCPPacket.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Examples/DVBAdapter/frontend.o Examples/DVBAdapter/frontend.cc
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Examples/DVBAdapter/ULEdec.o Examples/DVBAdapter/ULEdec.cc
+ld -r -o Packets/MPEGDVBBundle/MPEGDVBBundle.o Packets/MPEGDVBBundle/TLVPacket.o Packets/MPEGDVBBundle/SNDUPacket.o Packets/MPEGDVBBundle/GREPacket.o Packets/MPEGDVBBundle/DatagramSection.o Packets/MPEGDVBBundle/DSMCCSection.o Packets/MPEGDVBBundle/TransportPacket.o Packets/MPEGDVBBundle/DTCPPacket.o
+g++ -g -o Examples/DVBAdapter/MPEdec Examples/DVBAdapter/MPEdec.o Packets/DefaultBundle/DefaultBundle.o Packets/MPEGDVBBundle/MPEGDVBBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex -lboost_filesystem
+./libSocket.a(DVBDemuxHandles.o): In function `SystemException':Socket/Protocols/DVB/../../../Socket/../Utils/Exception.cci:39: undefined reference to `senf::SystemException::init()'
+collect2: ld returned 1 exit status
+scons: *** [Examples/DVBAdapter/MPEdec] Error 1
+g++ -g -o Examples/DVBAdapter/frontend Examples/DVBAdapter/frontend.o Packets/DefaultBundle/DefaultBundle.o Packets/MPEGDVBBundle/MPEGDVBBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex -lboost_filesystem
+g++ -g -o Examples/DVBAdapter/ULEdec Examples/DVBAdapter/ULEdec.o Packets/DefaultBundle/DefaultBundle.o Packets/MPEGDVBBundle/MPEGDVBBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex -lboost_filesystem
+./libSocket.a(DVBFrontendHandle.o): In function `SystemException':Socket/Protocols/DVB/../../../Socket/../Utils/Exception.cci:39: undefined reference to `senf::SystemException::init()'
+collect2: ld returned 1 exit status
+scons: *** [Examples/DVBAdapter/frontend] Error 1
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Examples/MCSniffer/MCSniffer.o Examples/MCSniffer/MCSniffer.cc
+./libSocket.a(DVBDemuxHandles.o): In function `SystemException':Socket/Protocols/DVB/../../../Socket/../Utils/Exception.cci:39: undefined reference to `senf::SystemException::init()'
+collect2: ld returned 1 exit status
+scons: *** [Examples/DVBAdapter/ULEdec] Error 1
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Examples/Sniffer/Sniffer.o Examples/Sniffer/Sniffer.cc
+g++ -g -o Examples/MCSniffer/mcsniffer Examples/MCSniffer/MCSniffer.o Packets/DefaultBundle/DefaultBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex -lboost_filesystem
+g++ -g -o Examples/Sniffer/sniffer Examples/Sniffer/Sniffer.o Packets/DefaultBundle/DefaultBundle.o -L. -lScheduler -lPackets -lSocket -lUtils -liberty -lboost_regex -lboost_filesystem
+./libSocket.a(GenericAddressingPolicy.o): In function `SystemException':Socket/Protocols/../../Socket/../Utils/Exception.cci:39: undefined reference to `senf::SystemException::init()'
+collect2: ld returned 1 exit status
+scons: *** [Examples/Sniffer/sniffer] Error 1
+./libSocket.a(UDPProtocol.o): In function `SystemException':Socket/Protocols/INet/../../../Socket/../Utils/Exception.cci:39: undefined reference to `senf::SystemException::init()'
+collect2: ld returned 1 exit status
+scons: *** [Examples/MCSniffer/mcsniffer] Error 1
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Examples/TCPClientServer/client.o Examples/TCPClientServer/client.cc
+scons: *** [Examples/MCSniffer/mcsniffer] Error 1
+g++ -Wall -Woverloaded-virtual -Wno-long-long -O0 -g -fno-inline -Iinclude -c -o Examples/TCPClientServer/server.o Examples/TCPClientServer/server.cc
+scons: building terminated because of errors.
+ValueError: list.remove(x): x not in list:
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Script/__init__.py&quot;, line 1103:
+    _exec_main()
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Script/__init__.py&quot;, line 1097:
+    _main(args, parser)
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Script/__init__.py&quot;, line 1056:
+    jobs.run()
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Job.py&quot;, line 67:
+    self.job.start()
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Job.py&quot;, line 255:
+    task.executed()
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Script/__init__.py&quot;, line 134:
+    SCons.Taskmaster.Task.executed(self)
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Taskmaster.py&quot;, line 143:
+    self.tm.executed(self.node)
+  File &quot;/usr/lib/python2.4/site-packages/SCons/Taskmaster.py&quot;, line 422:
+    self.executing.remove(t)
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000123.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/build.sh
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#124">[ date ]</a>
+              <a href="thread.html#124">[ thread ]</a>
+              <a href="subject.html#124">[ subject ]</a>
+              <a href="author.html#124">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

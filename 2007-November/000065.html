@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Rename Parse_X to XParser
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Rename%20Parse_X%20to%20XParser&In-Reply-To=%3C47342385.2060403%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000066.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Rename Parse_X to XParser</H1>
+    <B>Thorsten Horstmann</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Rename%20Parse_X%20to%20XParser&In-Reply-To=%3C47342385.2060403%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Rename Parse_X to XParser">thorsten.horstmann at fokus.fraunhofer.de
+       </A><BR>
+    <I>Fri Nov  9 10:08:21 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000066.html">[Senf-dev] Rename Parse_X to XParser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#65">[ date ]</a>
+              <a href="thread.html#65">[ thread ]</a>
+              <a href="subject.html#65">[ subject ]</a>
+              <a href="author.html#65">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo zusammen,
+
+ich m&#246;chte das Thema 'Parser umbenennen' von Mittwoch Nachmittag noch 
+einmal aufgreifen. Unabh&#228;ngig davon wer das wann macht (!) w&#252;rde ich 
+gerne zu einem Ergebnis kommen wie die Parser-Benamsung aussehen sollte.
+
+Wie am Mittwoch von Achim vorgeschlagen halte ich es ebenfalls f&#252;r 
+sinnvoll wenn alle Parser auch ihm Namen auf 'Parser' enden, wie z.B. 
+der 'VoidPacketParser'.
+
+Also, hier ein erster Vorschlag:
+- 'PacketParserBase' wird zu 'BasePacketParser' oder IMO noch besser zu
+     'BaseParser', denn die Basisklasse hat mit Paketen noch recht wenig
+     zu tun.
+
+- alle Subklassen von PaketParserBase enden auf Parser, also z.B.:
+   - 'Parse_Int16' wird zu 'Int16Parser'
+   - 'Parse_IntField&lt;Start,End&gt;' wird zu 'IntFieldParser&lt;Start,End&gt;'
+   - 'Parse_Vector&lt;ElementParser,Sizer&gt;' wird zu
+       'VectorParser&lt;ElementParser,Sizer&gt;'; IMO ist das ein gutes
+       Beispiel warum die Umbenennung gut tut
+   - usw.
+
+- (interne) Klassen die keine Parser sind, aber mit Parse_ anfangen
+   solltem IMO auch umbenannt werden. Also z.B.
+   - 'Parse_List_Iterator&lt; ElementParser, IteratorPolicy &gt;' wird zu
+       'ListParser_Interator&lt; ElementParser, IteratorPolicy &gt;'
+   - 'Parse_VectorN_Sizer&lt; SizeParser &gt;' wird zu
+       'VectorNParser_Sizer&lt; SizeParser &gt;'
+   - usw.
+
+- die Dateien wuerde ich auch umbenennen:
+   - ParseInt.hh -&gt; IntParser.hh
+   - usw.
+
+habe ich was vergessen? Meinungen, Kommentare? +1 oder -1?
+
+   -Thorsten
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000066.html">[Senf-dev] Rename Parse_X to XParser
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#65">[ date ]</a>
+              <a href="thread.html#65">[ thread ]</a>
+              <a href="subject.html#65">[ subject ]</a>
+              <a href="author.html#65">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

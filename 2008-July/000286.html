@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Scheduler refactoring: API changes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Scheduler%20refactoring%3A%20API%20changes&In-Reply-To=%3C87od59r1j4.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000289.html">
+   <LINK REL="Next"  HREF="000287.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Scheduler refactoring: API changes</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Scheduler%20refactoring%3A%20API%20changes&In-Reply-To=%3C87od59r1j4.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] Scheduler refactoring: API changes">g0dil at berlios.de
+       </A><BR>
+    <I>Mon Jul  7 20:29:19 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000289.html">[Senf-dev] New Scheduler: Use of signals
+</A></li>
+        <LI>Next message: <A HREF="000287.html">[Senf-dev] Scheduler refactoring: API changes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#286">[ date ]</a>
+              <a href="thread.html#286">[ thread ]</a>
+              <a href="subject.html#286">[ subject ]</a>
+              <a href="author.html#286">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi SENFistas,
+
+after the last discussion on API breakage, here a rundown of the
+upcoming changes in the Scheduler. I really need fast feedback since I
+have a bad feeling to continue working on the stuff uncommitted ...
+
+The Scheduler has been completely re-implemented. The outside API has
+been kept as close to the original API as possible. The
+senf::Scheduler class is however a wrapper around a number of new
+modular classes. 
+
+ - The scheduler is now basically extensible with new types of
+   events. They still need to be integrated into the senf::Scheduler
+   but this should prove much simpler than trying to unravel the
+   old process() function.
+
+ - The scheduler now makes use of a very simple but real task
+   scheduler (FIFORunner) which is responsible for scheduling the
+   execution of signaled callbacks. This ensures, that callbacks are
+   called fairly.
+
+ - All timing (the timeout's and the ClockService) is now based on
+   POSIX timers. Those are highly accurate (the linux implementation
+   is accurate to the nanosecond disregarding scheduling latency and
+   execution time). Especially this allows timeout's to be signaled
+   with a precision above the kernels HZ value on modern linux
+   kernels with high resolution timer support.
+
+If this would have been the original Scheduler implementation, we
+would not have add()/remove(), timeout/cancelTimeout() and so on, we
+would have objects which constructors register and destructors
+unregister a callback. This would be MUCH safer and probably simpler,
+but I did not want to break everything using the Scheduler in such a
+fundamental way (we may come back to this later).
+
+The only API changes are:
+
+ - The signature of a file-descriptor callback has been changed:
+
+       OLD: void (EventId) 
+       NEW: void (int)
+
+   This change was already pending for some time since the argument is
+   NOT an EventId but a bitmask of several EventId's (which lead to
+   the use of ugly type casts throughout).
+
+ - The signature of a signal callback has been changed:
+
+       OLD: void ()
+       NEW: void (siginfo_t const &amp;)
+
+   The siginfo_t structure is from POSIX and is e.g. documented in the
+   sigaction(2) man-page.
+
+ - The timeout parameters are now obsolte:
+
+       REMOVED: timeoutEarly(...)
+       REMOVED: timeoutAdjust(...)
+
+   The members are still in the API for a transitional period but they
+   are no-op's and produce a log message when called. The timeouts are
+   now 
+
+
+It is very difficult to add backward compatibility code vor the first
+two points. Therefore when these changes are committed, things WILL
+certainly break, so be prepared, the changes to your code should
+really be minimal.
+
+stefan.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 188 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20080707/dcd5d67a/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20080707/dcd5d67a/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000289.html">[Senf-dev] New Scheduler: Use of signals
+</A></li>
+	<LI>Next message: <A HREF="000287.html">[Senf-dev] Scheduler refactoring: API changes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#286">[ date ]</a>
+              <a href="thread.html#286">[ thread ]</a>
+              <a href="subject.html#286">[ subject ]</a>
+              <a href="author.html#286">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

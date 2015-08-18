@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] finalize() semantics
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C200807091253.17079.david.wagner%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000284.html">
+   <LINK REL="Next"  HREF="000282.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] finalize() semantics</H1>
+    <B>David Wagner</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C200807091253.17079.david.wagner%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] finalize() semantics">david.wagner at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Jul  9 12:53:16 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000284.html">[Senf-dev] finalize() semantics
+</A></li>
+        <LI>Next message: <A HREF="000282.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#301">[ date ]</a>
+              <a href="thread.html#301">[ thread ]</a>
+              <a href="subject.html#301">[ subject ]</a>
+              <a href="author.html#301">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all, 
+
+I would like to close the finalize topic that's why I start with my proposal: 
+
+We all agree that we would like to have two finalize-functions: 
+
+finalizeThis()
+finalizeAll()
+
+I don't think we need finalizeRange(P1, P2) but we should discuss this. 
+
+But I definitly would name all of them other than simply finalize() because:
+1. this makes us all to decide on the right function call in the existing 
+code. For the code at us this won't be the finalizeAll call in most / all 
+cases
+2. this makes it clear what exactly this call will do. 
+
+
+Opinions, comments to this proposal?
+
+
+
+to the discussion: 
+This implementation will prevent that finalizeAll will create correct packets 
+in the meaning of the module (of course the packets will be correct 
+themselves).
+Please have a look at some examples we have been discussing internally. I 
+attached an pdf from Thorsten. 
+
+1. The first example comes from the Daidalos software and this code had the 
+problem with the UDP-Checksum-Bug: it should tunnel ethernet packets 
+transparently. I don't want packets to be fixed / altered at all. 
+This could be perfectly done with finalizeThis 
+
+2. NAT of a simple packet:
+perfectly done with finalizeAll(), you could think, but be carefull, have a 
+look at example 3
+
+3. NAT of a complex packet with GRE, IP, UDP: 
+finalizeAll() would in this case destroy the transparency of the GRE 
+tunneling.
+Because of this NAT could not be done with the proposed solution without a big 
+switch statement
+The main drawback of this: the knowledge, if further header could depend on 
+GRE or the even outer packets should not be in the NAT modules ( in all 
+modules which have such a functionality).
+
+4. IP-independent Extension Header
+these would increase the complexity of a more intelligent solution: although 
+the ext. header does not depend on the IP header the following header does. 
+
+5. IP-dependent extension header zB Authentication Header
+there could be several header depend on one IP header
+
+6. several IP header: 
+the depending packets have to choose the correct IP header if there are 
+several. 
+This issue is independent from the finalize() solution
+
+Conclusion: 
+The only case which would cause trouble and we can think of right now is 
+changing the IP header which is called NAT normally. I don't think this is a 
+expeceted application of SENF so we should go for the double-finalize 
+described at the beginning. 
+
+Best Regards, 
+David
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: senf.pdf
+Type: application/pdf
+Size: 7401 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20080709/3b56d865/attachment.pdf">https://lists.berlios.de/pipermail/senf-dev/attachments/20080709/3b56d865/attachment.pdf</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000284.html">[Senf-dev] finalize() semantics
+</A></li>
+	<LI>Next message: <A HREF="000282.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#301">[ date ]</a>
+              <a href="thread.html#301">[ thread ]</a>
+              <a href="subject.html#301">[ subject ]</a>
+              <a href="author.html#301">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

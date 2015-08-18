@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] finalize() semantics
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C200807011732.28996.david.wagner%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000281.html">
+   <LINK REL="Next"  HREF="000284.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] finalize() semantics</H1>
+    <B>David Wagner</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C200807011732.28996.david.wagner%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] finalize() semantics">david.wagner at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Jul  1 17:32:28 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000281.html">[Senf-dev] finalize() semantics
+</A></li>
+        <LI>Next message: <A HREF="000284.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#283">[ date ]</a>
+              <a href="thread.html#283">[ thread ]</a>
+              <a href="subject.html#283">[ subject ]</a>
+              <a href="author.html#283">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> Thorsten Horstmann &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">thorsten.horstmann at fokus.fraunhofer.de</A>&gt; writes:
+</I>&gt;<i> &gt; Der &quot;Anwender&quot; ruft immer das finalize von seinem &#228;u&#223;erstem Paket auf.
+</I>&gt;<i> &gt; Klar er muss wissen, dass seine &#196;nderungen Auswirkungen auf innere
+</I>&gt;<i> &gt; Pakete haben kann. Also wenn er die IP-Zieladresse &#228;ndert muss er
+</I>&gt;<i> &gt; ip.finalizePacketChain() Aufrufen um ein eventuell vorhandenes udp-Paket
+</I>&gt;<i> &gt; zu aktualisieren. Dieses 'Abh&#228;ngigkeits-Management' w&#252;rde ich nicht
+</I>&gt;<i> &gt; automatisieren.
+</I>&gt;<i> &gt; Kannst Du ein Szenario nennen wo nicht klar ist, welche der
+</I>&gt;<i> &gt; finalize-Methoden er aufrufen muss.
+</I>&gt;<i>
+</I>&gt;<i> Genau in diesem Fall !! Denn es h&#228;ngt ja von den Eigenschaften des
+</I>&gt;<i> Unterprotkolls (hier UDP) ab, OB du den chain aktualisieren musst und
+</I>&gt;<i> wann. Die ICMP checksum wird z.Bsp. nur &#252;ber den ICMP header und NICHT
+</I>&gt;<i> &#252;ber den IP (pseudo) header berechnet. Je nach payload-type musst du
+</I>&gt;<i> also den chain aktualisieren oder nicht. Ok, hier w&#252;rdest du also
+</I>&gt;<i> einfach immer den chain aktualisieren.
+</I>
+richtig. Die Frage stellt sich n&#228;mlich nach Art der Anwendung: wenn ich zB NAT 
+bzw NPAT mach will, rufe ich am Ende ein finalizePacketChain() auf, weil ich 
+korrekte Pakete verschicken will, wann immer ich / Senf genug &#252;ber das 
+Protokoll wissen. 
+&#220;brigens: das ist auch der Grund, warum wir eigentlich einen TCP-Parser 
+brauchen. 
+
+Wenn ich dagegen Paketfehler simulieren will, werde ich nur finalize aufrufen. 
+Die Wahl habe ich bei der derzeitigen Implementierung aber gar nicht.
+
+&gt;<i>
+</I>&gt;<i> Bei IP weist du jetzt vielleicht, das es das Problem gibt ... DU weist
+</I>&gt;<i> es, aber wenn du mit Protkoll X arbeitest kann man ja nicht erwarten,
+</I>&gt;<i> das du ALLE M&#214;GLICHEN nachfolgeprotokolle Y angucken must (und die
+</I>&gt;<i> dahinter kommenden ..) um festzustellen, ob du den chain komplett
+</I>&gt;<i> aktualisieren musst (ich meine jetzt in der Dokumentation
+</I>&gt;<i> nachschlagen). Das Problem weitet sich dadurch aus, das man im
+</I>&gt;<i> allgemeinen beim Schreiben des X Protokolls ja nichtmal unbedingt
+</I>&gt;<i> wei&#223;, das ein Protokoll Y existiert, das von X in dieser Form abh&#228;ngt.
+</I>&gt;<i>
+</I>&gt;<i> Das klingt jetzt ziemlich abstrakt aber ich will nicht derjenige sein,
+</I>&gt;<i> der SOLCHE Fehler suchen muss. Genau daf&#252;r ist SENF ja eigentlich
+</I>&gt;<i> gedacht, diese Komplexit&#228;t dem Anwender abzunehmen.
+</I>
+Naja, das Ziel kennt eben nur der Nutzer / Programmierer. und f&#252;r den ist 
+diese Entscheidung wohl meistens sogar offensichtlich. 
+
+&gt;<i>
+</I>&gt;<i> &gt; Nein, ich kann nicht davon ausgehen das nach mir nochmal ein Modul
+</I>&gt;<i> &gt; finalize aufruft. Das w&#252;rde doch unn&#246;tige Modul-Abh&#228;ngigkeiten
+</I>&gt;<i> &gt; einf&#252;hren. Das passt zumindest nicht in meine
+</I>&gt;<i> &gt; &quot;Steckmodul-System&quot;-Vorstellung vom PPI.
+</I>
+Da geb ich Thorsten 100%ig Recht. 
+Der Anwendungsfall ist doch der Student, der nen PEP programmieren soll, sich 
+die Namen der vorhandenen Module ansieht und dann zusammensteckt, was er grad 
+braucht. Wenn er will, das ein Header vollst&#228;ndig und korrekt ist, ruft er 
+finalize auf, wenn nciht, nicht. 
+
+
+Zwei Sachen noch: 
+1. Stefan, sowohl Jens als auch ich hatten aus unseren Gespr&#228;chen im Kopf, 
+dass finalize() ganz anders funktioniert (nur existierende Parser). 
+
+Wo ist die Doku dazu? 
+
+ich finde folgendes:
+--&quot;This call will update all calculated fields of the packet after it has been 
+created or changed. This includes checksums, payload size fields or other 
+fields, which can be set from other information in the packet. Each concrete 
+packet type should document, which fields are set by finalize().
+
+finalize() will automatically process all packets/headers/interpreters from 
+the end of the chain backwards up to this&quot;--
+
+Da steht gar nichts &#252;ber kreiren von Parsern. 
+
+2. es geht hier nicht um Performance. 
+Es geht darum, dass das Ding das tut, was man mit &quot;typischer&quot; 
+Studentenprogrammiererfahrung und der Doku als Verhalten erwartet. 
+Deswegen bitte auf keinen Fall zu weit automatisieren!
+
+F&#252;r mich (pers&#246;nliche Sicht) gehts hier auch um Flexibilit&#228;t / auf dem Boden 
+bleiben: 
+
+ich will nicht eine eierlegende Wollmilchsau, die &#252;berall in meinem Paket 
+rumschreibt, nur weil ich die Ethernet-Checksum schreiben wollte. 
+Ich finde, es muss auf jeden Fall eine lokale finalizeThisParser() methode 
+geben, die genau das macht und nichts weiter. 
+
+Aber ich denke, das ist auch ncith das Problem. Sondern was man dar&#252;ber hinaus 
+noch haben will. 
+
+
+nochmal zu den m&#246;glichen L&#246;sungen: 
+Ich fand ja eigentlich &quot;b)--&quot; (ohne dirty-flag - performance ist nicht _so_ 
+wichtig) ne gute Idee. Find ich auch immer noch. Nat&#252;rlich m&#252;sste man alle 
+Parser kurz anpacken, aber das kann wirklich ein public member sein, und der 
+ist auch f&#252;r uns direkt klar, oder?
+
+Ansonsten w&#228;re noch ein Tripel aus:
+finalizeThisParser
+finalizeThisAndAllOuterParsers
+finalizeThisAndAllInnerParsers
+denkbar. 
+
+&#220;brigens finde ich die Ausdr&#252;cke backward / forward hier v&#246;llig ungeeignet, 
+weil die je nach Sichtweise gegens&#228;tzlich interpretiert werden. 
+
+Soviel erstmal,
+David 
+
+
+
+
+&gt;<i>
+</I>&gt;<i> Kann ich wirklich nicht so sehen. Das ist echt ne
+</I>&gt;<i> philosophie-Frage. Die Anforderung 'nach mir muss irgendwann mal ein
+</I>&gt;<i> Finalizer modul eingef&#252;gt werden' halte ich f&#252;r kein Problem. Im
+</I>&gt;<i> Gegenteil, es macht das ganze halt deutlich flexibler.
+</I>&gt;<i>
+</I>&gt;<i> Was ich nochmal sagen will ist, das wir hier &#252;ber
+</I>&gt;<i> Performanceoptimierung reden. Ich wei&#223; nicht, ob das an dieser Stelle
+</I>&gt;<i> &#252;ebrhaupt schon sinnvoll ist, wie ich schonmal erw&#228;hnt habe gibt es da
+</I>&gt;<i> ne menge andere Stellen wo mglw noch viel mehr gespart werden k&#246;nnte.
+</I>&gt;<i>
+</I>&gt;<i> Stefan.
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Senf-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Senf-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">https://lists.berlios.de/mailman/listinfo/senf-dev</A>
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000281.html">[Senf-dev] finalize() semantics
+</A></li>
+	<LI>Next message: <A HREF="000284.html">[Senf-dev] finalize() semantics
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#283">[ date ]</a>
+              <a href="thread.html#283">[ thread ]</a>
+              <a href="subject.html#283">[ subject ]</a>
+              <a href="author.html#283">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

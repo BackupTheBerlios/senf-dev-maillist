@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] finalize() semantics
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C87k5g695nv.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000277.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] finalize() semantics</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20finalize%28%29%20semantics&In-Reply-To=%3C87k5g695nv.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] finalize() semantics">g0dil at berlios.de
+       </A><BR>
+    <I>Mon Jun 30 19:47:00 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000277.html">[Senf-dev] finalize() semantics
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#278">[ date ]</a>
+              <a href="thread.html#278">[ thread ]</a>
+              <a href="subject.html#278">[ subject ]</a>
+              <a href="author.html#278">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>David Wagner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">david.wagner at fokus.fraunhofer.de</A>&gt; writes:
+&gt;<i> tja, da werden sich vermutlich die Geister wieder scheiden: ich finde, das ist 
+</I>&gt;<i> ok so. Wenn ich kaputte UDP Packete verschicken will, sollte ich das mit Senf 
+</I>&gt;<i> k&#246;nnen. Wenn ich das nicht will, muss ich selbst einen UDP-Parser (oder 
+</I>&gt;<i> generell einen next()-Parser erzeugen und dort finalize aufrufen (m&#246;gl. 
+</I>&gt;<i> rekursiv alle Parser erzeugen und im letzten finalize aufrufen). 
+</I>&gt;<i> Aber wie gesagt: da gibts sicher andere Meinungen. 
+</I>
+Darum geht es nicht. An sich kannst du nat&#252;rlich kaputte UDP Pakete
+versenden, keine Frage. Aber das Problem ist ein anderes: Du weist ja
+m&#246;glicherweise nicht mal, das eine solche Abh&#228;ngigkeit besteht! Dazu
+musst du ja *alle* Unterprotokolle kennen und wissen, ob sie sowas
+machen. Desweiteren musst du dann nachsehen, ob dein Unterprotokoll
+z.Bsp. UDP ist um das dann entsprechend finalizen zu k&#246;nnen.
+
+Es geht also darum, das wenn finalize() nur den aktuellen Header
+verarbeitet, du im allgemeinen Fall ung&#252;ltige Pakete verschickst ohne
+etwas daf&#250;r zu k&#246;nnen. Oder andersrum, du wirst gezwungen in einzelnen
+Spezialf&#228;llen dich mit m&#246;glicherweise sogar dir unbekannten
+Unterprotokollen zu befassen.
+
+&gt;&gt;<i> Nat&#252;rlich nicht, aber wenn du den IP header &#228;nderst musst du unter
+</I>&gt;&gt;<i> umst&#228;nden auch UDP aktualisieren! Die Funktion von finalize() ist ja
+</I>&gt;&gt;<i> nicht 'mach diesen header richtig' sondern 'mach dieses Paket fertig
+</I>&gt;&gt;<i> f&#252;r den Versand' (was bedeutet, dieses Paket, nicht ein weiter drumrum
+</I>&gt;&gt;<i> liegendes, das wird garnicht angefasst, das k&#246;nnte man auch schon als
+</I>&gt;&gt;<i> eine Optimierung ansehen).
+</I>&gt;<i>
+</I>&gt;<i> das geht so nicht aus der Doku hervor und ich pers&#246;nlich finds auch unlogisch. 
+</I>&gt;<i> s.o.
+</I>
+Was an der Aussage 'mache dieses Paket f&#252;r den Versand fertig'
+unlogisch sein soll verstehe ich ehrlich gesagt nicht. Das ganze UDP
+checksum geraffel, das ist sicherlich total unlogisch, aber da kann
+ich nix f&#252;r.
+
+&gt;&gt;<i> 3. Du empf&#228;ngst ein IP Paket &#228;nderst die Ziel-IP und sendest das Paket
+</I>&gt;&gt;<i>    weiter. Jezt muss der UDP header aktualisiert werden obwohl nur in
+</I>&gt;&gt;<i>    IP was ge&#228;ndert wurde da die UDP checksum von der Zieladresse im IP
+</I>&gt;&gt;<i>    header abh&#228;ngt (krank aber wahr).
+</I>&gt;<i>
+</I>&gt;<i> &quot;wer kranke Sachen macht, muss auch mehr denken&quot; w&#228;r in K&#252;rze meine Meinung 
+</I>&gt;<i> dazu. W&#228;r ja ohne Probleme mit dem finalize, was ich gern h&#228;tte / verstanden 
+</I>&gt;<i> hatte, zu machen.
+</I>
+Kranke sachen ??? Was ist denn bitte an dem Beispiel Krank ??? Das
+kann ich gerade garnicht sehen.
+
+&gt;&gt;<i> Ganz prinzipiell gibts da soweit ich das verstehe ein paar
+</I>&gt;&gt;<i> M&#246;glichkeiten:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> a) Der user muss selber wissen, was er wann in welcher reihenfolge
+</I>&gt;&gt;<i>    finalized.
+</I>&gt;<i> einfach, aber oft zu wenig
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> b) Es wird ein 'dirty' flag eingef&#252;hrt, das bei Ver&#228;nderungen eines
+</I>&gt;&gt;<i>    Pakets gesetzt wird (das ist &#252;berhaupt nicht trivial, dieses flag
+</I>&gt;&gt;<i>    zu verwalten). Zus&#228;tzlich muss ein Packet-Typ registrieren, wenn er
+</I>&gt;&gt;<i>    von anderen headern abh&#228;ngt. Ziemlich krank ...
+</I>&gt;<i> naja, es w&#252;rde ja reichen &quot;abh&#228;ngkeit nach au&#223;en&quot; und &quot;abh&#228;ngigkeit nach 
+</I>&gt;<i> innen&quot; zu verwalten, richtig? und dann kann finalize aufh&#246;ren, sobald 
+</I>&gt;<i> next().dependsFromOuter == false
+</I>&gt;<i> wahrscheinlich br&#228;uchte man hier aber ne 3wertige logik: 
+</I>&gt;<i> ja/nein/wie-beim-vorg&#228;nger (bzw nachfolger) (ich denke da an 
+</I>&gt;<i> IPv6_Extension-Header) 
+</I>
+Genau. Und das ist alles nicht ganz so einfach weil das &#220;bergeordnete
+Protkoll (also hier IP) das ja garnicht festlegen kann sondern das
+Untergeordnete. Das macht das ganze richtig eklig.
+
+&gt;&gt;<i> c) Es gibt verschiedene finalize aufrufe die entweder alles, nur einen
+</I>&gt;&gt;<i>    Header oder meinetwegen einen header-range aktualisieren.
+</I>&gt;<i> wahrscheinlich oft genau was man will. und einfach. 
+</I>
+Und genausooft warscheinlich nicht das was man will ... ;-)
+
+&gt;<i> Ich wei&#223; ehrlich gesagt nicht, wie oft bei uns finalize in der PPI-Kette 
+</I>&gt;<i> aufgerufen wird. Und alle Checksummen auf allen Layers neu zu berechnen ist 
+</I>&gt;<i> sicher nicht umsonst. 
+</I>
+Das ist klar. Allerdings sollte finalize() f&#252;r ein Paket auch nur
+EINMAL aufgerufen werden. Das ist dann schonmal etwas besser. 
+
+&gt;<i> hmm, ich tendier eher zu b aber ich brauch auch noch was Denk-Zeit. 
+</I>
+Ich halte b) nicht f&#252;r sinnvoll realisierbar. Ich bef&#252;rchte, das der
+Performanceverlust gr&#246;&#223;er w&#228;re als der Gewinn.
+
+stefan.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 188 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20080630/708021e1/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20080630/708021e1/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000277.html">[Senf-dev] finalize() semantics
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#278">[ date ]</a>
+              <a href="thread.html#278">[ thread ]</a>
+              <a href="subject.html#278">[ subject ]</a>
+              <a href="author.html#278">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

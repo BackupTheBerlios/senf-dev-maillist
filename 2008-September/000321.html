@@ -1,0 +1,925 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/bin/build.sh&In-Reply-To=%3C20080909003841.2BE75480FCCB%40satcom.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000320.html">
+   <LINK REL="Next"  HREF="000322.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh</H1>
+    <B>Cron Daemon</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/bin/build.sh&In-Reply-To=%3C20080909003841.2BE75480FCCB%40satcom.fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh">root at satcom.fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Sep  9 02:38:40 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000320.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+        <LI>Next message: <A HREF="000322.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#321">[ date ]</a>
+              <a href="thread.html#321">[ thread ]</a>
+              <a href="subject.html#321">[ subject ]</a>
+              <a href="author.html#321">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE># Starting build at Tue Sep  9 00:34:02 UTC 2008
+$ svn update
+At revision 903.
+$ nice scons -kj2 all 
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -o PPI/IOEvent.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/IOEvent.cc
+g++ -o PPI/EventManager.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/EventManager.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/EventManager.hh:30,
+                 from PPI/EventManager.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/IOEvent.hh:31,
+                 from PPI/IOEvent.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/IOEvent.hh:31,
+                 from PPI/IOEvent.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/IOEvent.hh:31,
+                 from PPI/IOEvent.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+scons: *** [PPI/IOEvent.o] Error 1
+g++ -o PPI/ThrottleBarrier.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/ThrottleBarrier.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/EventManager.hh:30,
+                 from PPI/EventManager.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/EventManager.hh:30,
+                 from PPI/EventManager.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+scons: *** [PPI/EventManager.o] Error 1
+g++ -o PPI/SocketSink.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/SocketSink.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/ThrottleBarrier.hh:31,
+                 from PPI/ThrottleBarrier.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/SocketSink.hh:36,
+                 from PPI/SocketSink.cc:27:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/ThrottleBarrier.hh:31,
+                 from PPI/ThrottleBarrier.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/Module.hh:33,
+                 from PPI/ThrottleBarrier.hh:31,
+                 from PPI/ThrottleBarrier.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/SocketSink.hh:36,
+                 from PPI/SocketSink.cc:27:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/Module.hh:33,
+                 from PPI/SocketSink.hh:36,
+                 from PPI/SocketSink.cc:27:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+scons: *** [PPI/ThrottleBarrier.o] Error 1
+g++ -o PPI/PassiveQueue.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/PassiveQueue.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/PassiveQueue.hh:31,
+                 from PPI/PassiveQueue.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+scons: *** [PPI/SocketSink.o] Error 1
+g++ -o PPI/ModuleManager.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/ModuleManager.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/ModuleManager.cc:31:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/PassiveQueue.hh:31,
+                 from PPI/PassiveQueue.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/Module.hh:33,
+                 from PPI/PassiveQueue.hh:31,
+                 from PPI/PassiveQueue.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+scons: *** [PPI/PassiveQueue.o] Error 1
+g++ -o PPI/Joins.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/Joins.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/ModuleManager.cc:31:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/Module.hh:33,
+                 from PPI/ModuleManager.cc:31:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Joins.hh:30,
+                 from PPI/Joins.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+scons: *** [PPI/ModuleManager.o] Error 1
+g++ -o PPI/DiscardSink.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/DiscardSink.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Joins.hh:30,
+                 from PPI/Joins.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/Joins.hh:30,
+                 from PPI/Joins.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/DiscardSink.hh:31,
+                 from PPI/DiscardSink.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+scons: *** [PPI/Joins.o] Error 1
+g++ -o PPI/Events.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/Events.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/DiscardSink.hh:31,
+                 from PPI/DiscardSink.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/Module.hh:33,
+                 from PPI/DiscardSink.hh:31,
+                 from PPI/DiscardSink.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/Events.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+scons: *** [PPI/DiscardSink.o] Error 1
+g++ -o PPI/IdleEvent.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/IdleEvent.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/Events.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/Events.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/IdleEvent.hh:30,
+                 from PPI/IdleEvent.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+scons: *** [PPI/Events.o] Error 1
+g++ -o PPI/DebugModules.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/DebugModules.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/IdleEvent.hh:30,
+                 from PPI/IdleEvent.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/IdleEvent.hh:30,
+                 from PPI/IdleEvent.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/DebugModules.hh:33,
+                 from PPI/DebugModules.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+scons: *** [PPI/IdleEvent.o] Error 1
+g++ -o PPI/CloneSource.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/CloneSource.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/CloneSource.hh:31,
+                 from PPI/CloneSource.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/DebugModules.hh:33,
+                 from PPI/DebugModules.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/Module.hh:33,
+                 from PPI/DebugModules.hh:33,
+                 from PPI/DebugModules.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/CloneSource.hh:31,
+                 from PPI/CloneSource.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/Module.hh:33,
+                 from PPI/CloneSource.hh:31,
+                 from PPI/CloneSource.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+scons: *** [PPI/DebugModules.o] Error 1
+g++ -o PPI/Module.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/Module.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/Module.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+scons: *** [PPI/CloneSource.o] Error 1
+g++ -o PPI/RateFilter.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/RateFilter.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/Module.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/Module.hh:33,
+                 from PPI/Module.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/RateFilter.hh:25,
+                 from PPI/RateFilter.cc:24:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/RateFilter.hh:25,
+                 from PPI/RateFilter.cc:24:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/Module.hh:33,
+                 from PPI/RateFilter.hh:25,
+                 from PPI/RateFilter.cc:24:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+scons: *** [PPI/Module.o] Error 1
+g++ -o PPI/Connectors.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/Connectors.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/Route.cci:28,
+                 from PPI/Route.hh:161,
+                 from PPI/Connectors.cc:30:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+scons: *** [PPI/RateFilter.o] Error 1
+g++ -o PPI/IntervalTimer.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/IntervalTimer.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/IntervalTimer.hh:31,
+                 from PPI/IntervalTimer.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/Route.cci:28,
+                 from PPI/Route.hh:161,
+                 from PPI/Connectors.cc:30:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/Route.cci:28,
+                 from PPI/Route.hh:161,
+                 from PPI/Connectors.cc:30:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/IntervalTimer.hh:31,
+                 from PPI/IntervalTimer.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/Events.cti:30,
+                 from PPI/Events.hh:200,
+                 from PPI/IntervalTimer.hh:31,
+                 from PPI/IntervalTimer.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+scons: *** [PPI/Connectors.o] Error 1
+g++ -o PPI/ActiveFeeder.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/ActiveFeeder.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/ActiveFeeder.hh:30,
+                 from PPI/ActiveFeeder.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+scons: *** [PPI/IntervalTimer.o] Error 1
+g++ -o PPI/detail/EventBinding.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPPI -Iinclude PPI/detail/EventBinding.cc
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/detail/EventBinding.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:38:48: error: boost/serialization/split_member.hpp: No such file or directory
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/Module.hh:33,
+                 from PPI/ActiveFeeder.hh:30,
+                 from PPI/ActiveFeeder.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/Module.hh:33,
+                 from PPI/ActiveFeeder.hh:30,
+                 from PPI/ActiveFeeder.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+In file included from /usr/include/boost/ptr_container/ptr_sequence_adapter.hpp:20,
+                 from /usr/include/boost/ptr_container/ptr_vector.hpp:20,
+                 from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/detail/EventBinding.cc:26:
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/detail/reversible_ptr_container.hpp:610: error: expected `;' before '}' token
+In file included from PPI/detail/../EventManager.hh:30,
+                 from PPI/detail/EventBinding.cti:29,
+                 from PPI/detail/EventBinding.hh:119,
+                 from PPI/detail/EventBinding.cc:26:
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected ';' before '}' token
+/usr/include/boost/ptr_container/ptr_vector.hpp:70: error: expected `;' before '}' token
+scons: *** [PPI/detail/EventBinding.o] Error 1
+g++ -o Utils/Daemon/.test.bin -g -rdynamic Utils/Daemon/Daemon.o Utils/Daemon/Daemon.test.o Utils/Daemon/main.test.o -LUtils/Daemon -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lScheduler -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+scons: *** [PPI/ActiveFeeder.o] Error 1
+g++ -o Utils/Logger/.test.bin -g -rdynamic Utils/Logger/TimeSource.o Utils/Logger/IOStreamTarget.o Utils/Logger/AreaRegistry.o Utils/Logger/StreamRegistry.o Utils/Logger/FileTarget.o Utils/Logger/Target.o Utils/Logger/main.test.o Utils/Logger/Parameters.test.o Utils/Logger/Log.test.o Utils/Logger/StreamRegistry.test.o Utils/Logger/Target.test.o Utils/Logger/AreaRegistry.test.o Utils/Logger/Config.test.o -LUtils/Logger -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Utils/Daemon/.test.bin --build_info=yes --log_level=test_suite
+Utils/Logger/.test.bin --build_info=yes --log_level=test_suite
+Running 5 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;logConfig&quot;
+Leaving test case &quot;logConfig&quot;
+Entering test case &quot;areaRegistry&quot;
+Leaving test case &quot;areaRegistry&quot;
+Entering test case &quot;target&quot;
+Leaving test case &quot;target&quot;
+Entering test case &quot;streamRegistry&quot;
+Leaving test case &quot;streamRegistry&quot;
+Entering test case &quot;logger&quot;
+2008-09-09 00:37:05.240704-0000 [IMPORTANT] Important message
+2008-09-09 00:37:05.240916-0000 [CRITICAL] Another log message: 10
+2008-09-09 00:37:05.240988-0000 [IMPORTANT] Last message continued here
+2008-09-09 00:37:05.241058-0000 [MESSAGE] [senf::log::test::Foo] Foo::log
+Leaving test case &quot;logger&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Utils/Logger/.test.stamp
+Running 1 test case...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;testDaemon&quot;
+Running configure()
+g++ -o Scheduler/.test.bin -g -rdynamic Scheduler/ClockService.o Scheduler/FIFORunner.o Scheduler/Scheduler.o Scheduler/TimerDispatcher.o Scheduler/FdDispatcher.o Scheduler/FdManager.o Scheduler/SignalDispatcher.o Scheduler/FileDispatcher.o Scheduler/Scheduler.test.o Scheduler/main.test.o Scheduler/FdDispatcher.test.o Scheduler/SignalDispatcher.test.o Scheduler/FileDispatcher.test.o Scheduler/TimerDispatcher.test.o Scheduler/WriteHelper.test.o Scheduler/Poller.test.o Scheduler/Binding.test.o Scheduler/ReadHelper.test.o Scheduler/ClockService.test.o -LScheduler -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Running init()
+Leaving test case &quot;testDaemon&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Utils/Daemon/.test.stamp
+g++ -o Socket/Protocols/.test.bin -g -rdynamic Socket/Protocols/BSDAddressingPolicy.o Socket/Protocols/BSDSocketProtocol.o Socket/Protocols/DatagramSocketProtocol.o Socket/Protocols/BSDSocketAddress.o Socket/Protocols/main.test.o Socket/Protocols/BSDSocketAddress.test.o Socket/Protocols/BSDAddressingPolicy.test.o -LSocket/Protocols -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lSocket -lScheduler -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Socket/Protocols/.test.bin --build_info=yes --log_level=test_suite
+Running 2 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;bsdAddressingPolicy&quot;
+Leaving test case &quot;bsdAddressingPolicy&quot;; testing time: 10ms
+Entering test case &quot;bsdSocketAddress&quot;
+Leaving test case &quot;bsdSocketAddress&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Socket/Protocols/.test.stamp
+Scheduler/.test.bin --build_info=yes --log_level=test_suite
+Running 7 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;clockService&quot;
+g++ -o Socket/Protocols/UN/.test.bin -g -rdynamic Socket/Protocols/UN/ConnectedUNDatagramSocketHandle.o Socket/Protocols/UN/UNSocketProtocol.o Socket/Protocols/UN/UNAddressing.o Socket/Protocols/UN/UNDatagramSocketHandle.o Socket/Protocols/UN/UNSocketProtocol.test.o Socket/Protocols/UN/main.test.o Socket/Protocols/UN/UNAddressing.test.o Socket/Protocols/UN/UNDatagramSocketHandle.test.o -LSocket/Protocols/UN -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lSocket -lScheduler -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Leaving test case &quot;clockService&quot;
+Entering test case &quot;binding&quot;
+Leaving test case &quot;binding&quot;
+Entering test case &quot;poller&quot;
+Leaving test case &quot;poller&quot;
+Entering test case &quot;timerDispatcher&quot;
+Leaving test case &quot;timerDispatcher&quot;
+Entering test case &quot;fileDispatcher&quot;
+Leaving test case &quot;fileDispatcher&quot;
+Entering test case &quot;fdDispatcher&quot;
+Socket/Protocols/UN/.test.bin --build_info=yes --log_level=test_suite
+Running 3 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;unDatagramSocketHandle&quot;
+Leaving test case &quot;unDatagramSocketHandle&quot;
+Entering test case &quot;unSocketAddress&quot;
+Leaving test case &quot;unSocketAddress&quot;
+Entering test case &quot;unProtocol&quot;
+Leaving test case &quot;unProtocol&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Socket/Protocols/UN/.test.stamp
+g++ -o Socket/Protocols/Raw/.test.bin -g -rdynamic Socket/Protocols/Raw/PacketSocketHandle.o Socket/Protocols/Raw/TunTapSocketHandle.o Socket/Protocols/Raw/MACAddress.o Socket/Protocols/Raw/LLAddressing.o Socket/Protocols/Raw/main.test.o Socket/Protocols/Raw/PacketSocketHandle.test.o Socket/Protocols/Raw/TunTapSocketHandle.test.o Socket/Protocols/Raw/MACAddress.test.o Socket/Protocols/Raw/LLAddressing.test.o -LSocket/Protocols/Raw -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lSocket -lScheduler -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Leaving test case &quot;fdDispatcher&quot;
+Entering test case &quot;testScheduler&quot;
+
+
+*** Scheduler task hanging: &lt;anon timer&gt;
+Task was initialized at
+    senf::backtrace(std::ostream&amp;, unsigned int) + 0x64
+        in Scheduler/.test.bin [0x80f9dfc]
+    senf::scheduler::FIFORunner::enqueue(senf::scheduler::FIFORunner::TaskInfo*) + 0x5b
+        in Scheduler/.test.bin [0x80b7331]
+    senf::scheduler::TimerDispatcher::add(std::string const&amp;, long long, boost::function&lt;void ()(), std::allocator&lt;void&gt; &gt; const&amp;) + 0x1f3
+        in Scheduler/.test.bin [0x80b477f]
+    senf::Scheduler::timeout(long long, boost::function&lt;void ()(), std::allocator&lt;void&gt; &gt; const&amp;) + 0x62
+        in Scheduler/.test.bin [0x80d0c20]
+    testScheduler::test_method() + 0x2f90
+        in Scheduler/.test.bin [0x80c28c0]
+    Scheduler/.test.bin [0x80c5a45]
+    boost::unit_test::ut_detail::unused boost::unit_test::ut_detail::invoker&lt;boost::unit_test::ut_detail::unused&gt;::invoke&lt;void (*)()&gt;(void (*&amp;)()) + 0xd
+        in Scheduler/.test.bin [0x80c9577]
+    boost::unit_test::ut_detail::callback0_impl_t&lt;boost::unit_test::ut_detail::unused, void (*)()&gt;::invoke() + 0x23
+        in Scheduler/.test.bin [0x80c95a1]
+    Scheduler/.test.bin [0x80ec2fd]
+    boost::execution_monitor::catch_signals(boost::unit_test::callback0&lt;int&gt; const&amp;, bool, int) + 0x97
+        in Scheduler/.test.bin [0x80f55b7]
+    boost::execution_monitor::execute(boost::unit_test::callback0&lt;int&gt; const&amp;, bool, int) + 0x295
+        in Scheduler/.test.bin [0x80f5915]
+    boost::unit_test::unit_test_monitor_t::execute_and_translate(boost::unit_test::test_case const&amp;) + 0x94
+        in Scheduler/.test.bin [0x80ec3e4]
+    boost::unit_test::framework_impl::visit(boost::unit_test::test_case const&amp;) + 0xad
+        in Scheduler/.test.bin [0x80e139d]
+    boost::unit_test::traverse_test_tree(boost::unit_test::test_suite const&amp;, boost::unit_test::test_tree_visitor&amp;) + 0x60
+        in Scheduler/.test.bin [0x80f27d0]
+    boost::unit_test::framework::run(unsigned long, bool) + 0x46c
+        in Scheduler/.test.bin [0x80dfdec]
+    boost::unit_test::unit_test_main(int, char**) + 0x2d
+        in Scheduler/.test.bin [0x80ec0ad]
+    main + 0x22
+        in Scheduler/.test.bin [0x80ec292]
+    __libc_start_main + 0xe0
+        in /lib/tls/i686/cmov/libc.so.6 [0xb7bcf450]
+    __gxx_personality_v0 + 0x39d
+        in Scheduler/.test.bin [0x80abc11]
+
+Leaving test case &quot;testScheduler&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Scheduler/.test.stamp
+g++ -o Socket/Protocols/INet/.test.bin -g -rdynamic Socket/Protocols/INet/RawINetSocketHandle.o Socket/Protocols/INet/MulticastSocketProtocol.o Socket/Protocols/INet/ConnectedUDPSocketHandle.o Socket/Protocols/INet/UDPSocketHandle.o Socket/Protocols/INet/TCPSocketProtocol.o Socket/Protocols/INet/INet4Address.o Socket/Protocols/INet/INetSocketProtocol.o Socket/Protocols/INet/INet6Address.o Socket/Protocols/INet/INetAddressing.o Socket/Protocols/INet/RawINetSocketProtocol.o Socket/Protocols/INet/TCPSocketHandle.o Socket/Protocols/INet/ConnectedRawINetSocketHandle.o Socket/Protocols/INet/UDPSocketProtocol.o Socket/Protocols/INet/main.test.o Socket/Protocols/INet/UDPSocketHandle.test.o Socket/Protocols/INet/INet4Address.test.o Socket/Protocols/INet/INet6Address.test.o Socket/Protocols/INet/RawINetSocketHandle.test.o Socket/Protocols/INet/MulticastSocketProtocol.test.o Socket/Protocols/INet/INetAddressing.test.o Socket/Protocols/INet/TCPSocketHandle.test.o -LSocket/Protocols/INet 
+ -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lSocket -lScheduler -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Socket/Protocols/Raw/.test.bin --build_info=yes --log_level=test_suite
+Running 4 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;llAddress&quot;
+Leaving test case &quot;llAddress&quot;
+Entering test case &quot;macAddress&quot;
+Leaving test case &quot;macAddress&quot;; testing time: 10ms
+Entering test case &quot;tapSocketHandle&quot;
+Socket/Protocols/Raw/TunTapSocketHandle.test.cc(45): warning in &quot;tapSocketHandle&quot;: Cannot test senf::TunTapSocketHandle as non-root user
+Leaving test case &quot;tapSocketHandle&quot;
+Entering test case &quot;packetSocketHandle&quot;
+Socket/Protocols/Raw/PacketSocketHandle.test.cc(44): warning in &quot;packetSocketHandle&quot;: Cannot test senf::PacketSocketHandle as non-root user
+Leaving test case &quot;packetSocketHandle&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Socket/Protocols/Raw/.test.stamp
+g++ -o Socket/.test.bin -g -rdynamic Socket/Protocols/BSDAddressingPolicy.o Socket/Protocols/BSDSocketProtocol.o Socket/Protocols/DatagramSocketProtocol.o Socket/Protocols/BSDSocketAddress.o Socket/Protocols/UN/ConnectedUNDatagramSocketHandle.o Socket/Protocols/UN/UNSocketProtocol.o Socket/Protocols/UN/UNAddressing.o Socket/Protocols/UN/UNDatagramSocketHandle.o Socket/Protocols/Raw/PacketSocketHandle.o Socket/Protocols/Raw/TunTapSocketHandle.o Socket/Protocols/Raw/MACAddress.o Socket/Protocols/Raw/LLAddressing.o Socket/Protocols/INet/RawINetSocketHandle.o Socket/Protocols/INet/MulticastSocketProtocol.o Socket/Protocols/INet/ConnectedUDPSocketHandle.o Socket/Protocols/INet/UDPSocketHandle.o Socket/Protocols/INet/TCPSocketProtocol.o Socket/Protocols/INet/INet4Address.o Socket/Protocols/INet/INetSocketProtocol.o Socket/Protocols/INet/INet6Address.o Socket/Protocols/INet/INetAddressing.o Socket/Protocols/INet/RawINetSocketProtocol.o Socket/Protocols/INet/TCPSocketHandle.o Socket/
+ Protocols/INet/ConnectedRawINetSocketHandle.o Socket/Protocols/INet/UDPSocketProtocol.o Socket/Protocols/DVB/DVBDemuxHandles.o Socket/Protocols/DVB/DVBFrontendHandle.o Socket/Protocols/DVB/DVBDemuxSocketProtocol.o Socket/SocketHandle.o Socket/SocketPolicy.o Socket/FileHandle.o Socket/ReadWritePolicy.o Socket/NetdeviceController.o Socket/SocketProtocol.o Socket/CommunicationPolicy.o Socket/main.test.o Socket/ProtocolClientSocketHandle.test.o Socket/ClientSocketHandle.test.o Socket/NetdeviceController.test.o Socket/SocketProtocol.test.o Socket/ProtocolServerSocketHandle.test.o Socket/FileHandle.test.o Socket/ServerSocketHandle.test.o Socket/SocketHandle.test.o Socket/SocketPolicy.test.o -LSocket -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lScheduler -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Socket/Protocols/INet/.test.bin --build_info=yes --log_level=test_suite
+Running 14 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;tcpv4ClientSocketHandle&quot;
+Socket/.test.bin --build_info=yes --log_level=test_suite
+Running 9 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;socketPolicy&quot;
+Leaving test case &quot;socketPolicy&quot;; testing time: 10ms
+Entering test case &quot;socketHandle&quot;
+Leaving test case &quot;socketHandle&quot;
+Entering test case &quot;serverSocketHandle&quot;
+Leaving test case &quot;serverSocketHandle&quot;; testing time: 10ms
+Entering test case &quot;fileHandle&quot;
+Leaving test case &quot;fileHandle&quot;
+Entering test case &quot;protocolServerSocketHandle&quot;
+Leaving test case &quot;protocolServerSocketHandle&quot;
+Entering test case &quot;socketProtocol&quot;
+Leaving test case &quot;socketProtocol&quot;
+Entering test case &quot;NetdeviceController&quot;
+name: lo
+hw addr: 00:00:00:00:00:00
+mtu: 16436
+Socket/NetdeviceController.test.cc(50): warning in &quot;NetdeviceController&quot;: Cannot run some tests of senf::NetdeviceController as non-root user
+Leaving test case &quot;NetdeviceController&quot;
+Entering test case &quot;clientSocketHandle&quot;
+Leaving test case &quot;clientSocketHandle&quot;
+Entering test case &quot;protocolClientSocketHandle&quot;
+Leaving test case &quot;protocolClientSocketHandle&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Socket/.test.stamp
+g++ -o Console/.test.bin -g -rdynamic Console/Executor.o Console/Traits.o Console/Readline.o Console/Node.o Console/ConfigFile.o Console/Config.o Console/Server.o Console/Parse.o Console/ProgramOptions.o Console/OverloadedCommand.o Console/ParsedCommand.o Console/ParsedCommand.test.o Console/ProgramOptions.test.o Console/OverloadedCommand.test.o Console/main.test.o Console/ScopedDirectory.test.o Console/Variables.test.o Console/Node.test.o Console/Executor.test.o Console/ConfigFile.test.o Console/Config.test.o Console/Traits.test.o Console/Server.test.o Console/Parse.test.o -LConsole -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lSocket -lScheduler -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Leaving test case &quot;tcpv4ClientSocketHandle&quot;; testing time: 20ms
+Entering test case &quot;tcpv6ClientSocketHandle&quot;
+Leaving test case &quot;tcpv6ClientSocketHandle&quot;
+Entering test case &quot;tcpv4ServerSocketHandle&quot;
+Leaving test case &quot;tcpv4ServerSocketHandle&quot;
+Entering test case &quot;tcpv6ServerSocketHandle&quot;
+Leaving test case &quot;tcpv6ServerSocketHandle&quot;
+Entering test case &quot;inet4SocketAddress&quot;
+Leaving test case &quot;inet4SocketAddress&quot;
+Entering test case &quot;inet6SocketAddress&quot;
+Leaving test case &quot;inet6SocketAddress&quot;; testing time: 20ms
+Entering test case &quot;multicastSocketProtocol&quot;
+Leaving test case &quot;multicastSocketProtocol&quot;
+Entering test case &quot;RawV4ClientSocketHandle&quot;
+Socket/Protocols/INet/RawINetSocketHandle.test.cc(143): warning in &quot;RawV4ClientSocketHandle&quot;: Cannot test senf::RawV4SocketHandle as non-root user
+Leaving test case &quot;RawV4ClientSocketHandle&quot;
+Entering test case &quot;RawV6ClientSocketHandle&quot;
+Socket/Protocols/INet/RawINetSocketHandle.test.cc(172): warning in &quot;RawV6ClientSocketHandle&quot;: Cannot test senf::RawV6SocketHandle as non-root user
+Leaving test case &quot;RawV6ClientSocketHandle&quot;
+Entering test case &quot;inet6Address&quot;
+Leaving test case &quot;inet6Address&quot;; testing time: 10ms
+Entering test case &quot;inet6Network&quot;
+Leaving test case &quot;inet6Network&quot;
+Entering test case &quot;inet4Address&quot;
+Leaving test case &quot;inet4Address&quot;
+Entering test case &quot;inet4Network&quot;
+Leaving test case &quot;inet4Network&quot;
+Entering test case &quot;udpv4ClientSocketHandle&quot;
+Leaving test case &quot;udpv4ClientSocketHandle&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Socket/Protocols/INet/.test.stamp
+g++ -o Packets/VariantParser.test.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPackets -Iinclude Packets/VariantParser.test.cc
+Packets/VariantParser.test.cc:99: error: '&lt;unnamed&gt;::TestParser::content__key_0' is not a valid template argument for type 'uint32_t (*)()' because function 'static uint32_t&lt;unnamed&gt;::TestParser::content__key_0()' has not external linkage
+Packets/VariantParser.test.cc:99: error: '&lt;unnamed&gt;::TestParser::content__key_1' is not a valid template argument for type 'uint32_t (*)()' because function 'static uint32_t&lt;unnamed&gt;::TestParser::content__key_1()' has not external linkage
+Packets/VariantParser.test.cc:99: error: template argument 1 is invalid
+Packets/VariantParser.test.cc:99: error: template argument 2 is invalid
+Packets/VariantParser.test.cc:99: error: template argument 2 is invalid
+Packets/AuxParser.cti: In instantiation of 'senf::detail::TransformAuxParserPolicy&lt;senf::detail::FixedAuxParserPolicy&lt;senf::UIntFieldParser&lt;4u, 8u&gt;, 1u&gt;, int&gt;':
+Packets/VariantParser.hh:82:   instantiated from 'senf::VariantParser&lt;senf::detail::TransformAuxParserPolicy&lt;senf::detail::FixedAuxParserPolicy&lt;senf::UIntFieldParser&lt;4u, 8u&gt;, 1u&gt;, int&gt;, boost::mpl::vector&lt;senf::VoidPacketParser, &lt;unnamed&gt;::SubParser, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na&gt; &gt;'
+Packets/PacketParser.ih:85:   instantiated from 'senf::detail::ParserInitBytes&lt;senf::VariantParser&lt;senf::detail::TransformAuxParserPolicy&lt;senf::detail::FixedAuxParserPolicy&lt;senf::UIntFieldParser&lt;4u, 8u&gt;, 1u&gt;, int&gt;, boost::mpl::vector&lt;senf::VoidPacketParser, &lt;unnamed&gt;::SubParser, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na&gt; &gt; &gt;'
+Packets/PacketParser.hh:403:   instantiated from 'senf::init_bytes&lt;senf::VariantParser&lt;senf::detail::TransformAuxParserPolicy&lt;senf::detail::FixedAuxParserPolicy&lt;senf::UIntFieldParser&lt;4u, 8u&gt;, 1u&gt;, int&gt;, boost::mpl::vector&lt;senf::VoidPacketParser, &lt;unnamed&gt;::SubParser, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na&gt; &gt; &gt;'
+Packets/VariantParser.test.cc:99:   instantiated from here
+Packets/AuxParser.cti:189: error: 'int' is not a class, struct, or union type
+Packets/AuxParser.cti:198: error: 'int' is not a class, struct, or union type
+scons: *** [Packets/VariantParser.test.o] Error 1
+g++ -o Packets/DefaultBundle/.test.bin -g -rdynamic Packets/DefaultBundle/ICMPv6Packet.o Packets/DefaultBundle/RTPPacket.o Packets/DefaultBundle/ICMPv6TypePacket.o Packets/DefaultBundle/IPv6Extensions.o Packets/DefaultBundle/EthernetPacket.o Packets/DefaultBundle/IPv4Packet.o Packets/DefaultBundle/IPv6Packet.o Packets/DefaultBundle/UDPPacket.o Packets/DefaultBundle/LlcSnapPacket.o Packets/DefaultBundle/UDPPacket.test.o Packets/DefaultBundle/LlcSnapPacket.test.o Packets/DefaultBundle/main.test.o Packets/DefaultBundle/ICMPv6Packet.test.o Packets/DefaultBundle/RTPPacket.test.o Packets/DefaultBundle/IPv6Extensions.test.o Packets/DefaultBundle/EthernetPacket.test.o Packets/DefaultBundle/IPv4Packet.test.o Packets/DefaultBundle/IPv6Packet.test.o Packets/DefaultBundle/Mldv2Packet.test.o -LPackets/DefaultBundle -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lPackets -lSocket -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Packets/DefaultBundle/.test.bin --build_info=yes --log_level=test_suite
+Running 15 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;ICMPv6_MLDv2_Packet_packet&quot;
+Leaving test case &quot;ICMPv6_MLDv2_Packet_packet&quot;
+Entering test case &quot;ipV6Packet_packet&quot;
+Leaving test case &quot;ipV6Packet_packet&quot;
+Entering test case &quot;ipV4Packet_packet&quot;
+Leaving test case &quot;ipV4Packet_packet&quot;
+Entering test case &quot;ipV4Packet_create&quot;
+Leaving test case &quot;ipV4Packet_create&quot;
+Entering test case &quot;ethernetPacket_parse&quot;
+Leaving test case &quot;ethernetPacket_parse&quot;
+Entering test case &quot;ethernetPacket_parse_chain&quot;
+Leaving test case &quot;ethernetPacket_parse_chain&quot;
+Entering test case &quot;ethernetPacket_create&quot;
+Leaving test case &quot;ethernetPacket_create&quot;
+Entering test case &quot;ethernetPacket_llcsnap&quot;
+Leaving test case &quot;ethernetPacket_llcsnap&quot;
+Entering test case &quot;ipv6Extension_Fragment_packet&quot;
+Leaving test case &quot;ipv6Extension_Fragment_packet&quot;
+Entering test case &quot;RTPPacket_packet&quot;
+Leaving test case &quot;RTPPacket_packet&quot;
+Entering test case &quot;ICMPv6Packet_packet&quot;
+Leaving test case &quot;ICMPv6Packet_packet&quot;
+Entering test case &quot;llcsnap_parse&quot;
+Leaving test case &quot;llcsnap_parse&quot;
+Entering test case &quot;llcSnapPacket_ethernet&quot;
+Leaving test case &quot;llcSnapPacket_ethernet&quot;
+Entering test case &quot;udpPacket_packet&quot;
+Leaving test case &quot;udpPacket_packet&quot;
+Entering test case &quot;udpPacket_create&quot;
+Leaving test case &quot;udpPacket_create&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Packets/DefaultBundle/.test.stamp
+g++ -o Packets/DefaultBundle/extra_tests/.test.bin -g -rdynamic Packets/DefaultBundle/extra_tests/main.test.o Packets/DefaultBundle/extra_tests/PacketLink.test.o -LPackets/DefaultBundle/extra_tests -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lPackets_DefaultBundle -lPackets -lSocket -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Packets/DefaultBundle/extra_tests/.test.bin --build_info=yes --log_level=test_suite
+Running 1 test case...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;packetLink&quot;
+Leaving test case &quot;packetLink&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Packets/DefaultBundle/extra_tests/.test.stamp
+g++ -o Packets/MPEGDVBBundle/.test.bin -g -rdynamic Packets/MPEGDVBBundle/TLVPacket.o Packets/MPEGDVBBundle/SNDUPacket.o Packets/MPEGDVBBundle/GREPacket.o Packets/MPEGDVBBundle/MPESection.o Packets/MPEGDVBBundle/DTCPPacket.o Packets/MPEGDVBBundle/TransportPacket.o Packets/MPEGDVBBundle/DTCPPacket.test.o Packets/MPEGDVBBundle/TransportPacket.test.o Packets/MPEGDVBBundle/main.test.o Packets/MPEGDVBBundle/TLVPacket.test.o Packets/MPEGDVBBundle/GREPacket.test.o Packets/MPEGDVBBundle/MPESection.test.o -LPackets/MPEGDVBBundle -L. -Wl,-Bstatic -lboost_unit_test_framework -Wl,-Bdynamic -lPackets_DefaultBundle -lPackets -lSocket -lUtils -lreadline -lrt -lboost_regex -lboost_iostreams -lboost_filesystem
+Console/.test.bin --build_info=yes --log_level=test_suite
+Running 29 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;commandGrammar&quot;
+Leaving test case &quot;commandGrammar&quot;
+Entering test case &quot;commandParser&quot;
+Leaving test case &quot;commandParser&quot;
+Entering test case &quot;checkedArgumentIterator&quot;
+Leaving test case &quot;checkedArgumentIterator&quot;
+Entering test case &quot;parseIncremental&quot;
+Leaving test case &quot;parseIncremental&quot;
+Entering test case &quot;server&quot;
+Leaving test case &quot;server&quot;
+Entering test case &quot;boolTraits&quot;
+Leaving test case &quot;boolTraits&quot;; testing time: 10ms
+Entering test case &quot;enumSupport&quot;
+Leaving test case &quot;enumSupport&quot;
+Entering test case &quot;configBundle&quot;
+Leaving test case &quot;configBundle&quot;
+Entering test case &quot;configFile&quot;
+Leaving test case &quot;configFile&quot;
+Entering test case &quot;configFileRestrict&quot;
+Leaving test case &quot;configFileRestrict&quot;
+Entering test case &quot;configFileSkipGroup&quot;
+Leaving test case &quot;configFileSkipGroup&quot;; testing time: 10ms
+Entering test case &quot;configRestrictAndLink&quot;
+Leaving test case &quot;configRestrictAndLink&quot;; testing time: 10ms
+Entering test case &quot;executor&quot;
+Leaving test case &quot;executor&quot;; testing time: 20ms
+Entering test case &quot;executorChroot&quot;
+Leaving test case &quot;executorChroot&quot;
+Entering test case &quot;executorPolicy&quot;
+Leaving test case &quot;executorPolicy&quot;
+Entering test case &quot;executorAuto&quot;
+Leaving test case &quot;executorAuto&quot;
+Entering test case &quot;genericNode&quot;
+Leaving test case &quot;genericNode&quot;
+Entering test case &quot;directoryNode&quot;
+Leaving test case &quot;directoryNode&quot;; testing time: 30ms
+Entering test case &quot;linkNode&quot;
+Leaving test case &quot;linkNode&quot;
+Entering test case &quot;senfConsoleAddNode&quot;
+Leaving test case &quot;senfConsoleAddNode&quot;
+Entering test case &quot;simpleCommandNode&quot;
+Leaving test case &quot;simpleCommandNode&quot;
+Entering test case &quot;variables&quot;
+Leaving test case &quot;variables&quot;
+Entering test case &quot;scopedDirectory&quot;
+Leaving test case &quot;scopedDirectory&quot;; testing time: 10ms
+Entering test case &quot;scopedDirectoryVoid&quot;
+Leaving test case &quot;scopedDirectoryVoid&quot;; testing time: 10ms
+Entering test case &quot;scopedDirectoryBase&quot;
+Leaving test case &quot;scopedDirectoryBase&quot;
+Entering test case &quot;overladedCommand&quot;
+Leaving test case &quot;overladedCommand&quot;
+Entering test case &quot;programOptions&quot;
+Leaving test case &quot;programOptions&quot;
+Entering test case &quot;parsedCommand&quot;
+Leaving test case &quot;parsedCommand&quot;
+Entering test case &quot;memberParsedCommand&quot;
+Leaving test case &quot;memberParsedCommand&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Console/.test.stamp
+test -s senfscons/doc/xml/bug.xml &amp;&amp; xsltproc --nonet -o senfscons/doc/xml/bug.xmli --stringparam module senfscons --stringparam type bug senfscons/xrefxtract.xslt senfscons/doc/xml/bug.xml || touch senfscons/doc/xml/bug.xmli
+test -s senfscons/doc/xml/fixme.xml &amp;&amp; xsltproc --nonet -o senfscons/doc/xml/fixme.xmli --stringparam module senfscons --stringparam type fixme senfscons/xrefxtract.xslt senfscons/doc/xml/fixme.xml || touch senfscons/doc/xml/fixme.xmli
+test -s senfscons/doc/xml/todo.xml &amp;&amp; xsltproc --nonet -o senfscons/doc/xml/todo.xmli --stringparam module senfscons --stringparam type todo senfscons/xrefxtract.xslt senfscons/doc/xml/todo.xml || touch senfscons/doc/xml/todo.xmli
+test -s senfscons/doc/xml/idea.xml &amp;&amp; xsltproc --nonet -o senfscons/doc/xml/idea.xmli --stringparam module senfscons --stringparam type idea senfscons/xrefxtract.xslt senfscons/doc/xml/idea.xml || touch senfscons/doc/xml/idea.xmli
+test -s Utils/doc/xml/bug.xml &amp;&amp; xsltproc --nonet -o Utils/doc/xml/bug.xmli --stringparam module Utils --stringparam type bug senfscons/xrefxtract.xslt Utils/doc/xml/bug.xml || touch Utils/doc/xml/bug.xmli
+test -s Utils/doc/xml/fixme.xml &amp;&amp; xsltproc --nonet -o Utils/doc/xml/fixme.xmli --stringparam module Utils --stringparam type fixme senfscons/xrefxtract.xslt Utils/doc/xml/fixme.xml || touch Utils/doc/xml/fixme.xmli
+test -s Utils/doc/xml/todo.xml &amp;&amp; xsltproc --nonet -o Utils/doc/xml/todo.xmli --stringparam module Utils --stringparam type todo senfscons/xrefxtract.xslt Utils/doc/xml/todo.xml || touch Utils/doc/xml/todo.xmli
+test -s Utils/doc/xml/idea.xml &amp;&amp; xsltproc --nonet -o Utils/doc/xml/idea.xmli --stringparam module Utils --stringparam type idea senfscons/xrefxtract.xslt Utils/doc/xml/idea.xml || touch Utils/doc/xml/idea.xmli
+sh: dia: not found
+Packets/MPEGDVBBundle/.test.bin --build_info=yes --log_level=test_suite
+scons: *** Object returned from command generator: None cannot be used to create an Action.
+Running 16 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;MPESection_parse_chain&quot;
+Leaving test case &quot;MPESection_parse_chain&quot;
+Entering test case &quot;MPESection_create&quot;
+Leaving test case &quot;MPESection_create&quot;
+Entering test case &quot;GREPacket_packet&quot;
+Leaving test case &quot;GREPacket_packet&quot;
+Entering test case &quot;TLVPacket_static&quot;
+Leaving test case &quot;TLVPacket_static&quot;
+Entering test case &quot;TLVPacket_parse_packet_with_simple_length&quot;
+Leaving test case &quot;TLVPacket_parse_packet_with_simple_length&quot;
+Entering test case &quot;TLVPacket_parse_packet_with_extended_length&quot;
+Leaving test case &quot;TLVPacket_parse_packet_with_extended_length&quot;
+Entering test case &quot;TLVPacket_create_packet_with_simple_length&quot;
+Leaving test case &quot;TLVPacket_create_packet_with_simple_length&quot;
+Entering test case &quot;TLVPacket_create_packet_with_extended_length&quot;
+Leaving test case &quot;TLVPacket_create_packet_with_extended_length&quot;
+Entering test case &quot;TLVPacket_create_invalid_packet&quot;
+Leaving test case &quot;TLVPacket_create_invalid_packet&quot;
+Entering test case &quot;TLVFixPacket_static&quot;
+Leaving test case &quot;TLVFixPacket_static&quot;
+Entering test case &quot;TLVFixPacket_parse_packet&quot;
+Leaving test case &quot;TLVFixPacket_parse_packet&quot;
+Entering test case &quot;TLVFixPacket_create_packet&quot;
+Leaving test case &quot;TLVFixPacket_create_packet&quot;
+Entering test case &quot;TLVFixPacket_create_invalid_packet&quot;
+sh: dia: not found
+scons: *** Object returned from command generator: None cannot be used to create an Action.
+sh: dia: not found
+scons: *** Object returned from command generator: None cannot be used to create an Action.
+sh: dia: not found
+scons: *** Object returned from command generator: None cannot be used to create an Action.
+sh: dia: not found
+scons: *** Object returned from command generator: None cannot be used to create an Action.
+Leaving test case &quot;TLVFixPacket_create_invalid_packet&quot;; testing time: 580ms
+Entering test case &quot;transportPacket_parse&quot;
+Leaving test case &quot;transportPacket_parse&quot;
+Entering test case &quot;transportPacket_create_with_pusi&quot;
+Leaving test case &quot;transportPacket_create_with_pusi&quot;
+Entering test case &quot;dtcpPacket&quot;
+Leaving test case &quot;dtcpPacket&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** No errors detected
+touch Packets/MPEGDVBBundle/.test.stamp
+scons: done building targets (errors occurred during build).
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000320.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+	<LI>Next message: <A HREF="000322.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#321">[ date ]</a>
+              <a href="thread.html#321">[ thread ]</a>
+              <a href="subject.html#321">[ subject ]</a>
+              <a href="author.html#321">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

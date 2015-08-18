@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/bin/build.sh&In-Reply-To=%3C20081112013501.A201E480FCF0%40satcom.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000390.html">
+   <LINK REL="Next"  HREF="000392.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh</H1>
+    <B>Cron Daemon</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/bin/build.sh&In-Reply-To=%3C20081112013501.A201E480FCF0%40satcom.fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh">root at satcom.fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Nov 12 02:35:01 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000390.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh
+</A></li>
+        <LI>Next message: <A HREF="000392.html">[Senf-dev] [Bug #14756] make SENF 64bit compatible
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#391">[ date ]</a>
+              <a href="thread.html#391">[ thread ]</a>
+              <a href="subject.html#391">[ subject ]</a>
+              <a href="author.html#391">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE># Starting build at Wed Nov 12 01:34:01 UTC 2008
+$ svn update
+At revision 954.
+$ nice scons -kj2 all 
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -o PPI/AnnotationRouter.test.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG= -IPPI -Iinclude PPI/AnnotationRouter.test.cc
+test -s Utils/Logger/doc/xml/bug.xml &amp;&amp; xsltproc --nonet -o Utils/Logger/doc/xml/bug.xmli --stringparam module Utils/Logger --stringparam type bug senfscons/xrefxtract.xslt Utils/Logger/doc/xml/bug.xml || touch Utils/Logger/doc/xml/bug.xmli
+test -s Utils/Logger/doc/xml/fixme.xml &amp;&amp; xsltproc --nonet -o Utils/Logger/doc/xml/fixme.xmli --stringparam module Utils/Logger --stringparam type fixme senfscons/xrefxtract.xslt Utils/Logger/doc/xml/fixme.xml || touch Utils/Logger/doc/xml/fixme.xmli
+test -s Utils/Logger/doc/xml/todo.xml &amp;&amp; xsltproc --nonet -o Utils/Logger/doc/xml/todo.xmli --stringparam module Utils/Logger --stringparam type todo senfscons/xrefxtract.xslt Utils/Logger/doc/xml/todo.xml || touch Utils/Logger/doc/xml/todo.xmli
+test -s Utils/Logger/doc/xml/idea.xml &amp;&amp; xsltproc --nonet -o Utils/Logger/doc/xml/idea.xmli --stringparam module Utils/Logger --stringparam type idea senfscons/xrefxtract.xslt Utils/Logger/doc/xml/idea.xml || touch Utils/Logger/doc/xml/idea.xmli
+test -s Socket/doc/xml/bug.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/bug.xmli --stringparam module Socket --stringparam type bug senfscons/xrefxtract.xslt Socket/doc/xml/bug.xml || touch Socket/doc/xml/bug.xmli
+test -s Socket/doc/xml/fixme.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/fixme.xmli --stringparam module Socket --stringparam type fixme senfscons/xrefxtract.xslt Socket/doc/xml/fixme.xml || touch Socket/doc/xml/fixme.xmli
+test -s Socket/doc/xml/todo.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/todo.xmli --stringparam module Socket --stringparam type todo senfscons/xrefxtract.xslt Socket/doc/xml/todo.xml || touch Socket/doc/xml/todo.xmli
+test -s Socket/doc/xml/idea.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/idea.xmli --stringparam module Socket --stringparam type idea senfscons/xrefxtract.xslt Socket/doc/xml/idea.xml || touch Socket/doc/xml/idea.xmli
+echo '&lt;?xml version=&quot;1.0&quot;?&gt;' &gt; doc/html/xref.xml
+echo '&lt;xref&gt;' &gt;&gt; doc/html/xref.xml
+cat senfscons/doc/xml/bug.xmli senfscons/doc/xml/fixme.xmli senfscons/doc/xml/todo.xmli senfscons/doc/xml/idea.xmli Utils/Daemon/doc/xml/bug.xmli Utils/Daemon/doc/xml/fixme.xmli Utils/Daemon/doc/xml/todo.xmli Utils/Daemon/doc/xml/idea.xmli Utils/Logger/doc/xml/bug.xmli Utils/Logger/doc/xml/fixme.xmli Utils/Logger/doc/xml/todo.xmli Utils/Logger/doc/xml/idea.xmli Utils/doc/xml/bug.xmli Utils/doc/xml/fixme.xmli Utils/doc/xml/todo.xmli Utils/doc/xml/idea.xmli Packets/doc/xml/bug.xmli Packets/doc/xml/fixme.xmli Packets/doc/xml/todo.xmli Packets/doc/xml/idea.xmli Socket/doc/xml/bug.xmli Socket/doc/xml/fixme.xmli Socket/doc/xml/todo.xmli Socket/doc/xml/idea.xmli Scheduler/doc/xml/bug.xmli Scheduler/doc/xml/fixme.xmli Scheduler/doc/xml/todo.xmli Scheduler/doc/xml/idea.xmli Scheduler/Console/doc/xml/bug.xmli Scheduler/Console/doc/xml/fixme.xmli Scheduler/Console/doc/xml/todo.xmli Scheduler/Console/doc/xml/idea.xmli PPI/doc/xml/bug.xmli PPI/doc/xml/fixme.xmli PPI/doc/xml/todo.xmli PPI/
+ doc/xml/idea.xmli Examples/RateStuffer/doc/xml/bug.xmli Examples/RateStuffer/doc/xml/fixme.xmli Examples/RateStuffer/doc/xml/todo.xmli Examples/RateStuffer/doc/xml/idea.xmli Examples/Sniffer/doc/xml/bug.xmli Examples/Sniffer/doc/xml/fixme.xmli Examples/Sniffer/doc/xml/todo.xmli Examples/Sniffer/doc/xml/idea.xmli Examples/UDPClientServer/doc/xml/bug.xmli Examples/UDPClientServer/doc/xml/fixme.xmli Examples/UDPClientServer/doc/xml/todo.xmli Examples/UDPClientServer/doc/xml/idea.xmli Examples/doc/xml/bug.xmli Examples/doc/xml/fixme.xmli Examples/doc/xml/todo.xmli Examples/doc/xml/idea.xmli HowTos/NewPacket/doc/xml/bug.xmli HowTos/NewPacket/doc/xml/fixme.xmli HowTos/NewPacket/doc/xml/todo.xmli HowTos/NewPacket/doc/xml/idea.xmli HowTos/doc/xml/bug.xmli HowTos/doc/xml/fixme.xmli HowTos/doc/xml/todo.xmli HowTos/doc/xml/idea.xmli &gt;&gt; doc/html/xref.xml
+PPI/AnnotationRouter.ct: In member function 'void senf::ppi::module::AnnotationRouter&lt;AnnotationType&gt;::request() [with AnnotationType = &lt;unnamed&gt;::IntAnnotation]':
+PPI/AnnotationRouter.ct:38:   instantiated from 'senf::ppi::module::AnnotationRouter&lt;AnnotationType&gt;::AnnotationRouter() [with AnnotationType = &lt;unnamed&gt;::IntAnnotation]'
+PPI/AnnotationRouter.test.cc:59:   instantiated from here
+PPI/AnnotationRouter.ct:60: error: no match for call to '(boost::ptr_container_detail::ref_pair&lt;&lt;unnamed&gt;::IntAnnotation, senf::ppi::connector::ActiveOutput&lt;senf::Packet&gt;* const&gt;) (senf::Packet&amp;)'
+echo '&lt;/xref&gt;' &gt;&gt; doc/html/xref.xml
+PPI/AnnotationRouter.ct: In member function 'senf::ppi::connector::ActiveOutput&lt;senf::Packet&gt;&amp; senf::ppi::module::AnnotationRouter&lt;AnnotationType&gt;::newOutput(const AnnotationType&amp;) [with AnnotationType = &lt;unnamed&gt;::IntAnnotation]':
+PPI/AnnotationRouter.cti:40:   instantiated from 'senf::ppi::connector::GenericActiveOutput&amp; senf::ppi::module::AnnotationRouter&lt;AnnotationType&gt;::connect(Target&amp;, const AnnotationType&amp;) [with Target = senf::ppi::module::debug::PassiveSink, AnnotationType = &lt;unnamed&gt;::IntAnnotation]'
+PPI/AnnotationRouter.cti:53:   instantiated from 'senf::ppi::connector::GenericActiveOutput&amp; senf::ppi::connect(senf::ppi::module::AnnotationRouter&lt;AnnotationType&gt;&amp;, Target&amp;, const ArgType&amp;) [with Target = senf::ppi::module::debug::PassiveSink, AnnotationType = &lt;unnamed&gt;::IntAnnotation, ArgType = int]'
+PPI/AnnotationRouter.test.cc:62:   instantiated from here
+PPI/AnnotationRouter.ct:49: error: invalid initialization of non-const reference of type 'senf::ppi::connector::ActiveOutput&lt;senf::Packet&gt;&amp;' from a temporary of type 'boost::ptr_container_detail::ref_pair&lt;&lt;unnamed&gt;::IntAnnotation, senf::ppi::connector::ActiveOutput&lt;senf::Packet&gt;* const&gt;'
+sed -e 's/\$title/Cross-reference of action points/g' -e 's/\$projectname/Overview/g' doclib/doxy-header.html &gt; doc/html/xref.html
+xsltproc --stringparam title 'Cross-reference of action points' --stringparam types 'bug fixme todo idea' senfscons/xrefhtml.xslt doc/html/xref.xml &gt;&gt; doc/html/xref.html
+sed -e 's/\$title/Cross-reference of action points/g' -e 's/\$projectname/Overview/g' doclib/doxy-footer.html &gt;&gt; doc/html/xref.html
+xsltproc -o doc/html/xref.html.tmp --nonet --html --stringparam topdir ../.. doclib/html-munge.xsl doc/html/xref.html 2&gt;/dev/null
+mv doc/html/xref.html.tmp doc/html/xref.html
+scons: *** [PPI/AnnotationRouter.test.o] Error 1
+scons: done building targets (errors occurred during build).
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000390.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh
+</A></li>
+	<LI>Next message: <A HREF="000392.html">[Senf-dev] [Bug #14756] make SENF 64bit compatible
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#391">[ date ]</a>
+              <a href="thread.html#391">[ thread ]</a>
+              <a href="subject.html#391">[ subject ]</a>
+              <a href="author.html#391">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

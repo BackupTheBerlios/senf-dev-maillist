@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #14014] application linking fail if senf is	compiled with final=yes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314014%5D%20application%20linking%20fail%20if%20senf%20is%0A%09compiled%20with%20final%3Dyes&In-Reply-To=%3C200806161457.m5GEvDac006626%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000254.html">
+   <LINK REL="Next"  HREF="000256.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #14014] application linking fail if senf is	compiled with final=yes</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314014%5D%20application%20linking%20fail%20if%20senf%20is%0A%09compiled%20with%20final%3Dyes&In-Reply-To=%3C200806161457.m5GEvDac006626%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #14014] application linking fail if senf is	compiled with final=yes">admin at berlios.de
+       </A><BR>
+    <I>Mon Jun 16 16:57:13 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000254.html">[Senf-dev] [Bug #14014] application linking fail if senf is	compiled with final=yes
+</A></li>
+        <LI>Next message: <A HREF="000256.html">[Senf-dev] [Bug #14048] toString for address classes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#255">[ date ]</a>
+              <a href="thread.html#255">[ thread ]</a>
+              <a href="subject.html#255">[ subject ]</a>
+              <a href="author.html#255">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #14014, was updated on 2008-Jun-11 16:15
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: all
+Status: Closed
+Resolution: Invalid
+Bug Group: defect
+Priority: 5
+Submitted by: jmo
+Assigned to : g0dil
+Summary: application linking fail if senf is compiled with final=yes
+
+Details: g++ -o A25_MT_UDLR_E A25_MT_UDLR_E.o Mpe2EthModule.o Eth2GreModule.o DtcpEthernetSnifferModule.o UdlrController.o DPD.o PacketBlacklist.o NetlinkMin.o lookup3.o  -rdynamic senf/libsenf.a -lboost_regex -liberty -lrt -lreadline
+Mpe2EthModule.o: In function `ExceptionMixin':senf/include/senf/PPI/../Utils/Exception.cci:37: undefined reference to `senf::ExceptionMixin::addBacktrace()'
+collect2: ld returned 1 exit status
+
+
+Follow-Ups:
+
+Date: 2008-Jun-11 16:53
+By: g0dil
+
+Comment:
+Cannot reproduce this problem.
+
+$ senf -j2 default all_tests
+
+completes with no problem. Need a small testcase if the problem persists.
+
+Has SENF been recompiled completely without SENF_DEBUG?
+
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14014&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14014&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000254.html">[Senf-dev] [Bug #14014] application linking fail if senf is	compiled with final=yes
+</A></li>
+	<LI>Next message: <A HREF="000256.html">[Senf-dev] [Bug #14048] toString for address classes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#255">[ date ]</a>
+              <a href="thread.html#255">[ thread ]</a>
+              <a href="subject.html#255">[ subject ]</a>
+              <a href="author.html#255">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

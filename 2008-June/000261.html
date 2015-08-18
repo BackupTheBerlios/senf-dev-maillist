@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #14088] tests fail under ubuntu 8.04
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314088%5D%20tests%20fail%20under%20ubuntu%208.04&In-Reply-To=%3C200806260951.m5Q9p11c018997%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000260.html">
+   <LINK REL="Next"  HREF="000262.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #14088] tests fail under ubuntu 8.04</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314088%5D%20tests%20fail%20under%20ubuntu%208.04&In-Reply-To=%3C200806260951.m5Q9p11c018997%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #14088] tests fail under ubuntu 8.04">admin at berlios.de
+       </A><BR>
+    <I>Thu Jun 26 11:51:01 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000260.html">[Senf-dev] [Bug #14088] tests fail under ubuntu 8.04
+</A></li>
+        <LI>Next message: <A HREF="000262.html">[Senf-dev] [Bug #14089] UDP checksum works only for even payload	size
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#261">[ date ]</a>
+              <a href="thread.html#261">[ thread ]</a>
+              <a href="subject.html#261">[ subject ]</a>
+              <a href="author.html#261">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #14088, was updated on 2008-Jun-26 11:50
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: libPackets
+Status: Open
+Resolution: None
+Bug Group: defect
+Priority: 5
+Submitted by: tho
+Assigned to : g0dil
+Summary: tests fail under ubuntu 8.04
+
+Details: <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">thorsten at calvin</A>:~/workspace/senf$ scons all_tests
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+g++ -o Packets/VariantParser.test.o -c -O0 -g -Wall -Woverloaded-virtual -Wno-long-long -finline-limit=5000 -DSENF_DEBUG -IPackets -Iinclude Packets/VariantParser.test.cc
+Packets/VariantParser.test.cc:99: error: '&lt;unnamed&gt;::TestParser::content__key_0' is not a valid template argument for type 'uint32_t (*)()' because function 'static uint32_t&lt;unnamed&gt;::TestParser::content__key_0()' has not external linkage
+Packets/VariantParser.test.cc:99: error: '&lt;unnamed&gt;::TestParser::content__key_1' is not a valid template argument for type 'uint32_t (*)()' because function 'static uint32_t&lt;unnamed&gt;::TestParser::content__key_1()' has not external linkage
+Packets/VariantParser.test.cc:99: error: template argument 1 is invalid
+Packets/VariantParser.test.cc:99: error: template argument 2 is invalid
+Packets/VariantParser.test.cc:99: error: template argument 2 is invalid
+Packets/AuxParser.cti: In instantiation of 'senf::detail::TransformAuxParserPolicy&lt;senf::detail::FixedAuxParserPolicy&lt;senf::UIntFieldParser&lt;4u, 8u&gt;, 1u&gt;, int&gt;':
+Packets/VariantParser.hh:82:   instantiated from 'senf::VariantParser&lt;senf::detail::TransformAuxParserPolicy&lt;senf::detail::FixedAuxParserPolicy&lt;senf::UIntFieldParser&lt;4u, 8u&gt;, 1u&gt;, int&gt;, boost::mpl::vector&lt;senf::VoidPacketParser, &lt;unnamed&gt;::SubParser, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na&gt; &gt;'
+Packets/PacketParser.ih:85:   instantiated from 'senf::detail::ParserInitBytes&lt;senf::VariantParser&lt;senf::detail::TransformAuxParserPolicy&lt;senf::detail::FixedAuxParserPolicy&lt;senf::UIntFieldParser&lt;4u, 8u&gt;, 1u&gt;, int&gt;, boost::mpl::vector&lt;senf::VoidPacketParser, &lt;unnamed&gt;::SubParser, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na&gt; &gt; &gt;'
+Packets/PacketParser.hh:403:   instantiated from 'senf::init_bytes&lt;senf::VariantParser&lt;senf::detail::TransformAuxParserPolicy&lt;senf::detail::FixedAuxParserPolicy&lt;senf::UIntFieldParser&lt;4u, 8u&gt;, 1u&gt;, int&gt;, boost::mpl::vector&lt;senf::VoidPacketParser, &lt;unnamed&gt;::SubParser, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na, mpl_::na&gt; &gt; &gt;'
+Packets/VariantParser.test.cc:99:   instantiated from here
+Packets/AuxParser.cti:189: error: 'int' is not a class, struct, or union type
+Packets/AuxParser.cti:198: error: 'int' is not a class, struct, or union type
+scons: *** [Packets/VariantParser.test.o] Error 1
+scons: building terminated because of errors.
+
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14088&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14088&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000260.html">[Senf-dev] [Bug #14088] tests fail under ubuntu 8.04
+</A></li>
+	<LI>Next message: <A HREF="000262.html">[Senf-dev] [Bug #14089] UDP checksum works only for even payload	size
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#261">[ date ]</a>
+              <a href="thread.html#261">[ thread ]</a>
+              <a href="subject.html#261">[ subject ]</a>
+              <a href="author.html#261">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

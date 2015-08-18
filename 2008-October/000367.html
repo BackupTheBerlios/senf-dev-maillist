@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] SSM Multicast API
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20SSM%20Multicast%20API&In-Reply-To=%3C878wszgxrb.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000366.html">
+   <LINK REL="Next"  HREF="000368.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] SSM Multicast API</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20SSM%20Multicast%20API&In-Reply-To=%3C878wszgxrb.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] SSM Multicast API">g0dil at berlios.de
+       </A><BR>
+    <I>Wed Oct  8 12:57:28 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000366.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+        <LI>Next message: <A HREF="000368.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#367">[ date ]</a>
+              <a href="thread.html#367">[ thread ]</a>
+              <a href="subject.html#367">[ subject ]</a>
+              <a href="author.html#367">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I have started to implement the SSM API in the Socket
+library. However, somehow every operation to leave an SSM multicast
+group fails with EADDRNOTAVAIL:
+
+    senf::UDPv6ClientSocketHandle sock;
+
+    sock.protocol().mcJoinSSMSource(
+                             senf::INet6Address::from_string(&quot;ff1e::1&quot;),
+                             senf::INet6Address::from_string(&quot;2001:db8::1&quot;),
+                             &quot;eth&quot;) );
+
+    // This fails with EADDRNOTAVAIL ...
+    sock.protocol().mcLeaveSSMSource(
+                             senf::INet6Address::from_string(&quot;ff1e::1&quot;),
+                             senf::INet6Address::from_string(&quot;2001:db8::1&quot;),
+                             &quot;eth&quot;) );
+
+This needs to be analyzed further.
+
+stefan.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000366.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+	<LI>Next message: <A HREF="000368.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#367">[ date ]</a>
+              <a href="thread.html#367">[ thread ]</a>
+              <a href="subject.html#367">[ subject ]</a>
+              <a href="author.html#367">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

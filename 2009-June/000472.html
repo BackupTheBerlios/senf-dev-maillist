@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2009-June/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/bin/build.sh&In-Reply-To=%3C20090602003452.9AD01480FCFF%40satcom.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh</H1>
+    <B>Cron Daemon</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/bin/build.sh&In-Reply-To=%3C20090602003452.9AD01480FCFF%40satcom.fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh">root at satcom.fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Jun  2 02:34:52 CEST 2009</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#472">[ date ]</a>
+              <a href="thread.html#472">[ thread ]</a>
+              <a href="subject.html#472">[ subject ]</a>
+              <a href="author.html#472">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE># Starting build at Tue Jun  2 00:34:01 UTC 2009
+$ svn update
+At revision 1217.
+$ nice scons -kj2 all 
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+Socket/.test.bin --build_info=yes --log_level=test_suite
+Running 10 test cases...
+Platform: linux
+Compiler: GNU C++ version 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+STL     : GNU libstdc++ version 20080308
+Boost   : 1.34.1
+Entering test suite &quot;Master Test Suite&quot;
+Entering test case &quot;socketPolicy&quot;
+Leaving test case &quot;socketPolicy&quot;
+Entering test case &quot;socketHandle&quot;
+Leaving test case &quot;socketHandle&quot;; testing time: 10ms
+Entering test case &quot;serverSocketHandle&quot;
+Leaving test case &quot;serverSocketHandle&quot;
+Entering test case &quot;fileHandle&quot;
+Leaving test case &quot;fileHandle&quot;
+Entering test case &quot;protocolServerSocketHandle&quot;
+Leaving test case &quot;protocolServerSocketHandle&quot;
+Entering test case &quot;socketProtocol&quot;
+Leaving test case &quot;socketProtocol&quot;
+Entering test case &quot;NetdeviceController&quot;
+
+Exception at
+    senf::ExceptionMixin::addBacktrace() + 0x20
+        in Socket/.test.bin [0x80c3eea]
+    senf::ExceptionMixin::ExceptionMixin(std::string const&amp;) + 0x39
+        in Socket/.test.bin [0x80861c5]
+    senf::Exception::Exception(std::string const&amp;) + 0x1b
+        in Socket/.test.bin [0x8086221]
+    senf::SystemException::SystemException(std::string const&amp;, char const*, int) + 0x3e
+        in Socket/.test.bin [0x8086276]
+    senf::NetdeviceController::ifrName(ifreq&amp;) const + 0xb0
+        in Socket/.test.bin [0x8089e62]
+    senf::NetdeviceController::mtu() const + 0x29
+        in Socket/.test.bin [0x808a25d]
+    NetdeviceController::test_method() + 0x9e0
+        in Socket/.test.bin [0x809ae3a]
+    Socket/.test.bin [0x809cf07]
+    boost::unit_test::ut_detail::unused boost::unit_test::ut_detail::invoker&lt;boost::unit_test::ut_detail::unused&gt;::invoke&lt;void (*)()&gt;(void (*&amp;)()) + 0xd
+        in Socket/.test.bin [0x808c913]
+    boost::unit_test::ut_detail::callback0_impl_t&lt;boost::unit_test::ut_detail::unused, void (*)()&gt;::invoke() + 0x23
+        in Socket/.test.bin [0x808c93d]
+    Socket/.test.bin [0x80b788d]
+    boost::execution_monitor::catch_signals(boost::unit_test::callback0&lt;int&gt; const&amp;, bool, int) + 0x97
+        in Socket/.test.bin [0x80c0ae7]
+    boost::execution_monitor::execute(boost::unit_test::callback0&lt;int&gt; const&amp;, bool, int) + 0x295
+        in Socket/.test.bin [0x80c0e45]
+    boost::unit_test::unit_test_monitor_t::execute_and_translate(boost::unit_test::test_case const&amp;) + 0x94
+        in Socket/.test.bin [0x80b7974]
+    boost::unit_test::framework_impl::visit(boost::unit_test::test_case const&amp;) + 0xad
+        in Socket/.test.bin [0x80ac92d]
+    boost::unit_test::traverse_test_tree(boost::unit_test::test_suite const&amp;, boost::unit_test::test_tree_visitor&amp;) + 0x60
+        in Socket/.test.bin [0x80bdd00]
+    boost::unit_test::framework::run(unsigned long, bool) + 0x46c
+        in Socket/.test.bin [0x80ab37c]
+    boost::unit_test::unit_test_main(int, char**) + 0x2d
+        in Socket/.test.bin [0x80b763d]
+    main + 0x22
+        in Socket/.test.bin [0x80b7822]
+    __libc_start_main + 0xe0
+        in /lib/tls/i686/cmov/libc.so.6 [0xb7bd6450]
+    __gxx_personality_v0 + 0x305
+        in Socket/.test.bin [0x8082b11]
+-- 
+Exception at Socket/NetdeviceController.cc:183
+[Bad file descriptor] NetdeviceController could not discover the name of the interface with index 1.
+Socket/NetdeviceController.test.cc(53): error in &quot;NetdeviceController&quot;: exception thrown by try { oldMTU = ctrl.mtu() ; } catch (std::exception &amp; e) { std::cerr &lt;&lt; e.what() &lt;&lt; std::endl; throw; }
+
+Exception at
+    senf::ExceptionMixin::addBacktrace() + 0x20
+        in Socket/.test.bin [0x80c3eea]
+    senf::ExceptionMixin::ExceptionMixin(std::string const&amp;) + 0x39
+        in Socket/.test.bin [0x80861c5]
+    senf::Exception::Exception(std::string const&amp;) + 0x1b
+        in Socket/.test.bin [0x8086221]
+    senf::SystemException::SystemException(std::string const&amp;, char const*, int) + 0x3e
+        in Socket/.test.bin [0x8086276]
+    senf::NetdeviceController::ifrName(ifreq&amp;) const + 0xb0
+        in Socket/.test.bin [0x8089e62]
+    senf::NetdeviceController::promisc() const + 0x29
+        in Socket/.test.bin [0x808a199]
+    NetdeviceController::test_method() + 0xdb7
+        in Socket/.test.bin [0x809b211]
+    Socket/.test.bin [0x809cf07]
+    boost::unit_test::ut_detail::unused boost::unit_test::ut_detail::invoker&lt;boost::unit_test::ut_detail::unused&gt;::invoke&lt;void (*)()&gt;(void (*&amp;)()) + 0xd
+        in Socket/.test.bin [0x808c913]
+    boost::unit_test::ut_detail::callback0_impl_t&lt;boost::unit_test::ut_detail::unused, void (*)()&gt;::invoke() + 0x23
+        in Socket/.test.bin [0x808c93d]
+    Socket/.test.bin [0x80b788d]
+    boost::execution_monitor::catch_signals(boost::unit_test::callback0&lt;int&gt; const&amp;, bool, int) + 0x97
+        in Socket/.test.bin [0x80c0ae7]
+    boost::execution_monitor::execute(boost::unit_test::callback0&lt;int&gt; const&amp;, bool, int) + 0x295
+        in Socket/.test.bin [0x80c0e45]
+    boost::unit_test::unit_test_monitor_t::execute_and_translate(boost::unit_test::test_case const&amp;) + 0x94
+        in Socket/.test.bin [0x80b7974]
+    boost::unit_test::framework_impl::visit(boost::unit_test::test_case const&amp;) + 0xad
+        in Socket/.test.bin [0x80ac92d]
+    boost::unit_test::traverse_test_tree(boost::unit_test::test_suite const&amp;, boost::unit_test::test_tree_visitor&amp;) + 0x60
+        in Socket/.test.bin [0x80bdd00]
+    boost::unit_test::framework::run(unsigned long, bool) + 0x46c
+        in Socket/.test.bin [0x80ab37c]
+    boost::unit_test::unit_test_main(int, char**) + 0x2d
+        in Socket/.test.bin [0x80b763d]
+    main + 0x22
+        in Socket/.test.bin [0x80b7822]
+    __libc_start_main + 0xe0
+        in /lib/tls/i686/cmov/libc.so.6 [0xb7bd6450]
+    __gxx_personality_v0 + 0x305
+        in Socket/.test.bin [0x8082b11]
+-- 
+Exception at Socket/NetdeviceController.cc:183
+[Bad file descriptor] NetdeviceController could not discover the name of the interface with index 1.
+Socket/NetdeviceController.test.cc(56): error in &quot;NetdeviceController&quot;: exception thrown by try { promisc = ctrl.promisc() ; } catch (std::exception &amp; e) { std::cerr &lt;&lt; e.what() &lt;&lt; std::endl; throw; }
+unknown location(0): fatal error in &quot;NetdeviceController&quot;: std::exception: 
+Exception at
+    senf::ExceptionMixin::addBacktrace() + 0x20
+        in Socket/.test.bin [0x80c3eea]
+    senf::ExceptionMixin::ExceptionMixin(std::string const&amp;) + 0x39
+        in Socket/.test.bin [0x80861c5]
+    senf::Exception::Exception(std::string const&amp;) + 0x1b
+        in Socket/.test.bin [0x8086221]
+    senf::SystemException::SystemException(std::string const&amp;, char const*, int) + 0x3e
+        in Socket/.test.bin [0x8086276]
+    senf::NetdeviceController::ifrName(ifreq&amp;) const + 0xb0
+Socket/NetdeviceController.test.cc(58): last checkpoint
+Leaving test case &quot;NetdeviceController&quot;; testing time: 10ms
+Entering test case &quot;clientSocketHandle&quot;
+Leaving test case &quot;clientSocketHandle&quot;; testing time: 10ms
+Entering test case &quot;protocolClientSocketHandle&quot;
+Leaving test case &quot;protocolClientSocketHandle&quot;
+Entering test case &quot;testMain&quot;
+Leaving test case &quot;testMain&quot;
+Leaving test suite &quot;Master Test Suite&quot;
+
+*** 3 failures detected in test suite &quot;Master Test Suite&quot;
+scons: *** [Socket/.test.stamp] Error 201
+test -s Socket/doc/xml/fixme.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/fixme.xmli --stringparam module Socket --stringparam type fixme senfscons/xrefxtract.xslt Socket/doc/xml/fixme.xml || touch Socket/doc/xml/fixme.xmli
+test -s Socket/doc/xml/bug.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/bug.xmli --stringparam module Socket --stringparam type bug senfscons/xrefxtract.xslt Socket/doc/xml/bug.xml || touch Socket/doc/xml/bug.xmli
+test -s Socket/doc/xml/todo.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/todo.xmli --stringparam module Socket --stringparam type todo senfscons/xrefxtract.xslt Socket/doc/xml/todo.xml || touch Socket/doc/xml/todo.xmli
+test -s Socket/doc/xml/idea.xml &amp;&amp; xsltproc --nonet -o Socket/doc/xml/idea.xmli --stringparam module Socket --stringparam type idea senfscons/xrefxtract.xslt Socket/doc/xml/idea.xml || touch Socket/doc/xml/idea.xmli
+echo '&lt;?xml version=&quot;1.0&quot;?&gt;' &gt; doc/html/xref.xml
+echo '&lt;xref&gt;' &gt;&gt; doc/html/xref.xml
+cat HowTos/NewPacket/doc/xml/bug.xmli HowTos/NewPacket/doc/xml/fixme.xmli HowTos/NewPacket/doc/xml/todo.xmli HowTos/NewPacket/doc/xml/idea.xmli HowTos/doc/xml/bug.xmli HowTos/doc/xml/fixme.xmli HowTos/doc/xml/todo.xmli HowTos/doc/xml/idea.xmli Socket/doc/xml/bug.xmli Socket/doc/xml/fixme.xmli Socket/doc/xml/todo.xmli Socket/doc/xml/idea.xmli PPI/doc/xml/bug.xmli PPI/doc/xml/fixme.xmli PPI/doc/xml/todo.xmli PPI/doc/xml/idea.xmli Packets/doc/xml/bug.xmli Packets/doc/xml/fixme.xmli Packets/doc/xml/todo.xmli Packets/doc/xml/idea.xmli Utils/doc/xml/bug.xmli Utils/doc/xml/fixme.xmli Utils/doc/xml/todo.xmli Utils/doc/xml/idea.xmli Utils/Console/doc/xml/bug.xmli Utils/Console/doc/xml/fixme.xmli Utils/Console/doc/xml/todo.xmli Utils/Console/doc/xml/idea.xmli Utils/Daemon/doc/xml/bug.xmli Utils/Daemon/doc/xml/fixme.xmli Utils/Daemon/doc/xml/todo.xmli Utils/Daemon/doc/xml/idea.xmli Utils/Logger/doc/xml/bug.xmli Utils/Logger/doc/xml/fixme.xmli Utils/Logger/doc/xml/todo.xmli Utils/Logger/
+ doc/xml/idea.xmli Utils/Termlib/doc/xml/bug.xmli Utils/Termlib/doc/xml/fixme.xmli Utils/Termlib/doc/xml/todo.xmli Utils/Termlib/doc/xml/idea.xmli senfscons/doc/xml/bug.xmli senfscons/doc/xml/fixme.xmli senfscons/doc/xml/todo.xmli senfscons/doc/xml/idea.xmli Scheduler/doc/xml/bug.xmli Scheduler/doc/xml/fixme.xmli Scheduler/doc/xml/todo.xmli Scheduler/doc/xml/idea.xmli Examples/RateStuffer/doc/xml/bug.xmli Examples/RateStuffer/doc/xml/fixme.xmli Examples/RateStuffer/doc/xml/todo.xmli Examples/RateStuffer/doc/xml/idea.xmli Examples/Sniffer/doc/xml/bug.xmli Examples/Sniffer/doc/xml/fixme.xmli Examples/Sniffer/doc/xml/todo.xmli Examples/Sniffer/doc/xml/idea.xmli Examples/UDPClientServer/doc/xml/bug.xmli Examples/UDPClientServer/doc/xml/fixme.xmli Examples/UDPClientServer/doc/xml/todo.xmli Examples/UDPClientServer/doc/xml/idea.xmli Examples/doc/xml/bug.xmli Examples/doc/xml/fixme.xmli Examples/doc/xml/todo.xmli Examples/doc/xml/idea.xmli &gt;&gt; doc/html/xref.xml
+echo '&lt;/xref&gt;' &gt;&gt; doc/html/xref.xml
+sed -e 's/\$title/Cross-reference of action points/g' -e 's/\$projectname/Overview/g' doclib/doxy-header.html &gt; doc/html/xref.html
+xsltproc --stringparam title 'Cross-reference of action points' --stringparam types 'bug fixme todo idea' senfscons/xrefhtml.xslt doc/html/xref.xml &gt;&gt; doc/html/xref.html
+sed -e 's/\$title/Cross-reference of action points/g' -e 's/\$projectname/Overview/g' doclib/doxy-footer.html &gt;&gt; doc/html/xref.html
+xsltproc -o doc/html/xref.html.tmp --nonet --html --stringparam topdir ../.. doclib/html-munge.xsl doc/html/xref.html 2&gt;/dev/null
+mv doc/html/xref.html.tmp doc/html/xref.html
+scons: done building targets (errors occurred during build).
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#472">[ date ]</a>
+              <a href="thread.html#472">[ thread ]</a>
+              <a href="subject.html#472">[ subject ]</a>
+              <a href="author.html#472">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #12751] Seg fault by parsing too short packet data
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2312751%5D%20Seg%20fault%20by%20parsing%20too%20short%20packet%20data&In-Reply-To=%3C200712200801.lBK81Zgg025692%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000140.html">
+   <LINK REL="Next"  HREF="000142.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #12751] Seg fault by parsing too short packet data</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2312751%5D%20Seg%20fault%20by%20parsing%20too%20short%20packet%20data&In-Reply-To=%3C200712200801.lBK81Zgg025692%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #12751] Seg fault by parsing too short packet data">admin at berlios.de
+       </A><BR>
+    <I>Thu Dec 20 09:01:35 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000140.html">[Senf-dev] [Bug #12751] Seg fault by parsing too short packet data
+</A></li>
+        <LI>Next message: <A HREF="000142.html">[Senf-dev] [Bug #12380] better documentation for finalize actions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#141">[ date ]</a>
+              <a href="thread.html#141">[ thread ]</a>
+              <a href="subject.html#141">[ subject ]</a>
+              <a href="author.html#141">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #12751, was updated on 2007-Dec-19 14:30
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: libPackets
+Status: Closed
+Resolution: Invalid
+Bug Group: feature
+Priority: 5
+Submitted by: pug
+Assigned to : none
+Summary: Seg fault by parsing too short packet data
+
+Details: Sollte es da nicht eine Exception geben anstatt einen Segmentaion Fault?
+
+-------
+Code:
+senf::DataPacket packet (senf::DataPacket ::create(senf::DataPacket ::noinit));
+udpSock.read(packet.data(),0);
+packet.dump(std::cout);
+-------
+output:
+
+22              senf::UDPv4ClientSocketHandle udpSock (senf::INet4SocketAddress (std::string(&quot;127.1:12387&quot;))) ;
+(gdb)
+25                  senf::UDPPacket packet (senf::UDPPacket ::create(senf::UDPPacket ::noinit));
+(gdb)
+26                  udpSock.read(packet.data(),0);
+(gdb)
+27                  packet.dump(std::cout);
+(gdb) n
+terminate called after throwing an instance of 'senf::TruncatedPacketException'
+  what():  truncated packet
+
+Program received signal SIGABRT, Aborted.
+0xffffe410 in __kernel_vsyscall ()
+(gdb) quit
+
+
+----
+
+Gruss Phil
+
+Follow-Ups:
+
+Date: 2007-Dec-20 09:01
+By: g0dil
+
+Comment:
+Thats exactly what happens (read the error message): The code aborts after a 'TruncatedPacketException' is thrown. This happens, since the exception is not caught.
+
+PS: English language here ...
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=12751&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=12751&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000140.html">[Senf-dev] [Bug #12751] Seg fault by parsing too short packet data
+</A></li>
+	<LI>Next message: <A HREF="000142.html">[Senf-dev] [Bug #12380] better documentation for finalize actions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#141">[ date ]</a>
+              <a href="thread.html#141">[ thread ]</a>
+              <a href="subject.html#141">[ subject ]</a>
+              <a href="author.html#141">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

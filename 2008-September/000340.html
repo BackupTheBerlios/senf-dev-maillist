@@ -1,0 +1,1442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh -c &amp;&amp;	/home/senf/bin/buildsnapshot.sh -q
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/bin/build.sh%20-c%20%26%26%0A%09/home/senf/bin/buildsnapshot.sh%20-q&In-Reply-To=%3C20080921012926.DDDDB480FCBD%40satcom.fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000339.html">
+   <LINK REL="Next"  HREF="000341.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh -c &amp;&amp;	/home/senf/bin/buildsnapshot.sh -q</H1>
+    <B>Cron Daemon</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Cron%20%3Csenf%40satcom%3E%20/home/senf/bin/build.sh%20-c%20%26%26%0A%09/home/senf/bin/buildsnapshot.sh%20-q&In-Reply-To=%3C20080921012926.DDDDB480FCBD%40satcom.fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/build.sh -c &amp;&amp;	/home/senf/bin/buildsnapshot.sh -q">root at satcom.fokus.fraunhofer.de
+       </A><BR>
+    <I>Sun Sep 21 03:29:23 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000339.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+        <LI>Next message: <A HREF="000341.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#340">[ date ]</a>
+              <a href="thread.html#340">[ thread ]</a>
+              <a href="subject.html#340">[ subject ]</a>
+              <a href="author.html#340">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>A    libsenf-0r913/LICENSE
+A    libsenf-0r913/debian
+A    libsenf-0r913/debian/control
+A    libsenf-0r913/debian/changelog.template
+A    libsenf-0r913/debian/libsenf-dbg.install
+A    libsenf-0r913/debian/compat
+A    libsenf-0r913/debian/libsenf-dev.install
+A    libsenf-0r913/debian/libsenf.install
+A    libsenf-0r913/debian/copyright
+A    libsenf-0r913/debian/index.html
+A    libsenf-0r913/debian/libsenf-doc.install
+A    libsenf-0r913/debian/rules
+A    libsenf-0r913/debian/README.Debian
+A    libsenf-0r913/HowTos
+A    libsenf-0r913/HowTos/NewPacket
+A    libsenf-0r913/HowTos/NewPacket/Doxyfile
+A    libsenf-0r913/HowTos/NewPacket/SConscript
+A    libsenf-0r913/HowTos/NewPacket/Mainpage.dox
+A    libsenf-0r913/HowTos/Doxyfile
+A    libsenf-0r913/HowTos/SConscript
+A    libsenf-0r913/Doxyfile
+A    libsenf-0r913/include
+A    libsenf-0r913/include/boost
+A    libsenf-0r913/include/senf
+A    libsenf-0r913/include/senf/Console.hh
+A    libsenf-0r913/include/senf/Utils
+A    libsenf-0r913/include/senf/Console
+A    libsenf-0r913/include/senf/config.hh
+A    libsenf-0r913/include/senf/PPI.hh
+A    libsenf-0r913/include/senf/Socket.hh
+A    libsenf-0r913/include/senf/PPI
+A    libsenf-0r913/include/senf/Packets.hh
+A    libsenf-0r913/include/senf/Socket
+A    libsenf-0r913/include/senf/Packets
+A    libsenf-0r913/include/senf/local_config.hh
+A    libsenf-0r913/include/senf/Scheduler
+A    libsenf-0r913/run-test-gdb.sh
+A    libsenf-0r913/boost
+A    libsenf-0r913/boost/parameter
+A    libsenf-0r913/boost/parameter/binding.hpp
+A    libsenf-0r913/boost/parameter/match.hpp
+A    libsenf-0r913/boost/parameter/parameters.hpp
+A    libsenf-0r913/boost/parameter/keyword.hpp
+A    libsenf-0r913/boost/parameter/macros.hpp
+A    libsenf-0r913/boost/parameter/config.hpp
+A    libsenf-0r913/boost/parameter/aux_
+A    libsenf-0r913/boost/parameter/aux_/tag.hpp
+A    libsenf-0r913/boost/parameter/aux_/tagged_argument.hpp
+A    libsenf-0r913/boost/parameter/aux_/yesno.hpp
+A    libsenf-0r913/boost/parameter/aux_/overloads.hpp
+A    libsenf-0r913/boost/parameter/aux_/void.hpp
+A    libsenf-0r913/boost/parameter/aux_/result_of0.hpp
+A    libsenf-0r913/boost/parameter/aux_/unwrap_cv_reference.hpp
+A    libsenf-0r913/boost/parameter/aux_/parameter_requirements.hpp
+A    libsenf-0r913/boost/parameter/aux_/arg_list.hpp
+A    libsenf-0r913/boost/parameter/aux_/default.hpp
+A    libsenf-0r913/boost/multi_index
+A    libsenf-0r913/boost/multi_index/identity_fwd.hpp
+A    libsenf-0r913/boost/multi_index/identity.hpp
+A    libsenf-0r913/boost/multi_index/sequenced_index.hpp
+A    libsenf-0r913/boost/multi_index/sequenced_index_fwd.hpp
+A    libsenf-0r913/boost/multi_index/key_extractors.hpp
+A    libsenf-0r913/boost/multi_index/member.hpp
+A    libsenf-0r913/boost/multi_index/global_fun.hpp
+A    libsenf-0r913/boost/multi_index/indexed_by.hpp
+A    libsenf-0r913/boost/multi_index/composite_key.hpp
+A    libsenf-0r913/boost/multi_index/ordered_index_fwd.hpp
+A    libsenf-0r913/boost/multi_index/ordered_index.hpp
+A    libsenf-0r913/boost/multi_index/tag.hpp
+A    libsenf-0r913/boost/multi_index/detail
+A    libsenf-0r913/boost/multi_index/detail/access_specifier.hpp
+A    libsenf-0r913/boost/multi_index/detail/rnd_index_ops.hpp
+A    libsenf-0r913/boost/multi_index/detail/ord_index_ops.hpp
+A    libsenf-0r913/boost/multi_index/detail/is_index_list.hpp
+A    libsenf-0r913/boost/multi_index/detail/index_loader.hpp
+A    libsenf-0r913/boost/multi_index/detail/rnd_index_ptr_array.hpp
+A    libsenf-0r913/boost/multi_index/detail/archive_constructed.hpp
+A    libsenf-0r913/boost/multi_index/detail/index_base.hpp
+A    libsenf-0r913/boost/multi_index/detail/duplicates_iterator.hpp
+A    libsenf-0r913/boost/multi_index/detail/uintptr_type.hpp
+A    libsenf-0r913/boost/multi_index/detail/index_saver.hpp
+A    libsenf-0r913/boost/multi_index/detail/converter.hpp
+A    libsenf-0r913/boost/multi_index/detail/modify_key_adaptor.hpp
+A    libsenf-0r913/boost/multi_index/detail/hash_index_node.hpp
+A    libsenf-0r913/boost/multi_index/detail/rnd_index_node.hpp
+A    libsenf-0r913/boost/multi_index/detail/value_compare.hpp
+A    libsenf-0r913/boost/multi_index/detail/hash_index_iterator.hpp
+A    libsenf-0r913/boost/multi_index/detail/no_duplicate_tags.hpp
+A    libsenf-0r913/boost/multi_index/detail/seq_index_node.hpp
+A    libsenf-0r913/boost/multi_index/detail/hash_index_args.hpp
+A    libsenf-0r913/boost/multi_index/detail/adl_swap.hpp
+A    libsenf-0r913/boost/multi_index/detail/scope_guard.hpp
+A    libsenf-0r913/boost/multi_index/detail/rnd_index_loader.hpp
+A    libsenf-0r913/boost/multi_index/detail/seq_index_ops.hpp
+A    libsenf-0r913/boost/multi_index/detail/rnd_node_iterator.hpp
+A    libsenf-0r913/boost/multi_index/detail/index_node_base.hpp
+A    libsenf-0r913/boost/multi_index/detail/has_tag.hpp
+A    libsenf-0r913/boost/multi_index/detail/bidir_node_iterator.hpp
+A    libsenf-0r913/boost/multi_index/detail/copy_map.hpp
+A    libsenf-0r913/boost/multi_index/detail/index_matcher.hpp
+A    libsenf-0r913/boost/multi_index/detail/base_type.hpp
+A    libsenf-0r913/boost/multi_index/detail/bucket_array.hpp
+A    libsenf-0r913/boost/multi_index/detail/invariant_assert.hpp
+A    libsenf-0r913/boost/multi_index/detail/iter_adaptor.hpp
+A    libsenf-0r913/boost/multi_index/detail/ord_index_node.hpp
+A    libsenf-0r913/boost/multi_index/detail/safe_mode.hpp
+A    libsenf-0r913/boost/multi_index/detail/auto_space.hpp
+A    libsenf-0r913/boost/multi_index/detail/unbounded.hpp
+A    libsenf-0r913/boost/multi_index/detail/prevent_eti.hpp
+A    libsenf-0r913/boost/multi_index/detail/header_holder.hpp
+A    libsenf-0r913/boost/multi_index/detail/node_type.hpp
+A    libsenf-0r913/boost/multi_index/detail/ord_index_args.hpp
+A    libsenf-0r913/boost/multi_index/detail/safe_ctr_proxy.hpp
+A    libsenf-0r913/boost/multi_index/detail/msvc_index_specifier.hpp
+A    libsenf-0r913/boost/multi_index/safe_mode_errors.hpp
+A    libsenf-0r913/boost/multi_index/hashed_index_fwd.hpp
+A    libsenf-0r913/boost/multi_index/hashed_index.hpp
+A    libsenf-0r913/boost/multi_index/mem_fun.hpp
+A    libsenf-0r913/boost/multi_index/random_access_index_fwd.hpp
+A    libsenf-0r913/boost/multi_index/random_access_index.hpp
+A    libsenf-0r913/boost/typeof
+A    libsenf-0r913/boost/typeof/register_functions_iterate.hpp
+A    libsenf-0r913/boost/typeof/type_template_param.hpp
+A    libsenf-0r913/boost/typeof/int_encoding.hpp
+A    libsenf-0r913/boost/typeof/encode_decode.hpp
+A    libsenf-0r913/boost/typeof/incr_registration_group.hpp
+A    libsenf-0r913/boost/typeof/register_fundamental.hpp
+A    libsenf-0r913/boost/typeof/vector.hpp
+A    libsenf-0r913/boost/typeof/encode_decode_params.hpp
+A    libsenf-0r913/boost/typeof/std
+A    libsenf-0r913/boost/typeof/std/iterator.hpp
+A    libsenf-0r913/boost/typeof/std/bitset.hpp
+A    libsenf-0r913/boost/typeof/std/set.hpp
+A    libsenf-0r913/boost/typeof/std/locale.hpp
+A    libsenf-0r913/boost/typeof/std/fstream.hpp
+A    libsenf-0r913/boost/typeof/std/functional.hpp
+A    libsenf-0r913/boost/typeof/std/vector.hpp
+A    libsenf-0r913/boost/typeof/std/deque.hpp
+A    libsenf-0r913/boost/typeof/std/utility.hpp
+A    libsenf-0r913/boost/typeof/std/istream.hpp
+A    libsenf-0r913/boost/typeof/std/stack.hpp
+A    libsenf-0r913/boost/typeof/std/string.hpp
+A    libsenf-0r913/boost/typeof/std/complex.hpp
+A    libsenf-0r913/boost/typeof/std/memory.hpp
+A    libsenf-0r913/boost/typeof/std/ostream.hpp
+A    libsenf-0r913/boost/typeof/std/list.hpp
+A    libsenf-0r913/boost/typeof/std/map.hpp
+A    libsenf-0r913/boost/typeof/std/sstream.hpp
+A    libsenf-0r913/boost/typeof/std/valarray.hpp
+A    libsenf-0r913/boost/typeof/std/iostream.hpp
+A    libsenf-0r913/boost/typeof/std/queue.hpp
+A    libsenf-0r913/boost/typeof/std/streambuf.hpp
+A    libsenf-0r913/boost/typeof/pointers_data_members.hpp
+A    libsenf-0r913/boost/typeof/typeof.hpp
+A    libsenf-0r913/boost/typeof/vector50.hpp
+A    libsenf-0r913/boost/typeof/register_mem_functions.hpp
+A    libsenf-0r913/boost/typeof/register_functions.hpp
+A    libsenf-0r913/boost/typeof/integral_template_param.hpp
+A    libsenf-0r913/boost/typeof/template_encoding.hpp
+A    libsenf-0r913/boost/typeof/modifiers.hpp
+A    libsenf-0r913/boost/typeof/msvc
+A    libsenf-0r913/boost/typeof/msvc/typeof_impl.hpp
+A    libsenf-0r913/boost/typeof/vector100.hpp
+A    libsenf-0r913/boost/typeof/message.hpp
+A    libsenf-0r913/boost/typeof/vector200.hpp
+A    libsenf-0r913/boost/typeof/native.hpp
+A    libsenf-0r913/boost/typeof/template_template_param.hpp
+A    libsenf-0r913/boost/typeof/type_encoding.hpp
+A    libsenf-0r913/boost/typeof/typeof_impl.hpp
+A    libsenf-0r913/boost/typeof/vector150.hpp
+A    libsenf-0r913/boost/bimap
+A    libsenf-0r913/boost/bimap/multiset_of.hpp
+A    libsenf-0r913/boost/bimap/property_map
+A    libsenf-0r913/boost/bimap/property_map/unordered_set_support.hpp
+A    libsenf-0r913/boost/bimap/property_map/set_support.hpp
+A    libsenf-0r913/boost/bimap/unconstrained_set_of.hpp
+A    libsenf-0r913/boost/bimap/detail
+A    libsenf-0r913/boost/bimap/detail/test
+A    libsenf-0r913/boost/bimap/detail/test/check_metadata.hpp
+A    libsenf-0r913/boost/bimap/detail/non_unique_views_helper.hpp
+A    libsenf-0r913/boost/bimap/detail/set_view_iterator.hpp
+A    libsenf-0r913/boost/bimap/detail/debug
+A    libsenf-0r913/boost/bimap/detail/debug/static_error.hpp
+A    libsenf-0r913/boost/bimap/detail/bimap_core.hpp
+A    libsenf-0r913/boost/bimap/detail/map_view_base.hpp
+A    libsenf-0r913/boost/bimap/detail/manage_additional_parameters.hpp
+A    libsenf-0r913/boost/bimap/detail/generate_index_binder.hpp
+A    libsenf-0r913/boost/bimap/detail/generate_view_binder.hpp
+A    libsenf-0r913/boost/bimap/detail/modifier_adaptor.hpp
+A    libsenf-0r913/boost/bimap/detail/manage_bimap_key.hpp
+A    libsenf-0r913/boost/bimap/detail/concept_tags.hpp
+A    libsenf-0r913/boost/bimap/detail/generate_relation_binder.hpp
+A    libsenf-0r913/boost/bimap/detail/is_set_type_of.hpp
+A    libsenf-0r913/boost/bimap/detail/set_view_base.hpp
+A    libsenf-0r913/boost/bimap/detail/map_view_iterator.hpp
+A    libsenf-0r913/boost/bimap/detail/user_interface_config.hpp
+A    libsenf-0r913/boost/bimap/list_of.hpp
+A    libsenf-0r913/boost/bimap/set_of.hpp
+A    libsenf-0r913/boost/bimap/unordered_multiset_of.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor
+A    libsenf-0r913/boost/bimap/container_adaptor/ordered_associative_container_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/container_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/unordered_associative_container_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/unordered_map_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/multimap_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/set_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/unordered_multimap_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/vector_map_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/detail
+A    libsenf-0r913/boost/bimap/container_adaptor/detail/functor_bag.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/detail/non_unique_container_helper.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/detail/identity_converters.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/detail/key_extractor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/detail/comparison_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/unordered_set_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/vector_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/multiset_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/list_map_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/sequence_container_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/list_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/support
+A    libsenf-0r913/boost/bimap/container_adaptor/support/iterator_facade_converters.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/associative_container_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/unordered_multiset_adaptor.hpp
+A    libsenf-0r913/boost/bimap/container_adaptor/map_adaptor.hpp
+A    libsenf-0r913/boost/bimap/support
+A    libsenf-0r913/boost/bimap/support/lambda.hpp
+A    libsenf-0r913/boost/bimap/support/key_type_by.hpp
+A    libsenf-0r913/boost/bimap/support/data_type_by.hpp
+A    libsenf-0r913/boost/bimap/support/iterator_type_by.hpp
+A    libsenf-0r913/boost/bimap/support/map_by.hpp
+A    libsenf-0r913/boost/bimap/support/value_type_by.hpp
+A    libsenf-0r913/boost/bimap/support/map_type_by.hpp
+A    libsenf-0r913/boost/bimap/unordered_set_of.hpp
+A    libsenf-0r913/boost/bimap/vector_of.hpp
+A    libsenf-0r913/boost/bimap/relation
+A    libsenf-0r913/boost/bimap/relation/member_at.hpp
+A    libsenf-0r913/boost/bimap/relation/detail
+A    libsenf-0r913/boost/bimap/relation/detail/static_access_builder.hpp
+A    libsenf-0r913/boost/bimap/relation/detail/access_builder.hpp
+A    libsenf-0r913/boost/bimap/relation/detail/metadata_access_builder.hpp
+A    libsenf-0r913/boost/bimap/relation/detail/mutant.hpp
+A    libsenf-0r913/boost/bimap/relation/detail/to_mutable_relation_functor.hpp
+A    libsenf-0r913/boost/bimap/relation/structured_pair.hpp
+A    libsenf-0r913/boost/bimap/relation/symmetrical_base.hpp
+A    libsenf-0r913/boost/bimap/relation/mutant_relation.hpp
+A    libsenf-0r913/boost/bimap/relation/support
+A    libsenf-0r913/boost/bimap/relation/support/get_pair_functor.hpp
+A    libsenf-0r913/boost/bimap/relation/support/member_with_tag.hpp
+A    libsenf-0r913/boost/bimap/relation/support/opposite_tag.hpp
+A    libsenf-0r913/boost/bimap/relation/support/get.hpp
+A    libsenf-0r913/boost/bimap/relation/support/value_type_of.hpp
+A    libsenf-0r913/boost/bimap/relation/support/data_extractor.hpp
+A    libsenf-0r913/boost/bimap/relation/support/is_tag_of_member_at.hpp
+A    libsenf-0r913/boost/bimap/relation/support/pair_by.hpp
+A    libsenf-0r913/boost/bimap/relation/support/pair_type_by.hpp
+A    libsenf-0r913/boost/bimap/relation/pair_layout.hpp
+A    libsenf-0r913/boost/bimap/views
+A    libsenf-0r913/boost/bimap/views/unordered_multimap_view.hpp
+A    libsenf-0r913/boost/bimap/views/vector_map_view.hpp
+A    libsenf-0r913/boost/bimap/views/unordered_set_view.hpp
+A    libsenf-0r913/boost/bimap/views/unordered_map_view.hpp
+A    libsenf-0r913/boost/bimap/views/list_set_view.hpp
+A    libsenf-0r913/boost/bimap/views/multiset_view.hpp
+A    libsenf-0r913/boost/bimap/views/unconstrained_set_view.hpp
+A    libsenf-0r913/boost/bimap/views/list_map_view.hpp
+A    libsenf-0r913/boost/bimap/views/multimap_view.hpp
+A    libsenf-0r913/boost/bimap/views/unconstrained_map_view.hpp
+A    libsenf-0r913/boost/bimap/views/set_view.hpp
+A    libsenf-0r913/boost/bimap/views/map_view.hpp
+A    libsenf-0r913/boost/bimap/views/unordered_multiset_view.hpp
+A    libsenf-0r913/boost/bimap/views/vector_set_view.hpp
+A    libsenf-0r913/boost/bimap/bimap.hpp
+A    libsenf-0r913/boost/bimap/tags
+A    libsenf-0r913/boost/bimap/tags/tagged.hpp
+A    libsenf-0r913/boost/bimap/tags/support
+A    libsenf-0r913/boost/bimap/tags/support/default_tagged.hpp
+A    libsenf-0r913/boost/bimap/tags/support/tag_of.hpp
+A    libsenf-0r913/boost/bimap/tags/support/overwrite_tagged.hpp
+A    libsenf-0r913/boost/bimap/tags/support/value_type_of.hpp
+A    libsenf-0r913/boost/bimap/tags/support/apply_to_value_type.hpp
+A    libsenf-0r913/boost/bimap/tags/support/is_tagged.hpp
+A    libsenf-0r913/boost/intrusive
+A    libsenf-0r913/boost/intrusive/linking_policy.hpp
+A    libsenf-0r913/boost/intrusive/iunordered_set.hpp
+A    libsenf-0r913/boost/intrusive/iunordered_set_hook.hpp
+A    libsenf-0r913/boost/intrusive/detail
+A    libsenf-0r913/boost/intrusive/detail/config_begin.hpp
+A    libsenf-0r913/boost/intrusive/detail/config_end.hpp
+A    libsenf-0r913/boost/intrusive/detail/utilities.hpp
+A    libsenf-0r913/boost/intrusive/detail/irbtree.hpp
+A    libsenf-0r913/boost/intrusive/detail/list_node.hpp
+A    libsenf-0r913/boost/intrusive/detail/pointer_type.hpp
+A    libsenf-0r913/boost/intrusive/detail/ebo_holder.hpp
+A    libsenf-0r913/boost/intrusive/detail/pointer_to_other.hpp
+A    libsenf-0r913/boost/intrusive/detail/slist_node.hpp
+A    libsenf-0r913/boost/intrusive/detail/ihashtable.hpp
+A    libsenf-0r913/boost/intrusive/detail/rbtree_node.hpp
+A    libsenf-0r913/boost/intrusive/rbtree_algorithms.hpp
+A    libsenf-0r913/boost/intrusive/ilist.hpp
+A    libsenf-0r913/boost/intrusive/ilist_hook.hpp
+A    libsenf-0r913/boost/intrusive/iset.hpp
+A    libsenf-0r913/boost/intrusive/iset_hook.hpp
+A    libsenf-0r913/boost/intrusive/list_algorithms.hpp
+A    libsenf-0r913/boost/intrusive/islist.hpp
+A    libsenf-0r913/boost/intrusive/islist_hook.hpp
+A    libsenf-0r913/boost/intrusive/slist_algorithms.hpp
+A    libsenf-0r913/boost/multi_index_container.hpp
+A    libsenf-0r913/boost/multi_index_container_fwd.hpp
+A    libsenf-0r913/boost/bimap.hpp
+A    libsenf-0r913/Socket
+A    libsenf-0r913/Socket/SocketHandle.cti
+A    libsenf-0r913/Socket/Doxyfile
+A    libsenf-0r913/Socket/SocketProtocol.test.hh
+A    libsenf-0r913/Socket/main.test.cc
+A    libsenf-0r913/Socket/ProtocolClientSocketHandle.test.cc
+A    libsenf-0r913/Socket/Handle.dia
+A    libsenf-0r913/Socket/FileHandle.cci
+A    libsenf-0r913/Socket/SocketHandle.cc
+A    libsenf-0r913/Socket/FileHandle.hh
+A    libsenf-0r913/Socket/ServerSocketHandle.hh
+A    libsenf-0r913/Socket/SocketPolicy.cc
+A    libsenf-0r913/Socket/SocketHandle.cci
+A    libsenf-0r913/Socket/ClientSocketHandle.ih
+A    libsenf-0r913/Socket/ProtocolClientSocketHandle.cti
+A    libsenf-0r913/Socket/CommunicationPolicy.cti
+A    libsenf-0r913/Socket/SocketHandle.ih
+A    libsenf-0r913/Socket/ReadWritePolicy.hh
+A    libsenf-0r913/Socket/SocketLibrary-classes.dia
+A    libsenf-0r913/Socket/SocketPolicy.dia
+A    libsenf-0r913/Socket/ClientSocketHandle.test.cc
+A    libsenf-0r913/Socket/SocketPolicy.ih
+A    libsenf-0r913/Socket/NetdeviceController.hh
+A    libsenf-0r913/Socket/ClientSocketHandle.ct
+A    libsenf-0r913/Socket/SocketProtocol.hh
+A    libsenf-0r913/Socket/SocketHandle.ct
+A    libsenf-0r913/Socket/Mainpage.dox
+A    libsenf-0r913/Socket/NetdeviceController.test.cc
+A    libsenf-0r913/Socket/SocketProtocol.test.cc
+A    libsenf-0r913/Socket/SocketPolicy.ct
+A    libsenf-0r913/Socket/ProtocolServerSocketHandle.test.cc
+A    libsenf-0r913/Socket/FileHandle.cc
+A    libsenf-0r913/Socket/ProtocolClientSocketHandle.mpp
+A    libsenf-0r913/Socket/Protocols.dia
+A    libsenf-0r913/Socket/ClientSocketHandle.cti
+A    libsenf-0r913/Socket/CommunicationPolicy.cci
+A    libsenf-0r913/Socket/ProtocolClientSocketHandle.hh
+A    libsenf-0r913/Socket/CommunicationPolicy.hh
+A    libsenf-0r913/Socket/Protocols
+A    libsenf-0r913/Socket/Protocols/BSDAddressingPolicy.cc
+A    libsenf-0r913/Socket/Protocols/UN.hh
+A    libsenf-0r913/Socket/Protocols/UN
+A    libsenf-0r913/Socket/Protocols/UN/ConnectedUNDatagramSocketHandle.cc
+A    libsenf-0r913/Socket/Protocols/UN/UNSocketProtocol.test.cc
+A    libsenf-0r913/Socket/Protocols/UN/UN.hh
+A    libsenf-0r913/Socket/Protocols/UN/UNSocketProtocol.cc
+A    libsenf-0r913/Socket/Protocols/UN/UNAddressing.cci
+A    libsenf-0r913/Socket/Protocols/UN/UNAddressing.hh
+A    libsenf-0r913/Socket/Protocols/UN/UNDatagramSocketHandle.hh
+A    libsenf-0r913/Socket/Protocols/UN/main.test.cc
+A    libsenf-0r913/Socket/Protocols/UN/SConscript
+A    libsenf-0r913/Socket/Protocols/UN/UNAddressing.test.cc
+A    libsenf-0r913/Socket/Protocols/UN/ConnectedUNDatagramSocketHandle.hh
+A    libsenf-0r913/Socket/Protocols/UN/UNAddressing.cc
+A    libsenf-0r913/Socket/Protocols/UN/UNDatagramSocketHandle.test.cc
+A    libsenf-0r913/Socket/Protocols/UN/UNSocketProtocol.hh
+A    libsenf-0r913/Socket/Protocols/UN/UNDatagramSocketHandle.cc
+A    libsenf-0r913/Socket/Protocols/BSDSocketAddress.cci
+A    libsenf-0r913/Socket/Protocols/BSDSocketAddress.hh
+A    libsenf-0r913/Socket/Protocols/AddressExceptions.hh
+A    libsenf-0r913/Socket/Protocols/main.test.cc
+A    libsenf-0r913/Socket/Protocols/BSDSocketProtocol.cc
+A    libsenf-0r913/Socket/Protocols/Raw.hh
+A    libsenf-0r913/Socket/Protocols/SConscript
+A    libsenf-0r913/Socket/Protocols/BSDSocketAddress.test.cc
+A    libsenf-0r913/Socket/Protocols/Raw
+A    libsenf-0r913/Socket/Protocols/Raw/PacketSocketHandle.cc
+A    libsenf-0r913/Socket/Protocols/Raw/TunTapSocketHandle.cc
+A    libsenf-0r913/Socket/Protocols/Raw/main.test.cc
+A    libsenf-0r913/Socket/Protocols/Raw/SConscript
+A    libsenf-0r913/Socket/Protocols/Raw/Raw.hh
+A    libsenf-0r913/Socket/Protocols/Raw/PacketSocketHandle.hh
+A    libsenf-0r913/Socket/Protocols/Raw/MACAddress.cc
+A    libsenf-0r913/Socket/Protocols/Raw/TunTapSocketHandle.hh
+A    libsenf-0r913/Socket/Protocols/Raw/PacketSocketHandle.test.cc
+A    libsenf-0r913/Socket/Protocols/Raw/LLAddressing.cc
+A    libsenf-0r913/Socket/Protocols/Raw/TunTapSocketHandle.test.cc
+A    libsenf-0r913/Socket/Protocols/Raw/MACAddress.cci
+A    libsenf-0r913/Socket/Protocols/Raw/MACAddress.hh
+A    libsenf-0r913/Socket/Protocols/Raw/MACAddress.test.cc
+A    libsenf-0r913/Socket/Protocols/Raw/LLAddressing.cci
+A    libsenf-0r913/Socket/Protocols/Raw/LLAddressing.hh
+A    libsenf-0r913/Socket/Protocols/Raw/MACAddress.ct
+A    libsenf-0r913/Socket/Protocols/Raw/LLAddressing.test.cc
+A    libsenf-0r913/Socket/Protocols/BSDAddressingPolicy.hh
+A    libsenf-0r913/Socket/Protocols/INet.hh
+A    libsenf-0r913/Socket/Protocols/BSDAddressingPolicy.test.cc
+A    libsenf-0r913/Socket/Protocols/INet
+A    libsenf-0r913/Socket/Protocols/INet/TCPSocketProtocol.hh
+A    libsenf-0r913/Socket/Protocols/INet/RawINetSocketHandle.cc
+A    libsenf-0r913/Socket/Protocols/INet/MulticastSocketProtocol.cc
+A    libsenf-0r913/Socket/Protocols/INet/ConnectedUDPSocketHandle.cc
+A    libsenf-0r913/Socket/Protocols/INet/INet4Address.cci
+A    libsenf-0r913/Socket/Protocols/INet/main.test.cc
+A    libsenf-0r913/Socket/Protocols/INet/INet4Address.hh
+A    libsenf-0r913/Socket/Protocols/INet/INetSocketProtocol.hh
+A    libsenf-0r913/Socket/Protocols/INet/INet6Address.cci
+A    libsenf-0r913/Socket/Protocols/INet/INet6Address.hh
+A    libsenf-0r913/Socket/Protocols/INet/INetAddressing.cci
+A    libsenf-0r913/Socket/Protocols/INet/INetAddressing.hh
+A    libsenf-0r913/Socket/Protocols/INet/UDPSocketHandle.cc
+A    libsenf-0r913/Socket/Protocols/INet/RawINetSocketProtocol.hh
+A    libsenf-0r913/Socket/Protocols/INet/TCPSocketProtocol.cc
+A    libsenf-0r913/Socket/Protocols/INet/TCPSocketHandle.hh
+A    libsenf-0r913/Socket/Protocols/INet/INet4Address.cc
+A    libsenf-0r913/Socket/Protocols/INet/INetSocketProtocol.cc
+A    libsenf-0r913/Socket/Protocols/INet/ConnectedRawINetSocketHandle.hh
+A    libsenf-0r913/Socket/Protocols/INet/INet6Address.cc
+A    libsenf-0r913/Socket/Protocols/INet/UDPSocketHandle.test.cc
+A    libsenf-0r913/Socket/Protocols/INet/UDPSocketProtocol.hh
+A    libsenf-0r913/Socket/Protocols/INet/INetAddressing.cc
+A    libsenf-0r913/Socket/Protocols/INet/SConscript
+A    libsenf-0r913/Socket/Protocols/INet/RawINetSocketProtocol.cc
+A    libsenf-0r913/Socket/Protocols/INet/INet6Address.ih
+A    libsenf-0r913/Socket/Protocols/INet/INet4Address.test.cc
+A    libsenf-0r913/Socket/Protocols/INet/RawINetSocketHandle.hh
+A    libsenf-0r913/Socket/Protocols/INet/INet6Address.test.cc
+A    libsenf-0r913/Socket/Protocols/INet/INet.hh
+A    libsenf-0r913/Socket/Protocols/INet/MulticastSocketProtocol.hh
+A    libsenf-0r913/Socket/Protocols/INet/ConnectedUDPSocketHandle.hh
+A    libsenf-0r913/Socket/Protocols/INet/INet4Address.ct
+A    libsenf-0r913/Socket/Protocols/INet/TCPSocketHandle.cc
+A    libsenf-0r913/Socket/Protocols/INet/RawINetSocketHandle.test.cc
+A    libsenf-0r913/Socket/Protocols/INet/INet6Address.ct
+A    libsenf-0r913/Socket/Protocols/INet/MulticastSocketProtocol.test.cc
+A    libsenf-0r913/Socket/Protocols/INet/INetAddressing.test.cc
+A    libsenf-0r913/Socket/Protocols/INet/ConnectedRawINetSocketHandle.cc
+A    libsenf-0r913/Socket/Protocols/INet/INet4Address.cti
+A    libsenf-0r913/Socket/Protocols/INet/UDPSocketProtocol.cc
+A    libsenf-0r913/Socket/Protocols/INet/INet6Address.cti
+A    libsenf-0r913/Socket/Protocols/INet/UDPSocketHandle.hh
+A    libsenf-0r913/Socket/Protocols/INet/TCPSocketHandle.test.cc
+A    libsenf-0r913/Socket/Protocols/DatagramSocketProtocol.cc
+A    libsenf-0r913/Socket/Protocols/BSDSocketProtocol.hh
+A    libsenf-0r913/Socket/Protocols/DatagramSocketProtocol.hh
+A    libsenf-0r913/Socket/Protocols/DVB.hh
+A    libsenf-0r913/Socket/Protocols/BSDAddressingPolicy.cti
+A    libsenf-0r913/Socket/Protocols/DVB
+A    libsenf-0r913/Socket/Protocols/DVB/DVBDemuxHandles.cc
+A    libsenf-0r913/Socket/Protocols/DVB/DVBFrontendHandle.hh
+A    libsenf-0r913/Socket/Protocols/DVB/DVBDemuxSocketProtocol.hh
+A    libsenf-0r913/Socket/Protocols/DVB/SConscript
+A    libsenf-0r913/Socket/Protocols/DVB/DVB.hh
+A    libsenf-0r913/Socket/Protocols/DVB/DVBDemuxHandles.hh
+A    libsenf-0r913/Socket/Protocols/DVB/DVBFrontendHandle.cc
+A    libsenf-0r913/Socket/Protocols/DVB/DVBDemuxSocketProtocol.cc
+A    libsenf-0r913/Socket/Protocols/BSDSocketAddress.cc
+A    libsenf-0r913/Socket/ReadWritePolicy.cti
+A    libsenf-0r913/Socket/SocketPolicy.test.hh
+A    libsenf-0r913/Socket/Socket.hh
+A    libsenf-0r913/Socket/SConscript
+A    libsenf-0r913/Socket/FhHierarchy.dia
+A    libsenf-0r913/Socket/SocketProtocol.cti
+A    libsenf-0r913/Socket/FileHandle.ih
+A    libsenf-0r913/Socket/ReadWritePolicy.cc
+A    libsenf-0r913/Socket/ProtocolServerSocketHandle.cti
+A    libsenf-0r913/Socket/FileHandle.test.cc
+A    libsenf-0r913/Socket/ServerSocketHandle.test.cc
+A    libsenf-0r913/Socket/NetdeviceController.cc
+A    libsenf-0r913/Socket/SocketProtocol.cc
+A    libsenf-0r913/Socket/FramingPolicy.hh
+A    libsenf-0r913/Socket/AddressingPolicy.hh
+A    libsenf-0r913/Socket/ClientSocketHandle.hh
+A    libsenf-0r913/Socket/SocketHandle.hh
+A    libsenf-0r913/Socket/SocketHandle.test.cc
+A    libsenf-0r913/Socket/SocketPolicy.hh
+A    libsenf-0r913/Socket/SocketProtocol.cci
+A    libsenf-0r913/Socket/ProtocolServerSocketHandle.mpp
+A    libsenf-0r913/Socket/CommunicationPolicy.cc
+A    libsenf-0r913/Socket/ServerSocketHandle.cti
+A    libsenf-0r913/Socket/SocketPolicy.test.cc
+A    libsenf-0r913/Socket/ProtocolServerSocketHandle.hh
+A    libsenf-0r913/PPI
+A    libsenf-0r913/PPI/Connectors.test.cc
+A    libsenf-0r913/PPI/CloneSource.hh
+A    libsenf-0r913/PPI/Queueing.hh
+A    libsenf-0r913/PPI/IdleEvent.test.cc
+A    libsenf-0r913/PPI/Module.cci
+A    libsenf-0r913/PPI/ModuleManager.test.cc
+A    libsenf-0r913/PPI/Module.hh
+A    libsenf-0r913/PPI/Doxyfile
+A    libsenf-0r913/PPI/Queueing.test.cc
+A    libsenf-0r913/PPI/main.test.cc
+A    libsenf-0r913/PPI/ratestuffer.dia
+A    libsenf-0r913/PPI/IntervalTimer.test.cc
+A    libsenf-0r913/PPI/SocketSource.cti
+A    libsenf-0r913/PPI/Route.hh
+A    libsenf-0r913/PPI/IOEvent.cc
+A    libsenf-0r913/PPI/RateFilter.hh
+A    libsenf-0r913/PPI/scenario.dia
+A    libsenf-0r913/PPI/Joins.cti
+A    libsenf-0r913/PPI/EventManager.cc
+A    libsenf-0r913/PPI/Route.test.cc
+A    libsenf-0r913/PPI/ThrottleBarrier.cc
+A    libsenf-0r913/PPI/SocketSink.cc
+A    libsenf-0r913/PPI/PassiveQueue.cc
+A    libsenf-0r913/PPI/ModuleManager.cc
+A    libsenf-0r913/PPI/Joins.cc
+A    libsenf-0r913/PPI/Events.test.cc
+A    libsenf-0r913/PPI/EventManager.cci
+A    libsenf-0r913/PPI/Mainpage.dox
+A    libsenf-0r913/PPI/Connectors.cci
+A    libsenf-0r913/PPI/IOEvent.test.cc
+A    libsenf-0r913/PPI/Connectors.hh
+A    libsenf-0r913/PPI/IdleEvent.cci
+A    libsenf-0r913/PPI/ModuleManager.cci
+A    libsenf-0r913/PPI/Queueing.cci
+A    libsenf-0r913/PPI/SocketSink.test.cc
+A    libsenf-0r913/PPI/DebugModules.test.cc
+A    libsenf-0r913/PPI/EventManager.ct
+A    libsenf-0r913/PPI/IntervalTimer.cci
+A    libsenf-0r913/PPI/DiscardSink.cc
+A    libsenf-0r913/PPI/SocketSink.ct
+A    libsenf-0r913/PPI/IntervalTimer.hh
+A    libsenf-0r913/PPI/Module.ih
+A    libsenf-0r913/PPI/ActiveFeeder.hh
+A    libsenf-0r913/PPI/ActiveFeeder.test.cc
+A    libsenf-0r913/PPI/Events.cc
+A    libsenf-0r913/PPI/DebugEvent.test.cc
+A    libsenf-0r913/PPI/Route.cci
+A    libsenf-0r913/PPI/PassiveQueue.cti
+A    libsenf-0r913/PPI/Route.ih
+A    libsenf-0r913/PPI/Events.cci
+A    libsenf-0r913/PPI/Setup.test.cc
+A    libsenf-0r913/PPI/IdleEvent.cc
+A    libsenf-0r913/PPI/IOEvent.hh
+A    libsenf-0r913/PPI/EventManager.hh
+A    libsenf-0r913/PPI/SocketSink.cci
+A    libsenf-0r913/PPI/ThrottleBarrier.hh
+A    libsenf-0r913/PPI/SocketSink.hh
+A    libsenf-0r913/PPI/SocketSource.test.cc
+A    libsenf-0r913/PPI/Connectors.ih
+A    libsenf-0r913/PPI/DebugModules.cci
+A    libsenf-0r913/PPI/PassiveQueue.hh
+A    libsenf-0r913/PPI/ModuleManager.hh
+A    libsenf-0r913/PPI/SocketSource.ct
+A    libsenf-0r913/PPI/Joins.hh
+A    libsenf-0r913/PPI/ActiveFeeder.cci
+A    libsenf-0r913/PPI/Joins.test.cc
+A    libsenf-0r913/PPI/ForwardSwitch.hh
+A    libsenf-0r913/PPI/DebugEvent.cci
+A    libsenf-0r913/PPI/PPI.hh
+A    libsenf-0r913/PPI/Connectors.cti
+A    libsenf-0r913/PPI/DiscardSink.hh
+A    libsenf-0r913/PPI/Setup.cci
+A    libsenf-0r913/PPI/DiscardSink.test.cc
+A    libsenf-0r913/PPI/Events.hh
+A    libsenf-0r913/PPI/detail
+A    libsenf-0r913/PPI/detail/EventBinding.cc
+A    libsenf-0r913/PPI/detail/EventBinding.cci
+A    libsenf-0r913/PPI/detail/Callback.cti
+A    libsenf-0r913/PPI/detail/Callback.hh
+A    libsenf-0r913/PPI/detail/EventBinding.cti
+A    libsenf-0r913/PPI/detail/EventBinding.hh
+A    libsenf-0r913/PPI/DebugModules.cc
+A    libsenf-0r913/PPI/CloneSource.cc
+A    libsenf-0r913/PPI/Queueing.cc
+A    libsenf-0r913/PPI/SocketSource.hh
+A    libsenf-0r913/PPI/Module.cc
+A    libsenf-0r913/PPI/Route.cti
+A    libsenf-0r913/PPI/predecl.hh
+A    libsenf-0r913/PPI/IdleEvent.hh
+A    libsenf-0r913/PPI/Joins.cci
+A    libsenf-0r913/PPI/PassiveQueue.test.cc
+A    libsenf-0r913/PPI/Events.cti
+A    libsenf-0r913/PPI/ForwardSwitch.cci
+A    libsenf-0r913/PPI/CloneSource.test.cc
+A    libsenf-0r913/PPI/RateFilter.cc
+A    libsenf-0r913/PPI/DebugEvent.hh
+A    libsenf-0r913/PPI/Module.test.cc
+A    libsenf-0r913/PPI/IOEvent.cti
+A    libsenf-0r913/PPI/SConscript
+A    libsenf-0r913/PPI/classes.dia
+A    libsenf-0r913/PPI/Module.ct
+A    libsenf-0r913/PPI/SocketSink.cti
+A    libsenf-0r913/PPI/DebugModules.cti
+A    libsenf-0r913/PPI/Setup.hh
+A    libsenf-0r913/PPI/Connectors.cc
+A    libsenf-0r913/PPI/Events.ih
+A    libsenf-0r913/PPI/Route.ct
+A    libsenf-0r913/PPI/IntervalTimer.cc
+A    libsenf-0r913/PPI/ActiveFeeder.cc
+A    libsenf-0r913/PPI/PassiveQueue.cci
+A    libsenf-0r913/PPI/DebugModules.hh
+A    libsenf-0r913/PPI/EventManager.test.cc
+A    libsenf-0r913/PPI/Setup.cti
+A    libsenf-0r913/PPI/ThrottleBarrier.test.cc
+A    libsenf-0r913/admin
+A    libsenf-0r913/admin/build.sh
+A    libsenf-0r913/admin/dump.sh
+A    libsenf-0r913/Packets
+A    libsenf-0r913/Packets/PacketData.cti
+A    libsenf-0r913/Packets/VariantParser.ih
+A    libsenf-0r913/Packets/Doxyfile
+A    libsenf-0r913/Packets/ListNParser.cti
+A    libsenf-0r913/Packets/PacketParser.test.cc
+A    libsenf-0r913/Packets/SafeIterator.hh
+A    libsenf-0r913/Packets/main.test.cc
+A    libsenf-0r913/Packets/PacketInterpreter.cci
+A    libsenf-0r913/Packets/AuxParser.cti
+A    libsenf-0r913/Packets/ParseHelpers.hh
+A    libsenf-0r913/Packets/ListParser.ct
+A    libsenf-0r913/Packets/VariantParser.cti
+A    libsenf-0r913/Packets/ArrayParser.ct
+A    libsenf-0r913/Packets/PacketRegistry.test.cc
+A    libsenf-0r913/Packets/Packet.cci
+A    libsenf-0r913/Packets/IntParser.ih
+A    libsenf-0r913/Packets/SafeIterator.cti
+A    libsenf-0r913/Packets/parse_fixed_setup.hh
+A    libsenf-0r913/Packets/IntParser.test.cc
+A    libsenf-0r913/Packets/ArrayParser.cti
+A    libsenf-0r913/Packets/Mainpage.dox
+A    libsenf-0r913/Packets/ListNParser.ct
+A    libsenf-0r913/Packets/PacketImpl.cc
+A    libsenf-0r913/Packets/DefaultBundle
+A    libsenf-0r913/Packets/DefaultBundle/ICMPv6Packet.cc
+A    libsenf-0r913/Packets/DefaultBundle/RTPPacket.cc
+A    libsenf-0r913/Packets/DefaultBundle/ICMPv6TypePacket.cc
+A    libsenf-0r913/Packets/DefaultBundle/LlcSnapPacket.hh
+A    libsenf-0r913/Packets/DefaultBundle/UDPPacket.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/LlcSnapPacket.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/main.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/SConscript
+A    libsenf-0r913/Packets/DefaultBundle/IPv6Extensions.cc
+A    libsenf-0r913/Packets/DefaultBundle/ICMPv6Packet.hh
+A    libsenf-0r913/Packets/DefaultBundle/EthernetPacket.cc
+A    libsenf-0r913/Packets/DefaultBundle/RTPPacket.hh
+A    libsenf-0r913/Packets/DefaultBundle/ICMPv6TypePacket.hh
+A    libsenf-0r913/Packets/DefaultBundle/IPv4Packet.cc
+A    libsenf-0r913/Packets/DefaultBundle/ICMPv6Packet.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/RTPPacket.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/IPv6Packet.cc
+A    libsenf-0r913/Packets/DefaultBundle/IPv6Extensions.hh
+A    libsenf-0r913/Packets/DefaultBundle/EthernetPacket.hh
+A    libsenf-0r913/Packets/DefaultBundle/UDPPacket.cc
+A    libsenf-0r913/Packets/DefaultBundle/extra_tests
+A    libsenf-0r913/Packets/DefaultBundle/extra_tests/main.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/extra_tests/PacketLink.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/extra_tests/SConscript
+A    libsenf-0r913/Packets/DefaultBundle/IPv6Extensions.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/IPv4Packet.hh
+A    libsenf-0r913/Packets/DefaultBundle/EthernetPacket.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/LlcSnapPacket.cc
+A    libsenf-0r913/Packets/DefaultBundle/IPv6Packet.hh
+A    libsenf-0r913/Packets/DefaultBundle/Mainpage.dox
+A    libsenf-0r913/Packets/DefaultBundle/IPv4Packet.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/IPv6Packet.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/Mldv2Packet.test.cc
+A    libsenf-0r913/Packets/DefaultBundle/UDPPacket.hh
+A    libsenf-0r913/Packets/VectorParser.ih
+A    libsenf-0r913/Packets/PacketInterpreter.cc
+A    libsenf-0r913/Packets/PacketParser.cci
+A    libsenf-0r913/Packets/VectorParser.test.cc
+A    libsenf-0r913/Packets/PacketRegistry.cc
+A    libsenf-0r913/Packets/PacketData.cc
+A    libsenf-0r913/Packets/ListParser.hh
+A    libsenf-0r913/Packets/PacketType.cti
+A    libsenf-0r913/Packets/ListBParser.hh
+A    libsenf-0r913/Packets/parse_setup.hh
+A    libsenf-0r913/Packets/PacketParser.ct
+A    libsenf-0r913/Packets/ArrayParser.hh
+A    libsenf-0r913/Packets/PacketImpl.test.cc
+A    libsenf-0r913/Packets/Packet.cc
+A    libsenf-0r913/Packets/ListBParser.test.cc
+A    libsenf-0r913/Packets/ParseHelpers.ih
+A    libsenf-0r913/Packets/PacketRegistry.cci
+A    libsenf-0r913/Packets/PacketInterpreter.ct
+A    libsenf-0r913/Packets/main.test.hh
+A    libsenf-0r913/Packets/PacketData.test.cc
+A    libsenf-0r913/Packets/ListNParser.hh
+A    libsenf-0r913/Packets/PacketRegistry.ct
+A    libsenf-0r913/Packets/ListParser.cti
+A    libsenf-0r913/Packets/AuxParser.hh
+A    libsenf-0r913/Packets/ListNParser.test.cc
+A    libsenf-0r913/Packets/PacketInterpreter.cti
+A    libsenf-0r913/Packets/Packet.ct
+A    libsenf-0r913/Packets/MPEGDVBBundle
+A    libsenf-0r913/Packets/MPEGDVBBundle/DTCPPacket.hh
+A    libsenf-0r913/Packets/MPEGDVBBundle/TLVPacket.cc
+A    libsenf-0r913/Packets/MPEGDVBBundle/TransportPacket.hh
+A    libsenf-0r913/Packets/MPEGDVBBundle/DTCPPacket.test.cc
+A    libsenf-0r913/Packets/MPEGDVBBundle/SNDUPacket.cc
+A    libsenf-0r913/Packets/MPEGDVBBundle/TransportPacket.test.cc
+A    libsenf-0r913/Packets/MPEGDVBBundle/main.test.cc
+A    libsenf-0r913/Packets/MPEGDVBBundle/SConscript
+A    libsenf-0r913/Packets/MPEGDVBBundle/GREPacket.cc
+A    libsenf-0r913/Packets/MPEGDVBBundle/MPESection.cc
+A    libsenf-0r913/Packets/MPEGDVBBundle/TLVPacket.hh
+A    libsenf-0r913/Packets/MPEGDVBBundle/SNDUPacket.hh
+A    libsenf-0r913/Packets/MPEGDVBBundle/TLVPacket.test.cc
+A    libsenf-0r913/Packets/MPEGDVBBundle/TLV.dia
+A    libsenf-0r913/Packets/MPEGDVBBundle/TLVPacket.ct
+A    libsenf-0r913/Packets/MPEGDVBBundle/GREPacket.hh
+A    libsenf-0r913/Packets/MPEGDVBBundle/MPESection.hh
+A    libsenf-0r913/Packets/MPEGDVBBundle/DTCPPacket.cc
+A    libsenf-0r913/Packets/MPEGDVBBundle/MPEGDVBBundle.dox
+A    libsenf-0r913/Packets/MPEGDVBBundle/GREPacket.test.cc
+A    libsenf-0r913/Packets/MPEGDVBBundle/MPESection.test.cc
+A    libsenf-0r913/Packets/MPEGDVBBundle/TransportPacket.cc
+A    libsenf-0r913/Packets/PacketParser.hh
+A    libsenf-0r913/Packets/VariantParser.test.cc
+A    libsenf-0r913/Packets/Packet.cti
+A    libsenf-0r913/Packets/PacketImpl.cci
+A    libsenf-0r913/Packets/VariantParser.ct
+A    libsenf-0r913/Packets/PacketImpl.hh
+A    libsenf-0r913/Packets/ListParser.ih
+A    libsenf-0r913/Packets/PacketInterpreter.hh
+A    libsenf-0r913/Packets/ListBParser.ih
+A    libsenf-0r913/Packets/ArrayParser.ih
+A    libsenf-0r913/Packets/PacketTypes.hh
+A    libsenf-0r913/Packets/SafeIterator.test.cc
+A    libsenf-0r913/Packets/.dir.el
+A    libsenf-0r913/Packets/structure.dia
+A    libsenf-0r913/Packets/ArrayParser.test.cc
+A    libsenf-0r913/Packets/PacketRegistry.hh
+A    libsenf-0r913/Packets/PacketData.cci
+A    libsenf-0r913/Packets/PacketData.hh
+A    libsenf-0r913/Packets/DataPacket.hh
+A    libsenf-0r913/Packets/PacketParser.cti
+A    libsenf-0r913/Packets/Packet.hh
+A    libsenf-0r913/Packets/ListNParser.ih
+A    libsenf-0r913/Packets/PacketRegistry.cti
+A    libsenf-0r913/Packets/PacketType.ct
+A    libsenf-0r913/Packets/VariantParser.hh
+A    libsenf-0r913/Packets/ListParser.dox
+A    libsenf-0r913/Packets/PacketParser.ih
+A    libsenf-0r913/Packets/VectorParser.ct
+A    libsenf-0r913/Packets/SafeIterator.cci
+A    libsenf-0r913/Packets/ParseHelpers.dox
+A    libsenf-0r913/Packets/SConscript
+A    libsenf-0r913/Packets/Packets.hh
+A    libsenf-0r913/Packets/ListParser.test.cc
+A    libsenf-0r913/Packets/PacketInterpreter.test.cc
+A    libsenf-0r913/Packets/VectorParser.cti
+A    libsenf-0r913/Packets/PacketRegistry.ih
+A    libsenf-0r913/Packets/ParseHelpers.test.cc
+A    libsenf-0r913/Packets/IntParser.hh
+A    libsenf-0r913/Packets/PacketType.cci
+A    libsenf-0r913/Packets/PacketImpl.cti
+A    libsenf-0r913/Packets/PacketType.hh
+A    libsenf-0r913/Packets/ListBParser.cti
+A    libsenf-0r913/Packets/Packet.test.cc
+A    libsenf-0r913/Packets/VectorParser.hh
+A    libsenf-0r913/Glossary.dox
+A    libsenf-0r913/doclib
+A    libsenf-0r913/doclib/filter.pl
+A    libsenf-0r913/doclib/logo.xcf
+A    libsenf-0r913/doclib/Doxyfile.global
+A    libsenf-0r913/doclib/html-munge.xsl
+A    libsenf-0r913/doclib/logo-head.png
+A    libsenf-0r913/doclib/senf.css
+A    libsenf-0r913/doclib/makeDiaImageMap.py
+A    libsenf-0r913/doclib/search_functions.php
+A    libsenf-0r913/doclib/dot
+A    libsenf-0r913/doclib/SConscript
+A    libsenf-0r913/doclib/linklint_addnames.py
+A    libsenf-0r913/doclib/dot-munge.pl
+A    libsenf-0r913/doclib/yaptu.py
+A    libsenf-0r913/doclib/fix-links.py
+A    libsenf-0r913/doclib/favicon.ico
+A    libsenf-0r913/_templates
+A    libsenf-0r913/_templates/Example.cc
+A    libsenf-0r913/_templates/Example.ct
+A    libsenf-0r913/_templates/add.sh
+A    libsenf-0r913/_templates/Example.dox
+A    libsenf-0r913/_templates/Example.mpp
+A    libsenf-0r913/_templates/Example.cci
+A    libsenf-0r913/_templates/Example.cti
+A    libsenf-0r913/_templates/Example.hh
+A    libsenf-0r913/_templates/Example.ih
+A    libsenf-0r913/_templates/Example.test.cc
+A    libsenf-0r913/README
+A    libsenf-0r913/Utils
+A    libsenf-0r913/Utils/hexdump.ct
+A    libsenf-0r913/Utils/Doxyfile
+A    libsenf-0r913/Utils/preprocessor.hh
+A    libsenf-0r913/Utils/main.test.cc
+A    libsenf-0r913/Utils/mpl.ih
+A    libsenf-0r913/Utils/IpChecksum.cci
+A    libsenf-0r913/Utils/preprocessor.test.cc
+A    libsenf-0r913/Utils/TypeIdValue.hh
+A    libsenf-0r913/Utils/pool_alloc_mixin.test.cc
+A    libsenf-0r913/Utils/intrusive_refcount.cci
+A    libsenf-0r913/Utils/Range.hh
+A    libsenf-0r913/Utils/intrusive_refcount.hh
+A    libsenf-0r913/Utils/IteratorTraits.cti
+A    libsenf-0r913/Utils/type_traits.mpp
+A    libsenf-0r913/Utils/type_traits.hh
+A    libsenf-0r913/Utils/hexdump.hh
+A    libsenf-0r913/Utils/Phoenix.ih
+A    libsenf-0r913/Utils/Mainpage.dox
+A    libsenf-0r913/Utils/Range.cti
+A    libsenf-0r913/Utils/Buffer.test.cc
+A    libsenf-0r913/Utils/String.ct
+A    libsenf-0r913/Utils/hexdump.test.cc
+A    libsenf-0r913/Utils/Exception.cti
+A    libsenf-0r913/Utils/membind.test.cc
+A    libsenf-0r913/Utils/parameter.hh
+A    libsenf-0r913/Utils/IteratorTraits.ih
+A    libsenf-0r913/Utils/TypeInfo.cc
+A    libsenf-0r913/Utils/Exception.cc
+A    libsenf-0r913/Utils/mpl.test.cc
+A    libsenf-0r913/Utils/safe_bool.test.cc
+A    libsenf-0r913/Utils/TypeIdValue.test.cc
+A    libsenf-0r913/Utils/TypeInfo.test.cc
+A    libsenf-0r913/Utils/Backtrace.cc
+A    libsenf-0r913/Utils/String.hh
+A    libsenf-0r913/Utils/hexdump.cci
+A    libsenf-0r913/Utils/Buffer.hh
+A    libsenf-0r913/Utils/String.test.cc
+A    libsenf-0r913/Utils/hexdump.ih
+A    libsenf-0r913/Utils/IpChecksum.cti
+A    libsenf-0r913/Utils/type_traits.test.cc
+A    libsenf-0r913/Utils/intrusive_refcount.cti
+A    libsenf-0r913/Utils/singleton.cti
+A    libsenf-0r913/Utils/IteratorTraits.test.cc
+A    libsenf-0r913/Utils/signalnames.cc
+A    libsenf-0r913/Utils/safe_bool.cci
+A    libsenf-0r913/Utils/safe_bool.hh
+A    libsenf-0r913/Utils/TypeIdValue.cci
+A    libsenf-0r913/Utils/IpChecksum.hh
+A    libsenf-0r913/Utils/TypeInfo.hh
+A    libsenf-0r913/Utils/Tags.hh
+A    libsenf-0r913/Utils/Exception.hh
+A    libsenf-0r913/Utils/Tags.test.cc
+A    libsenf-0r913/Utils/Exception.test.cc
+A    libsenf-0r913/Utils/impl
+A    libsenf-0r913/Utils/impl/membind.hh
+A    libsenf-0r913/Utils/Daemon.hh
+A    libsenf-0r913/Utils/Daemon
+A    libsenf-0r913/Utils/Daemon/Daemon.cci
+A    libsenf-0r913/Utils/Daemon/Daemon.hh
+A    libsenf-0r913/Utils/Daemon/Daemon.ih
+A    libsenf-0r913/Utils/Daemon/Doxyfile
+A    libsenf-0r913/Utils/Daemon/Daemon.test.cc
+A    libsenf-0r913/Utils/Daemon/main.test.cc
+A    libsenf-0r913/Utils/Daemon/Daemon.cc
+A    libsenf-0r913/Utils/Daemon/SConscript
+A    libsenf-0r913/Utils/Daemon/Mainpage.dox
+A    libsenf-0r913/Utils/pool_alloc_mixin.cti
+A    libsenf-0r913/Utils/senfassert.hh
+A    libsenf-0r913/Utils/Backtrace.hh
+A    libsenf-0r913/Utils/Logger.hh
+A    libsenf-0r913/Utils/TypeIdValue.cc
+A    libsenf-0r913/Utils/Logger
+A    libsenf-0r913/Utils/Logger/Log.hh
+A    libsenf-0r913/Utils/Logger/StreamRegistry.cci
+A    libsenf-0r913/Utils/Logger/Doxyfile
+A    libsenf-0r913/Utils/Logger/StreamRegistry.ih
+A    libsenf-0r913/Utils/Logger/Target.cci
+A    libsenf-0r913/Utils/Logger/Target.ih
+A    libsenf-0r913/Utils/Logger/main.test.cc
+A    libsenf-0r913/Utils/Logger/Levels.hh
+A    libsenf-0r913/Utils/Logger/IOStreamTarget.hh
+A    libsenf-0r913/Utils/Logger/StringTarget.cti
+A    libsenf-0r913/Utils/Logger/AreaRegistry.cci
+A    libsenf-0r913/Utils/Logger/AreaRegistry.hh
+A    libsenf-0r913/Utils/Logger/Parameters.ih
+A    libsenf-0r913/Utils/Logger/Config.hh
+A    libsenf-0r913/Utils/Logger/TimeSource.cc
+A    libsenf-0r913/Utils/Logger/Parameters.test.cc
+A    libsenf-0r913/Utils/Logger/ConsoleTarget.cci
+A    libsenf-0r913/Utils/Logger/ConsoleTarget.hh
+A    libsenf-0r913/Utils/Logger/Mainpage.dox
+A    libsenf-0r913/Utils/Logger/Definitions.ih
+A    libsenf-0r913/Utils/Logger/StringTarget.hh
+A    libsenf-0r913/Utils/Logger/Logger.hh
+A    libsenf-0r913/Utils/Logger/IOStreamTarget.cc
+A    libsenf-0r913/Utils/Logger/TimeSource.ih
+A    libsenf-0r913/Utils/Logger/Log.ih
+A    libsenf-0r913/Utils/Logger/StreamRegistry.hh
+A    libsenf-0r913/Utils/Logger/Log.test.cc
+A    libsenf-0r913/Utils/Logger/FileTarget.hh
+A    libsenf-0r913/Utils/Logger/Target.hh
+A    libsenf-0r913/Utils/Logger/AreaRegistry.cc
+A    libsenf-0r913/Utils/Logger/StreamRegistry.test.cc
+A    libsenf-0r913/Utils/Logger/SConscript
+A    libsenf-0r913/Utils/Logger/Target.test.cc
+A    libsenf-0r913/Utils/Logger/Levels.ih
+A    libsenf-0r913/Utils/Logger/SenfLog.hh
+A    libsenf-0r913/Utils/Logger/TimeSource.cti
+A    libsenf-0r913/Utils/Logger/AreaRegistry.ih
+A    libsenf-0r913/Utils/Logger/main.test.hh
+A    libsenf-0r913/Utils/Logger/Parameters.hh
+A    libsenf-0r913/Utils/Logger/AreaRegistry.test.cc
+A    libsenf-0r913/Utils/Logger/Config.ih
+A    libsenf-0r913/Utils/Logger/Target.cti
+A    libsenf-0r913/Utils/Logger/Config.test.cc
+A    libsenf-0r913/Utils/Logger/StreamRegistry.cc
+A    libsenf-0r913/Utils/Logger/Definitions.hh
+A    libsenf-0r913/Utils/Logger/FileTarget.cc
+A    libsenf-0r913/Utils/Logger/Target.cc
+A    libsenf-0r913/Utils/Logger/TimeSource.cci
+A    libsenf-0r913/Utils/Logger/TimeSource.hh
+A    libsenf-0r913/Utils/intrusive_refcount.cc
+A    libsenf-0r913/Utils/parameter.test.cc
+A    libsenf-0r913/Utils/pool_alloc_mixin.hh
+A    libsenf-0r913/Utils/mpl.hh
+A    libsenf-0r913/Utils/SConscript
+A    libsenf-0r913/Utils/Exception.cci
+A    libsenf-0r913/Utils/IpChecksum.test.cc
+A    libsenf-0r913/Utils/hexdump.cc
+A    libsenf-0r913/Utils/Externals.dox
+A    libsenf-0r913/Utils/intrusive_refcount.test.cc
+A    libsenf-0r913/Utils/signalnames.hh
+A    libsenf-0r913/Utils/singleton.hh
+A    libsenf-0r913/Utils/auto_unit_test.hh
+A    libsenf-0r913/Utils/singleton.test.cc
+A    libsenf-0r913/Utils/safe_bool.cti
+A    libsenf-0r913/Utils/Phoenix.hh
+A    libsenf-0r913/Utils/membind.hh
+A    libsenf-0r913/Utils/TypeIdValue.cti
+A    libsenf-0r913/Utils/IteratorTraits.hh
+A    libsenf-0r913/senfscons
+A    libsenf-0r913/senfscons/senfutil.py
+A    libsenf-0r913/senfscons/SConstruct.template
+A    libsenf-0r913/senfscons/xrefhtml.xslt
+A    libsenf-0r913/senfscons/Doxyfile
+A    libsenf-0r913/senfscons/xrefxtract.xslt
+A    libsenf-0r913/senfscons/InstallIncludes.py
+A    libsenf-0r913/senfscons/__init__.py
+A    libsenf-0r913/senfscons/SConscript
+A    libsenf-0r913/senfscons/SENFSCons.py
+A    libsenf-0r913/senfscons/Doxyfile.template
+A    libsenf-0r913/senfscons/ProgramNoScan.py
+A    libsenf-0r913/senfscons/BoostUnitTests.py
+A    libsenf-0r913/senfscons/SConscript.template
+A    libsenf-0r913/senfscons/SConfig.template
+A    libsenf-0r913/senfscons/CopyToDir.py
+A    libsenf-0r913/senfscons/Doxygen.py
+A    libsenf-0r913/senfscons/Mainpage.dox
+A    libsenf-0r913/senfscons/Dia2Png.py
+A    libsenf-0r913/senfscons/tagmunge.xsl
+A    libsenf-0r913/senfscons/CompileCheck.py
+A    libsenf-0r913/senfscons/functions.xsl
+A    libsenf-0r913/Console
+A    libsenf-0r913/Console/ParsedCommand.test.cc
+A    libsenf-0r913/Console/Readline.cci
+A    libsenf-0r913/Console/ProgramOptions.ih
+A    libsenf-0r913/Console/ParsedCommand.ct
+A    libsenf-0r913/Console/Executor.cc
+A    libsenf-0r913/Console/Doxyfile
+A    libsenf-0r913/Console/Config.cti
+A    libsenf-0r913/Console/Example.dox
+A    libsenf-0r913/Console/Traits.cti
+A    libsenf-0r913/Console/ProgramOptions.test.cc
+A    libsenf-0r913/Console/OverloadedCommand.test.cc
+A    libsenf-0r913/Console/main.test.cc
+A    libsenf-0r913/Console/Traits.cc
+A    libsenf-0r913/Console/testServer.cc
+A    libsenf-0r913/Console/ScopedDirectory.hh
+A    libsenf-0r913/Console/ScopedDirectory.test.cc
+A    libsenf-0r913/Console/Readline.cc
+A    libsenf-0r913/Console/Node.cc
+A    libsenf-0r913/Console/ParsedCommand.cci
+A    libsenf-0r913/Console/Mainpage.dox
+A    libsenf-0r913/Console/Variables.test.cc
+A    libsenf-0r913/Console/ParsedCommand.hh
+A    libsenf-0r913/Console/Traits.ct
+A    libsenf-0r913/Console/ProgramOptions.cci
+A    libsenf-0r913/Console/OverloadedCommand.cci
+A    libsenf-0r913/Console/Node.test.cc
+A    libsenf-0r913/Console/ConfigFile.cc
+A    libsenf-0r913/Console/Config.cc
+A    libsenf-0r913/Console/Server.cc
+A    libsenf-0r913/Console/Executor.hh
+A    libsenf-0r913/Console/Parse.cc
+A    libsenf-0r913/Console/ScopedDirectory.cci
+A    libsenf-0r913/Console/Executor.test.cc
+A    libsenf-0r913/Console/Traits.hh
+A    libsenf-0r913/Console/ProgramOptions.cc
+A    libsenf-0r913/Console/ConfigFile.test.cc
+A    libsenf-0r913/Console/Config.test.cc
+A    libsenf-0r913/Console/OverloadedCommand.cc
+A    libsenf-0r913/Console/Traits.test.cc
+A    libsenf-0r913/Console/ParsedCommand.ih
+A    libsenf-0r913/Console/Readline.hh
+A    libsenf-0r913/Console/Node.cci
+A    libsenf-0r913/Console/Node.hh
+A    libsenf-0r913/Console/ParsedCommand.cti
+A    libsenf-0r913/Console/Executor.cci
+A    libsenf-0r913/Console/ProgramOptions.cti
+A    libsenf-0r913/Console/OverloadedCommand.cti
+A    libsenf-0r913/Console/ConfigFile.cci
+A    libsenf-0r913/Console/Config.cci
+A    libsenf-0r913/Console/Traits.cci
+A    libsenf-0r913/Console/ConfigFile.hh
+A    libsenf-0r913/Console/Config.hh
+A    libsenf-0r913/Console/Server.hh
+A    libsenf-0r913/Console/Traits.ih
+A    libsenf-0r913/Console/Variables.hh
+A    libsenf-0r913/Console/Server.test.cc
+A    libsenf-0r913/Console/ParsedCommand.mpp
+A    libsenf-0r913/Console/Parse.hh
+A    libsenf-0r913/Console/Parse.test.cc
+A    libsenf-0r913/Console/ScopedDirectory.cti
+A    libsenf-0r913/Console/ProgramOptions.hh
+A    libsenf-0r913/Console/OverloadedCommand.hh
+A    libsenf-0r913/Console/Node.ih
+A    libsenf-0r913/Console/Variables.cti
+A    libsenf-0r913/Console/SConscript
+A    libsenf-0r913/Console/Console.hh
+A    libsenf-0r913/Console/ParsedCommand.cc
+A    libsenf-0r913/Console/Server.cci
+A    libsenf-0r913/Console/Node.cti
+A    libsenf-0r913/Console/ConfigFile.ih
+A    libsenf-0r913/Console/Config.ih
+A    libsenf-0r913/Console/Server.ih
+A    libsenf-0r913/Console/Parse.cci
+A    libsenf-0r913/Console/Variables.ih
+A    libsenf-0r913/Console/Parse.ih
+A    libsenf-0r913/config.hh
+A    libsenf-0r913/project.el
+A    libsenf-0r913/SConstruct
+A    libsenf-0r913/Mainpage.dox
+A    libsenf-0r913/find-sources.sh
+A    libsenf-0r913/valgrind.sup
+A    libsenf-0r913/Makefile
+A    libsenf-0r913/senf.dict
+A    libsenf-0r913/Scheduler
+A    libsenf-0r913/Scheduler/FdEvent.cc
+A    libsenf-0r913/Scheduler/ReadHelper.ct
+A    libsenf-0r913/Scheduler/Scheduler.test.cc
+A    libsenf-0r913/Scheduler/TimerEvent.hh
+A    libsenf-0r913/Scheduler/FdManager.cci
+A    libsenf-0r913/Scheduler/FileDispatcher.cci
+A    libsenf-0r913/Scheduler/Doxyfile
+A    libsenf-0r913/Scheduler/TimerEvent.test.cc
+A    libsenf-0r913/Scheduler/main.test.cc
+A    libsenf-0r913/Scheduler/ReadHelper.cti
+A    libsenf-0r913/Scheduler/FdEvent.ih
+A    libsenf-0r913/Scheduler/Poller.hh
+A    libsenf-0r913/Scheduler/FdEvent.test.cc
+A    libsenf-0r913/Scheduler/WriteHelper.ct
+A    libsenf-0r913/Scheduler/ClockService.cc
+A    libsenf-0r913/Scheduler/FdEvent.ct
+A    libsenf-0r913/Scheduler/FIFORunner.cc
+A    libsenf-0r913/Scheduler/Scheduler.cc
+A    libsenf-0r913/Scheduler/SignalEvent.cc
+A    libsenf-0r913/Scheduler/TimerEvent.cc
+A    libsenf-0r913/Scheduler/ReadHelper.cci
+A    libsenf-0r913/Scheduler/ReadHelper.hh
+A    libsenf-0r913/Scheduler/ClockService.cci
+A    libsenf-0r913/Scheduler/FdEvent.cti
+A    libsenf-0r913/Scheduler/Mainpage.dox
+A    libsenf-0r913/Scheduler/Scheduler.cci
+A    libsenf-0r913/Scheduler/SignalEvent.ih
+A    libsenf-0r913/Scheduler/TimerEvent.cci
+A    libsenf-0r913/Scheduler/SignalEvent.test.cc
+A    libsenf-0r913/Scheduler/TimerEvent.ih
+A    libsenf-0r913/Scheduler/FdManager.hh
+A    libsenf-0r913/Scheduler/SConscript
+A    libsenf-0r913/Scheduler/FdEvent.cci
+A    libsenf-0r913/Scheduler/WriteHelper.hh
+A    libsenf-0r913/Scheduler/FdEvent.hh
+A    libsenf-0r913/Scheduler/WriteHelper.test.cc
+A    libsenf-0r913/Scheduler/Poller.test.cc
+A    libsenf-0r913/Scheduler/Poller.ct
+A    libsenf-0r913/Scheduler/FdManager.cc
+A    libsenf-0r913/Scheduler/WriteHelper.cti
+A    libsenf-0r913/Scheduler/ReadHelper.ih
+A    libsenf-0r913/Scheduler/ClockService.hh
+A    libsenf-0r913/Scheduler/FIFORunner.cci
+A    libsenf-0r913/Scheduler/Poller.cti
+A    libsenf-0r913/Scheduler/FIFORunner.hh
+A    libsenf-0r913/Scheduler/Scheduler.hh
+A    libsenf-0r913/Scheduler/SignalEvent.cci
+A    libsenf-0r913/Scheduler/ReadHelper.test.cc
+A    libsenf-0r913/Scheduler/SignalEvent.hh
+A    libsenf-0r913/Scheduler/ClockService.test.cc
+A    libsenf-0r913/Examples
+A    libsenf-0r913/Examples/Doxyfile
+A    libsenf-0r913/Examples/SConscript
+A    libsenf-0r913/Examples/RateStuffer
+A    libsenf-0r913/Examples/RateStuffer/screenshot.png
+A    libsenf-0r913/Examples/RateStuffer/Doxyfile
+A    libsenf-0r913/Examples/RateStuffer/ratestuffer.dia
+A    libsenf-0r913/Examples/RateStuffer/SConscript
+A    libsenf-0r913/Examples/RateStuffer/Mainpage.dox
+A    libsenf-0r913/Examples/RateStuffer/ratestuffer.cc
+A    libsenf-0r913/Examples/psi2tsModule
+A    libsenf-0r913/Examples/psi2tsModule/psi2ts.hh
+A    libsenf-0r913/Examples/psi2tsModule/main.test.cc
+A    libsenf-0r913/Examples/psi2tsModule/psi2ts.test.cc
+A    libsenf-0r913/Examples/psi2tsModule/SConscript
+A    libsenf-0r913/Examples/psi2tsModule/psi2ts.cc
+A    libsenf-0r913/Examples/DVBAdapter
+A    libsenf-0r913/Examples/DVBAdapter/ULEdec.hh
+A    libsenf-0r913/Examples/DVBAdapter/MPEdec.cc
+A    libsenf-0r913/Examples/DVBAdapter/frontend.cc
+A    libsenf-0r913/Examples/DVBAdapter/ULEdec.cc
+A    libsenf-0r913/Examples/DVBAdapter/SConscript
+A    libsenf-0r913/Examples/MCSniffer
+A    libsenf-0r913/Examples/MCSniffer/MCSniffer.cc
+A    libsenf-0r913/Examples/MCSniffer/SConscript
+A    libsenf-0r913/Examples/Sniffer
+A    libsenf-0r913/Examples/Sniffer/Sniffer.cc
+A    libsenf-0r913/Examples/Sniffer/Doxyfile
+A    libsenf-0r913/Examples/Sniffer/SConscript
+A    libsenf-0r913/Examples/Sniffer/Mainpage.dox
+A    libsenf-0r913/Examples/TCPClientServer
+A    libsenf-0r913/Examples/TCPClientServer/client.cc
+A    libsenf-0r913/Examples/TCPClientServer/SConscript
+A    libsenf-0r913/Examples/TCPClientServer/server.cc
+A    libsenf-0r913/Examples/UDPClientServer
+A    libsenf-0r913/Examples/UDPClientServer/Doxyfile
+A    libsenf-0r913/Examples/UDPClientServer/udpServer.cc
+A    libsenf-0r913/Examples/UDPClientServer/SConscript
+A    libsenf-0r913/Examples/UDPClientServer/Mainpage.dox
+A    libsenf-0r913/Examples/UDPClientServer/udpClient.cc
+ U   libsenf-0r913
+Checked out revision 913.
+scons: Reading SConscript files ...
+Touch(&quot;Doxyfile.local&quot;)
+Touch(&quot;local_config.hh&quot;)
+scons prepare
+scons: Reading SConscript files ...
+Touch(&quot;Logger/all_includes.hh&quot;)
+Touch(&quot;.prepare-stamp&quot;)
+scons: done reading SConscript files.
+scons: Building targets ...
+scons: done building targets.
+scons: done reading SConscript files.
+scons: Building targets ...
+updateRevision([&quot;debsrc.phony&quot;], [&quot;SConstruct&quot;])
+dpkg-buildpackage -us -uc -rfakeroot -I.svn -I_templates -IDoxyfile.local -ISConfig -Ilocal_config.hh -S
+dpkg-buildpackage: set CPPFLAGS to default value: 
+dpkg-buildpackage: set CFLAGS to default value: -g -O2
+dpkg-buildpackage: set CXXFLAGS to default value: -g -O2
+dpkg-buildpackage: set FFLAGS to default value: -g -O2
+dpkg-buildpackage: set LDFLAGS to default value: -Wl,-Bsymbolic-functions
+dpkg-buildpackage: source package libsenf
+dpkg-buildpackage: source version 1:0r913
+dpkg-buildpackage: source changed by &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">senf-dev at lists.berlios.de</A>&gt;
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-arch-*-stamp build-indep-stamp configure-stamp
+dh_clean
+scons -c all
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Cleaning targets ...
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Daemon/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Daemon/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Logger/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Logger/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Socket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Socket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Logger/doc/Logger.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Logger/doc/Logger.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Packets/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Packets/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Packets/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Packets/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/doc/overview.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/doc/overview.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/doc/overview.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/doc/overview.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/senfscons/doc/senfscons.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/senfscons/doc/senfscons.tag
+Removed Examples/Mainpage.dox
+Removed HowTos/Mainpage.dox
+Removed Utils/Logger/all_includes.hh
+Removed Socket/all_includes.hh
+Removed Socket/Protocols/UN/all_includes.hh
+Removed Socket/Protocols/Raw/all_includes.hh
+Removed Socket/Protocols/INet/all_includes.hh
+Removed Socket/Protocols/DVB/all_includes.hh
+Removed PPI/all_includes.hh
+Removed .sconsign.dblite
+Removed doclib/yaptu.pyc
+Removed senfscons/SENFSCons.pyc
+Removed senfscons/BoostUnitTests.pyc
+Removed senfscons/Doxygen.pyc
+Removed senfscons/Dia2Png.pyc
+Removed senfscons/CopyToDir.pyc
+Removed senfscons/InstallIncludes.pyc
+Removed senfscons/ProgramNoScan.pyc
+Removed senfscons/CompileCheck.pyc
+Removed .prepare-stamp
+scons: done cleaning targets.
+scons -c all LIBADDSUFFIX=_g OBJADDSUFFIX=_g
+scons: Reading SConscript files ...
+Touch(&quot;Logger/all_includes.hh&quot;)
+scons: done reading SConscript files.
+scons: Cleaning targets ...
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Daemon/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Daemon/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Logger/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Logger/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Socket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Socket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Logger/doc/Logger.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Console/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/Logger/doc/Logger.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Packets/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Packets/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Packets/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Packets/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/PPI/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/RateStuffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/doc/overview.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/Sniffer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/doc/overview.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/doc/overview.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Examples/UDPClientServer/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/doc/overview.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/HowTos/NewPacket/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/senfscons/doc/senfscons.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/PPI/doc/PPI.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Scheduler/doc/Scheduler.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Packets/doc/Packets.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Socket/doc/Socket.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/Utils/doc/Utils.tag
+WARNING: /home/senf/tmp/senf-r913/libsenf-0r913/Doxyfile : missing tagfile url for /home/senf/tmp/senf-r913/libsenf-0r913/senfscons/doc/senfscons.tag
+Removed Examples/Mainpage.dox
+Removed HowTos/Mainpage.dox
+Removed Utils/Logger/all_includes.hh
+Removed Socket/all_includes.hh
+Removed Socket/Protocols/UN/all_includes.hh
+Removed Socket/Protocols/Raw/all_includes.hh
+Removed Socket/Protocols/INet/all_includes.hh
+Removed Socket/Protocols/DVB/all_includes.hh
+Removed PPI/all_includes.hh
+Removed doclib/yaptu.pyc
+Removed senfscons/SENFSCons.pyc
+Removed senfscons/BoostUnitTests.pyc
+Removed senfscons/Doxygen.pyc
+Removed senfscons/Dia2Png.pyc
+Removed senfscons/CopyToDir.pyc
+Removed senfscons/InstallIncludes.pyc
+Removed senfscons/ProgramNoScan.pyc
+Removed senfscons/CompileCheck.pyc
+scons: done cleaning targets.
+ dpkg-source -I.svn -I_templates -IDoxyfile.local -ISConfig -Ilocal_config.hh -b libsenf-0r913
+dpkg-source: building libsenf in libsenf_0r913.tar.gz
+dpkg-source: building libsenf in libsenf_0r913.dsc
+ dpkg-genchanges -S &gt;../libsenf_0r913_source.changes
+dpkg-genchanges: including full source code in upload
+dpkg-buildpackage: source only upload: Debian-native package
+scons: done building targets.
+OSError: [Errno 2] No such file or directory: '.sconsign.dblite':
+  File &quot;/usr/lib/scons/SCons/Script/Main.py&quot;, line 1171:
+    _exec_main(parser, values)
+  File &quot;/usr/lib/scons/SCons/Script/Main.py&quot;, line 1144:
+    _main(parser)
+  File &quot;/usr/lib/scons/SCons/Script/Main.py&quot;, line 1105:
+    SCons.SConsign.write()
+  File &quot;/usr/lib/scons/SCons/SConsign.py&quot;, line 109:
+    syncmethod()
+  File &quot;/usr/lib/scons/SCons/dblite.py&quot;, line 89:
+    os.unlink(self._file_name)
+Exception exceptions.TypeError: &quot;'NoneType' object is not callable&quot; in &lt;bound method dblite.__del__ of &lt;SCons.dblite.dblite instance at 0x9191c4c&gt;&gt; ignored
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000339.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+	<LI>Next message: <A HREF="000341.html">[Senf-dev] Cron &lt;senf at satcom&gt; /home/senf/bin/archivemail.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#340">[ date ]</a>
+              <a href="thread.html#340">[ thread ]</a>
+              <a href="subject.html#340">[ subject ]</a>
+              <a href="author.html#340">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

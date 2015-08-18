@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] Making the ClientSocketHandle interface more	understandable
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Making%20the%20ClientSocketHandle%20interface%20more%0A%09understandable&In-Reply-To=%3C87hcd21t1o.fsf%40sobakah.j32.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000237.html">
+   <LINK REL="Next"  HREF="000239.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] Making the ClientSocketHandle interface more	understandable</H1>
+    <B>Stefan Bund</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20Making%20the%20ClientSocketHandle%20interface%20more%0A%09understandable&In-Reply-To=%3C87hcd21t1o.fsf%40sobakah.j32.de%3E"
+       TITLE="[Senf-dev] Making the ClientSocketHandle interface more	understandable">g0dil at berlios.de
+       </A><BR>
+    <I>Tue May 13 10:56:19 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000237.html">[Senf-dev] [Bug #12385] UNSocket needs more work
+</A></li>
+        <LI>Next message: <A HREF="000239.html">[Senf-dev] [Bug #13806] SocketHandle functions not const
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#238">[ date ]</a>
+              <a href="thread.html#238">[ thread ]</a>
+              <a href="subject.html#238">[ subject ]</a>
+              <a href="author.html#238">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everyone,
+
+I just had a discussion about the ClientSocketHandle interface with
+Phillip. Specifically, we have been talking about some of the read() /
+readfrom() overloads. Each of read() and readfrom() has lots of
+overloads, of which 
+
+ * one reads data into an EXISTING range WITHOUT changing the size of
+   the range.
+
+ * another one reads data into a container which is RESIZED to match
+   the amount of data read.
+
+Thr problem is, that these overloads are differentiated by the
+presence of the 'limit' argument. The rationale is, that when reading
+into an existing range, the limit argument is not needed since the
+limit is automatically given by the size of the range.
+
+  std::vector&lt;boost::uint8_t&gt; data (100u);
+
+  // Read up to 100 chars into existing range
+  std::vector&lt;boost::uint8_t&gt;::iterator end = socket.read( data );
+
+  // Read up to 100 chars of data into vector changing it's size accordingly
+  socket.read( data, 100u );
+
+we often don't want to specify a limit. This is achieved by specifying
+0u for the limit
+
+  socket.reaad( data, 0u );
+
+but instead, it is very easy to accidentaly write
+
+  socket.read( data );
+
+This will call the range overload since EVERY container is also a
+range. When the container is empty, the range is empty and no data
+will be read since the maximum number of chars to read is given by the
+size of the range.
+
+I propose the following solution: We add an additional disambiguating
+argument:
+
+ // Read data into existing range
+ socket.read( data, senf::ReadIntoRange );
+
+ // Read data and resize container accordingly. No size limit
+ socket.read( data, senf::ResizeContainer )
+
+ // Read max 100 chars into data
+ socket.read( data, senf::ResizeContainer, 100u );
+
+(I hate to put the sybols directly into the senf namespace but placing
+them into the ClientSocketHandle class is quite awkward too since that
+is a tmeplate class. I really should have used senf::socket for the
+socket library ... it's to late for this now ...)
+
+This change will break existing code but I think, this is justified
+since the code is much more readable and removes above ambiguity. 
+
+-- 
+Stefan Bund
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 188 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/senf-dev/attachments/20080513/b860373c/attachment.pgp">https://lists.berlios.de/pipermail/senf-dev/attachments/20080513/b860373c/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000237.html">[Senf-dev] [Bug #12385] UNSocket needs more work
+</A></li>
+	<LI>Next message: <A HREF="000239.html">[Senf-dev] [Bug #13806] SocketHandle functions not const
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#238">[ date ]</a>
+              <a href="thread.html#238">[ thread ]</a>
+              <a href="subject.html#238">[ subject ]</a>
+              <a href="author.html#238">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

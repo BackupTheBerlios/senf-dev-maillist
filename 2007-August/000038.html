@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] SENF Makefile
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20SENF%20Makefile&In-Reply-To=%3C46D41119.3060602%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000037.html">
+   <LINK REL="Next"  HREF="000039.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] SENF Makefile</H1>
+    <B>Jens</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20SENF%20Makefile&In-Reply-To=%3C46D41119.3060602%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] SENF Makefile">jens.moedeker at fokus.fraunhofer.de
+       </A><BR>
+    <I>Tue Aug 28 14:12:09 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000037.html">[Senf-dev] SENF Makefile
+</A></li>
+        <LI>Next message: <A HREF="000039.html">[Senf-dev] SENF Makefile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#38">[ date ]</a>
+              <a href="thread.html#38">[ thread ]</a>
+              <a href="subject.html#38">[ subject ]</a>
+              <a href="author.html#38">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Stefan,
+
+A few comments to your point from my side.
+The Makefile is rather for people which are not familiar with scons, so
+almost everybody :)
+
+For the distribution version I think SENF should not demand to use scons or any other 
+utility. The package should just provide library, header, and documentation files possibly 
+examples.
+Also because we're targeting Ubuntu 6.06 for the Daidalos project we should provide one 
+debian package which completely integrates into the distribution. I proposed to copy the 
+stuff under /usr :
+Include files 			/usr/include/senf,
+Library files 			/usr/lib/senf,
+Documentation and examples 	/usr/share/doc/senf
+
+Right now the files are split into the library parts (socket, packet, schedule, utils, 
+ppi). I think it good to keep this separate for documentation purpose, but for the include 
+files I don't feel that comfortable with bothering the user with include paths like 
+'senf/Packet/Packet.hh'. Unfortunately I expect that this restructuring will cost a lot of 
+efforts.
+
+-Jens
+
+Stefan Bund wrote:
+&gt;<i> Hi all,
+</I>&gt;<i> 
+</I>&gt;<i> Joachim added a Makefile to the project. I know, this is needed for
+</I>&gt;<i> Daidalos. I just want to comment on some implementation issues:
+</I>&gt;<i> 
+</I>&gt;<i>  - Is it Ok for the Makefile to depend on scons ? I had expected, that
+</I>&gt;<i>    daidalos wants to use make (and make only) for building. I had
+</I>&gt;<i>    expected we have to write a very simple Makefile without dependency
+</I>&gt;<i>    checking. That would be quite simple.
+</I>&gt;<i> 
+</I>&gt;<i>  - The svn_version command is not reliable. It only checks the version
+</I>&gt;<i>    of the top level directory which will often be different from the
+</I>&gt;<i>    revision of the files even though SVN stores complete trees (see
+</I>&gt;<i>    mixed revision working copy in the svn docs). It's much better just
+</I>&gt;<i>    tu use the 'svnversion'  command:
+</I>&gt;<i> 
+</I>&gt;<i>       (1021) <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">stefan at sobakah</A> &gt; svnversion
+</I>&gt;<i>       411
+</I>&gt;<i>       (1022) <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">stefan at sobakah</A> &gt;
+</I>&gt;<i> 
+</I>&gt;<i>    See 'svnversion --help' for the things reported by svnversion.
+</I>&gt;<i> 
+</I>&gt;<i>  - Debian package build: Since I am a long term debian user and have
+</I>&gt;<i>    this looks really scary to me ... we should *never* use dpkg-deb
+</I>&gt;<i>    directly to build a package. If we need a debian package (better:
+</I>&gt;<i>    packages, one for each library), add a real debian build
+</I>&gt;<i>    system. That's quite simple with dh_make.
+</I>&gt;<i> 
+</I>&gt;<i> I know, that the source file layout is non-optimal for distribution:
+</I>&gt;<i> We would need an 'include' tree with all header files and a 'detail'
+</I>&gt;<i> tree with all the included implementation files. However, this is
+</I>&gt;<i> harder to navigate when working with the library. I don't know, wether
+</I>&gt;<i> it's worth it to restructure the library in such a way.
+</I>&gt;<i> 
+</I>&gt;<i> stefan.
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Senf-dev mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">Senf-dev at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">https://lists.berlios.de/mailman/listinfo/senf-dev</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000037.html">[Senf-dev] SENF Makefile
+</A></li>
+	<LI>Next message: <A HREF="000039.html">[Senf-dev] SENF Makefile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#38">[ date ]</a>
+              <a href="thread.html#38">[ thread ]</a>
+              <a href="subject.html#38">[ subject ]</a>
+              <a href="author.html#38">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

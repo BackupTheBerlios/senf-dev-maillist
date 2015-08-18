@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] New Utils/Console add() API
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2010-February/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20New%20Utils/Console%20add%28%29%20API&In-Reply-To=%3C4B696692.60005%40fokus.fraunhofer.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000511.html">
+   <LINK REL="Next"  HREF="000514.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] New Utils/Console add() API</H1>
+    <B>Thorsten Horstmann</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20New%20Utils/Console%20add%28%29%20API&In-Reply-To=%3C4B696692.60005%40fokus.fraunhofer.de%3E"
+       TITLE="[Senf-dev] New Utils/Console add() API">thorsten.horstmann at fokus.fraunhofer.de
+       </A><BR>
+    <I>Wed Feb  3 13:05:38 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000511.html">[Senf-dev] New Utils/Console add() API
+</A></li>
+        <LI>Next message: <A HREF="000514.html">[Senf-dev] New Utils/Console add() API
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#513">[ date ]</a>
+              <a href="thread.html#513">[ thread ]</a>
+              <a href="subject.html#513">[ subject ]</a>
+              <a href="author.html#513">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On 02/01/2010 06:58 PM, Stefan Bund wrote:
+[...]
+&gt;<i> There is an additional overload of fty::Command. The correct
+</I>&gt;<i> incantation now is
+</I>&gt;<i>
+</I>&gt;<i>     namespace fty = senf::console::factory;
+</I>&gt;<i>     scopeddir.add(&quot;foo&quot;, fty::Command(this,&amp;memberfunction));
+</I>
+after some longer discussion with no final conclusion I've decided to 
+change to API slightly again. To be consistent with senf::membind the 
+parameters of factory::Command will be changed.
+
+Old:
+dir.add(&quot;foo&quot;, fty::Command(this, &amp;memberfunction));
+
+New:
+dir.add(&quot;foo&quot;, fty::Command(&amp;memberfunction, this));
+
+
+BR,
+   -Thorsten
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000511.html">[Senf-dev] New Utils/Console add() API
+</A></li>
+	<LI>Next message: <A HREF="000514.html">[Senf-dev] New Utils/Console add() API
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#513">[ date ]</a>
+              <a href="thread.html#513">[ thread ]</a>
+              <a href="subject.html#513">[ subject ]</a>
+              <a href="author.html#513">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

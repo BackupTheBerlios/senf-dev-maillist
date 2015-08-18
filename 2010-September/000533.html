@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #17505] Interactive Console cause process	termination on client clos
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2010-September/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2317505%5D%20Interactive%20Console%20cause%20process%0A%09termination%20on%20client%20clos&In-Reply-To=%3C201009161239.o8GCdZT7010952%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000532.html">
+   <LINK REL="Next"  HREF="000534.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #17505] Interactive Console cause process	termination on client clos</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2317505%5D%20Interactive%20Console%20cause%20process%0A%09termination%20on%20client%20clos&In-Reply-To=%3C201009161239.o8GCdZT7010952%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #17505] Interactive Console cause process	termination on client clos">admin at berlios.de
+       </A><BR>
+    <I>Thu Sep 16 14:39:35 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000532.html">[Senf-dev] [Bug #17505] Interactive Console cause process	termination on client clos
+</A></li>
+        <LI>Next message: <A HREF="000534.html">[Senf-dev] [Bug #17533] expand SysInfo
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#533">[ date ]</a>
+              <a href="thread.html#533">[ thread ]</a>
+              <a href="subject.html#533">[ subject ]</a>
+              <a href="author.html#533">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #17505, was updated on 2010-Sep-14 17:51
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: libConsole
+Status: Open
+Resolution: None
+Bug Group: defect
+Priority: 5
+Submitted by: jmo
+Assigned to : g0dil
+Summary: Interactive Console cause process termination on client clos
+
+Details: Process termination on client close of interactive console. Example code of client to reproduce exception attached.
+Attached backtrace and java client
+
+Backtrace:
+terminate called after throwing an instance of 'senf::SystemException'
+  what():  
+Exception at
+    senf::ExceptionMixin::addBacktrace() + 0x22
+        in ./dpc [0x84fcee2]
+    senf::WriteablePolicy::do_write(senf::FileHandle&amp;, char const*, unsigned int) + 0xb9
+        in ./dpc [0x8693259]
+    senf::console::detail::DumbClientReader::showPrompt() + 0x108
+        in ./dpc [0x857c068]
+    senf::console::detail::DumbClientReader::DumbClientReader(senf::console::Client&amp;) + 0x32
+        in ./dpc [0x8581fe2]
+    senf::console::detail::LineEditorSwitcher::editorSetupFailed() + 0x45
+        in ./dpc [0x86ae735]
+    senf::term::TelnetTerminal::v_setupComplete() + 0x29c
+        in ./dpc [0x86dfe7c]
+    senf::scheduler::TimerEvent::v_run() + 0x47
+        in ./dpc [0x84e5f67]
+    senf::scheduler::detail::FIFORunner::run(boost::intrusive::ilist&lt;boost::intrusive::ilist_base_hook&lt;senf::scheduler::detail::FIFORunner::TaskListTag, true, void*&gt;::value_traits&lt;senf::scheduler::detail::FIFORunner::TaskInfo&gt;, false, unsigned int&gt;::iterator, boost::intrusive::ilist&lt;boost::intrusive::ilist_base_hook&lt;senf::scheduler::detail::FIFORunner::TaskListTag, true, void*&gt;::value_traits&lt;senf::scheduler::detail::FIFORunner::TaskInfo&gt;, false, unsigned int&gt;::iterator) + 0x4bb
+        in ./dpc [0x84da6db]
+    senf::scheduler::detail::FIFORunner::run() + 0x52
+        in ./dpc [0x84dad92]
+    senf::scheduler::process() + 0x145
+        in ./dpc [0x84dfac5]
+    senf::ppi::ModuleManager::run() + 0x1b
+        in ./dpc [0x84720fb]
+    dpcf::DPC::run() + 0xcf
+        in ./dpc [0x831ec2f]
+    dpcf::DPCDaemonizer::main() + 0x94f
+        in ./dpc [0x845912f]
+    senf::Daemon::start(int, char const**) + 0x5f
+        in ./dpc [0x8594f8f]
+    main + 0x82
+        in ./dpc [0x8455662]
+    __libc_start_main + 0xe6
+        in /lib/tls/i686/cmov/libc.so.6 [0xb74d2bd6]
+    ./dpc() [0x83026f1]
+-- 
+Exception at senf/Socket/ReadWritePolicy.cc:106
+[Connection reset by peer]
+
+import java.io.*;
+import java.net.*;
+import java.lang.*;
+
+public class Console {
+
+
+    public String command(String command) throws IOException, UnknownHostException, InterruptedException{
+
+        Socket socket = null;
+        PrintWriter out = null;
+        BufferedReader in = null;
+
+	socket = new Socket(&quot;127.0.0.1&quot;, 44000);
+	out = new PrintWriter(socket.getOutputStream(), true);
+	in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+//	command += &quot;;exit;&quot;;
+	out.println(command);
+	
+	String result = &quot;&quot;, cout;
+	
+//	while((cout = in.readLine()) != null)
+//	  result += cout + &quot;\n&quot;;
+
+        out.close();
+        in.close();
+        socket.close();
+        return result;
+    }
+    
+    public static void main(String[] args) throws Exception {
+      
+      Console console = new Console();
+      
+      System.out.print( console.Command( &quot;ls&quot;));
+      
+    }
+    
+    
+}
+
+
+
+
+Follow-Ups:
+
+Date: 2010-Sep-16 14:39
+By: jmo
+
+Comment:
+bugfix (rev1717) now produces now a sigSEGV
+
+correct java class is attached.
+
+Signal SIGSEGV(11) received
+Invalid memory access at 0x736f0004
+Backtrace:
+    ./dpc() [0x85c750e]
+    [0xb7711410]
+    senf::console::detail::LineEditorSwitcher::editorSetupFailed() + 0x65
+        in ./dpc [0x872e8e5]
+    senf::term::TelnetTerminal::v_setupComplete() + 0x3b0
+        in ./dpc [0x876c850]
+    senf::scheduler::TimerEvent::v_run() + 0x47
+        in ./dpc [0x84f6797]
+    senf::scheduler::detail::FIFORunner::run(boost::intrusive::ilist&lt;boost::intrusive::ilist_base_hook&lt;senf::scheduler::detail::FIFORunner::TaskListTag, true, void*&gt;::value_traits&lt;senf::scheduler::detail::FIFORunner::TaskInfo&gt;, false, unsigned int&gt;::iterator, boost::intrusive::ilist&lt;boost::intrusive::ilist_base_hook&lt;senf::scheduler::detail::FIFORunner::TaskListTag, true, void*&gt;::value_traits&lt;senf::scheduler::detail::FIFORunner::TaskInfo&gt;, false, unsigned int&gt;::iterator) + 0x4cb
+        in ./dpc [0x84e874b]
+    senf::scheduler::detail::FIFORunner::run() + 0x52
+        in ./dpc [0x84e9022]
+    senf::scheduler::process() + 0x1b1
+        in ./dpc [0x84f0ae1]
+    senf::ppi::ModuleManager::run() + 0x1b
+        in ./dpc [0x8463deb]
+    dpcf::DPC::run() + 0xcf
+        in ./dpc [0x830a66f]
+    dpcf::DPCDaemonizer::main() + 0x94f
+        in ./dpc [0x84442ff]
+    senf::Daemon::start(int, char const**) + 0x5f
+        in ./dpc [0x85d618f]
+    main + 0x82
+        in ./dpc [0x84408e2]
+    __libc_start_main + 0xe6
+        in /lib/tls/i686/cmov/libc.so.6 [0xb7354bd6]
+    ./dpc() [0x82edec1]
+--                                                                                                                                                                                                                  
+Segmentation fault                                                                                                                    
+
+import java.io.*;
+import java.net.*;
+import java.lang.*;
+
+public class DPCConsole {
+
+
+    public String command(String command) throws IOException, UnknownHostException, InterruptedException{
+
+        Socket socket = null;
+        PrintWriter out = null;
+        BufferedReader in = null;
+
+	socket = new Socket(&quot;127.0.0.1&quot;, 44000);
+	out = new PrintWriter(socket.getOutputStream(), true);
+	in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+	Thread.sleep(1000);
+	
+//	command += &quot;;exit;&quot;;
+	out.println(command);
+	
+	String result = &quot;&quot;, cout;
+	
+//	while((cout = in.readLine()) != null)
+//	  result += cout + &quot;\n&quot;;
+
+        out.close();
+        in.close();
+        socket.close();
+        return result;
+    }
+    
+    public static void main(String[] args) throws Exception {
+      
+      DPCConsole console = new DPCConsole();
+      
+      System.out.print( console.command( &quot;ls&quot;));
+      
+    }
+    
+    
+}
+
+
+                                                                              
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=17505&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=17505&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000532.html">[Senf-dev] [Bug #17505] Interactive Console cause process	termination on client clos
+</A></li>
+	<LI>Next message: <A HREF="000534.html">[Senf-dev] [Bug #17533] expand SysInfo
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#533">[ date ]</a>
+              <a href="thread.html#533">[ thread ]</a>
+              <a href="subject.html#533">[ subject ]</a>
+              <a href="author.html#533">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>

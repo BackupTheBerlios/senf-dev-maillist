@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Senf-dev] [Bug #14099] when linking with libsenf.a UDPPacket is	missing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/senf-dev/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314099%5D%20when%20linking%20with%20libsenf.a%20UDPPacket%20is%0A%09missing&In-Reply-To=%3C200806270957.m5R9vo9h007652%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000272.html">
+   <LINK REL="Next"  HREF="000274.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Senf-dev] [Bug #14099] when linking with libsenf.a UDPPacket is	missing</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:senf-dev%40lists.berlios.de?Subject=Re%3A%20%5BSenf-dev%5D%20%5BBug%20%2314099%5D%20when%20linking%20with%20libsenf.a%20UDPPacket%20is%0A%09missing&In-Reply-To=%3C200806270957.m5R9vo9h007652%40unicorn.berlios.de%3E"
+       TITLE="[Senf-dev] [Bug #14099] when linking with libsenf.a UDPPacket is	missing">admin at berlios.de
+       </A><BR>
+    <I>Fri Jun 27 11:57:50 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000272.html">[Senf-dev] [Bug #12407] Daidalos Demo Release
+</A></li>
+        <LI>Next message: <A HREF="000274.html">[Senf-dev] renaming of Socket/Protocols/Raw to Sockets/Protocols/L2	?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#273">[ date ]</a>
+              <a href="thread.html#273">[ thread ]</a>
+              <a href="subject.html#273">[ subject ]</a>
+              <a href="author.html#273">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #14099, was updated on 2008-Jun-27 11:57
+Here is a current snapshot of the bug.
+
+Project: SENF Network Framework
+Category: libPackets
+Status: Open
+Resolution: None
+Bug Group: defect
+Priority: 5
+Submitted by: tho
+Assigned to : none
+Summary: when linking with libsenf.a UDPPacket is missing
+
+Details: code:
+
+#include &lt;senf/Packets/DefaultBundle/EthernetPacket.hh&gt;
+#include &lt;senf/Packets/DefaultBundle/IPv4Packet.hh&gt;
+#include &lt;senf/Packets/DefaultBundle/UDPPacket.hh&gt;
+
+int main(int argc, char const * argv[])
+{
+    // why do I need this?!?
+    //senf::UDPPacket udp (senf::UDPPacket::create());
+    
+    unsigned char data[] = { 0x45, 0x00, 0x00, 0x26, 0x00, 0x00, 0x40, 0x00,
+                             0x40, 0x11, 0x3c, 0xc5, 0x7f, 0x00, 0x00, 0x01,
+                             0x7f, 0x00, 0x00, 0x01, 0x5b, 0xa0, 0x30, 0x39,
+                             0x00, 0x12, 0xfa, 0x6e, 0x54, 0x45, 0x53, 0x54,
+                             0x2d, 0x57, 0x52, 0x49, 0x54, 0x45 };
+    senf::IPv4Packet ip (senf::IPv4Packet::create(data));
+    senf::EthernetPacket eth (senf::EthernetPacket::createBefore(ip));
+    eth.dump(std::cout);
+}
+
+output:
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">thorsten at calvin</A>:~/workspace/senf-test$ make
+g++ -g -O0 -DSENF_DEBUG -fno-inline -Wall -I senf/include   -c -o test.o test.cc
+g++ -o test test.o  -rdynamic senf/libsenf.a -lboost_regex -lrt
+<A HREF="https://lists.berlios.de/mailman/listinfo/senf-dev">thorsten at calvin</A>:~/workspace/senf-test$ ./test
+Ethernet 802.3:
+  destination : 00:00:00:00:00:00
+  source      : 00:00:00:00:00:00
+  type/length : 0x0000
+Internet protocol Version 4:
+  version       : 4
+  IHL           : 5
+  TOS           : 0
+  length        : 38
+  identifier    : 0
+  DF            : 1
+  MF            : 0
+  fragment      : 0
+  TTL           : 64
+  protocol      : 17
+  checksum      : 0x3cc5
+  source        : 127.0.0.1
+  destination   : 127.0.0.1
+
+Why is the UDPacket missing?
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14099&amp;group_id=7489">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14099&amp;group_id=7489</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000272.html">[Senf-dev] [Bug #12407] Daidalos Demo Release
+</A></li>
+	<LI>Next message: <A HREF="000274.html">[Senf-dev] renaming of Socket/Protocols/Raw to Sockets/Protocols/L2	?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#273">[ date ]</a>
+              <a href="thread.html#273">[ thread ]</a>
+              <a href="subject.html#273">[ subject ]</a>
+              <a href="author.html#273">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/senf-dev">More information about the Senf-dev
+mailing list</a><br>
+</body></html>
